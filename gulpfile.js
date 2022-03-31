@@ -29,6 +29,7 @@ const path = {
   dist_vendor: 'dist/vendor',
   src_js_vendor: 'src/vendor/js',
   src_css_vendor: 'src/vendor/css',
+  src_bootstrap_vendor: 'src/vendor/bootstrap',
   dist_fonts: 'dist/fonts',
   dist_js: 'dist/js',
   dist_css: 'dist/css',
@@ -37,6 +38,22 @@ const path = {
 
 
 // Sass compiling
+
+// Bootsrap
+gulp.task('sass:bootstrap', () => {
+  const options = {
+    outputStyle: 'compressed',
+    precision: 10 // rounding of css color values, etc..
+  };
+  return gulp.src(path.src_bootstrap_vendor + '/bootstrap.scss')
+    .pipe(gulpSass(options).on('error', gulpSass.logError))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions', 'ie 10', 'ie 11'],
+      cascade: false
+    }))
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(gulp.dest(path.src_css_vendor));
+});
 
 // Expanded
 gulp.task('sass:expanded', () => {
@@ -227,5 +244,5 @@ gulp.task('watch', () => {
 
 gulp.task(
   'default',
-  gulp.series('clean', gulp.parallel('exports', 'concat:js', 'concat:css', 'uglify:js', 'pug', 'js', 'sass:minified', 'sass:expanded'), 'watch')
+  gulp.series('clean', gulp.parallel('exports', 'concat:js', 'concat:css', 'uglify:js', 'pug', 'js', 'sass:bootstrap', 'sass:minified', 'sass:expanded'), 'watch')
 );
