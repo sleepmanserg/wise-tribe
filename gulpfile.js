@@ -132,7 +132,7 @@ gulp.task('concat:css', () => {
 gulp.task('concat:js', () => {
   return gulp.src([
     path.src_js_vendor + '/*.js',
-    '!' + path.src_js_vendor + '/jquery-3.1.0.min.js',
+    '!' + path.src_js_vendor,
   ])
     .pipe(concat('vendor.min.js'))
     .pipe(gulp.dest(path.dist_js))
@@ -156,7 +156,7 @@ gulp.task('concat:js', () => {
 
 gulp.task('move:js', () => {
   return gulp.src([
-    path.src_js_vendor + '/jquery-3.1.0.min.js'
+    path.src_js_vendor + '/bootstrap.min.js'
   ])
     .pipe(gulp.dest(path.dist_js));
 });
@@ -227,5 +227,5 @@ gulp.task('watch', () => {
 
 gulp.task(
   'default',
-  gulp.series('clean', gulp.parallel('exports', 'concat:js', 'move:js', 'concat:css', 'uglify:js', 'pug', 'js', 'sass:minified', 'sass:expanded'), 'watch')
+  gulp.series('clean', gulp.parallel('exports', 'concat:js', 'concat:css', 'uglify:js', 'pug', 'js', 'sass:minified', 'sass:expanded'), 'watch')
 );
