@@ -1,3 +1,37 @@
 // Site Header
 header.site-header
-  h2 Header
+  .container.header-container
+    .header-logo
+      a(href="/").header-logo__link
+        img(src="img/logo.svg", alt="Wise Music")
+    .header-inner
+      nav.header-nav
+        a(href="#").header-nav__link Events
+        a(href="#").header-nav__link Artists
+        a(href="#").header-nav__link Blog
+        a(href="#").header-nav__link Cooperation
+        a(href="#").header-nav__link Charity
+      .header-shop
+        a(href="#").shop__btn
+          span Shop
+          span soon
+      .header-languages(data-active)
+        .header-languages__current(data-target)
+          span.header-languages__link EN
+          img(src="img/icons/chevron-down.svg", alt="")
+        .header-languages__dropdown
+          a(href="#").header-languages__link.active EN
+          a(href="#").header-languages__link EN
+          a(href="#").header-languages__link EN
+          a(href="#").header-languages__link EN
+          a(href="#").header-languages__link EN
+          a(href="#").header-languages__link EN
+      // !!! Important to keep container class .btn-glow__wrapper and inner classes, for css styles!!!
+      .header-connect
+        .btn-glow__wrapper
+          a(href="#").btn.btn-glow
+            span.btn-glow__inner
+              span.btn-glow__text Connect
+
+    button.header-menu__toggle(type="button")
+      span

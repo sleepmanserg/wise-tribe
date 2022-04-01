@@ -5,26 +5,28 @@
 //== Colors
 // --------------------------------------------------
 
-$gray-super-light:   #f7f6f6;
-$gray-lighter:      #8f9093;
-$gray-light:        #5f6975;
-$gray:              #0a3039;
-$gray-dark:         #272425;
-$gray-darker:       #000000;
+$white: #fff;
+$gray-super-light: #f7f6f6;
+$gray-lighter: #8f9093;
+$gray-light: #5f6975;
+$gray: #0a3039;
+$gray-dark: #272425;
+$gray-darker: #000000;
+$blue: #abefff;
 
-$primary:           #C21622;
-
+$primary: #c21622;
 
 //== Font Family
 // --------------------------------------------------
 
+$font-family: Museo Sans;
 
 //== Media queries (responsive breakpoints)
 // -------------------------------------------------------
 
-$desktop:   		   '1200px';
-$tablet-land:      '991px';
-$tablet-port:    	 '768px';
-$mobile-land:		 	 '480px';
-$mobile-port:		 	 '360px';
-$menu-collapse: 	 $tablet-land;
+$desktop: "1200px";
+$tablet-land: "991px";
+$tablet-port: "768px";
+$mobile-land: "480px";
+$mobile-port: "360px";
+$menu-collapse: $tablet-land;
