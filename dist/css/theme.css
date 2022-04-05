@@ -1,5 +1,92 @@
 .project-info {
-  padding-top: 260px;
+  padding-top: 120px;
+}
+@media (min-width: 768px) {
+  .project-info {
+    padding-top: 190px;
+  }
+}
+@media (min-width: 1024px) {
+  .project-info {
+    padding-top: 175px;
+  }
+}
+@media (min-width: 1366px) {
+  .project-info {
+    padding-top: 222px;
+  }
+}
+@media (min-width: 1700px) {
+  .project-info {
+    padding-top: 267px;
+  }
+}
+
+.releases {
+  padding-top: 198px;
+}
+.releases .releases-title {
+  margin-bottom: 20px;
+}
+.releases .releases-subtitle {
+  margin-bottom: 10px;
+}
+.releases .releases-caption {
+  max-width: 320px;
+}
+@media (min-width: 768px) {
+  .releases {
+    padding-top: 81px;
+  }
+  .releases .releases-title {
+    margin-bottom: 25px;
+  }
+  .releases .releases-caption {
+    max-width: 280px;
+  }
+}
+@media (min-width: 1024px) {
+  .releases {
+    padding-top: 264px;
+  }
+  .releases .releases-subtitle {
+    margin-bottom: 15px;
+    max-width: 329px;
+  }
+  .releases .releases-text {
+    max-width: 341px;
+  }
+  .releases .releases-caption {
+    max-width: 100%;
+  }
+}
+@media (min-width: 1366px) {
+  .releases {
+    padding-top: 272px;
+  }
+  .releases .releases-title {
+    margin-bottom: 40px;
+  }
+  .releases .releases-text {
+    max-width: 100%;
+  }
+  .releases .releases-caption {
+    max-width: 553px;
+  }
+}
+@media (min-width: 1700px) {
+  .releases {
+    padding-top: 300px;
+  }
+  .releases .releases-title {
+    margin-bottom: 60px;
+  }
+  .releases .releases-subtitle {
+    margin-bottom: 20px;
+  }
+  .releases .releases-caption {
+    max-width: 680px;
+  }
 }
 
 /**
@@ -87,6 +174,99 @@ cite {
   font-weight: 900;
   font-style: normal;
 }
+.section-title {
+  font-size: 32px;
+  line-height: 38px;
+  color: #fff;
+  font-weight: 600;
+}
+@media (min-width: 767px) {
+  .section-title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 52px;
+    line-height: 62px;
+  }
+}
+@media (min-width: 1366px) {
+  .section-title {
+    font-size: 60px;
+    line-height: 67px;
+    margin-bottom: 50px;
+  }
+}
+@media (min-width: 1700px) {
+  .section-title {
+    font-size: 72px;
+    line-height: 86px;
+  }
+}
+
+.section-text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+}
+@media (min-width: 767px) {
+  .section-text {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+@media (min-width: 1366px) {
+  .section-text {
+    font-size: 28px;
+    line-height: 39px;
+  }
+}
+@media (min-width: 1700px) {
+  .section-text {
+    font-size: 36px;
+    line-height: 50px;
+  }
+}
+
+.section-subtitle {
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 400;
+  color: #fff;
+}
+@media (min-width: 767px) {
+  .section-subtitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-subtitle {
+    font-size: 28px;
+    line-height: 39px;
+  }
+}
+@media (min-width: 1366px) {
+  .section-subtitle {
+    font-size: 32px;
+    line-height: 45px;
+  }
+}
+@media (min-width: 1700px) {
+  .section-subtitle {
+    font-size: 42px;
+    line-height: 59px;
+  }
+}
+
 .shop__btn {
   text-decoration: none;
   border: none;
@@ -429,6 +609,8 @@ cite {
 }
 .info-card.project-info__card {
   padding: 70px 19px 285px;
+  box-shadow: 0px 0px 200px rgba(0, 154, 241, 0.3);
+  overflow: hidden;
 }
 .info-card.project-info__card::before {
   content: "";
@@ -438,7 +620,7 @@ cite {
   width: 100%;
   height: 100%;
   border-radius: 45px;
-  background-image: url("../img/splash-bg.png");
+  background-image: url("../img/project-info/splash-bg.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -455,7 +637,6 @@ cite {
   background: rgba(163, 192, 255, 0.1);
   z-index: 2;
   border-radius: 45px;
-  box-shadow: 0px 0px 200px rgba(0, 154, 241, 0.3);
   z-index: 1;
 }
 .info-card.project-info__card .info-card__title,
@@ -464,6 +645,23 @@ cite {
 }
 .info-card.project-info__card .info-card__title {
   margin-bottom: 25px;
+}
+.info-card.project-info__card .project-info__card-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.info-card.project-info__card .project-info__card-img picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.info-card.project-info__card .project-info__card-img img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 @media (min-width: 420px) {
   .info-card.project-info__card::before {
@@ -475,13 +673,16 @@ cite {
     background-position: center 75%;
   }
 }
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   .info-card.project-info__card {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
     flex-direction: column;
     padding: 65px 40px 70px;
+  }
+  .info-card.project-info__card::before, .info-card.project-info__card::after {
+    border-radius: 60px;
   }
   .info-card.project-info__card .info-card__description {
     max-width: 300px;
@@ -499,34 +700,28 @@ cite {
   .info-card.project-info__card {
     padding: 90px 40px 75px;
   }
+  .info-card.project-info__card::before, .info-card.project-info__card::after {
+    border-radius: 80px;
+  }
   .info-card.project-info__card .info-card__description {
     max-width: 440px;
   }
   .info-card.project-info__card .info-card__title {
-    font-size: 52px;
-    line-height: 62px;
     margin-bottom: 35px;
-  }
-  .info-card.project-info__card .info-card__text {
-    font-size: 20px;
-    line-height: 28px;
   }
 }
 @media (min-width: 1366px) {
   .info-card.project-info__card {
     padding: 130px 60px 130px 0;
   }
+  .info-card.project-info__card::before, .info-card.project-info__card::after {
+    border-radius: 100px;
+  }
   .info-card.project-info__card .info-card__description {
     max-width: 715px;
   }
   .info-card.project-info__card .info-card__title {
-    font-size: 60px;
-    line-height: 67px;
     margin-bottom: 50px;
-  }
-  .info-card.project-info__card .info-card__text {
-    font-size: 28px;
-    line-height: 39px;
   }
 }
 @media (min-width: 1700px) {
@@ -537,39 +732,40 @@ cite {
     max-width: 900px;
   }
   .info-card.project-info__card .info-card__title {
-    font-size: 72px;
-    line-height: 86px;
     margin-bottom: 50px;
-  }
-  .info-card.project-info__card .info-card__text {
-    font-size: 36px;
-    line-height: 50px;
   }
 }
 .info-card .info-card__title {
-  font-size: 32px;
-  line-height: 38px;
-  font-weight: 600;
-  color: #fff;
   position: relative;
   z-index: 1;
 }
 .info-card .info-card__text {
-  font-size: 14px;
-  line-height: 20px;
   margin-bottom: 0;
   position: relative;
   z-index: 1;
-  font-weight: 300;
 }
-@media (min-width: 767px) {
-  .info-card .info-card__title {
-    font-size: 42px;
-    line-height: 50px;
+@media (min-width: 768px) {
+  .info-card {
+    border-radius: 60px;
   }
-  .info-card .info-card__text {
-    font-size: 16px;
-    line-height: 22px;
+  .info-card::before, .info-card::after {
+    border-radius: 60px;
+  }
+}
+@media (min-width: 1024px) {
+  .info-card {
+    border-radius: 80px;
+  }
+  .info-card::before, .info-card::after {
+    border-radius: 80px;
+  }
+}
+@media (min-width: 1366px) {
+  .info-card {
+    border-radius: 100px;
+  }
+  .info-card::before, .info-card::after {
+    border-radius: 100px;
   }
 }
 
@@ -974,6 +1170,17 @@ cite {
     position: absolute;
     top: 36px;
     left: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .header-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header-languages {
+    margin-right: 0;
+    left: 20px;
   }
 }
 @media (max-width: 575px) {

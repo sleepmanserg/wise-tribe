@@ -1,3 +1,74 @@
 .project-info {
-  padding-top: 260px;
+  padding-top: 120px;
+  @media (min-width: 768px) {
+    padding-top: 190px;
+  }
+  @media (min-width: 1024px) {
+    padding-top: 175px;
+  }
+  @media (min-width: 1366px) {
+    padding-top: 222px;
+  }
+  @media (min-width: 1700px) {
+    padding-top: 267px;
+  }
+}
+
+.releases {
+  padding-top: 198px;
+  .releases-title {
+    margin-bottom: 20px;
+  }
+  .releases-subtitle {
+    margin-bottom: 10px;
+  }
+  .releases-caption {
+    max-width: 320px;
+  }
+  @media (min-width: 768px) {
+    padding-top: 81px;
+    .releases-title {
+      margin-bottom: 25px;
+    }
+    .releases-caption {
+      max-width: 280px;
+    }
+  }
+  @media (min-width: 1024px) {
+    padding-top: 264px;
+    .releases-subtitle {
+      margin-bottom: 15px;
+      max-width: 329px;
+    }
+    .releases-text {
+      max-width: 341px;
+    }
+    .releases-caption {
+      max-width: 100%;
+    }
+  }
+  @media (min-width: 1366px) {
+    padding-top: 272px;
+    .releases-title {
+      margin-bottom: 40px;
+    }
+    .releases-text {
+      max-width: 100%;
+    }
+    .releases-caption {
+      max-width: 553px;
+    }
+  }
+  @media (min-width: 1700px) {
+    padding-top: 300px;
+    .releases-title {
+      margin-bottom: 60px;
+    }
+    .releases-subtitle {
+      margin-bottom: 20px;
+    }
+    .releases-caption {
+      max-width: 680px;
+    }
+  }
 }

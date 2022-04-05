@@ -30,9 +30,25 @@ block content
     .container
       .info-card.project-info__card
         .info-card__description
-          h2.info-card__title Project info
-          p.info-card__text.opacity-7 W1SE  Music is a record label dedicated to recording and promoting cross-cultural high vibrational music. With unique sounds, inspirational lyrics, and passionate personalities expect unique music dedicated to raising the awareness of the world around us.
+          h2.section-title.info-card__title Project info
+          p.section-text.info-card__text.opacity-7 W1SE  Music is a record label dedicated to recording and promoting cross-cultural high vibrational music. With unique sounds, inspirational lyrics, and passionate personalities expect unique music dedicated to raising the awareness of the world around us.
+        .project-info__card-img
+          picture
+            source(srcset='img/project-info/project-info-decoration.webp' media='(min-width: 768px)' type='image/webp')
+            source(srcset='img/project-info/project-info-decoration.avif' media='(min-width: 768px)' type='image/avif')
+            source(srcset='img/project-info/project-info-decoration.png' media='(min-width: 768px)')
+            source(srcset='img/project-info/project-info-decoration-mob.webp' type='image/webp')
+            source(srcset='img/project-info/project-info-decoration-mob.avif' type='image/avif')
+            img(src='img/project-info/project-info-decoration-mob.png')
 
-
+  section.releases
+    .container
+      .row
+        .col-md-6
+          .releases-caption
+            h3.section-title.relises-title Releases
+            h4.section-subtitle.release-subtitle Explore the latest tracks artists
+            p.section-text.releases-text.opacity-7 We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.
+        .col-md-6
 
 
