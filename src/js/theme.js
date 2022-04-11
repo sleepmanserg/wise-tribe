@@ -33,10 +33,11 @@ if (menuToggle) {
 
 /** Hero slider */
 
-var swiper = new Swiper(".hero-slider", {
-	slidesPerView: 5,
+const swiperMainHome = new Swiper(".hero-slider", {
+	slidesPerView: 7,
 	spaceBetween: 30,
 	loop: true,
+	centeredSlides: true,
 	pagination: {
 		el: ".swiper-pagination",
 		clickable: true
@@ -44,6 +45,57 @@ var swiper = new Swiper(".hero-slider", {
 	navigation: {
 		nextEl: ".swiper-button-next",
 		prevEl: ".swiper-button-prev"
-	}
+	},
+	on: {
+		init: function () {
+			swiperHomeClassTweak(this.slides, this.activeIndex);
+		},
+	},
 });
+
+swiperMainHome.on('slideChange', function () {
+	swiperHomeClassTweak(this.slides, this.activeIndex);
+});
+
+// Detect and add condition classes to slides
+function swiperHomeClassTweak(slidesProp, activeSlide) {
+	let slides = slidesProp
+	let activeIndex = activeSlide
+
+	// Remove classes
+	for(let slide of slides) {
+		slide.classList.remove(
+			'swiper-slide-prev-n1',
+			'swiper-slide-prev-n2',
+			'swiper-slide-next-n1',
+			'swiper-slide-next-n2'
+			);
+	}
+
+	// Get an array of slides indexes. We need an array [0, 1, 2, 3, ..., n]
+	// .keys() method return an ArrayIterator, so we have to use a loop
+	let slideKeys = [];
+	for (let key of slides.keys()) {
+		slideKeys.push(key);
+	}
+
+	// Define active slide index
+	// In our test this should be equal to element [8 => 'slide8']
+	let activeSlideIndex = activeIndex;
+
+	// Compute the indexes of three slides before the active one
+	// In out test it should be [5, 6, 7]
+	// How it works:
+	// 1. get an array slice from the beginning of an array till the activeSlideIndex. .slice() returns a copy of an array
+	// 2. get last n elements of sliced array
+	let prevSlidesIndexes = slideKeys.slice(0, activeSlideIndex).slice(-3);
+	slides[prevSlidesIndexes[1]].classList.add('swiper-slide-prev-n1');
+	slides[prevSlidesIndexes[0]].classList.add('swiper-slide-prev-n2');
+
+	// Same for slides after the active one. Result should be [9, 10, 11]
+	// With on exception: get sliced elements starting from the activeSlideIndex till the end of an array
+	let nextSlidesIndexes = slideKeys.slice(activeSlideIndex+1, -1).slice(0, 3);
+	slides[nextSlidesIndexes[1]].classList.add('swiper-slide-next-n1');
+	slides[nextSlidesIndexes[2]].classList.add('swiper-slide-next-n2');
+};
 
