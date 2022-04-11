@@ -40,4 +40,11 @@ cite {
 
 .container {
   padding: 0 40px;
+  @media (max-width: 1700px) {
+    width: 100%;
+    max-width: 100%;
+  }
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 }
