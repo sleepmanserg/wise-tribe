@@ -26,20 +26,22 @@ block content
       .swiper-button-next
       .swiper-button-prev
       .swiper-pagination
-  section.project-info
+  section.about
     .container
-      .info-card.project-info__card
-        .info-card__description
-          h2.section-title.info-card__title Project info
-          p.section-text.info-card__text.opacity-7 W1SE  Music is a record label dedicated to recording and promoting cross-cultural high vibrational music. With unique sounds, inspirational lyrics, and passionate personalities expect unique music dedicated to raising the awareness of the world around us.
-        .project-info__card-img
+      .about-row
+        .about-img
           picture
-            source(srcset='img/project-info/project-info-decoration.webp' media='(min-width: 768px)' type='image/webp')
-            source(srcset='img/project-info/project-info-decoration.avif' media='(min-width: 768px)' type='image/avif')
-            source(srcset='img/project-info/project-info-decoration.png' media='(min-width: 768px)')
-            source(srcset='img/project-info/project-info-decoration-mob.webp' type='image/webp')
-            source(srcset='img/project-info/project-info-decoration-mob.avif' type='image/avif')
-            img(src='img/project-info/project-info-decoration-mob.png')
+            source(srcset='img/about/about.webp' media='(min-width: 768px)' type='image/webp')
+            source(srcset='img/about/about.avif' media='(min-width: 768px)' type='image/avif')
+            source(srcset='img/about/about.png' media='(min-width: 768px)')
+            source(srcset='img/about/about.webp' type='image/webp')
+            source(srcset='img/about/about.avif' type='image/avif')
+            img(src='img/about/about.png')
+        .about-caption
+          h2.section-title About Wise Music
+          p.section-text.opacity-7
+            span.text-blue W1SE  Music
+            |  is a record label dedicated to recording and promoting cross-cultural high vibrational music. With unique sounds, inspirational lyrics, and passionate personalities expect unique music dedicated to raising the awareness of the world around us.
 
   section.releases
     .container
