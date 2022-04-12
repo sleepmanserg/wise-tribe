@@ -297,6 +297,30 @@
   }
 }
 
+.become-artist {
+  padding-top: 280px;
+}
+@media (min-width: 320px) {
+  .become-artist {
+    padding-top: 80px;
+  }
+}
+@media (min-width: 1024px) {
+  .become-artist {
+    padding-top: 120px;
+  }
+}
+@media (min-width: 1366px) {
+  .become-artist {
+    padding-top: 183px;
+  }
+}
+@media (min-width: 1700px) {
+  .become-artist {
+    padding-top: 280px;
+  }
+}
+
 /**
 Hover styling for all devices and browsers
  */
@@ -810,6 +834,18 @@ cite {
   bottom: 8px;
 }
 
+.btn-light {
+  background: linear-gradient(84.94deg, #ffffff -8.24%, #e7a5ff 191.34%);
+  box-shadow: 0px 4px 27px rgba(255, 255, 255, 0.41);
+  border-radius: 54px;
+  text-align: center;
+  padding: 17px 56px 16px;
+  font-size: 18px;
+  line-height: 22px;
+  color: #272425;
+  font-weight: 600;
+}
+
 @media (min-width: 1025px) {
   .header-menu__toggle {
     display: none;
@@ -821,12 +857,12 @@ cite {
   border-radius: 45px;
   position: relative;
 }
-.info-card.project-info__card {
-  padding: 70px 19px 285px;
-  box-shadow: 0px 0px 200px rgba(0, 154, 241, 0.3);
+.info-card.become-artist__card {
+  box-shadow: 0px 0px 171px rgba(0, 154, 241, 0.2);
   overflow: hidden;
+  text-align: center;
 }
-.info-card.project-info__card::before {
+.info-card.become-artist__card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -834,14 +870,14 @@ cite {
   width: 100%;
   height: 100%;
   border-radius: 45px;
-  background-image: url("../img/project-info/splash-bg.png");
+  background-image: url("../img/become-artist.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   opacity: 1;
   z-index: 1;
 }
-.info-card.project-info__card::after {
+.info-card.become-artist__card::after {
   content: "";
   position: absolute;
   top: 0;
@@ -853,100 +889,133 @@ cite {
   border-radius: 45px;
   z-index: 1;
 }
-.info-card.project-info__card .info-card__title,
-.info-card.project-info__card .info-card__text {
-  text-align: center;
+.info-card.become-artist__card .become-artist__card-caption {
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
-.info-card.project-info__card .info-card__title {
-  margin-bottom: 25px;
+.info-card.become-artist__card .info-card__subtitle,
+.info-card.become-artist__card .info-card__text {
+  line-height: 140%;
+  margin: 0 auto;
 }
-.info-card.project-info__card .project-info__card-img {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-.info-card.project-info__card .project-info__card-img picture {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.info-card.project-info__card .project-info__card-img img {
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-@media (min-width: 420px) {
-  .info-card.project-info__card::before {
-    background-position: center 65%;
+@media (min-width: 320px) {
+  .info-card.become-artist__card {
+    padding: 55px 28px 58px;
   }
-}
-@media (min-width: 480px) {
-  .info-card.project-info__card::before {
-    background-position: center 75%;
+  .info-card.become-artist__card .become-artist__card-caption {
+    max-width: 265px;
   }
-}
-@media (min-width: 768px) {
-  .info-card.project-info__card {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding: 65px 40px 70px;
+  .info-card.become-artist__card .info-card__title {
+    font-size: 28px;
+    line-height: 34px;
+    max-width: 620px;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
   }
-  .info-card.project-info__card::before, .info-card.project-info__card::after {
-    border-radius: 60px;
+  .info-card.become-artist__card .info-card__subtitle {
+    font-size: 16px;
+    max-width: 190px;
+    margin: 0 auto 10px;
   }
-  .info-card.project-info__card .info-card__description {
-    max-width: 300px;
-    margin-left: auto;
-  }
-  .info-card.project-info__card .info-card__title,
-.info-card.project-info__card .info-card__text {
-    text-align: left;
-  }
-  .info-card.project-info__card .info-card__title {
+  .info-card.become-artist__card .info-card__text {
+    font-size: 14px;
     margin-bottom: 25px;
   }
 }
-@media (min-width: 1024px) {
-  .info-card.project-info__card {
-    padding: 90px 40px 75px;
+@media (min-width: 768px) {
+  .info-card.become-artist__card {
+    padding: 60px 0 55px 0;
   }
-  .info-card.project-info__card::before, .info-card.project-info__card::after {
-    border-radius: 80px;
+  .info-card.become-artist__card .become-artist__card-caption {
+    max-width: 420px;
   }
-  .info-card.project-info__card .info-card__description {
-    max-width: 440px;
+  .info-card.become-artist__card .info-card__title {
+    font-size: 36px;
+    line-height: 43px;
+    max-width: 400px;
+    margin: 0 auto 20px;
   }
-  .info-card.project-info__card .info-card__title {
+  .info-card.become-artist__card .info-card__subtitle {
+    font-size: 20px;
+    max-width: 392px;
+    margin: 0 auto 10px;
+  }
+  .info-card.become-artist__card .info-card__text {
+    font-size: 16px;
     margin-bottom: 35px;
   }
 }
+@media (min-width: 1024px) {
+  .info-card.become-artist__card {
+    padding: 80px 0 85px 0;
+  }
+  .info-card.become-artist__card .become-artist__card-caption {
+    max-width: 570px;
+  }
+  .info-card.become-artist__card .info-card__title {
+    font-size: 52px;
+    line-height: 62px;
+    max-width: 620px;
+    margin: 0 auto 30px;
+  }
+  .info-card.become-artist__card .info-card__subtitle {
+    font-size: 24px;
+    max-width: 470px;
+    margin: 0 auto 10px;
+  }
+  .info-card.become-artist__card .info-card__text {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+}
 @media (min-width: 1366px) {
-  .info-card.project-info__card {
-    padding: 130px 60px 130px 0;
+  .info-card.become-artist__card {
+    padding: 102px 0 105px 0;
   }
-  .info-card.project-info__card::before, .info-card.project-info__card::after {
-    border-radius: 100px;
+  .info-card.become-artist__card .info-card__title {
+    font-size: 56px;
+    line-height: 67px;
+    max-width: 500px;
+    margin: 0 auto 40px;
   }
-  .info-card.project-info__card .info-card__description {
-    max-width: 715px;
+  .info-card.become-artist__card .info-card__subtitle {
+    font-size: 28px;
+    margin: 0 auto 30px;
+    max-width: 894px;
   }
-  .info-card.project-info__card .info-card__title {
-    margin-bottom: 50px;
+  .info-card.become-artist__card .info-card__text {
+    font-size: 24px;
+    margin-bottom: 64px;
   }
 }
 @media (min-width: 1700px) {
-  .info-card.project-info__card {
-    padding: 163px 80px 163px 0;
+  .info-card.become-artist__card {
+    padding: 119px 0 190px 0;
   }
-  .info-card.project-info__card .info-card__description {
-    max-width: 900px;
+  .info-card.become-artist__card .become-artist__card-caption {
+    max-width: 894px;
   }
-  .info-card.project-info__card .info-card__title {
-    margin-bottom: 50px;
+  .info-card.become-artist__card .info-card__title {
+    font-size: 72px;
+    line-height: 86px;
+    max-width: 620px;
+    margin: 0 auto 25px;
+  }
+  .info-card.become-artist__card .info-card__subtitle {
+    font-size: 36px;
+    line-height: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .info-card.become-artist__card .info-card__text {
+    font-size: 30px;
+    line-height: 42px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 55px;
   }
 }
 .info-card .info-card__title {
@@ -983,6 +1052,120 @@ cite {
   }
 }
 
+.hero-slider .hero-slider__item {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.hero-slider .hero-slider__img {
+  border-radius: 50%;
+  position: relative;
+}
+.hero-slider .hero-slider__img img {
+  border-radius: 50%;
+}
+.hero-slider .hero-slider__item-inner {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(-50%) translateY(100%);
+  transform: translateX(-50%) translateY(100%);
+}
+.hero-slider .hero-slider__item-name {
+  font-size: 56px;
+  line-height: 67px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 18px;
+  padding: 0 20px;
+}
+.hero-slider .hero-slider__item-actions {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-column-gap: 17px;
+  -moz-column-gap: 17px;
+  column-gap: 17px;
+}
+.hero-slider .slider-actions__item {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #abefff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.hero-slider .swiper-slide {
+  padding-top: 80px;
+  padding-bottom: 120px;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+.hero-slider .swiper-slide.swiper-slide-active .hero-slider__item {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.hero-slider .swiper-slide-next .hero-slider__item,
+.hero-slider .swiper-slide-prev .hero-slider__item {
+  margin-top: 80px;
+}
+.hero-slider .swiper-slide-next-n1 .hero-slider__item,
+.hero-slider .swiper-slide-prev-n1 .hero-slider__item {
+  margin-top: 150px;
+}
+.hero-slider .swiper-slide-next-n2 .hero-slider__item,
+.hero-slider .swiper-slide-prev-n2 .hero-slider__item {
+  margin-top: 225px;
+}
+.hero-slider .swiper-slide-active {
+  z-index: 2;
+}
+.hero-slider .swiper-slide-active .hero-slider__item .hero-slider__item-inner {
+  width: 100%;
+  -webkit-animation: heroSliderInnerAppear 0.5s forwards ease;
+  animation: heroSliderInnerAppear 0.5s forwards ease;
+}
+.hero-slider .swiper-slide-active .hero-slider__img::after {
+  opacity: 1;
+}
+
+@-webkit-keyframes heroSliderInnerAppear {
+  from {
+    -webkit-transform: translateX(-50%) translateY(100%);
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes heroSliderInnerAppear {
+  from {
+    -webkit-transform: translateX(-50%) translateY(100%);
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(-50%) translateY(0);
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
 .header-container {
   display: -ms-flexbox;
   display: flex;

@@ -231,3 +231,19 @@
     }
   }
 }
+
+.become-artist {
+  padding-top: 280px;
+  @media (min-width: 320px) {
+    padding-top: 80px;
+  }
+  @media (min-width: 1024px) {
+    padding-top: 120px;
+  }
+  @media (min-width: 1366px) {
+    padding-top: 183px;
+  }
+  @media (min-width: 1700px) {
+    padding-top: 280px;
+  }
+}

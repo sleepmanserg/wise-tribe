@@ -34,10 +34,15 @@ if (menuToggle) {
 /** Hero slider */
 
 const swiperMainHome = new Swiper(".hero-slider", {
-	slidesPerView: 7,
+	effect: "coverflow",
+	slidesPerView: 6.5,
+	grabCursor: true,
 	spaceBetween: 30,
+	autoHeight: true,
+	speed: 1000,
 	loop: true,
 	centeredSlides: true,
+	slideToClickedSlide: true,
 	pagination: {
 		el: ".swiper-pagination",
 		clickable: true
@@ -45,6 +50,13 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	navigation: {
 		nextEl: ".swiper-button-next",
 		prevEl: ".swiper-button-prev"
+	},
+	coverflowEffect: {
+		rotate: 0,
+		stretch: 0,
+		depth: 0,
+		modifier: 3,
+		slideShadows: false,
 	},
 	on: {
 		init: function () {
@@ -63,13 +75,13 @@ function swiperHomeClassTweak(slidesProp, activeSlide) {
 	let activeIndex = activeSlide
 
 	// Remove classes
-	for(let slide of slides) {
+	for (let slide of slides) {
 		slide.classList.remove(
 			'swiper-slide-prev-n1',
 			'swiper-slide-prev-n2',
 			'swiper-slide-next-n1',
 			'swiper-slide-next-n2'
-			);
+		);
 	}
 
 	// Get an array of slides indexes. We need an array [0, 1, 2, 3, ..., n]
@@ -94,7 +106,7 @@ function swiperHomeClassTweak(slidesProp, activeSlide) {
 
 	// Same for slides after the active one. Result should be [9, 10, 11]
 	// With on exception: get sliced elements starting from the activeSlideIndex till the end of an array
-	let nextSlidesIndexes = slideKeys.slice(activeSlideIndex+1, -1).slice(0, 3);
+	let nextSlidesIndexes = slideKeys.slice(activeSlideIndex + 1, -1).slice(0, 3);
 	slides[nextSlidesIndexes[1]].classList.add('swiper-slide-next-n1');
 	slides[nextSlidesIndexes[2]].classList.add('swiper-slide-next-n2');
 };
