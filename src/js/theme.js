@@ -69,6 +69,31 @@ swiperMainHome.on('slideChange', function () {
 	swiperHomeClassTweak(this.slides, this.activeIndex);
 });
 
+/** Events slider */
+
+const swiperEvents = new Swiper(".events-slider", {
+	// slidesPerView: 4.5,
+	slidesPerView: 'auto',
+	spaceBetween: 35,
+	speed: 1000,
+	loop: true,
+	centeredSlides: true,
+	slideToClickedSlide: true,
+	navigation: {
+		nextEl: ".events-button-next",
+		prevEl: ".events-button-prev"
+	},
+	on: {
+		init: function () {
+			swiperHomeClassTweak(this.slides, this.activeIndex);
+		},
+	},
+});
+
+swiperEvents.on('slideChange', function () {
+	swiperHomeClassTweak(this.slides, this.activeIndex);
+});
+
 // Detect and add condition classes to slides
 function swiperHomeClassTweak(slidesProp, activeSlide) {
 	let slides = slidesProp

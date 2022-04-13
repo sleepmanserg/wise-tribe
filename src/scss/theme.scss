@@ -9,6 +9,7 @@
 @import "helpers/utilities";
 @import "helpers/scaffolding";
 @import "helpers/font-import";
+@import "helpers/icon-font";
 @import "helpers/typography";
 
 // Components
@@ -16,6 +17,7 @@
 @import "components/info-card";
 @import "components/sliders";
 @import "components/hero-slider";
+@import "components/events-slider";
 
 // Layout
 @import "layout/header";
