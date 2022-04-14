@@ -72,10 +72,10 @@ swiperMainHome.on('slideChange', function () {
 /** Events slider */
 
 const swiperEvents = new Swiper(".events-slider", {
-	// slidesPerView: 4.5,
-	slidesPerView: 'auto',
+	slidesPerView: 4.5,
+	// slidesPerView: 'auto',
 	spaceBetween: 35,
-	speed: 1000,
+	speed: 700,
 	loop: true,
 	centeredSlides: true,
 	slideToClickedSlide: true,
