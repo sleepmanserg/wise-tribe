@@ -42,7 +42,7 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	speed: 1000,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: true,
+	slideToClickedSlide: false,
 	pagination: {
 		el: ".swiper-pagination",
 		clickable: true
@@ -78,11 +78,20 @@ const swiperEvents = new Swiper(".events-slider", {
 	speed: 700,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: true,
 	navigation: {
 		nextEl: ".events-button-next",
 		prevEl: ".events-button-prev"
 	},
+	// breakpoints: {
+	// 	320: {
+	// 		slidesPerView: 3.5,
+	// 		spaceBetween: 14,
+	// 	},
+	// 	1024: {
+	// 		slidesPerView: 4.5,
+	// 		spaceBetween: 35,
+	// 	}
+	// },
 	on: {
 		init: function () {
 			swiperHomeClassTweak(this.slides, this.activeIndex);
@@ -93,6 +102,19 @@ const swiperEvents = new Swiper(".events-slider", {
 swiperEvents.on('slideChange', function () {
 	swiperHomeClassTweak(this.slides, this.activeIndex);
 });
+
+/** Studio slider */
+
+const swiperStudio = new Swiper(".studio-slider", {
+	slidesPerView: 1,
+	speed: 700,
+	loop: true,
+	pagination: {
+		clickable: true,
+		el: ".studio-pagination",
+	},
+});
+
 
 // Detect and add condition classes to slides
 function swiperHomeClassTweak(slidesProp, activeSlide) {

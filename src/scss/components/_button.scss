@@ -299,14 +299,23 @@
   box-shadow: 0px 4px 27px rgba(255, 255, 255, 0.41);
   border-radius: 54px;
   text-align: center;
-  padding: 17px 56px 16px;
-  font-size: 18px;
+  padding: 12px 38px 11px;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
   line-height: 22px;
   color: $gray-dark;
   font-weight: 600;
   transition: 0.35s ease;
   @include hover {
     box-shadow: 0px 4px 55px rgba(255, 255, 255, 0.41);
+  }
+  @media (min-width: 768px) {
+    padding: 12px 54px 11px;
+  }
+  @media (min-width: 768px) {
+    padding: 15px 62px 14px;
+  }
+  @media (min-width: 1700px) {
+    padding: 17px 54px 16px;
   }
 }
 

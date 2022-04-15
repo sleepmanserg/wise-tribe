@@ -191,8 +191,13 @@ block content
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
-      .swiper-button-next.events-button-next Next
-      .swiper-button-prev.events-button-prev Prev
+    .slider-navigation.justify-content-between.px-5
+      .slider-button-prev.slider-navigation__btn.events-button-prev
+        img(src="img/icons/arrow-l.svg", alt="Prev")
+        span Prev
+      .slider-button-next.slider-navigation__btn.events-button-next
+        span Next
+        img(src="img/icons/arrow-r.svg", alt="Next")
 
   section.releases
     .container
@@ -203,12 +208,69 @@ block content
             h4.section-subtitle.release-subtitle Explore the latest tracks artists
             p.section-text.releases-text.opacity-7 We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.
         .col-md-6
+  section.studio
+    .swiper.studio-slider
+      .swiper-wrapper
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                source(srcset='img/studio-slider/1.avif' type='image/avif')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                source(srcset='img/studio-slider/1.avif' type='image/avif')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                source(srcset='img/studio-slider/1.avif' type='image/avif')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                source(srcset='img/studio-slider/1.avif' type='image/avif')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+      .slider-pagination.studio-pagination
+
   section.become-artist
     .container
       .become-artist__card.info-card
         .become-artist__card-caption
-          h4.section-title.info-card__title Become an artist of Wise Music!
-          h5.section-subtitle.info-card__subtitle We provide artists with the best
+          .section-title.info-card__title Become an artist of Wise Music!
+          .section-subtitle.info-card__subtitle We provide artists with the best
           p.info-card__text.section-text.opacity-7 Employees have experience in promoting great artists, teams, working with them. So hitting the radio or writing a hit song on a label can take much less time.
           a(href="#").btn.btn-light
             span Start now

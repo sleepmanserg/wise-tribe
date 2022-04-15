@@ -233,26 +233,42 @@
 }
 
 .become-artist {
-  padding-top: 280px;
-  @media (min-width: 320px) {
-    padding-top: 80px;
-  }
-  @media (min-width: 1024px) {
-    padding-top: 120px;
-  }
-  @media (min-width: 1366px) {
-    padding-top: 183px;
-  }
-  @media (min-width: 1700px) {
-    padding-top: 280px;
-  }
+  // padding-top: 280px;
+  // @media (min-width: 320px) {
+  //   padding-top: 80px;
+  // }
+  // @media (min-width: 1024px) {
+  //   padding-top: 120px;
+  // }
+  // @media (min-width: 1366px) {
+  //   padding-top: 183px;
+  // }
+  // @media (min-width: 1700px) {
+  //   padding-top: 280px;
+  // }
 }
 
 /* Events section */
 
 .events {
-  padding: 222px 0 0;
   overflow: hidden;
+  .slider-navigation {
+    margin-top: -15px;
+    position: relative;
+    z-index: 2;
+  }
+  @media (min-width: 320px) {
+    padding: 100px 0 122px;
+  }
+  @media (min-width: 768px) {
+    padding: 132px 0 145px;
+  }
+  @media (min-width: 1024px) {
+    padding: 160px 0 185px;
+  }
+  @media (min-width: 1700px) {
+    padding: 220px 0 180px;
+  }
 }
 
 /* Experience section */
@@ -260,4 +276,22 @@
 .experience {
   padding-top: 344px;
   padding-bottom: 272px;
+}
+
+/* Wise studio */
+
+.studio {
+  padding: 80px 0;
+  @media (min-width: 768px) {
+    padding: 120px 0 80px;
+  }
+  @media (min-width: 1024px) {
+    padding: 180px 0 120px;
+  }
+  @media (min-width: 1366px) {
+    padding: 180px 0;
+  }
+  @media (min-width: 1700px) {
+    padding: 230px 0 280px;
+  }
 }
