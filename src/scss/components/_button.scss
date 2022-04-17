@@ -311,7 +311,7 @@
   @media (min-width: 768px) {
     padding: 12px 54px 11px;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     padding: 15px 62px 14px;
   }
   @media (min-width: 1700px) {
@@ -362,6 +362,113 @@
       font-size: 18px;
       line-height: 22px;
       color: #000022;
+    }
+  }
+}
+
+.btn-white-glow {
+  background-color: $white;
+  border-radius: 54px;
+  box-shadow: 0px 4px 27px rgba(255, 255, 255, 0.41);
+  font-weight: 600;
+  font-size: clamp(0.875rem, 2vw, 1.125rem);
+  line-height: 17px;
+  padding: 11px 30px 12px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 54px;
+    border: 4px solid $blue;
+    box-sizing: border-box;
+    filter: blur(7px);
+    border-radius: 54px;
+  }
+  @include hover {
+    box-shadow: 0px 4px 55px rgba(255, 255, 255, 0.41);
+  }
+  @media (min-width: 768px) {
+    padding: 11px 48px 12px;
+  }
+  @media (min-width: 1024px) {
+    padding: 14px 51px 15px;
+  }
+  @media (min-width: 1700px) {
+    padding: 19px 45px;
+  }
+}
+
+.arrow-button {
+  position: relative;
+  height: 8px;
+  // transition: 0.35s;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 24px;
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    background-color: $blue;
+    box-shadow: 0px 0px 5px rgba(171, 239, 255, 0.63);
+  }
+  &::after {
+    width: 60px;
+    height: 1.8px;
+    transition: 0.5s;
+  }
+  &::before {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #000124;
+    border: 2px solid $blue;
+    transition: 0.5s;
+  }
+  &.arrow-button__next {
+    padding-right: 88px;
+    &::after {
+      right: 8px;
+    }
+    &::before {
+      right: 0;
+    }
+  }
+  &.arrow-button__prev {
+    padding-left: 88px;
+    &::after {
+      left: 8px;
+    }
+    &::before {
+      left: 0;
+    }
+  }
+  @include hover {
+    // width: 74px;
+    &::after {
+      width: 66px;
+      transform: translateX(8px) translateY(-50%);
+    }
+    &::before {
+      transform: translateX(8px) translateY(-50%);
+    }
+    &.arrow-button__prev {
+      &::after {
+        width: 66px;
+        transform: translateX(-8px) translateY(-50%);
+      }
+      &::before {
+        transform: translateX(-8px) translateY(-50%);
+      }
     }
   }
 }

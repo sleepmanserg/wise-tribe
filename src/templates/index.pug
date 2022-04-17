@@ -192,12 +192,12 @@ block content
                   span Learn more
                   span.btn-blue__price $48
     .slider-navigation.justify-content-between.px-5
-      .slider-button-prev.slider-navigation__btn.events-button-prev
-        img(src="img/icons/arrow-l.svg", alt="Prev")
-        span Prev
-      .slider-button-next.slider-navigation__btn.events-button-next
-        span Next
-        img(src="img/icons/arrow-r.svg", alt="Next")
+      .slider-button-prev.events-button-prev
+        .arrow-button.arrow-button__prev
+          span Prev
+      .slider-button-next.events-button-next
+        .arrow-button.arrow-button__next
+          span Next
 
   section.releases
     .container
@@ -274,7 +274,29 @@ block content
           p.info-card__text.section-text.opacity-7 Employees have experience in promoting great artists, teams, working with them. So hitting the radio or writing a hit song on a label can take much less time.
           a(href="#").btn.btn-light
             span Start now
-  section.experience
-    h2.section-title.text-center WISE MUSIC Experience
+  section.experience.circle-section
+    .container
+      .experience-caption
+        h2.section-title.text-center WISE MUSIC Experience
+        .section-text.opacity-7.text-center We want to create a large-scale music-show that the world has not seen yet.
+      .experience-circle.circle-parallax
+        .circle-parallax__bg
+          picture
+            source(srcset='img/circle/circle-bg.webp' type='image/webp')
+            source(srcset='img/circle/circle-bg.avif' type='image/avif')
+            img(src='img/circle/circle-bg.jpg')
+        .circle-parallax__figure.circle-parallax__figure-first.parallax(data-speed="15")
+          svg(width='766' height='727' viewBox='0 0 766 727' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M764 363.5L691.235 587.537L500.735 726H265.264L74.7645 587.537L2 363.5L74.7645 139.463L265.264 1L500.735 1L691.235 139.463L764 363.5Z' fill='#040435')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M264.939 0H501.06L692.086 138.845L765.051 363.5L692.086 588.155L501.06 727H264.939L73.9135 588.155L0.948242 363.5L73.9135 138.845L264.939 0ZM265.589 2L75.6149 140.081L3.05108 363.5L75.6149 586.919L265.589 725H500.41L690.384 586.919L762.948 363.5L690.384 140.081L500.41 2H265.589Z' fill='#ABEFFF' fill-opacity='0.7')
+        .circle-parallax__figure.circle-parallax__figure-second.parallax(data-speed="40")
+          svg(width='604' height='575' viewBox='0 0 604 575' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M208.824 0.5H395.177L545.94 110.124L603.476 287.346L603 287.5L603.476 287.654L545.94 464.876L395.177 574.5H208.824L58.0608 464.876L0.474609 287.5L58.0608 110.124L208.824 0.5ZM602.475 287.5L545.089 110.742L394.852 1.5H209.149L58.9116 110.742L1.52599 287.5L58.9116 464.258L209.149 573.5H394.852L545.089 464.258L602.475 287.5Z' fill='#ABEFFF' fill-opacity='0.3')
+
+
+        .experience-circle__inner
+          .experience-circle__title.gradient-title w1se show
+          a(href="#").btn.btn-white-glow Get member
+
 
 
