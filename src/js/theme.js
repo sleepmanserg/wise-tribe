@@ -161,56 +161,83 @@ function swiperHomeClassTweak(slidesProp, activeSlide) {
 
 /** Circle Parallax */
 
-let applyParallax = section => {
 
-	section.addEventListener('mousemove', e => {
+// const parallaxItems = document.querySelectorAll('.parallax');
 
-		let { width, height } = section.getBoundingClientRect();
-		let offX = e.pageX - (width * 0.5);
-		let offY = e.pageY - (height * 0.5);
+// if (parallaxItems) {
+// 	let applyParallax = section => {
 
-		for (let layer of document.querySelectorAll('.parallax')) {
-			const speed = layer.getAttribute('data-speed')
-			const x = (offX * speed) / 100;
-			const y = (offY * speed) / 2000;
-			layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-		}
+// 		section.addEventListener('mousemove', e => {
 
-	});
-	section.addEventListener('mouseleave', e => {
+// 			let { width, height } = section.getBoundingClientRect();
+// 			let offX = e.pageX - (width * 0.5);
+// 			let offY = e.pageY - (height * 0.5);
 
-		for (let layer of document.querySelectorAll('.parallax')) {
-			layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-		}
+// 			for (let layer of parallaxItems) {
+// 				const speed = layer.getAttribute('data-speed')
+// 				const x = (offX * speed) / 100;
+// 				const y = (offY * speed) / 2000;
+// 				layer.style.transform = `translateX(${x}px) translateY(${y}px)`
+// 			}
 
-	});
+// 		});
 
+// 		section.addEventListener('mouseleave', e => {
+// 			for (let layer of parallaxItems) {
+// 				layer.style.transform = `translateX(${x}px) translateY(${y}px)`
+// 			}
+
+// 		});
+
+// 	};
+
+// 	// applyParallax(document.querySelector('.circle-section'));
+// }
+
+/** Blog slider */
+
+var blogSwiper = new Swiper(".latest-slider", {
+	slidesPerView: 1,
+	spaceBetween: 10,
+	loop: true,
+	pagination: {
+		el: ".swiper-pagination",
+		clickable: true,
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 1.25,
+			spaceBetween: 20,
+		},
+		768: {
+			slidesPerView: 2.2,
+		},
+		1024: {
+			slidesPerView: 3.2,
+			spaceBetween: 36,
+		},
+		1920: {
+			slidesPerView: 5.2,
+		},
+	},
+});
+
+function blogSectionPaddingHack() {
+	let sectionWidth = document.querySelector('.blog-slider').offsetWidth;
+	let containerWidth = document.querySelector('.container').offsetWidth;
+	let blogOffset = (sectionWidth - containerWidth) / 2;
+	let blogContent = document.querySelector('.blog-slider__content');
+
+	blogContent.style.paddingLeft = blogOffset + 'px';
+
+	blogSwiper.update();
 };
-applyParallax(document.querySelector('.circle-section'));
 
-// let applyParallax = section => {
+blogSectionPaddingHack();
 
-// 	section.addEventListener('mousemove', e => {
+function checkForWindowResize() {
+	console.log(`Screen width: ${window.innerWidth}`);
+	blogSectionPaddingHack();
+}
 
-// 		let { width, height } = section.getBoundingClientRect();
-// 		let offX = e.pageX - (width * 0.5);
-// 		let offY = e.pageY - (height * 0.5);
-
-// 		for (let layer of document.querySelectorAll('.parallax')) {
-// 			const speed = layer.getAttribute('data-speed')
-// 			const x = (offX * speed) / 100;
-// 			const y = (offY * speed) / 100;
-// 			layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-// 		}
-
-// 	});
-// 	section.addEventListener('mouseleave', e => {
-
-// 		for (let layer of document.querySelectorAll('.parallax')) {
-// 			layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-// 		}
-
-// 	});
-
-// };
-// applyParallax(document.querySelector('.circle-section'));
+window.addEventListener('resize', checkForWindowResize);

@@ -46,6 +46,7 @@
   position: relative;
   font-weight: 600;
   padding: 0;
+  display: inline;
   &::before,
   &::after {
     content: "";
@@ -95,6 +96,16 @@
       opacity: 0;
       transition: 0.25s;
     }
+  }
+}
+
+.header-nav__link.active:not(.header-logo__link) {
+  &::after,
+  &::before {
+    opacity: 0.9;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
@@ -337,6 +348,17 @@
       width: 100%;
       font-size: 36px;
       line-height: 43px;
+      &::after,
+      &::before {
+        transition: none;
+      }
+      &.active {
+        &::after,
+        &::before {
+          opacity: 1;
+          width: 100%;
+        }
+      }
       @include hover {
         &::after {
           opacity: 0;
