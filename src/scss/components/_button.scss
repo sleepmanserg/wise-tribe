@@ -404,7 +404,6 @@
 
 .arrow-button {
   position: relative;
-  height: 8px;
   // transition: 0.35s;
   display: flex;
   align-items: center;
@@ -469,6 +468,27 @@
       &::before {
         transform: translateX(-8px) translateY(-50%);
       }
+    }
+  }
+}
+
+.back-btn {
+  --backBtnGap: 15px;
+  color: #72ddf6;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--backBtnGap);
+  text-decoration: none;
+  font-size: clamp(1.25rem, 1vw, 1.875rem);
+  line-height: 140%;
+  i {
+    font-size: clamp(1.5rem, 1vw, 2rem);
+    transition: 0.25s;
+  }
+  @include hover {
+    color: #72ddf6;
+    i {
+      transform: translateX(-10px);
     }
   }
 }

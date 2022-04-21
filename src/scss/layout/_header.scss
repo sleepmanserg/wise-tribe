@@ -140,8 +140,11 @@
     transform: translateX(-50%) translateY(25px);
     background: linear-gradient(180deg, #0f0a39 0%, #0a0631 104.91%);
     opacity: 0;
+    visibility: hidden;
     transition: 0.25s;
     z-index: 4;
+    border-radius: 8px;
+    padding: 1px 0;
     .header-languages__link {
       padding: 9px 18px 11px;
       border-radius: 8px;
@@ -196,6 +199,7 @@
   &.active {
     .header-languages__dropdown {
       opacity: 1;
+      visibility: visible;
       transform: translateX(-50%) translateY(15px);
     }
     .header-languages__current {

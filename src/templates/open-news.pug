@@ -1,0 +1,132 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+
+  //- ********** Settings **********
+  //- ==============================
+  -var pageTitle = 'Blog'
+  //- ==============================
+  //- ********* Settings END *******
+
+//- Page Content
+block content
+  section.article.blog-slider
+    .container
+      a(href="blog.html").back-btn
+        i.icon-chevron-l
+        span Back
+    .article-grid.blog-slider__content
+      .article-item
+        .blog-item__date
+          i.icon-calendar
+          span.opacity-7 Published October 16, 2021
+        .artcile-item__header
+          .article-item__title Roma Nebo presented a new song
+          .article-item__subtitle.section-text Roma Nebo presented a new song "Oore", which became the main soundtrack to the series "My favorite Strashko"
+          .article-item__labels.labels.d-flex.align-items-center.flex-wrap
+            .blog-label the newest
+            .blog-label concerts
+            .blog-label songs
+        .article-item__body
+          .article-item__media
+            .article-item__thumb
+              picture
+                source(srcset='img/blog/article.webp' type='image/webp')
+                img(src="img/blog/article.jpg", alt="Image")
+            .article-item__media-info
+              .article-item__media-title Hot! New song "Oore"
+              .blog-activity.d-flex
+                .blog-activity__item.blog-likes
+                  i.icon-heart
+                  span 171
+                .blog-activity__item.blog-views
+                  i.icon-eye
+                  span 231
+          .article-item__description
+            p.section-text.fs-24.opacity-7 The new composition continues the story and theme of the song "Beautiful in Heart", dedicated to the fight against bullying and hate in social networks.
+            p.section-text.fs-24.opacity-7 At the same time, the frontwoman of the group, Alexandra Zaritskaya, launched the eponymous challenge on Instagram. Users of the social network under the hashtag #KrasivaSertsem told their stories related to bullying in life and shared ways to solve the problem.
+            p.section-text.fs-28.fw-bold “When we started working on the title track of the series, our team had two compositions that came out amazingly beautiful and conveyed the emotions of the main character.
+            p.section-text.fs-24.opacity-7 Until a certain moment, we could not choose that single track, so together with the producers of the series, we decided to leave both. If the first song, "Beautiful in Heart", is about the strength inside each of us, then "Tsiluvati you" is a story about a vulnerable, but at the same time the most powerful feeling - love. Love for people, the world around you and your loved one, ”said Alexandra Zaritskaya.
+            p.section-text.fs-24.opacity-7 At the same time, the frontwoman of the group, Alexandra Zaritskaya, launched the eponymous challenge on Instagram. Users of the social network under the hashtag #KrasivaSertsem told their stories related to bullying in life and shared ways to solve the problem.
+      .article-sidebar
+        .article-sidebar__items
+          .swiper.blog-sidebar-slider
+            .swiper-wrapper
+              .swiper-slide
+                a(href="open-news.html").blog-slider__item.blog-item
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='img/blog/blog-slider1.webp' type='image/webp')
+                        img(src="img/blog/blog-slider1.jpg", alt="Artist image")
+                    .blog-item__actions
+                      .blog-label concerts
+                      .blog-activity.d-flex.align-items-center
+                        .blog-activity__item.blog-likes
+                          i.icon-heart
+                          span 171
+                        .blog-activity__item.blog-views
+                          i.icon-eye
+                          span 231
+                  .blog-item__body
+                    .blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
+                    .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been a lack of new names and fresh
+                  .blog-item__footer
+                    .blog-item__date
+                      i.icon-calendar
+                      span.opacity-7 16 Oct 2021
+              .swiper-slide
+                a(href="open-news.html").blog-slider__item.blog-item
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' type='image/webp')
+                        img(src="https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", alt="Artist image")
+                    .blog-item__actions
+                      .blog-label concerts
+                      .blog-activity.d-flex.align-items-center
+                        .blog-activity__item.blog-likes
+                          i.icon-heart
+                          span 171
+                        .blog-activity__item.blog-views
+                          i.icon-eye
+                          span 231
+                  .blog-item__body
+                    .blog-item__title 30 most beautiful pictures of the independent Ukraine:  Roma Nebo
+                    .blog-item__descr.section-text.opacity-7 On the day of the 30th anniversary of Ukraine's Independence, we asked Roma Nebo band leader Nata Zhyzhchenko to make a special
+                  .blog-item__footer
+                    .blog-item__date
+                      i.icon-calendar
+                      span.opacity-7 16 Oct 2021
+              .swiper-slide
+                a(href="open-news.html").blog-slider__item.blog-item
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='img/blog/blog-slider1.webp' type='image/webp')
+                        img(src="img/blog/blog-slider1.jpg", alt="Artist image")
+                    .blog-item__actions
+                      .blog-label concerts
+                      .blog-activity.d-flex.align-items-center
+                        .blog-activity__item.blog-likes
+                          i.icon-heart
+                          span 171
+                        .blog-activity__item.blog-views
+                          i.icon-eye
+                          span 231
+                  .blog-item__body
+                    .blog-item__title The Ultimate Guide to the Brave Festival! Factory 2021
+                    .blog-item__descr.section-text.opacity-7 Already this weekend as part of the Brave electronic music festival! Factory Kievmetrobud plant will open its doors to visitors. What awaits guests from 21 to 23 August and what
+                  .blog-item__footer
+                    .blog-item__date
+                      i.icon-calendar
+                      span.opacity-7 16 Oct 2021
+      .container
+        .slider-navigation.justify-content-between
+          .slider-button-prev.blog-button-prev
+            .arrow-button.arrow-button__prev
+              span Prev
+          .slider-button-next.blog-button-next
+            .arrow-button.arrow-button__next
+              span Next

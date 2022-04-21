@@ -38,6 +38,12 @@ cite {
   font-style: normal;
 }
 
+section {
+  --sectionPaddingBottom: 100px;
+  --sectionPaddingTop: 100px;
+  padding-bottom: var(--sectionPaddingBottom);
+}
+
 .container {
   padding: 0 40px;
   @media (max-width: 1700px) {
