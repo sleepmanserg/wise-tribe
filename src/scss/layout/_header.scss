@@ -2,6 +2,37 @@
 // Header
 // --------------------------------------------------
 
+// .site-header {
+//   position: fixed;
+//   width: 100%;
+//   left: 0;
+//   top: 0;
+//   z-index: 99;
+//   &::after {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     transition: 0.35s ease;
+//     opacity: 0;
+//     visibility: hidden;
+//     background: radial-gradient(
+//         54.68% 54.68% at 50% 45.32%,
+//         #050547 0%,
+//         #000022 100%
+//       ),
+//       #fff;
+//   }
+//   &.sticky {
+//     &::after {
+//       opacity: 0.9;
+//       visibility: visible;
+//     }
+//   }
+// }
+
 .header-container {
   display: flex;
   align-items: center;
@@ -14,6 +45,8 @@
   width: 100%;
   flex: 0 0 162px;
   height: 32px;
+  position: relative;
+  z-index: 2;
 }
 
 .header-inner {
@@ -23,11 +56,17 @@
   .triangle-wrapper {
     display: none;
   }
+  .header-shop {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 .header-nav {
   padding-left: 180px;
   padding-right: 200px;
+  z-index: 3;
+  position: relative;
   .header-nav__list {
     display: flex;
     column-gap: 60px;

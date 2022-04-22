@@ -493,6 +493,46 @@
   }
 }
 
+.circle-button {
+  width: 45px;
+  height: 31px;
+  border-radius: 100%;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    width: 31px;
+    height: 100%;
+    border-radius: 100%;
+    border: 2px solid #abefff;
+    box-shadow: 0px 0px 50px rgba(171, 239, 255, 0.35);
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(12px);
+    width: 40px;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='26' viewBox='0 0 40 26' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d_2301_36016)'%3E%3Cpath d='M32.7792 13.6364C33.1307 13.2849 33.1307 12.7151 32.7792 12.3636L27.0517 6.63604C26.7002 6.28457 26.1303 6.28457 25.7789 6.63604C25.4274 6.98751 25.4274 7.55736 25.7789 7.90883L30.87 13L25.7789 18.0912C25.4274 18.4426 25.4274 19.0125 25.7789 19.364C26.1303 19.7154 26.7002 19.7154 27.0517 19.364L32.7792 13.6364ZM6.99997 12.1C6.50291 12.1 6.09997 12.5029 6.09997 13C6.09997 13.4971 6.50291 13.9 6.99997 13.9V12.1ZM32.1428 12.1L6.99997 12.1V13.9L32.1428 13.9V12.1Z' fill='%23ABEFFF'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d_2301_36016' x='0.0998535' y='0.372437' width='38.9429' height='25.2551' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/%3E%3CfeMorphology radius='1' operator='dilate' in='SourceAlpha' result='effect1_dropShadow_2301_36016'/%3E%3CfeOffset/%3E%3CfeGaussianBlur stdDeviation='2.5'/%3E%3CfeComposite in2='hardAlpha' operator='out'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.670588 0 0 0 0 0.937255 0 0 0 0 1 0 0 0 0.63 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_2301_36016'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_2301_36016' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  @media (min-width: 768px) {
+    width: 69px;
+    height: 48px;
+    &::after {
+      width: 50px;
+      height: 50px;
+    }
+    &::before {
+      width: 50px;
+      background-size: 100%;
+      transform: translateY(-50%) translateX(25px);
+    }
+  }
+}
+
 @media (min-width: 1025px) {
   .header-menu__toggle {
     display: none;

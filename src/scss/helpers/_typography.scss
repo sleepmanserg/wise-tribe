@@ -23,26 +23,11 @@
 
 .section-text {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 140%;
   font-weight: 300;
+  font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 1.4103)), 36px);
   .text-blue {
     font-weight: 600;
-  }
-  @media (min-width: 767px) {
-    font-size: 16px;
-    line-height: 22px;
-  }
-  @media (min-width: 1024px) {
-    font-size: 20px;
-    line-height: 28px;
-  }
-  @media (min-width: 1366px) {
-    font-size: 28px;
-    line-height: 39px;
-  }
-  @media (min-width: 1700px) {
-    font-size: 36px;
-    line-height: 50px;
   }
 }
 

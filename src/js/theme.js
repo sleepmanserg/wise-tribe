@@ -2,6 +2,28 @@
 // Custom Scripts
 // --------------------------------------------------
 
+/* Check if webp available */
+
+function testWebP(callback) {
+	let webP = new Image();
+	webP.onload = webP.onerror = function () {
+		callback(webP.height == 2);
+	};
+	webP.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+}
+// Добавление класса _webp или _no-webp для HTML
+testWebP(function (support) {
+	let className = support === true ? 'webp' : 'no-webp';
+	document.documentElement.classList.add(className);
+});
+
+/* Sticky header  */
+
+window.addEventListener('scroll', function () {
+	var header = document.querySelector('.site-header');
+	header.classList.toggle("sticky", window.scrollY > 50);
+})
+
 /** toggle btn */
 
 document.addEventListener('click', e => {
@@ -236,83 +258,75 @@ const blogSlider = new Swiper('.blog-latest-slider', {
 
 /** Blog slider mobile (sidebar desktop) */
 
-(function () {
+const breakpoint = window.matchMedia('(min-width:1024px)');
 
-	'use strict';
+// keep track of swiper instances to destroy later
+let blogSidebarSlider;
 
-	// breakpoint where swiper will be destroyed
-	// and switches to a dual-column layout
-	const breakpoint = window.matchMedia('(min-width:1024px)');
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-	// keep track of swiper instances to destroy later
-	let blogSidebarSlider;
+const breakpointChecker = function () {
 
-	//////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////
+	// if larger viewport and multi-row layout needed
+	if (breakpoint.matches === true) {
 
-	const breakpointChecker = function () {
+		// clean up old instances and inline styles when available
+		if (blogSidebarSlider !== undefined) blogSidebarSlider.destroy(true, true);
 
-		// if larger viewport and multi-row layout needed
-		if (breakpoint.matches === true) {
+		// or/and do nothing
+		return;
 
-			// clean up old instances and inline styles when available
-			if (blogSidebarSlider !== undefined) blogSidebarSlider.destroy(true, true);
+		// else if a small viewport and single column layout needed
+	} else if (breakpoint.matches === false) {
 
-			// or/and do nothing
-			return;
+		// fire small viewport version of swiper
+		return enableSwiper();
 
-			// else if a small viewport and single column layout needed
-		} else if (breakpoint.matches === false) {
+	}
 
-			// fire small viewport version of swiper
-			return enableSwiper();
+};
 
-		}
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
 
-	};
+const enableSwiper = function () {
 
-	//////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////
+	blogSidebarSlider = new Swiper('.blog-sidebar-slider', {
+		slidesPerView: 1.2,
+		spaceBetween: 20,
+		a11y: true,
+		keyboardControl: true,
+		grabCursor: true,
+		navigation: {
+			nextEl: '.blog-button-next',
+			prevEl: '.blog-button-prev',
+		},
 
-	const enableSwiper = function () {
-
-		blogSidebarSlider = new Swiper('.blog-sidebar-slider', {
-			slidesPerView: 1.2,
-			spaceBetween: 20,
-			a11y: true,
-			keyboardControl: true,
-			grabCursor: true,
-			navigation: {
-				nextEl: '.blog-button-next',
-				prevEl: '.blog-button-prev',
+		breakpoints: {
+			320: {
+				slidesPerView: 1.15,
+				spaceBetween: 20,
 			},
-
-			breakpoints: {
-				320: {
-					slidesPerView: 1.15,
-					spaceBetween: 20,
-				},
-				575: {
-					slidesPerView: 1.5,
-					spaceBetween: 20,
-				},
-				768: {
-					slidesPerView: 1.8,
-					spaceBetween: 22,
-				},
+			575: {
+				slidesPerView: 1.5,
+				spaceBetween: 20,
 			},
-		});
-	};
+			768: {
+				slidesPerView: 1.8,
+				spaceBetween: 22,
+			},
+		},
+	});
+};
 
-	// keep an eye on viewport size changes
-	breakpoint.addListener(breakpointChecker);
+// keep an eye on viewport size changes
+breakpoint.addListener(breakpointChecker);
 
-	// kickstart
-	breakpointChecker();
-
-})(); /* IIFE end */
+// kickstart
+breakpointChecker();
 
 
 
@@ -346,3 +360,64 @@ const blogSlider = new Swiper('.blog-latest-slider', {
 // }
 
 // window.addEventListener('resize', checkForWindowResize);
+
+/** Projects slider */
+
+const projectsSlider = new Swiper('.projects-slider', {
+	slidesPerView: 1.2,
+	spaceBetween: 20,
+	grabCursor: true,
+	navigation: {
+		nextEl: '.projects-slider__btn',
+	},
+
+	breakpoints: {
+		320: {
+			slidesPerView: 1.35,
+			spaceBetween: 15,
+		},
+		575: {
+			slidesPerView: 1.5,
+			spaceBetween: 20,
+		},
+		768: {
+			slidesPerView: 2.1,
+			spaceBetween: 20,
+		},
+		1024: {
+			slidesPerView: 2.2,
+			spaceBetween: 30,
+		},
+		1366: {
+			slidesPerView: 2.7,
+			spaceBetween: 40,
+		},
+		1700: {
+			slidesPerView: 3.2,
+			spaceBetween: 36,
+		},
+	},
+});
+
+/** Slider circle arrow position */
+
+function sliderArrowPosition() {
+	let projectsSLiderImg = document.querySelector('.projects-slider__thumb');
+	let projectsSliderArrow = document.querySelector('.projects-slider__btn');
+	let projectsSliderArrowHeight = projectsSliderArrow.offsetHeight / 2;
+	let projectsSliderImgHeight = projectsSLiderImg.offsetHeight / 2 - projectsSliderArrowHeight;
+
+	projectsSliderArrow.style.top = projectsSliderImgHeight + 'px';
+}
+
+if (document.querySelector('.projects-slider__btn')) {
+	sliderArrowPosition();
+}
+
+function checkForWindowResize() {
+	if (document.querySelector('.projects-slider__btn')) {
+		sliderArrowPosition();
+	}
+}
+
+window.addEventListener('resize', checkForWindowResize);
