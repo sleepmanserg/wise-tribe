@@ -1,3 +1,29 @@
+/* Hero */
+
+.hero {
+  --sectionPaddingBottom: 188px;
+  --sectionPaddingTop: 158px;
+  padding-top: var(--sectionPaddingTop);
+  @media (min-width: 768px) {
+    --sectionPaddingTop: 140px;
+    --sectionPaddingBottom: 167px;
+  }
+  @media (min-width: 1024px) {
+    --sectionPaddingTop: 140px;
+    --sectionPaddingBottom: 144px;
+  }
+  @media (min-width: 1366px) {
+    --sectionPaddingTop: 173px;
+    --sectionPaddingBottom: 237px;
+  }
+  @media (min-width: 1700px) {
+    --sectionPaddingTop: 215px;
+    --sectionPaddingBottom: 166px;
+  }
+}
+
+/* About */
+
 .about {
   .about-row {
     display: flex;
@@ -792,4 +818,12 @@
       margin-bottom: 70px;
     }
   }
+}
+
+/* Events page */
+
+.events-inner {
+  --sectionPaddingBottom: 188px;
+  --sectionPaddingTop: 158px;
+  padding-top: var(--sectionPaddingTop);
 }

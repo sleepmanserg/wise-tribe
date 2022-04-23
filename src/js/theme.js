@@ -324,8 +324,10 @@ const enableSwiper = function () {
 
 // keep an eye on viewport size changes
 breakpoint.addListener(breakpointChecker);
+if (blogSidebarSlider) {
+	// kickstart
+}
 
-// kickstart
 breakpointChecker();
 
 
@@ -421,3 +423,26 @@ function checkForWindowResize() {
 }
 
 window.addEventListener('resize', checkForWindowResize);
+
+
+/** Load more button */
+
+const loadmore = document.querySelector('#loadmore');
+let currentItems = 9;
+if (loadmore) {
+	loadmore.addEventListener('click', (e) => {
+		console.log('hello')
+		const elementList = [...document.querySelectorAll('.events-grid .events-card')];
+		for (let i = currentItems; i < currentItems + 3; i++) {
+			if (elementList[i]) {
+				elementList[i].style.display = 'block';
+			}
+		}
+		currentItems += 3;
+
+		// Load more button will be hidden after list fully loaded
+		if (currentItems >= elementList.length) {
+			event.target.style.display = 'none';
+		}
+	});
+}

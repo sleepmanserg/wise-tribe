@@ -1,15 +1,20 @@
 .article {
   --sectionPaddingBottom: 60px;
+  --sectionPaddingTop: 58px;
+  padding-top: var(--sectionPaddingTop);
   @media (min-width: 768px) {
     --sectionPaddingBottom: 90px;
+    --sectionPaddingTop: 88px;
   }
   @media (min-width: 1024px) {
     --sectionPaddingBottom: 110px;
   }
   @media (min-width: 1366px) {
+    --sectionPaddingTop: 108px;
     --sectionPaddingBottom: 130px;
   }
   @media (min-width: 1700px) {
+    --sectionPaddingTop: 155px;
     --sectionPaddingBottom: 160px;
   }
 }
@@ -22,6 +27,8 @@
     display: grid;
     grid-template-columns: auto 382px;
     gap: var(--articleGridGap);
+    max-width: 1760px;
+    margin: 0 auto;
   }
   @media (min-width: 1366px) {
     --articleGridGap: 3.25rem;

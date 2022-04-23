@@ -359,11 +359,15 @@
   span {
     &:not(.btn-blue__price) {
       font-weight: 600;
-      font-size: 18px;
+      font-size: 16px;
       line-height: 22px;
       color: #000022;
     }
   }
+}
+
+.load-more__btn {
+  margin-top: 120px;
 }
 
 .btn-white-glow {
