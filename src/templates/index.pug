@@ -9,77 +9,116 @@ append config
   //- ==============================
   //- ********* Settings END *******
 
+
 //- Page Content
 block content
-  section.hero
+  section.hero.position-relative
     .swiper.hero-slider
       .swiper-wrapper
         .swiper-slide
           .hero-slider__item
             .hero-slider__img
-              img(src="img/hero-slider/1.jpg", alt="Artist image")
-            .hero-slider__item-inner
-              .hero-slider__item-name Roma Nebo
-              .hero-slider__item-actions.slider-actions
-                .hero-slider__item-play.slider-actions__item PL
-                .hero-slider__item-info.slider-actions__item IN
+              img(src="img/hero-slider/01.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
         .swiper-slide
           .hero-slider__item
             .hero-slider__img
-              img(src="img/hero-slider/1.jpg", alt="Artist image")
-            .hero-slider__item-inner
-              .hero-slider__item-name Roma Nebo
-              .hero-slider__item-actions.slider-actions
-                .hero-slider__item-play.slider-actions__item PL
-                .hero-slider__item-info.slider-actions__item IN
+              img(src="img/hero-slider/02.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
         .swiper-slide
           .hero-slider__item
             .hero-slider__img
-              img(src="img/hero-slider/1.jpg", alt="Artist image")
-            .hero-slider__item-inner
-              .hero-slider__item-name Roma Nebo
-              .hero-slider__item-actions.slider-actions
-                .hero-slider__item-play.slider-actions__item PL
-                .hero-slider__item-info.slider-actions__item IN
+              img(src="img/hero-slider/03.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
         .swiper-slide
           .hero-slider__item
             .hero-slider__img
-              img(src="img/hero-slider/1.jpg", alt="Artist image")
-            .hero-slider__item-inner
-              .hero-slider__item-name Roma Nebo
-              .hero-slider__item-actions.slider-actions
-                .hero-slider__item-play.slider-actions__item PL
-                .hero-slider__item-info.slider-actions__item IN
+              img(src="img/hero-slider/04.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
         .swiper-slide
           .hero-slider__item
             .hero-slider__img
-              img(src="img/hero-slider/1.jpg", alt="Artist image")
-            .hero-slider__item-inner
-              .hero-slider__item-name Roma Nebo
-              .hero-slider__item-actions.slider-actions
-                .hero-slider__item-play.slider-actions__item PL
-                .hero-slider__item-info.slider-actions__item IN
+              img(src="img/hero-slider/05.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
         .swiper-slide
           .hero-slider__item
             .hero-slider__img
-              img(src="img/hero-slider/1.jpg", alt="Artist image")
-            .hero-slider__item-inner
-              .hero-slider__item-name Roma Nebo
-              .hero-slider__item-actions.slider-actions
-                .hero-slider__item-play.slider-actions__item PL
-                .hero-slider__item-info.slider-actions__item IN
+              img(src="img/hero-slider/01.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
         .swiper-slide
           .hero-slider__item
             .hero-slider__img
-              img(src="img/hero-slider/1.jpg", alt="Artist image")
-            .hero-slider__item-inner
-              .hero-slider__item-name Roma Nebo
-              .hero-slider__item-actions.slider-actions
-                .hero-slider__item-play.slider-actions__item PL
-                .hero-slider__item-info.slider-actions__item IN
-      .swiper-button-next
-      .swiper-button-prev
-      .swiper-pagination
+              img(src="img/hero-slider/04.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+        .swiper-slide
+          .hero-slider__item
+            .hero-slider__img
+              img(src="img/hero-slider/01.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+        .swiper-slide
+          .hero-slider__item
+            .hero-slider__img
+              img(src="img/hero-slider/02.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+        .swiper-slide
+          .hero-slider__item
+            .hero-slider__img
+              img(src="img/hero-slider/03.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+        .swiper-slide
+          .hero-slider__item
+            .hero-slider__img
+              img(src="img/hero-slider/04.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+        .swiper-slide
+          .hero-slider__item
+            .hero-slider__img
+              img(src="img/hero-slider/05.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+        .swiper-slide
+          .hero-slider__item
+            .hero-slider__img
+              img(src="img/hero-slider/01.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+        .swiper-slide
+          .hero-slider__item
+            .hero-slider__img
+              img(src="img/hero-slider/04.jpg", alt="Artist image")
+
+            include partials/slider-item-inner
+
+
+
+    .swiper-nav.d-flex.justify-content-center.align-items-center
+      .swiper-btn-prev PREV
+      .nav-notification Scroll to know more
+      .swiper-btn-next NEXT
   section.about
     .container
       .about-row
