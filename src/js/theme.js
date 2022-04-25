@@ -35,21 +35,16 @@ if (menuToggle) {
 
 const swiperMainHome = new Swiper(".hero-slider", {
 	effect: "coverflow",
-	slidesPerView: 6.5,
+	slidesPerView: 'auto',
 	grabCursor: true,
-	spaceBetween: 30,
 	autoHeight: true,
-	speed: 1000,
+	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: true,
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true
-	},
+	slideToClickedSlide: false,
 	navigation: {
-		nextEl: ".swiper-button-next",
-		prevEl: ".swiper-button-prev"
+		nextEl: ".swiper-btn-next",
+		prevEl: ".swiper-btn-prev"
 	},
 	coverflowEffect: {
 		rotate: 0,
@@ -92,6 +87,7 @@ const swiperEvents = new Swiper(".events-slider", {
 
 swiperEvents.on('slideChange', function () {
 	swiperHomeClassTweak(this.slides, this.activeIndex);
+	this.loopFix();
 });
 
 // Detect and add condition classes to slides
@@ -134,5 +130,5 @@ function swiperHomeClassTweak(slidesProp, activeSlide) {
 	let nextSlidesIndexes = slideKeys.slice(activeSlideIndex + 1, -1).slice(0, 3);
 	slides[nextSlidesIndexes[1]].classList.add('swiper-slide-next-n1');
 	slides[nextSlidesIndexes[2]].classList.add('swiper-slide-next-n2');
-};
+}
 
