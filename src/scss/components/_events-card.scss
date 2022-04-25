@@ -80,44 +80,6 @@
       font-weight: 600;
     }
   }
-  .events-card__date {
-    --eventsDateRadius: 50px;
-    --eventsDatePaddinInline: 28px;
-    --eventsDatePaddinBlock: 20px;
-    --eventsDateGap: 10px;
-    display: flex;
-    align-items: center;
-    column-gap: var(--eventsDateGap);
-    padding: var(--eventsDatePaddinBlock) var(--eventsDatePaddinInline);
-    border-radius: var(--eventsDateRadius);
-    overflow: hidden;
-    position: relative;
-    &::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(17, 17, 72, 0.6);
-      backdrop-filter: blur(23px);
-    }
-    > * {
-      position: relative;
-      z-index: 2;
-      font-weight: 300;
-      line-height: 140%;
-    }
-    i {
-      color: $blue;
-      text-shadow: 0px 0px 3px rgba(171, 239, 255, 0.7);
-      font-size: clamp(14px, calc(0.875rem + ((1vw - 3.2px) * 3.3981)), 21px);
-    }
-    span {
-      font-size: clamp(16px, calc(1rem + ((1vw - 3.2px) * 3.8835)), 24px);
-      opacity: 0.85;
-    }
-  }
   @media (min-width: 768px) {
     .events-card__body {
       padding: 22px 60px 30px;
@@ -143,5 +105,44 @@
     .events-card__body {
       padding: 32px 90px 44px;
     }
+  }
+}
+
+.events-card__date {
+  --eventsDateRadius: 50px;
+  --eventsDatePaddinInline: 28px;
+  --eventsDatePaddinBlock: 20px;
+  --eventsDateGap: 10px;
+  display: flex;
+  align-items: center;
+  column-gap: var(--eventsDateGap);
+  padding: var(--eventsDatePaddinBlock) var(--eventsDatePaddinInline);
+  border-radius: var(--eventsDateRadius);
+  overflow: hidden;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(17, 17, 72, 0.6);
+    backdrop-filter: blur(23px);
+  }
+  > * {
+    position: relative;
+    z-index: 2;
+    font-weight: 300;
+    line-height: 140%;
+  }
+  i {
+    color: $blue;
+    text-shadow: 0px 0px 3px rgba(171, 239, 255, 0.7);
+    font-size: clamp(14px, calc(0.875rem + ((1vw - 3.2px) * 3.3981)), 21px);
+  }
+  span {
+    font-size: clamp(16px, calc(1rem + ((1vw - 3.2px) * 3.8835)), 24px);
+    opacity: 0.85;
   }
 }

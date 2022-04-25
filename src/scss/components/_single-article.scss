@@ -1,6 +1,6 @@
 .article {
   --sectionPaddingBottom: 60px;
-  --sectionPaddingTop: 58px;
+  --sectionPaddingTop: 88px;
   padding-top: var(--sectionPaddingTop);
   @media (min-width: 768px) {
     --sectionPaddingBottom: 90px;
@@ -73,6 +73,12 @@
     .blog-label {
       font-size: clamp(0.875rem, 0.5vw, 1.125rem);
       padding: var(--labelPaddingBlock) var(--labelPaddingInline);
+      text-decoration: none;
+      box-shadow: none;
+      transition: 0.35s ease;
+      @include hover {
+        color: $white;
+      }
     }
   }
   .article-item__thumb {
@@ -114,7 +120,7 @@
         rgba(17, 18, 78, 0.3),
         rgba(17, 18, 78, 0.3)
       );
-      filter: blur(29px);
+      filter: blur(14px);
       border-radius: var(--articleMediaRadius);
     }
   }

@@ -2,6 +2,10 @@
   display: flex;
   border-radius: 45px;
   position: relative;
+  &::before,
+  &::after {
+    border-radius: inherit;
+  }
   &.become-artist__card {
     box-shadow: 0px 0px 171px rgba(0, 154, 241, 0.2);
     overflow: hidden;
@@ -13,7 +17,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 45px;
       background-image: url("../img/become-artist.png");
       background-size: cover;
       background-repeat: no-repeat;
@@ -153,6 +156,35 @@
       }
     }
   }
+  &.events-about__card {
+    text-align: left;
+    flex-direction: column;
+    padding: 40px 28px 46px;
+    box-shadow: 0px 0px 171px rgba(0, 154, 241, 0.2);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/events/about-event.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 30% center;
+      opacity: 1;
+      z-index: 1;
+    }
+    .info-card__title {
+      margin-bottom: 20px;
+    }
+    .info-card__subtitle {
+      margin-bottom: 15px;
+    }
+    > * {
+      z-index: 2;
+    }
+  }
   .info-card__title {
     position: relative;
     z-index: 1;
@@ -165,23 +197,52 @@
 
   @media (min-width: 768px) {
     border-radius: 60px;
-    &::before,
-    &::after {
-      border-radius: 60px;
+    &.events-about__card {
+      padding: 60px 50px;
+      &::before {
+        background-position: right center;
+      }
+      .events-about__card-caption {
+        max-width: 416px;
+      }
+      .info-card__title {
+        margin-bottom: 28px;
+      }
+      .info-card__subtitle {
+        margin-bottom: 20px;
+      }
     }
   }
   @media (min-width: 1024px) {
     border-radius: 80px;
-    &::before,
-    &::after {
-      border-radius: 80px;
+    &.events-about__card {
+      padding: 80px 60px 90px;
+      .events-about__card-caption {
+        max-width: 555px;
+      }
+      .info-card__title {
+        margin-bottom: 40px;
+      }
     }
   }
   @media (min-width: 1366px) {
     border-radius: 100px;
-    &::before,
-    &::after {
-      border-radius: 100px;
+    &.events-about__card {
+      padding: 100px 60px 110px;
+      .events-about__card-caption {
+        max-width: 750px;
+      }
+      .info-card__title {
+        margin-bottom: 50px;
+      }
+    }
+  }
+  @media (min-width: 1700px) {
+    &.events-about__card {
+      padding: 100px 80px 110px;
+      .events-about__card-caption {
+        max-width: 900px;
+      }
     }
   }
 }

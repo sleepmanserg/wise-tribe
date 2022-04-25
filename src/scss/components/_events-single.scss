@@ -1,0 +1,218 @@
+// .events-single__grid {
+//   display: grid;
+//   grid-template-columns: 1fr;
+// }
+
+.events-single__row {
+  padding: 32px 0 20px;
+  @media (min-width: 1024px) {
+    padding-top: 111px;
+  }
+  @media (min-width: 1366px) {
+    padding-top: 180px;
+  }
+  @media (min-width: 1700px) {
+    padding-top: 205px;
+  }
+}
+
+.events-single__media {
+  display: flex;
+  justify-content: center;
+}
+
+.events-single__thumb {
+  padding: 50px;
+  position: relative;
+  border-radius: 100%;
+  display: inline-block;
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: inherit;
+    border: 2px solid $blue;
+    opacity: 0.2;
+  }
+  &::before {
+    width: 270px;
+    height: 270px;
+  }
+  &::after {
+    width: 100%;
+    height: 100%;
+  }
+  .events-single__img {
+    border-radius: 100%;
+    position: relative;
+    width: 220px;
+    height: 220px;
+    background-size: cover;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(
+        0deg,
+        rgba(8, 8, 53, 0.3),
+        rgba(8, 8, 53, 0.3)
+      );
+      box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      outline: 2px solid $blue;
+      opacity: 0.3;
+    }
+  }
+  @media (min-width: 1024px) {
+    &::before {
+      width: 466px;
+      height: 466px;
+    }
+    &::after {
+      width: 540px;
+      height: 540px;
+    }
+    .events-single__img {
+      width: 380px;
+      height: 380px;
+    }
+  }
+  @media (min-width: 1366px) {
+    &::before {
+      width: 606px;
+      height: 606px;
+    }
+    &::after {
+      width: 726px;
+      height: 726px;
+    }
+    .events-single__img {
+      width: 495px;
+      height: 495px;
+    }
+  }
+  @media (min-width: 1700px) {
+    &::before {
+      width: 760px;
+      height: 760px;
+    }
+    &::after {
+      width: 915px;
+      height: 915px;
+    }
+    .events-single__img {
+      width: 615px;
+      height: 615px;
+    }
+  }
+}
+.events-single__description {
+  max-width: 644px;
+  width: 100%;
+  padding-top: 20px;
+  .section-title {
+    font-size: 28px;
+    line-height: 34px;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+  }
+  .section-subtitle {
+    text-transform: capitalize;
+    font-size: clamp(18px, calc(1.125rem + ((1vw - 3.6px) * 1.7143)), 42px);
+    line-height: 120%;
+    font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .section-text {
+    margin-bottom: 25px;
+  }
+  .btn {
+    display: inline-flex;
+  }
+  .events-card__date {
+    --eventsDatePaddinBlock: 13px;
+    padding-inline: 15px;
+    padding-block: var(--eventsDatePaddinBlock);
+    width: max-content;
+    display: inline-flex;
+    justify-content: center;
+    background: rgba(77, 122, 222, 0.2);
+    box-shadow: 0px 0px 64px rgba(0, 154, 241, 0.3);
+    backdrop-filter: blur(23px);
+    span {
+      font-size: 14px;
+    }
+  }
+  @media (min-width: 768px) {
+    padding-left: 20px;
+    padding-top: 0;
+    .section-title {
+      font-size: 42px;
+      line-height: 50px;
+    }
+    .section-text {
+      margin-bottom: 30px;
+    }
+  }
+  @media (min-width: 1024px) {
+    padding-left: 0;
+    .section-title {
+      font-size: 48px;
+      line-height: 58px;
+      margin-bottom: 25px;
+    }
+    .section-subtitle {
+      margin-bottom: 20px;
+    }
+    .events-card__date {
+      width: 50%;
+    }
+  }
+  @media (min-width: 1366px) {
+    max-width: 100%;
+    .events-card__date {
+      width: 48%;
+    }
+  }
+  @media (min-width: 1700px) {
+    .section-title {
+      font-size: 62px;
+      line-height: 74px;
+      margin-bottom: 45px;
+    }
+    .section-text {
+      margin-bottom: 60px;
+    }
+    .events-card__date {
+      padding-inline: 42px;
+      width: max-content;
+    }
+  }
+}
+.events-single__labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+  @media (min-width: 1024px) {
+    margin-bottom: 50px;
+  }
+  @media (min-width: 1366px) {
+    margin-bottom: 70px;
+  }
+}

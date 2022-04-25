@@ -258,22 +258,6 @@
   }
 }
 
-.become-artist {
-  // padding-top: 280px;
-  // @media (min-width: 320px) {
-  //   padding-top: 80px;
-  // }
-  // @media (min-width: 1024px) {
-  //   padding-top: 120px;
-  // }
-  // @media (min-width: 1366px) {
-  //   padding-top: 183px;
-  // }
-  // @media (min-width: 1700px) {
-  //   padding-top: 280px;
-  // }
-}
-
 /* Events section */
 
 .events {
@@ -823,7 +807,60 @@
 /* Events page */
 
 .events-inner {
-  --sectionPaddingBottom: 188px;
-  --sectionPaddingTop: 158px;
+  --sectionPaddingBottom: 78px;
+  --sectionPaddingTop: 109px;
   padding-top: var(--sectionPaddingTop);
+  padding-bottom: var(--sectionPaddingBottom);
+  .load-more__btn {
+    --loadMoreBtnMargin: 65px;
+    margin-top: var(--loadMoreBtnMargin);
+    @media (min-width: 768px) {
+      --loadMoreBtnMargin: 80px;
+    }
+    @media (min-width: 1366px) {
+      --loadMoreBtnMargin: 100px;
+    }
+    @media (min-width: 1700px) {
+      --loadMoreBtnMargin: 120px;
+    }
+  }
+  @media (min-width: 768px) {
+    --sectionPaddingBottom: 107px;
+    --sectionPaddingTop: 140px;
+  }
+  @media (min-width: 1024px) {
+    --sectionPaddingBottom: 96px;
+    --sectionPaddingTop: 140px;
+  }
+  @media (min-width: 1366px) {
+    --sectionPaddingBottom: 104px;
+    --sectionPaddingTop: 188px;
+  }
+  @media (min-width: 1700px) {
+    --sectionPaddingBottom: 130px;
+    --sectionPaddingTop: 235px;
+  }
+}
+
+/* Events single */
+
+.events-single {
+  --sectionPaddingTop: 74px;
+  --sectionPaddingBottom: 88px;
+  padding-top: var(--sectionPaddingTop);
+  @media (min-width: 768px) {
+    --sectionPaddingTop: 88px;
+    --sectionPaddingBottom: 150px;
+  }
+  @media (min-width: 1024px) {
+    --sectionPaddingBottom: 170px;
+  }
+  @media (min-width: 1366px) {
+    --sectionPaddingTop: 108px;
+    --sectionPaddingBottom: 200px;
+  }
+  @media (min-width: 1700px) {
+    --sectionPaddingTop: 155px;
+    --sectionPaddingBottom: 240px;
+  }
 }

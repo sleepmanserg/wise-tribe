@@ -323,10 +323,8 @@ const enableSwiper = function () {
 };
 
 // keep an eye on viewport size changes
+
 breakpoint.addListener(breakpointChecker);
-if (blogSidebarSlider) {
-	// kickstart
-}
 
 breakpointChecker();
 

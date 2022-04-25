@@ -92,6 +92,8 @@
     width: calc(100% - 65px);
     height: 25px;
     border-top-left-radius: 45px;
+    z-index: 1;
+    transition: 0.35s ease;
   }
   &::before {
     content: "";
@@ -103,6 +105,8 @@
     width: calc(100% - 25px);
     height: 25px;
     border-bottom-left-radius: 45px;
+    z-index: 1;
+    transition: 0.35s ease;
   }
   .btn-glow {
     color: $white;
@@ -135,6 +139,8 @@
         height: 25px;
         border-top-left-radius: 45px;
         filter: blur(5px);
+        transition: 0.35s ease;
+        z-index: 9;
       }
       &::before {
         content: "";
@@ -147,6 +153,7 @@
         height: 25px;
         border-bottom-left-radius: 45px;
         filter: blur(5px);
+        transition: 0.35s ease;
       }
     }
     .btn-glow__text {
@@ -162,6 +169,7 @@
       pointer-events: none;
       padding-left: 36px;
       padding-right: 36px;
+      transition: 0.35s ease;
       &::after {
         content: "";
         position: absolute;
@@ -173,6 +181,7 @@
         height: 25px;
         border-top-right-radius: 45px;
         filter: blur(5px);
+        transition: 0.35s ease;
       }
       &::before {
         content: "";
@@ -185,6 +194,7 @@
         height: 25px;
         border-bottom-right-radius: 45px;
         filter: blur(5px);
+        transition: 0.35s ease;
       }
       @media (max-width: 1650px) {
         // padding-left: 20px;
@@ -203,6 +213,7 @@
       width: 45px;
       height: 25px;
       border-top-right-radius: 45px;
+      transition: 0.35s ease;
     }
     &::before {
       content: "";
@@ -214,6 +225,7 @@
       width: 50px;
       height: 25px;
       border-bottom-right-radius: 45px;
+      transition: 0.35s ease;
     }
     @media (max-width: 1650px) {
       height: 44px;
@@ -231,6 +243,32 @@
       &::before {
         height: 22px;
       }
+    }
+  }
+  @include hover {
+    .btn-glow::after,
+    .btn-glow::before,
+    &::after,
+    &::before {
+      border-color: #009af1;
+    }
+    .btn-glow__text {
+      color: $blue;
+    }
+  }
+  &:active {
+    .btn-glow::after,
+    .btn-glow::before,
+    .btn-glow__inner::before,
+    .btn-glow__inner::after,
+    .btn-glow__text::before,
+    .btn-glow__text::after,
+    &::after,
+    &::before {
+      border-color: #009af1;
+    }
+    .btn-glow__text {
+      color: $blue;
     }
   }
 }
@@ -305,8 +343,15 @@
   color: $gray-dark;
   font-weight: 600;
   transition: 0.35s ease;
+  > * {
+    transition: 0.35s ease;
+  }
   @include hover {
-    box-shadow: 0px 4px 55px rgba(255, 255, 255, 0.41);
+    color: $dark-blue;
+  }
+  &:active {
+    background: linear-gradient(84.94deg, #ffffff -8.24%, #abefff 191.34%);
+    box-shadow: 0px 4px 27px rgba(255, 255, 255, 0.41);
   }
   @media (min-width: 768px) {
     padding: 12px 54px 11px;
@@ -357,6 +402,7 @@
     margin-left: 21px;
   }
   span {
+    transition: 0.35s;
     &:not(.btn-blue__price) {
       font-weight: 600;
       font-size: 16px;
@@ -364,10 +410,20 @@
       color: #000022;
     }
   }
-}
-
-.load-more__btn {
-  margin-top: 120px;
+  &:active {
+    span {
+      &.btn-blue__price {
+        color: $dark-blue;
+      }
+    }
+  }
+  @include hover {
+    span {
+      &:not(.btn-blue__price) {
+        color: $dark-blue;
+      }
+    }
+  }
 }
 
 .btn-white-glow {
