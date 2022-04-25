@@ -2,11 +2,48 @@
 // Header
 // --------------------------------------------------
 
+.site-header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.35s ease;
+    opacity: 0;
+    visibility: hidden;
+    background: radial-gradient(
+        54.68% 54.68% at 50% 45.32%,
+        #050547 0%,
+        #000022 100%
+      ),
+      #fff;
+  }
+  &.sticky {
+    &::after {
+      opacity: 0.9;
+      visibility: visible;
+    }
+    @media (min-width: 768px) {
+      .header-container {
+        padding: 20px 40px 20px;
+      }
+    }
+  }
+}
+
 .header-container {
   display: flex;
   align-items: center;
   padding-top: 49px;
   padding-bottom: 51px;
+  transition: 0.35s;
 }
 
 .header-logo {
@@ -14,6 +51,8 @@
   width: 100%;
   flex: 0 0 162px;
   height: 32px;
+  position: relative;
+  z-index: 2;
 }
 
 .header-inner {
@@ -23,11 +62,17 @@
   .triangle-wrapper {
     display: none;
   }
+  .header-shop {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 .header-nav {
   padding-left: 180px;
   padding-right: 200px;
+  z-index: 3;
+  position: relative;
   .header-nav__list {
     display: flex;
     column-gap: 60px;
@@ -46,6 +91,7 @@
   position: relative;
   font-weight: 600;
   padding: 0;
+  display: inline;
   &::before,
   &::after {
     content: "";
@@ -98,6 +144,16 @@
   }
 }
 
+.header-nav__link.active:not(.header-logo__link) {
+  &::after,
+  &::before {
+    opacity: 0.9;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 .header-languages {
   margin-left: auto;
   position: relative;
@@ -129,8 +185,11 @@
     transform: translateX(-50%) translateY(25px);
     background: linear-gradient(180deg, #0f0a39 0%, #0a0631 104.91%);
     opacity: 0;
+    visibility: hidden;
     transition: 0.25s;
     z-index: 4;
+    border-radius: 8px;
+    padding: 1px 0;
     .header-languages__link {
       padding: 9px 18px 11px;
       border-radius: 8px;
@@ -175,6 +234,9 @@
     text-decoration: none;
     z-index: 2;
     user-select: none;
+    max-width: calc(100% - 3px);
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -182,6 +244,7 @@
   &.active {
     .header-languages__dropdown {
       opacity: 1;
+      visibility: visible;
       transform: translateX(-50%) translateY(15px);
     }
     .header-languages__current {
@@ -334,6 +397,17 @@
       width: 100%;
       font-size: 36px;
       line-height: 43px;
+      &::after,
+      &::before {
+        transition: none;
+      }
+      &.active {
+        &::after,
+        &::before {
+          opacity: 1;
+          width: 100%;
+        }
+      }
       @include hover {
         &::after {
           opacity: 0;

@@ -125,10 +125,8 @@ block content
         .about-img
           picture
             source(srcset='img/about/about.webp' media='(min-width: 768px)' type='image/webp')
-            source(srcset='img/about/about.avif' media='(min-width: 768px)' type='image/avif')
             source(srcset='img/about/about.png' media='(min-width: 768px)')
             source(srcset='img/about/about.webp' type='image/webp')
-            source(srcset='img/about/about.avif' type='image/avif')
             img(src='img/about/about.png')
         .about-caption
           h2.section-title About Wise Music
@@ -137,6 +135,7 @@ block content
             |  is a record label dedicated to recording and promoting cross-cultural high vibrational music. With unique sounds, inspirational lyrics, and passionate personalities expect unique music dedicated to raising the awareness of the world around us.
 
   section.events
+    h2.section-title.text-center Coming events
     .swiper.events-slider
       .swiper-wrapper
         .swiper-slide
@@ -229,8 +228,13 @@ block content
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
-      .swiper-button-next.events-button-next Next
-      .swiper-button-prev.events-button-prev Prev
+    .slider-navigation.justify-content-between.px-5
+      .slider-button-prev.events-button-prev
+        .arrow-button.arrow-button__prev
+          span Prev
+      .slider-button-next.events-button-next
+        .arrow-button.arrow-button__next
+          span Next
 
   section.releases
     .container
@@ -241,15 +245,90 @@ block content
             h4.section-subtitle.release-subtitle Explore the latest tracks artists
             p.section-text.releases-text.opacity-7 We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.
         .col-md-6
+  section.studio
+    .swiper.studio-slider
+      .swiper-wrapper
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+        .swiper-slide
+          .studio-slider__item
+            .studio-slider__img
+              picture
+                source(srcset='img/studio-slider/1.webp' type='image/webp')
+                img(src='img/studio-slider/1.jpg')
+            .studio-slider__caption
+              .section-title.studio-slider__title W1SE STUDIO
+              .section-subtitle.studio-slider__subtitle We provide high-quality sound
+              .section-text.opacity-7 W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.
+              a(href="#").btn.btn-light
+                span Book now
+      .slider-pagination.studio-pagination
+
   section.become-artist
     .container
       .become-artist__card.info-card
         .become-artist__card-caption
-          h4.section-title.info-card__title Become an artist of Wise Music!
-          h5.section-subtitle.info-card__subtitle We provide artists with the best
+          .section-title.info-card__title Become an artist of Wise Music!
+          .section-subtitle.info-card__subtitle We provide artists with the best
           p.info-card__text.section-text.opacity-7 Employees have experience in promoting great artists, teams, working with them. So hitting the radio or writing a hit song on a label can take much less time.
           a(href="#").btn.btn-light
             span Start now
+  section.experience.parallax-wrap
+    .container
+      .experience-caption
+        h2.section-title.text-center WISE MUSIC Experience
+        .section-text.opacity-7.text-center We want to create a large-scale music-show that the world has not seen yet.
+      .experience-circle.circle-parallax
+        .circle-parallax__bg
+          picture
+            source(srcset='img/circle/circle-bg.webp' type='image/webp')
+            img(src='img/circle/circle-bg.jpg')
+        .circle-parallax__figure.circle-parallax__figure-first.parallax(data-speed="-150" data-parallax-disallow="y")
+          svg(width='766' height='727' viewBox='0 0 766 727' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M764 363.5L691.235 587.537L500.735 726H265.264L74.7645 587.537L2 363.5L74.7645 139.463L265.264 1L500.735 1L691.235 139.463L764 363.5Z' fill='#040435')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M264.939 0H501.06L692.086 138.845L765.051 363.5L692.086 588.155L501.06 727H264.939L73.9135 588.155L0.948242 363.5L73.9135 138.845L264.939 0ZM265.589 2L75.6149 140.081L3.05108 363.5L75.6149 586.919L265.589 725H500.41L690.384 586.919L762.948 363.5L690.384 140.081L500.41 2H265.589Z' fill='#ABEFFF' fill-opacity='0.7')
+        .circle-parallax__figure.circle-parallax__figure-second.parallax(data-speed="-90" data-parallax-disallow="y")
+          svg(width='604' height='575' viewBox='0 0 604 575' fill='none' xmlns='http://www.w3.org/2000/svg')
+            path(fill-rule='evenodd' clip-rule='evenodd' d='M208.824 0.5H395.177L545.94 110.124L603.476 287.346L603 287.5L603.476 287.654L545.94 464.876L395.177 574.5H208.824L58.0608 464.876L0.474609 287.5L58.0608 110.124L208.824 0.5ZM602.475 287.5L545.089 110.742L394.852 1.5H209.149L58.9116 110.742L1.52599 287.5L58.9116 464.258L209.149 573.5H394.852L545.089 464.258L602.475 287.5Z' fill='#ABEFFF' fill-opacity='0.3')
+
+
+        .experience-circle__inner
+          .experience-circle__title.gradient-title w1se show
+          a(href="#").btn.btn-white-glow Get member
 
 
 

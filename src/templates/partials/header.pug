@@ -2,21 +2,21 @@
 header.site-header
   .container.header-container
     .header-logo
-      a(href="/").header-logo__link
+      a(href="index.html").header-logo__link
         img(src="img/logo.svg", alt="Wise Music")
     .header-inner
       nav.header-nav
         ul.header-nav__list
           li.header-nav__item
-            a(href="#").nav-link.header-nav__link Events
+            a.nav-link.header-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html") Events
           li.header-nav__item
-            a(href="#").nav-link.header-nav__link Artists
+            a(href="artists.html").nav-link.header-nav__link Artists
           li.header-nav__item
-            a(href="#").nav-link.header-nav__link Blog
+            a.nav-link.header-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html") Blog
           li.header-nav__item
-            a(href="#").nav-link.header-nav__link Cooperation
+            a(href="cooperation.html").nav-link.header-nav__link Cooperation
           li.header-nav__item
-            a(href="#").nav-link.header-nav__link Charity
+            a.nav-link.header-nav__link(class=(pageTitle === 'Charity') ? "active" : "nav-link" href="charity.html") Charity
 
       .header-shop
         a(href="#").shop__btn

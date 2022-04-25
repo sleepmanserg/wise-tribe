@@ -4,11 +4,13 @@
 
 .footer {
   .footer-top {
-    display: flex;
-    justify-content: space-between;
+    --footerPaddingBottom: 20px;
+    display: grid;
+    grid-template-columns: 100px auto 0.15fr;
     align-items: center;
-    padding-bottom: 60px;
+    padding-bottom: var(--footerPaddingBottom);
     position: relative;
+    gap: var(--footerNavGap);
     &::after {
       content: "";
       position: absolute;
@@ -21,22 +23,170 @@
       filter: blur(2px);
     }
   }
+
   .footer-nav__list {
+    display: none;
+    --footerNavGap: 20px;
+    gap: var(--footerNavGap);
+  }
+
+  .footer-nav {
+    margin: 0 auto;
     display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    column-gap: 70px;
+    justify-content: center;
   }
   .footer-nav__link {
     color: var(--white);
     text-shadow: 0px 0px 8px rgba(171, 239, 255, 0.7);
-    font-size: 18px;
-    line-height: 22px;
     font-weight: 600;
     text-decoration: none;
+    font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  }
+  .footer-nav__link.active:not(.footer-logo__link) {
+    &::after,
+    &::before {
+      opacity: 0.9;
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .footer-socials {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 20px;
+    .footer-socials__link {
+      text-decoration: none;
+      color: $blue;
+      font-size: 20px;
+      transition: 0.25s;
+      @include hover {
+        color: darken($blue, 10%);
+      }
+    }
   }
   .footer-bottom {
-    padding: 60px 0 129px;
+    --footerBottomGap: 12px;
+    --footerBottomPaddingTop: 20px;
+    --footerBottomPaddingBottom: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--footerBottomPaddingTop) 0 var(--footerBottomPaddingBottom);
+    > * {
+      width: 100%;
+      text-align: center;
+    }
+    > div {
+      margin-bottom: var(--footerBottomGap);
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .footer-text {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    line-height: 150%;
+    color: $white;
+  }
+  .footer-copyright {
+    display: flex;
+    justify-content: center;
+    column-gap: 5px;
+  }
+  .footer-policy {
+    .footer-link {
+      font-weight: 300;
+    }
+  }
+  .footer-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 6px;
+    font-size: clamp(0.75rem, 2vw, 1.125rem);
+    line-height: 150%;
+    font-weight: 600;
+  }
+  .footer-link {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    line-height: 150%;
+    color: $white;
+    font-weight: 400;
+  }
+  .footer-mail {
+    font-size: 18px;
+    line-height: 150%;
+    color: $blue;
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      --footerPaddingBottom: 27px;
+    }
+    .footer-nav__list {
+      --footerNavGap: 30px;
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-bottom {
+      flex-direction: row;
+      align-items: center;
+      --footerBottomPaddingTop: 25px;
+      --footerBottomPaddingBottom: 90px;
+      > div {
+        margin-bottom: 0;
+      }
+    }
+    .footer-copyright {
+      order: 1;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .footer-contact {
+      order: 3;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .footer-policy {
+      order: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    .footer-top {
+      --footerPaddingBottom: 42px;
+    }
+    .footer-nav__list {
+      --footerNavGap: 40px;
+    }
+  }
+  @media (min-width: 1366px) {
+    .footer-top {
+      grid-template-columns: 132px auto 0.15fr;
+      --footerPaddingBottom: 52px;
+    }
+    .footer-nav__list {
+      --footerNavGap: 60px;
+    }
+    .footer-bottom {
+      --footerBottomPaddingTop: 50px;
+    }
+  }
+  @media (min-width: 1700px) {
+    .footer-top {
+      grid-template-columns: 162px auto 0.15fr;
+      --footerPaddingBottom: 60px;
+    }
+    .footer-nav__list {
+      --footerNavGap: 70px;
+    }
+    .footer-bottom {
+      --footerBottomPaddingTop: 60px;
+      --footerBottomPaddingBottom: 120px;
+    }
   }
 }

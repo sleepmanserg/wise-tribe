@@ -16,15 +16,15 @@
     <!-- Site Header-->
     <header class="site-header">
       <div class="container header-container">
-        <div class="header-logo"><a class="header-logo__link" href="/"><img src="img/logo.svg" alt="Wise Music"></a></div>
+        <div class="header-logo"><a class="header-logo__link" href="index.html"><img src="img/logo.svg" alt="Wise Music"></a></div>
         <div class="header-inner">
           <nav class="header-nav">
             <ul class="header-nav__list">
-              <li class="header-nav__item"><a class="nav-link header-nav__link" href="#">Events</a></li>
-              <li class="header-nav__item"><a class="nav-link header-nav__link" href="#">Artists</a></li>
-              <li class="header-nav__item"><a class="nav-link header-nav__link" href="#">Blog</a></li>
-              <li class="header-nav__item"><a class="nav-link header-nav__link" href="#">Cooperation</a></li>
-              <li class="header-nav__item"><a class="nav-link header-nav__link" href="#">Charity</a></li>
+              <li class="header-nav__item"><a class="nav-link header-nav__link nav-link" href="events.html">Events</a></li>
+              <li class="header-nav__item"><a class="nav-link header-nav__link" href="artists.html">Artists</a></li>
+              <li class="header-nav__item"><a class="nav-link header-nav__link nav-link" href="blog.html">Blog</a></li>
+              <li class="header-nav__item"><a class="nav-link header-nav__link" href="cooperation.html">Cooperation</a></li>
+              <li class="header-nav__item"><a class="nav-link header-nav__link nav-link" href="charity.html">Charity</a></li>
             </ul>
           </nav>
           <div class="header-shop"><a class="shop__btn" href="#"><span>Shop</span><span>soon</span></a></div>
@@ -411,10 +411,8 @@
             <div class="about-img">
               <picture>
                 <source srcset="img/about/about.webp" media="(min-width: 768px)" type="image/webp">
-                <source srcset="img/about/about.avif" media="(min-width: 768px)" type="image/avif">
                 <source srcset="img/about/about.png" media="(min-width: 768px)">
-                <source srcset="img/about/about.webp" type="image/webp">
-                <source srcset="img/about/about.avif" type="image/avif"><img src="img/about/about.png">
+                <source srcset="img/about/about.webp" type="image/webp"><img src="img/about/about.png">
               </picture>
             </div>
             <div class="about-caption">
@@ -425,6 +423,7 @@
         </div>
       </section>
       <section class="events">
+        <h2 class="section-title text-center">Coming events</h2>
         <div class="swiper events-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -500,8 +499,14 @@
               </div>
             </div>
           </div>
-          <div class="swiper-button-next events-button-next">Next</div>
-          <div class="swiper-button-prev events-button-prev">Prev</div>
+        </div>
+        <div class="slider-navigation justify-content-between px-5">
+          <div class="slider-button-prev events-button-prev">
+            <div class="arrow-button arrow-button__prev"><span>Prev</span></div>
+          </div>
+          <div class="slider-button-next events-button-next">
+            <div class="arrow-button arrow-button__next"><span>Next</span></div>
+          </div>
         </div>
       </section>
       <section class="releases">
@@ -518,13 +523,105 @@
           </div>
         </div>
       </section>
+      <section class="studio">
+        <div class="swiper studio-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="studio-slider__item">
+                <div class="studio-slider__img">
+                  <picture>
+                    <source srcset="img/studio-slider/1.webp" type="image/webp"><img src="img/studio-slider/1.jpg">
+                  </picture>
+                </div>
+                <div class="studio-slider__caption">
+                  <div class="section-title studio-slider__title">W1SE STUDIO</div>
+                  <div class="section-subtitle studio-slider__subtitle">We provide high-quality sound</div>
+                  <div class="section-text opacity-7">W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.</div><a class="btn btn-light" href="#"><span>Book now</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="studio-slider__item">
+                <div class="studio-slider__img">
+                  <picture>
+                    <source srcset="img/studio-slider/1.webp" type="image/webp"><img src="img/studio-slider/1.jpg">
+                  </picture>
+                </div>
+                <div class="studio-slider__caption">
+                  <div class="section-title studio-slider__title">W1SE STUDIO</div>
+                  <div class="section-subtitle studio-slider__subtitle">We provide high-quality sound</div>
+                  <div class="section-text opacity-7">W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.</div><a class="btn btn-light" href="#"><span>Book now</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="studio-slider__item">
+                <div class="studio-slider__img">
+                  <picture>
+                    <source srcset="img/studio-slider/1.webp" type="image/webp"><img src="img/studio-slider/1.jpg">
+                  </picture>
+                </div>
+                <div class="studio-slider__caption">
+                  <div class="section-title studio-slider__title">W1SE STUDIO</div>
+                  <div class="section-subtitle studio-slider__subtitle">We provide high-quality sound</div>
+                  <div class="section-text opacity-7">W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.</div><a class="btn btn-light" href="#"><span>Book now</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="studio-slider__item">
+                <div class="studio-slider__img">
+                  <picture>
+                    <source srcset="img/studio-slider/1.webp" type="image/webp"><img src="img/studio-slider/1.jpg">
+                  </picture>
+                </div>
+                <div class="studio-slider__caption">
+                  <div class="section-title studio-slider__title">W1SE STUDIO</div>
+                  <div class="section-subtitle studio-slider__subtitle">We provide high-quality sound</div>
+                  <div class="section-text opacity-7">W1SE STUDIO is a state of art modern music studio in Solana Beach, CA with a unique design and atmosphere that contributes to the creation of highly vibrational music.</div><a class="btn btn-light" href="#"><span>Book now</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-pagination studio-pagination"></div>
+        </div>
+      </section>
       <section class="become-artist">
         <div class="container">
           <div class="become-artist__card info-card">
             <div class="become-artist__card-caption">
-              <h4 class="section-title info-card__title">Become an artist of Wise Music!</h4>
-              <h5 class="section-subtitle info-card__subtitle">We provide artists with the best</h5>
+              <div class="section-title info-card__title">Become an artist of Wise Music!</div>
+              <div class="section-subtitle info-card__subtitle">We provide artists with the best</div>
               <p class="info-card__text section-text opacity-7">Employees have experience in promoting great artists, teams, working with them. So hitting the radio or writing a hit song on a label can take much less time.</p><a class="btn btn-light" href="#"><span>Start now</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="experience parallax-wrap">
+        <div class="container">
+          <div class="experience-caption">
+            <h2 class="section-title text-center">WISE MUSIC Experience</h2>
+            <div class="section-text opacity-7 text-center">We want to create a large-scale music-show that the world has not seen yet.</div>
+          </div>
+          <div class="experience-circle circle-parallax">
+            <div class="circle-parallax__bg">
+              <picture>
+                <source srcset="img/circle/circle-bg.webp" type="image/webp"><img src="img/circle/circle-bg.jpg">
+              </picture>
+            </div>
+            <div class="circle-parallax__figure circle-parallax__figure-first parallax" data-speed="-150" data-parallax-disallow="y">
+              <svg width="766" height="727" viewBox="0 0 766 727" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M764 363.5L691.235 587.537L500.735 726H265.264L74.7645 587.537L2 363.5L74.7645 139.463L265.264 1L500.735 1L691.235 139.463L764 363.5Z" fill="#040435"></path>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M264.939 0H501.06L692.086 138.845L765.051 363.5L692.086 588.155L501.06 727H264.939L73.9135 588.155L0.948242 363.5L73.9135 138.845L264.939 0ZM265.589 2L75.6149 140.081L3.05108 363.5L75.6149 586.919L265.589 725H500.41L690.384 586.919L762.948 363.5L690.384 140.081L500.41 2H265.589Z" fill="#ABEFFF" fill-opacity="0.7"></path>
+              </svg>
+            </div>
+            <div class="circle-parallax__figure circle-parallax__figure-second parallax" data-speed="-90" data-parallax-disallow="y">
+              <svg width="604" height="575" viewBox="0 0 604 575" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M208.824 0.5H395.177L545.94 110.124L603.476 287.346L603 287.5L603.476 287.654L545.94 464.876L395.177 574.5H208.824L58.0608 464.876L0.474609 287.5L58.0608 110.124L208.824 0.5ZM602.475 287.5L545.089 110.742L394.852 1.5H209.149L58.9116 110.742L1.52599 287.5L58.9116 464.258L209.149 573.5H394.852L545.089 464.258L602.475 287.5Z" fill="#ABEFFF" fill-opacity="0.3"></path>
+              </svg>
+            </div>
+            <div class="experience-circle__inner">
+              <div class="experience-circle__title gradient-title">w1se show</div><a class="btn btn-white-glow" href="#">Get member</a>
             </div>
           </div>
         </div>
@@ -534,19 +631,23 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-top">
-          <div class="footer-logo"><a class="footer-logo__link" href="#"><img src="./img/logo.svg" alt=""></a></div>
+          <div class="footer-logo"><a class="footer-logo__link" href="index.html"><img src="./img/logo.svg" alt=""></a></div>
           <nav class="footer-nav">
             <ul class="footer-nav__list">
-              <li class="footer-nav__list-item"><a class="nav-link footer-nav__link" href="#">Events</a></li>
+              <li class="footer-nav__list-item"><a class="nav-link footer-nav__link nav-link" href="events.html"> Events</a></li>
               <li class="footer-nav__list-item"><a class="nav-link footer-nav__link" href="#">Artists</a></li>
-              <li class="footer-nav__list-item"><a class="nav-link footer-nav__link" href="#">Blog</a></li>
+              <li class="footer-nav__list-item"><a class="nav-link footer-nav__link nav-link" href="blog.html">Blog</a></li>
               <li class="footer-nav__list-item"><a class="nav-link footer-nav__link" href="#">Сooperation</a></li>
-              <li class="footer-nav__list-item"><a class="nav-link footer-nav__link" href="#">Charity</a></li>
+              <li class="footer-nav__list-item"><a class="nav-link footer-nav__link nav-link" href="charity.html">Charity</a></li>
             </ul>
           </nav>
-          <div class="footer-socials"><a class="footer-socials__link" href="#">FB</a><a class="footer-socials__link" href="#">INS</a></div>
+          <div class="socials footer-socials"><a class="footer-socials__link" href="#"><i class="icon-facebook"></i></a><a class="footer-socials__link" href="#"><i class="icon-instagram"></i></a></div>
         </div>
-        <div class="footer-bottom"></div>
+        <div class="footer-bottom">
+          <div class="footer-copyright"><span class="footer-text">© Wise Music, 2021.</span><span class="footer-text">All rights reserved.</span></div>
+          <div class="footer-contact"><span class="footer-text">Contact us easily</span><a class="footer-mail text-center" href="mailto:wise@tribe.com">wise@tribe.com</a></div>
+          <div class="footer-policy"><a class="footer-link" href="#">Privacy Policy</a></div>
+        </div>
       </div>
     </footer>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->

@@ -9,11 +9,12 @@ html * {
 
 body {
   background: radial-gradient(
-      54.68% 54.68% at 50% 45.32%,
-      #050547 0%,
-      #000022 100%
+      81.91% 108.97% at 23.88% 18.09%,
+      rgba(255, 255, 255, 0.126) 0%,
+      rgba(255, 255, 255, 0) 100%
     ),
-    $white;
+    radial-gradient(54.68% 54.68% at 50% 45.32%, #050547 0%, #000022 100%),
+    #ffffff;
   font-family: $font-family;
   display: flex;
   flex-direction: column;
@@ -38,13 +39,19 @@ cite {
   font-style: normal;
 }
 
+section {
+  --sectionPaddingBottom: 100px;
+  --sectionPaddingTop: 100px;
+  padding-bottom: var(--sectionPaddingBottom);
+}
+
 .container {
   padding: 0 40px;
   @media (max-width: 1700px) {
     width: 100%;
     max-width: 100%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     padding: 0 20px;
   }
 }

@@ -3,22 +3,32 @@ footer.footer
   .container
     .footer-top
       .footer-logo
-        a(href="#").footer-logo__link
+        a(href="index.html").footer-logo__link
           img(src="./img/logo.svg", alt="")
       nav.footer-nav
         ul.footer-nav__list
           li.footer-nav__list-item
-            a(href="#").nav-link.footer-nav__link Events
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html")  Events
           li.footer-nav__list-item
             a(href="#").nav-link.footer-nav__link Artists
           li.footer-nav__list-item
-            a(href="#").nav-link.footer-nav__link Blog
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html") Blog
           li.footer-nav__list-item
             a(href="#").nav-link.footer-nav__link Сooperation
           li.footer-nav__list-item
-            a(href="#").nav-link.footer-nav__link Charity
-      .footer-socials
-        a(href="#").footer-socials__link FB
-        a(href="#").footer-socials__link INS
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Charity') ? "active" : "nav-link" href="charity.html") Charity
+      .socials.footer-socials
+        a(href="#").footer-socials__link
+          i.icon-facebook
+        a(href="#").footer-socials__link
+          i.icon-instagram
     .footer-bottom
+      .footer-copyright
+        span.footer-text © Wise Music, 2021.
+        span.footer-text All rights reserved.
+      .footer-contact
+        span.footer-text Contact us easily
+        a(href="mailto:wise@tribe.com").footer-mail.text-center wise@tribe.com
+      .footer-policy
+        a(href="#").footer-link Privacy Policy
 
