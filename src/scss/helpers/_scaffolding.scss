@@ -43,6 +43,18 @@ section {
   --sectionPaddingBottom: 100px;
   --sectionPaddingTop: 100px;
   padding-bottom: var(--sectionPaddingBottom);
+  @media (max-width: 1367px) {
+    --sectionPaddingBottom: 80px;
+    --sectionPaddingTop: 80px;
+  }
+  @media (max-width: 1024px) {
+    --sectionPaddingBottom: 60px;
+    --sectionPaddingTop: 60px;
+  }
+  @media (max-width: 767px) {
+    --sectionPaddingBottom: 50px;
+    --sectionPaddingTop: 50px;
+  }
 }
 
 .container {

@@ -186,7 +186,8 @@
   @media (min-width: 1366px) {
     max-width: 100%;
     .events-card__date {
-      width: 48%;
+      width: max-content;
+      padding-inline: 30px;
     }
   }
   @media (min-width: 1700px) {

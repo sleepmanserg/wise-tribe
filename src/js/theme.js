@@ -89,12 +89,14 @@ swiperMainHome.on('slideChange', function () {
 /** Events slider */
 
 const swiperEvents = new Swiper(".events-slider", {
-	effect: "coverflow",
-	slidesPerView: 5,
-	spaceBetween: 35,
+	slidesPerView: 'auto',
+	grabCursor: true,
+	autoHeight: true,
+	spaceBetween: 45,
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
+	slideToClickedSlide: false,
 	coverflowEffect: {
 		rotate: 0,
 		stretch: 0,
@@ -135,11 +137,52 @@ const swiper = new Swiper(".releases-slider", {
 	grabCursor: true,
 });
 
+/** Popular tracks slider */
+
+var popularItem = document.querySelectorAll(".popular-slider .popular-item__number");
+
+for (var i = 0; i < popularItem.length; i++) {
+	popularItem[i].index = i;
+	popularItem[i].innerHTML = i + 1;
+}
+
+const swiperPopular = new Swiper(".popular-slider", {
+	slidesPerView: 1,
+	speed: 500,
+	navigation: {
+		nextEl: '.popular-slider__btn',
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+		},
+		575: {
+			slidesPerView: 1.8,
+			spaceBetween: 70,
+		},
+		768: {
+			slidesPerView: 1.8,
+			spaceBetween: 70,
+		},
+		1024: {
+			slidesPerView: 2.3,
+			spaceBetween: 70,
+		},
+		1366: {
+			slidesPerView: 2.8,
+		},
+		1700: {
+			slidesPerView: 3,
+			spaceBetween: 70,
+		},
+	},
+});
+
 /** Studio slider */
 
 const swiperStudio = new Swiper(".studio-slider", {
 	slidesPerView: 1,
-	speed: 700,
+	speed: 500,
 	loop: true,
 	pagination: {
 		clickable: true,
