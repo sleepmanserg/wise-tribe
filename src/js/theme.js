@@ -89,12 +89,19 @@ swiperMainHome.on('slideChange', function () {
 /** Events slider */
 
 const swiperEvents = new Swiper(".events-slider", {
-	slidesPerView: 4.5,
-	// slidesPerView: 'auto',
+	effect: "coverflow",
+	slidesPerView: 5,
 	spaceBetween: 35,
-	speed: 700,
+	speed: 500,
 	loop: true,
 	centeredSlides: true,
+	coverflowEffect: {
+		rotate: 0,
+		stretch: 0,
+		depth: 0,
+		modifier: 3,
+		slideShadows: false,
+	},
 	navigation: {
 		nextEl: ".events-button-next",
 		prevEl: ".events-button-prev"
@@ -119,6 +126,13 @@ const swiperEvents = new Swiper(".events-slider", {
 swiperEvents.on('slideChange', function () {
 	swiperHomeClassTweak(this.slides, this.activeIndex);
 	this.loopFix();
+});
+
+/** Releases slider */
+
+const swiper = new Swiper(".releases-slider", {
+	effect: "cards",
+	grabCursor: true,
 });
 
 /** Studio slider */

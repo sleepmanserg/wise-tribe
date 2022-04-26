@@ -46,7 +46,7 @@ section.hero {
 
     transform: translateY(15px);
     opacity: 0;
-    transition: .15s .2s ease-in-out;
+    transition: 0.15s 0.2s ease-in-out;
   }
   .hero-slider__item-actions {
     display: flex;
@@ -56,7 +56,7 @@ section.hero {
 
     transform: translateY(-15px);
     opacity: 0;
-    transition: .15s .2s ease-in-out;
+    transition: 0.15s 0.2s ease-in-out;
   }
   .slider-actions__item {
     width: 54px;
@@ -68,17 +68,14 @@ section.hero {
     justify-content: center;
     align-items: center;
   }
-
 }
 
 .swiper-slide {
   width: 380px;
   //padding: 40px;
 
-
-
   .hero-slider__img {
-    transition: .2s ease-in-out !important;
+    transition: 0.2s ease-in-out !important;
     border-radius: 50%;
   }
 
@@ -90,11 +87,8 @@ section.hero {
 
   &.swiper-slide-active {
     .hero-slider__img {
-      box-shadow:
-        0 0 0 5px #3c94bb,
-        0 0 90px 6px rgba(0,154,241,.48),
-        0 0 21px -1px rgba(60,148,187,.7)
-    ;
+      box-shadow: 0 0 0 5px #3c94bb, 0 0 90px 6px rgba(0, 154, 241, 0.48),
+        0 0 21px -1px rgba(60, 148, 187, 0.7);
     }
 
     .hero-slider__item-inner {
@@ -105,12 +99,12 @@ section.hero {
     .hero-slider__item-name {
       transform: translateY(0);
       opacity: 1;
-      transition: .15s .2s ease-in-out;
+      transition: 0.15s 0.2s ease-in-out;
     }
     .hero-slider__item-actions {
       transform: translateY(0);
       opacity: 1;
-      transition: .15s .2s ease-in-out;
+      transition: 0.15s 0.2s ease-in-out;
     }
   }
 }
@@ -118,22 +112,18 @@ section.hero {
 .swiper-slide-next,
 .swiper-slide-prev {
   .hero-slider__img {
-    transform: scale(.8) translateY(20%) !important;
-    box-shadow:
-        0 0 90px 6px rgba(0,154,241,.48),
-        0 0 21px -1px rgba(60,148,187,.7)
-    ;
+    transform: scale(0.8) translateY(20%) !important;
+    box-shadow: 0 0 90px 6px rgba(0, 154, 241, 0.48),
+      0 0 21px -1px rgba(60, 148, 187, 0.7);
   }
 }
 
 .swiper-slide-next-n1,
 .swiper-slide-prev-n1 {
   .hero-slider__img {
-    transform: scale(.7) translateY(40%) !important;
-    box-shadow:
-        0 0 90px 6px rgba(0,154,241,.48),
-        0 0 21px -1px rgba(60,148,187,.7)
-    ;
+    transform: scale(0.7) translateY(40%) !important;
+    box-shadow: 0 0 90px 6px rgba(0, 154, 241, 0.48),
+      0 0 21px -1px rgba(60, 148, 187, 0.7);
   }
 }
 
@@ -145,5 +135,3 @@ section.hero {
 .nav-notification {
   padding: 0 90px;
 }
-
-
