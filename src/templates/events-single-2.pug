@@ -11,33 +11,26 @@ append config
 
 //- Page Content
 block content
-  section.events-single
+  section.events-hero
     .container
       a(href="events.html").back-btn
         i.icon-chevron-l
         span Back
-      .row.events-single__row.align-items-center
-        .col-md-5.col-lg-7
-          .events-single__media
-            .events-single__thumb
-              .events-single__img(style="background-image: url('img/events/1.png')")
-        .col-md-7.col-lg-5
-          .events-single__description
-            .events-single__caption
-              h1.section-title Roma Nebo
-              .events-single__labels
-                .events-card__date
-                  i.icon-calendar
-                  span 16 Oct 2021
-                .events-card__date
-                  i.icon-calendar
-                  span Silent Hill, 458
-              h2.section-subtitle big solo concert
-              p.section-text.opacity-7 Roma Nebo in Paris! On November 2, a concert of the famous artist Roma Nebo will take place in the Ibiza nightclub.
-              a(href="events-single.html").btn.btn-blue
-                i.icon-leather
-                span Buy Tickets
-                span.btn-blue__price $48
+    .events-hero__caption
+      .events-single__labels
+        .events-card__date
+          i.icon-calendar
+          span 16 Oct 2021
+        .events-card__date
+          i.icon-calendar
+          span Silent Hill, 458
+      h1.section-title.text-center Big universal concert
+      p.section-text.opacity-7.text-center The first of its kind universal concert, popular artists and new tracks
+      .events-hero__btn
+        a(href="events-single.html").btn.btn-blue
+          i.icon-leather
+          span Buy Tickets
+          span.btn-blue__price $48
 
   section.events-program
     .container

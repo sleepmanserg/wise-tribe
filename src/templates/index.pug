@@ -149,7 +149,7 @@ block content
                   span 16 Oct 2021
                 .events-slider__artist Rae
               .events-slider__action
-                a(href="#").btn.btn-blue
+                a(href="events-single.html").btn.btn-blue
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
@@ -164,7 +164,7 @@ block content
                   span 16 Oct 2021
                 .events-slider__artist Rae
               .events-slider__action
-                a(href="#").btn.btn-blue
+                a(href="events-single.html").btn.btn-blue
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
@@ -179,7 +179,7 @@ block content
                   span 16 Oct 2021
                 .events-slider__artist Rae
               .events-slider__action
-                a(href="#").btn.btn-blue
+                a(href="events-single.html").btn.btn-blue
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
@@ -194,7 +194,7 @@ block content
                   span 16 Oct 2021
                 .events-slider__artist Rae
               .events-slider__action
-                a(href="#").btn.btn-blue
+                a(href="events-single.html").btn.btn-blue
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
@@ -209,7 +209,7 @@ block content
                   span 16 Oct 2021
                 .events-slider__artist Rae
               .events-slider__action
-                a(href="#").btn.btn-blue
+                a(href="events-single.html").btn.btn-blue
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
@@ -224,20 +224,62 @@ block content
                   span 16 Oct 2021
                 .events-slider__artist Rae
               .events-slider__action
-                a(href="#").btn.btn-blue
+                a(href="events-single.html").btn.btn-blue
+                  i.icon-leather
+                  span Learn more
+                  span.btn-blue__price $48
+        .swiper-slide
+          .events-slider__item
+            .events-slider__img
+              img(src="img/events-slider/1.png", alt="Artist")
+            .events-slider__info
+              .events-slider__info-caption
+                .events-slider__date
+                  i.icon-calendar
+                  span 16 Oct 2021
+                .events-slider__artist Rae
+              .events-slider__action
+                a(href="events-single.html").btn.btn-blue
+                  i.icon-leather
+                  span Learn more
+                  span.btn-blue__price $48
+        .swiper-slide
+          .events-slider__item
+            .events-slider__img
+              img(src="img/events-slider/1.png", alt="Artist")
+            .events-slider__info
+              .events-slider__info-caption
+                .events-slider__date
+                  i.icon-calendar
+                  span 16 Oct 2021
+                .events-slider__artist Rae
+              .events-slider__action
+                a(href="events-single.html").btn.btn-blue
                   i.icon-leather
                   span Learn more
                   span.btn-blue__price $48
 
-    .slider-navigation.justify-content-between.px-5
-      .slider-button-prev.events-button-prev
-        .arrow-button.arrow-button__prev
-          span Prev
-      .slider-button-next.events-button-next
-        .arrow-button.arrow-button__next
-          span Next
+
+    //- .slider-navigation.justify-content-between.px-5
+    //-   .slider-button-prev.events-button-prev
+    //-     .arrow-button.arrow-button__prev
+    //-       span Prev
+    //-   .slider-button-next.events-button-next
+    //-     .arrow-button.arrow-button__next
+    //-       span Next
 
   include partials/popular
+  section.wise-live
+    .container
+      .wise-live__header.pb-5
+        .tiktok-title.section-title.text-md-center
+          img(src="img/icons/tiktok-color.svg", alt="")
+          span Wise Live
+        a(href="#").tiktok-subscribe
+          i.icon-tiktok
+          span Subscribe
+    include partials/wise-live
+
 
   section.releases
     .container

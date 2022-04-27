@@ -15,6 +15,7 @@
   @media (min-width: 1366px) {
     max-width: 1760px;
     margin: 0 auto;
+    padding: 0 40px;
   }
 }
 
@@ -49,7 +50,7 @@
     }
   }
   .popular-item__info {
-    flex: 0 0 220px;
+    flex: 0 0 195px;
   }
   .popular-item__title,
   .popular-item__artitst {
@@ -97,7 +98,7 @@
   }
   @media (min-width: 768px) {
     .popular-item__info {
-      flex: 0 0 400px;
+      flex: 0 0 250px;
     }
   }
 }

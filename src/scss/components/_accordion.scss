@@ -35,7 +35,7 @@
 .program-accordion-body {
   padding: 10px 0 5px;
   .section-text {
-    font-size: clamp(14px, 0.875rem + (1vw - 3.6px) * 1.4103, 36px);
+    font-size: clamp(20px, calc(1.25rem + ((1vw - 3.6px) * 0.9804)), 24px);
   }
 }
 

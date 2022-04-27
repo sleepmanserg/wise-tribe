@@ -864,3 +864,39 @@
     --sectionPaddingBottom: 240px;
   }
 }
+
+/* WISE LIVE */
+
+.wise-live {
+  --sectionPaddingTop: 82px;
+  // --sectionPaddingBottom: 240px;
+  padding-top: var(--sectionPaddingTop);
+  padding-bottom: 0;
+  @media (min-width: 768px) {
+    --sectionPaddingTop: 90px;
+  }
+  @media (min-width: 1024px) {
+    --sectionPaddingTop: 125px;
+  }
+  @media (min-width: 1700px) {
+    --sectionPaddingTop: 240px;
+  }
+}
+
+.wise-live__header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+  .tiktok-title {
+    grid-column: 2 / 3;
+  }
+  .tiktok-subscribe {
+    margin-left: auto;
+  }
+}
