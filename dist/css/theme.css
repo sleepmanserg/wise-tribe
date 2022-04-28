@@ -4141,6 +4141,9 @@ section.hero .swiper-nav {
   border-radius: var(--eventsCardRadius);
   position: absolute;
   overflow: hidden;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
 }
 .events-card .events-card__img::after {
   content: "";
@@ -4179,6 +4182,10 @@ section.hero .swiper-nav {
   font-size: clamp(32px, 2rem + (1vw - 3.6px) * 1.9231, 62px);
   line-height: 120%;
   font-weight: 600;
+}
+.events-card .events-card__btn {
+  position: relative;
+  z-index: 4;
 }
 @media (min-width: 768px) {
   .events-card .events-card__body {
@@ -4238,10 +4245,11 @@ section.hero .swiper-nav {
   background: rgba(17, 17, 72, 0.6);
   -webkit-backdrop-filter: blur(23px);
   backdrop-filter: blur(23px);
+  z-index: 3;
 }
 .events-card__date > * {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   font-weight: 300;
   line-height: 140%;
 }
