@@ -21,6 +21,8 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
   color: $white;
+  overflow-x: hidden;
+  position: relative;
 }
 
 main {

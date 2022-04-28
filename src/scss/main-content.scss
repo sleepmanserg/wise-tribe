@@ -62,7 +62,6 @@
     }
   }
   @media (min-width: 320px) {
-    padding-top: 180px;
     .about-row {
       flex-direction: column;
       text-align: center;
@@ -125,10 +124,10 @@
     }
   }
   @media (min-width: 767px) {
-    padding-top: 140px;
+    // padding-top: 140px;
   }
   @media (min-width: 1024px) {
-    padding-top: 150px;
+    // padding-top: 150px;
     .about-row {
       column-gap: 30px;
       justify-content: space-between;
@@ -148,7 +147,7 @@
     }
   }
   @media (min-width: 1366px) {
-    padding-top: 215px;
+    // padding-top: 215px;
     .about-row {
       justify-content: space-between;
     }
@@ -165,7 +164,7 @@
     }
   }
   @media (min-width: 1700px) {
-    padding-top: 160px;
+    // padding-top: 160px;
     .about-row {
       column-gap: 82px;
       justify-content: flex-start;
@@ -200,7 +199,7 @@
 }
 
 .releases {
-  padding-top: 198px;
+  // padding-top: 198px;
   .releases-title {
     margin-bottom: 20px;
   }
@@ -211,7 +210,7 @@
     max-width: 320px;
   }
   @media (min-width: 768px) {
-    padding-top: 81px;
+    // padding-top: 81px;
     .releases-title {
       margin-bottom: 25px;
     }
@@ -220,7 +219,7 @@
     }
   }
   @media (min-width: 1024px) {
-    padding-top: 264px;
+    // padding-top: 264px;
     .releases-subtitle {
       margin-bottom: 15px;
       max-width: 329px;
@@ -233,7 +232,7 @@
     }
   }
   @media (min-width: 1366px) {
-    padding-top: 272px;
+    // padding-top: 272px;
     .releases-title {
       margin-bottom: 40px;
     }
@@ -245,7 +244,7 @@
     }
   }
   @media (min-width: 1700px) {
-    padding-top: 300px;
+    // padding-top: 300px;
     .releases-title {
       margin-bottom: 60px;
     }
@@ -261,23 +260,51 @@
 /* Events section */
 
 .events {
-  overflow: hidden;
   .slider-navigation {
     margin-top: -15px;
     position: relative;
     z-index: 2;
   }
-  @media (min-width: 320px) {
-    padding: 100px 0 122px;
+  // @media (min-width: 320px) {
+  //   padding: 100px 0 122px;
+  // }
+  // @media (min-width: 768px) {
+  //   padding: 132px 0 145px;
+  // }
+  // @media (min-width: 1024px) {
+  //   padding: 160px 0 185px;
+  // }
+  // @media (min-width: 1700px) {
+  //   padding: 220px 0 180px;
+  // }
+}
+
+/* Popular */
+
+.popular {
+  padding-top: 100px;
+  .section-title {
+    margin-bottom: 39px;
   }
   @media (min-width: 768px) {
-    padding: 132px 0 145px;
+    .section-title {
+      margin-bottom: 54px;
+    }
   }
   @media (min-width: 1024px) {
-    padding: 160px 0 185px;
+    .section-title {
+      margin-bottom: 70px;
+    }
+  }
+  @media (min-width: 1366px) {
+    .section-title {
+      margin-bottom: 94px;
+    }
   }
   @media (min-width: 1700px) {
-    padding: 220px 0 180px;
+    .section-title {
+      margin-bottom: 105px;
+    }
   }
 }
 

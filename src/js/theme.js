@@ -59,7 +59,7 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	effect: "coverflow",
 	slidesPerView: 'auto',
 	grabCursor: true,
-	autoHeight: true,
+	// autoHeight: true,
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
@@ -530,6 +530,7 @@ function checkForWindowResize() {
 	if (document.querySelector('.tiktok-slider__btn')) {
 		tiktokSliderBtnPosition();
 	}
+
 }
 
 window.addEventListener('resize', checkForWindowResize);
@@ -556,3 +557,80 @@ if (loadmore) {
 		}
 	});
 }
+
+/** Decorations parallax */
+
+const rellax = new Rellax('.rellax');
+
+
+// Some random colors
+const colors = ["#ff69f9", "#6c69ff", "#69d5ff"];
+
+const numBalls = 15;
+const balls = [];
+
+for (let i = 0; i < numBalls; i++) {
+	let ball = document.createElement("div");
+	ball.classList.add("decor-circle");
+	let random_color = colors[Math.floor(Math.random() * colors.length)];
+	ball.style.boxShadow = '0px 0px 5px 3px ' + random_color;
+	ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+	ball.style.top = `${Math.floor(Math.random())}`;
+	ball.style.transform = `scale(${Math.random()})`;
+	ball.style.width = `${Math.random()}em`;
+	ball.style.height = ball.style.width;
+
+	balls.push(ball);
+	document.body.append(ball);
+}
+
+// Keyframes
+balls.forEach((el, i, ra) => {
+	let to = {
+		x: Math.random() * (i % 2 === 0 ? -11 : 11),
+		y: Math.random() * 12
+	};
+
+	let anim = el.animate(
+		[
+			{ transform: "translate(0, 0)" },
+			{ transform: `translate(${to.x}rem, ${to.y}rem)` }
+		],
+		{
+			duration: (Math.random() + 1) * 5000, // random duration
+			direction: "alternate",
+			fill: "both",
+			iterations: Infinity,
+			easing: "ease-in-out"
+		}
+	);
+});
+
+
+let randomCircles = function () {
+	let decorCircles = document.querySelectorAll('.decor-circle');
+
+	// let experienceSection = document.querySelector('.experience');
+	let documentWidth = window.innerWidth;
+	let documentHeight = window.innerHeight;
+
+	for (let i = 0; i < decorCircles.length; i++) {
+
+		let thisDecorCircles = decorCircles[i];
+
+		let randomTop = getRandomNumber(0, documentHeight);
+		let randomLeft = getRandomNumber(0, documentWidth);
+
+		thisDecorCircles.style.top = randomTop + "px";
+		thisDecorCircles.style.left = randomLeft + "px";
+
+	}
+
+	function getRandomNumber(min, max) {
+
+		return Math.random() * (max - min) + min;
+
+	}
+}
+
+randomCircles();

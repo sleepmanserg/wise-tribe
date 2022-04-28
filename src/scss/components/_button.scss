@@ -470,6 +470,7 @@
   text-transform: uppercase;
   font-size: 20px;
   line-height: 24px;
+  z-index: 3;
   &::after,
   &::before {
     content: "";
@@ -483,7 +484,7 @@
   &::after {
     width: 60px;
     height: 1.8px;
-    transition: 0.5s;
+    transition: 0.25s;
   }
   &::before {
     width: 8px;
@@ -491,7 +492,7 @@
     border-radius: 50%;
     background-color: #000124;
     border: 2px solid $blue;
-    transition: 0.5s;
+    transition: 0.25s;
   }
   &.arrow-button__next {
     padding-right: 88px;
@@ -511,24 +512,8 @@
       left: 0;
     }
   }
-  @include hover {
-    // width: 74px;
-    &::after {
-      width: 66px;
-      transform: translateX(8px) translateY(-50%);
-    }
-    &::before {
-      transform: translateX(8px) translateY(-50%);
-    }
-    &.arrow-button__prev {
-      &::after {
-        width: 66px;
-        transform: translateX(-8px) translateY(-50%);
-      }
-      &::before {
-        transform: translateX(-8px) translateY(-50%);
-      }
-    }
+  span {
+    transition: 0.25s;
   }
 }
 

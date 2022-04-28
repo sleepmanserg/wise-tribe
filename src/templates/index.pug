@@ -113,13 +113,37 @@ block content
 
             include partials/slider-item-inner
 
-
-
     .swiper-nav.d-flex.justify-content-center.align-items-center
-      .swiper-btn-prev PREV
+      .arrow-button.arrow-button__prev.swiper-btn-prev
+        span PREV
       .nav-notification Scroll to know more
-      .swiper-btn-next NEXT
-  section.about
+      .arrow-button.arrow-button__next.swiper-btn-next
+        span NEXT
+
+    .hero-absolute.absolute.hero-decor
+      .container-fluid.h-100
+        .row.h-100
+          .col-md-5.hero-decor__left.h-100
+            .d-flex.flex-column.justify-content-between.h-100
+              img(src="img/decorations/decor-01.svg", alt="" data-rellax-speed="2").rellax.parallax-decor
+              .decor-circle__one.parallax-decor
+              .decor-circle__one.parallax-decor
+              .decor-circle__two.parallax-decor
+              img(src="img/decorations/decor-05.svg", alt="" data-rellax-speed="5").rellax.parallax-decor
+              .decor-circle__one.parallax-decor
+              img(src="img/decorations/snake.svg", alt="" data-rellax-speed="-2").rellax.parallax-decor
+              img(src="img/decorations/decor-06.svg", alt="" data-rellax-speed="3").rellax.parallax-decor
+              .decor-circle__two.parallax-decor
+          .col-md-5.offset-md-2.hero-decor__right.h-100
+            .d-flex.flex-column.justify-content-between.h-100
+              .decor-circle__one.parallax-decor
+              .decor-circle__three.parallax-decor
+              img(src="img/decorations/decor-07.svg", alt="" data-rellax-speed="3").rellax.parallax-decor
+              .decor-circle__three.parallax-decor
+              img(src="img/decorations/decor-08.svg", alt="" data-rellax-speed="3").rellax.parallax-decor
+              img(src="img/decorations/bird.svg", alt="" data-rellax-speed="-1").rellax.parallax-decor
+              img(src="img/decorations/decor-09.svg", alt="" data-rellax-speed="-1.5").rellax.parallax-decor
+  section.about.position-relative
     .container
       .about-row
         .about-img
@@ -134,7 +158,143 @@ block content
             span.text-blue W1SE  Music
             |  is a record label dedicated to recording and promoting cross-cultural high vibrational music. With unique sounds, inspirational lyrics, and passionate personalities expect unique music dedicated to raising the awareness of the world around us.
 
-  section.events
+    svg.absolute.about-triangles(width='100%' height='100%' viewBox='0 0 1893 1955' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;')
+      g(transform='matrix(1,0,0,1,0,-588)')
+        g(opacity='0.6')
+          g
+            path(d='M1320.52,2264.08L-1454.49,2716.75L-459.004,87.194L1320.52,2264.08ZM-456.429,102.985L-1442.1,2706.62L1305.55,2258.42L-456.429,102.985Z' style='fill:rgb(0,99,239);')
+          g
+            path(d='M1320.52,2264.08L-1454.49,2716.75L-459.004,87.194L1320.52,2264.08ZM-456.429,102.985L-1442.1,2706.62L1305.55,2258.42L-456.429,102.985Z' style='fill:rgb(1,102,243);')
+          g
+            path(d='M1314.91,2261.96L-1449.84,2712.95L-458.039,93.116L1314.91,2261.96ZM-457.395,97.064L-1446.74,2710.42L1311.16,2260.54L-457.395,97.064Z' style='fill:white;')
+          g
+            path(d='M1076.5,2170.37L-1250.71,2549.99L-415.867,344.751L1076.5,2170.37ZM1061.54,2164.71L-413.291,360.542L-1238.33,2539.87L1061.54,2164.71Z' style='fill:rgb(0,99,239);')
+          g
+            path(d='M1076.5,2170.37L-1250.71,2549.99L-415.867,344.751L1076.5,2170.37ZM1061.54,2164.71L-413.291,360.542L-1238.33,2539.87L1061.54,2164.71Z' style='fill:rgb(1,102,243);')
+          g(opacity='0.9')
+            path(d='M1070.89,2168.25L-1246.07,2546.2L-414.901,350.673L1070.89,2168.25ZM1067.15,2166.83L-414.257,354.62L-1242.97,2543.66L1067.15,2166.83Z' style='fill:white;')
+          g
+            path(d='M892.78,2101.27L-1098.6,2426.11L-384.231,539.098L892.78,2101.27ZM877.816,2095.6L-381.655,554.889L-1086.22,2415.98L877.816,2095.6Z' style='fill:rgb(0,99,239);')
+          g
+            path(d='M892.78,2101.27L-1098.6,2426.11L-384.231,539.098L892.78,2101.27ZM877.816,2095.6L-381.655,554.889L-1086.22,2415.98L877.816,2095.6Z' style='fill:rgb(1,102,243);')
+          g(opacity='0.8')
+            path(d='M887.168,2099.14L-1093.96,2422.31L-383.265,545.02L887.168,2099.14ZM883.427,2097.73L-382.621,548.968L-1090.86,2419.78L883.427,2097.73Z' style='fill:white;')
+          g
+            path(d='M749.569,2047.15L-980.608,2329.38L-359.939,689.889L749.569,2047.15ZM-357.363,705.68L-968.22,2319.25L734.605,2041.49L-357.363,705.68Z' style='fill:rgb(0,99,239);')
+          g
+            path(d='M749.569,2047.15L-980.608,2329.38L-359.939,689.889L749.569,2047.15ZM-357.363,705.68L-968.22,2319.25L734.605,2041.49L-357.363,705.68Z' style='fill:rgb(1,102,243);')
+          g(opacity='0.7')
+            path(d='M743.957,2045.03L-975.963,2325.58L-358.973,695.811L743.957,2045.03ZM-358.329,699.759L-972.866,2323.05L740.216,2043.61L-358.329,699.759Z' style='fill:white;')
+          g
+            path(d='M626.518,2000.95L-879.767,2246.66L-339.415,819.327L626.518,2000.95ZM-336.839,835.119L-867.379,2236.54L611.555,1995.29L-336.839,835.119Z' style='fill:rgb(0,99,239);')
+          g
+            path(d='M626.518,2000.95L-879.767,2246.66L-339.415,819.327L626.518,2000.95ZM-336.839,835.119L-867.379,2236.54L611.555,1995.29L-336.839,835.119Z' style='fill:rgb(1,102,243);')
+          g(opacity='0.6')
+            path(d='M620.907,1998.83L-875.122,2242.87L-338.449,825.249L620.907,1998.83ZM-337.805,829.197L-872.025,2240.33L617.166,1997.41L-337.805,829.197Z' style='fill:white;')
+          g(opacity='0.25')
+            g
+              path(d='M217.899,1846.65L-542.081,1970.62L-269.452,1250.47L217.899,1846.65ZM-266.876,1266.26L-529.693,1960.49L202.936,1840.98L-266.876,1266.26Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M217.899,1846.65L-542.081,1970.62L-269.452,1250.47L217.899,1846.65ZM-266.876,1266.26L-529.693,1960.49L202.936,1840.98L-266.876,1266.26Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M212.288,1844.52L-537.436,1966.82L-268.486,1256.39L212.288,1844.52ZM-267.842,1260.34L-534.339,1964.29L208.547,1843.11L-267.842,1260.34Z' style='fill:white;')
+          g(opacity='0.2')
+            g
+              path(d='M177.576,1830.88L-507.774,1942.67L-261.918,1293.24L177.576,1830.88ZM-259.342,1309.04L-495.387,1932.55L162.612,1825.21L-259.342,1309.04Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M177.576,1830.88L-507.774,1942.67L-261.918,1293.24L177.576,1830.88ZM-259.342,1309.04L-495.387,1932.55L162.612,1825.21L-259.342,1309.04Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M171.964,1828.75L-503.129,1938.88L-260.952,1299.17L171.964,1828.75ZM-260.308,1303.11L-500.032,1936.34L168.223,1827.34L-260.308,1303.11Z' style='fill:white;')
+          g(opacity='0.15')
+            g
+              path(d='M137.255,1815.04L-473.465,1914.66L-254.38,1335.95L137.255,1815.04ZM122.291,1809.37L-251.804,1351.74L-461.077,1904.53L122.291,1809.37Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M137.255,1815.04L-473.465,1914.66L-254.38,1335.95L137.255,1815.04ZM122.291,1809.37L-251.804,1351.74L-461.077,1904.53L122.291,1809.37Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M131.643,1812.91L-468.82,1910.86L-253.415,1341.87L131.643,1812.91ZM127.902,1811.5L-252.771,1345.82L-465.723,1908.33L127.902,1811.5Z' style='fill:white;')
+          g(opacity='0.1')
+            g
+              path(d='M95.892,1799.86L-440.197,1887.31L-247.885,1379.32L95.892,1799.86ZM-245.309,1395.11L-427.809,1877.18L80.928,1794.19L-245.309,1395.11Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M95.892,1799.86L-440.197,1887.31L-247.885,1379.32L95.892,1799.86ZM-245.309,1395.11L-427.809,1877.18L80.928,1794.19L-245.309,1395.11Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M90.28,1797.74L-435.552,1883.51L-246.919,1385.24L90.28,1797.74ZM-246.275,1389.19L-432.455,1880.98L86.539,1796.32L-246.275,1389.19Z' style='fill:white;')
+          g(opacity='0.1')
+            g
+              path(d='M55.378,1784.87L-406.081,1860.15L-240.541,1422.87L55.378,1784.87ZM-237.965,1438.67L-393.693,1850.02L40.414,1779.21L-237.965,1438.67Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M55.378,1784.87L-406.081,1860.15L-240.541,1422.87L55.378,1784.87ZM-237.965,1438.67L-393.693,1850.02L40.414,1779.21L-237.965,1438.67Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M49.766,1782.75L-401.436,1856.35L-239.575,1428.8L49.766,1782.75ZM-238.931,1432.74L-398.339,1853.82L46.025,1781.33L-238.931,1432.74Z' style='fill:white;')
+          g(opacity='0.1')
+            g
+              path(d='M14.011,1769.69L-372.817,1832.79L-234.05,1466.24L14.011,1769.69ZM-231.474,1482.03L-360.43,1822.67L-0.953,1764.03L-231.474,1482.03Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M14.011,1769.69L-372.817,1832.79L-234.05,1466.24L14.011,1769.69ZM-231.474,1482.03L-360.43,1822.67L-0.953,1764.03L-231.474,1482.03Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M8.399,1767.57L-368.172,1829L-233.084,1472.16L8.399,1767.57ZM-232.44,1476.11L-365.075,1826.47L4.658,1766.15L-232.44,1476.11Z' style='fill:white;')
+          g(opacity='0.3')
+            g
+              path(d='M259.263,1861.89L-575.348,1998.04L-275.946,1207.17L259.263,1861.89ZM-273.37,1222.96L-562.96,1987.91L244.3,1856.23L-273.37,1222.96Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M259.263,1861.89L-575.348,1998.04L-275.946,1207.17L259.263,1861.89ZM-273.37,1222.96L-562.96,1987.91L244.3,1856.23L-273.37,1222.96Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M253.652,1859.77L-570.702,1994.24L-274.98,1213.09L253.652,1859.77ZM-274.336,1217.04L-567.605,1991.71L249.911,1858.35L-274.336,1217.04Z' style='fill:white;')
+          g(opacity='0.35')
+            g
+              path(d='M300.626,1877.07L-608.615,2025.39L-282.442,1163.81L300.626,1877.07ZM-279.866,1179.6L-596.228,2015.26L285.662,1871.41L-279.866,1179.6Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M300.626,1877.07L-608.615,2025.39L-282.442,1163.81L300.626,1877.07ZM-279.866,1179.6L-596.228,2015.26L285.662,1871.41L-279.866,1179.6Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M295.015,1874.95L-603.97,2021.59L-281.476,1169.73L295.015,1874.95ZM-280.832,1173.68L-600.873,2019.06L291.274,1873.53L-280.832,1173.68Z' style='fill:white;')
+          g(opacity='0.4')
+            g
+              path(d='M361.109,1900.83L-660.078,2067.41L-293.745,1099.75L361.109,1900.83ZM-291.17,1115.54L-647.69,2057.28L346.146,1895.17L-291.17,1115.54Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M361.109,1900.83L-660.078,2067.41L-293.745,1099.75L361.109,1900.83ZM-291.17,1115.54L-647.69,2057.28L346.146,1895.17L-291.17,1115.54Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M355.498,1898.71L-655.432,2063.61L-292.78,1105.67L355.498,1898.71ZM-292.136,1109.62L-652.335,2061.08L351.757,1897.29L-292.136,1109.62Z' style='fill:white;')
+          g(opacity='0.47')
+            g
+              path(d='M422.636,1923.93L-710.496,2108.77L-304.006,1035.03L422.636,1923.93ZM407.673,1918.27L-301.43,1050.82L-698.109,2098.64L407.673,1918.27Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M422.636,1923.93L-710.496,2108.77L-304.006,1035.03L422.636,1923.93ZM407.673,1918.27L-301.43,1050.82L-698.109,2098.64L407.673,1918.27Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M417.025,1921.81L-705.851,2104.97L-303.04,1040.95L417.025,1921.81ZM413.284,1920.39L-302.396,1044.9L-702.754,2102.44L413.284,1920.39Z' style='fill:white;')
+          g(opacity='0.5')
+            g
+              path(d='M504.318,1954.95L-778.075,2164.14L-318.04,948.957L504.318,1954.95ZM-315.464,964.748L-765.688,2154.01L489.355,1949.28L-315.464,964.748Z' style='fill:rgb(0,99,239);')
+            g
+              path(d='M504.318,1954.95L-778.075,2164.14L-318.04,948.957L504.318,1954.95ZM-315.464,964.748L-765.688,2154.01L489.355,1949.28L-315.464,964.748Z' style='fill:rgb(1,102,243);')
+            g
+              path(d='M498.707,1952.82L-773.43,2160.34L-317.074,954.879L498.707,1952.82ZM-316.43,958.827L-770.333,2157.81L494.966,1951.41L-316.43,958.827Z' style='fill:white;')
+
+
+    //- img(src="img/decorations/triangles.svg", alt="")
+
+  section.releases
+    .container
+      .row
+        .col-md-6
+          .releases-caption
+            h3.section-title.relises-title Releases
+            h4.section-subtitle.release-subtitle Explore the latest tracks artists
+            p.section-text.releases-text.opacity-7 We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.
+        .col-md-6
+          .swiper.releases-slider
+            .swiper-wrapper
+              .swiper-slide Slide 1
+              .swiper-slide Slide 2
+              .swiper-slide Slide 3
+              .swiper-slide Slide 4
+              .swiper-slide Slide 5
+              .swiper-slide Slide 6
+              .swiper-slide Slide 7
+              .swiper-slide Slide 8
+              .swiper-slide Slide 9
+
+
+  section.events.position-relative
     h2.section-title.text-center Coming events
     .swiper.events-slider
       .swiper-wrapper
@@ -259,17 +419,39 @@ block content
                   span Learn more
                   span.btn-blue__price $48
 
+    .container
+      .slider-navigation.justify-content-between
+        .slider-button-prev.events-button-prev
+          .arrow-button.arrow-button__prev
+            span Prev
+        .slider-button-next.events-button-next
+          .arrow-button.arrow-button__next
+            span Next
 
-    //- .slider-navigation.justify-content-between.px-5
-    //-   .slider-button-prev.events-button-prev
-    //-     .arrow-button.arrow-button__prev
-    //-       span Prev
-    //-   .slider-button-next.events-button-next
-    //-     .arrow-button.arrow-button__next
-    //-       span Next
+    .events-absolute.absolute.events-decor.h-100
+      .container-fluid.h-100
+        .row.h-100
+          .col-md-4.offset-md-7.h-100.d-flex.flex-column.justify-content-between
+            img(src="img/decorations/eagle.svg", alt="" data-rellax-speed="1").parallax-decor.rellax
+            img(src="img/decorations/decor-09.svg", alt="" data-rellax-speed=".2").parallax-decor.rellax
 
-  include partials/popular
-  section.wise-live
+  section.popular.position-relative
+    .container
+      .section-title.text-md-center Popular tracks
+    include partials/popular
+
+    .popular-absolute.absolute.events-decor.h-100
+      .container-fluid.h-100
+        .row.h-100
+          .col-md-4.popular-decor__left
+            img(src="img/decorations/decor-01.svg", alt="").parallax-decor
+            img(src="img/decorations/jaguar.svg", alt="" data-rellax-speed="-.5").parallax-decor.rellax
+            img(src="img/decorations/decor-13.svg", alt="" data-rellax-speed=".3").parallax-decor.rellax
+          .col-md-3.offset-md-5.popular-decor__right
+            img(src="img/decorations/decor-12.svg", alt="").parallax-decor
+            img(src="img/decorations/decor-06.svg", alt="").parallax-decor
+
+  section.wise-live.position-relative
     .container
       .wise-live__header.pb-5
         .tiktok-title.section-title.text-md-center
@@ -279,28 +461,124 @@ block content
           i.icon-tiktok
           span Subscribe
     include partials/wise-live
+    svg.absolute.tiktok-triangles(width='100%' height='100%' viewBox='0 0 1920 2166' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;')
+      g(transform='matrix(1,0,0,1,0,-1100)')
+        g(opacity='0.75')
+          g
+            path(d='M2456.67,755.336L2802.11,3563L197.882,2458.33L2456.67,755.336Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+          g
+            path(d='M2456.67,755.336L2802.11,3563L197.882,2458.33L2456.67,755.336Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+          g
+            path(d='M2456.67,755.336L2802.11,3563L197.882,2458.33L2456.67,755.336Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g
+            path(d='M2352.31,998.143L2641.73,3350.51L459.808,2424.97L2352.31,998.143Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+          g
+            path(d='M2352.31,998.143L2641.73,3350.51L459.808,2424.97L2352.31,998.143Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+          g(opacity='0.9')
+            path(d='M2352.31,998.143L2641.73,3350.51L459.808,2424.97L2352.31,998.143Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g
+            path(d='M2275.2,1181.02L2522.61,3191.91L657.414,2400.73L2275.2,1181.02Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+          g
+            path(d='M2275.2,1181.02L2522.61,3191.91L657.414,2400.73L2275.2,1181.02Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+          g(opacity='0.8')
+            path(d='M2275.2,1181.02L2522.61,3191.91L657.414,2400.73L2275.2,1181.02Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g
+            path(d='M2214.83,1323.56L2429.57,3068.86L810.721,2382.17L2214.83,1323.56Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+          g
+            path(d='M2214.83,1323.56L2429.57,3068.86L810.721,2382.17L2214.83,1323.56Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+          g(opacity='0.7')
+            path(d='M2214.83,1323.56L2429.57,3068.86L810.721,2382.17L2214.83,1323.56Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g
+            path(d='M2163.28,1446.04L2350,2963.7L942.308,2366.58L2163.28,1446.04Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+          g
+            path(d='M2163.28,1446.04L2350,2963.7L942.308,2366.58L2163.28,1446.04Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+          g(opacity='0.6')
+            path(d='M2163.28,1446.04L2350,2963.7L942.308,2366.58L2163.28,1446.04Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.25')
+            g
+              path(d='M1991.15,1852.74L2084.52,2611.57L1380.67,2313.01L1991.15,1852.74Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M1991.15,1852.74L2084.52,2611.57L1380.67,2313.01L1991.15,1852.74Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M1991.15,1852.74L2084.52,2611.57L1380.67,2313.01L1991.15,1852.74Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.2')
+            g
+              path(d='M1973.62,1892.85L2057.65,2575.8L1424.19,2307.1L1973.62,1892.85Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M1973.62,1892.85L2057.65,2575.8L1424.19,2307.1L1973.62,1892.85Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M1973.62,1892.85L2057.65,2575.8L1424.19,2307.1L1973.62,1892.85Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.15')
+            g
+              path(d='M1956.02,1932.96L2030.71,2540.03L1467.63,2301.18L1956.02,1932.96Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M1956.02,1932.96L2030.71,2540.03L1467.63,2301.18L1956.02,1932.96Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M1956.02,1932.96L2030.71,2540.03L1467.63,2301.18L1956.02,1932.96Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.1')
+            g
+              path(d='M1939.04,1974.15L2004.39,2505.33L1511.7,2296.34L1939.04,1974.15Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M1939.04,1974.15L2004.39,2505.33L1511.7,2296.34L1939.04,1974.15Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M1939.04,1974.15L2004.39,2505.33L1511.7,2296.34L1939.04,1974.15Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.1')
+            g
+              path(d='M1922.29,2014.48L1978.31,2469.78L1556,2290.65L1922.29,2014.48Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M1922.29,2014.48L1978.31,2469.78L1556,2290.65L1922.29,2014.48Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M1922.29,2014.48L1978.31,2469.78L1556,2290.65L1922.29,2014.48Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.1')
+            g
+              path(d='M1905.31,2055.68L1951.99,2435.09L1600.07,2285.81L1905.31,2055.68Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M1905.31,2055.68L1951.99,2435.09L1600.07,2285.81L1905.31,2055.68Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M1905.31,2055.68L1951.99,2435.09L1600.07,2285.81L1905.31,2055.68Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.1')
+            g
+              path(d='M1887.71,2095.78L1925.06,2399.31L1643.52,2279.89L1887.71,2095.78Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M1887.71,2095.78L1925.06,2399.31L1643.52,2279.89L1887.71,2095.78Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M1887.71,2095.78L1925.06,2399.31L1643.52,2279.89L1887.71,2095.78Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.3')
+            g
+              path(d='M2008.2,1811.56L2110.9,2646.27L1336.67,2317.85L2008.2,1811.56Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M2008.2,1811.56L2110.9,2646.27L1336.67,2317.85L2008.2,1811.56Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M2008.2,1811.56L2110.9,2646.27L1336.67,2317.85L2008.2,1811.56Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.35')
+            g
+              path(d='M2025.18,1770.37L2137.21,2680.97L1292.6,2322.69L2025.18,1770.37Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M2025.18,1770.37L2137.21,2680.97L1292.6,2322.69L2025.18,1770.37Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M2025.18,1770.37L2137.21,2680.97L1292.6,2322.69L2025.18,1770.37Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.4')
+            g
+              path(d='M2051.58,1710.21L2177.62,2734.63L1227.43,2331.57L2051.58,1710.21Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M2051.58,1710.21L2177.62,2734.63L1227.43,2331.57L2051.58,1710.21Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M2051.58,1710.21L2177.62,2734.63L1227.43,2331.57L2051.58,1710.21Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.47')
+            g
+              path(d='M2077.36,1648.96L2217.41,2787.21L1161.64,2339.37L2077.36,1648.96Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M2077.36,1648.96L2217.41,2787.21L1161.64,2339.37L2077.36,1648.96Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M2077.36,1648.96L2217.41,2787.21L1161.64,2339.37L2077.36,1648.96Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
+          g(opacity='0.5')
+            g
+              path(d='M2111.95,1567.67L2270.66,2857.68L1074.12,2350.13L2111.95,1567.67Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            g
+              path(d='M2111.95,1567.67L2270.66,2857.68L1074.12,2350.13L2111.95,1567.67Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g
+              path(d='M2111.95,1567.67L2270.66,2857.68L1074.12,2350.13L2111.95,1567.67Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:2px;')
 
-
-  section.releases
-    .container
-      .row
-        .col-md-6
-          .releases-caption
-            h3.section-title.relises-title Releases
-            h4.section-subtitle.release-subtitle Explore the latest tracks artists
-            p.section-text.releases-text.opacity-7 We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.
-        .col-md-6
-          .swiper.releases-slider
-            .swiper-wrapper
-              .swiper-slide Slide 1
-              .swiper-slide Slide 2
-              .swiper-slide Slide 3
-              .swiper-slide Slide 4
-              .swiper-slide Slide 5
-              .swiper-slide Slide 6
-              .swiper-slide Slide 7
-              .swiper-slide Slide 8
-              .swiper-slide Slide 9
 
   section.studio
     .swiper.studio-slider
@@ -364,7 +642,8 @@ block content
           p.info-card__text.section-text.opacity-7 Employees have experience in promoting great artists, teams, working with them. So hitting the radio or writing a hit song on a label can take much less time.
           a(href="#").btn.btn-light
             span Start now
-  section.experience.parallax-wrap
+
+  section.experience.parallax-wrap.position-relative
     .container
       .experience-caption
         h2.section-title.text-center WISE MUSIC Experience
