@@ -311,8 +311,8 @@
 /* Experience section */
 
 .experience {
-  padding-top: 344px;
-  padding-bottom: 272px;
+  padding-top: 150px;
+  padding-bottom: 150px;
   overflow: hidden;
   .experience-caption {
     max-width: 800px;
@@ -925,5 +925,14 @@
   }
   .tiktok-subscribe {
     margin-left: auto;
+  }
+}
+
+/* Artists */
+
+.artists {
+  padding: 190px 0 176px;
+  .section-title {
+    margin-bottom: 5rem;
   }
 }

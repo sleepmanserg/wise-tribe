@@ -420,6 +420,15 @@ block content
                   span.btn-blue__price $48
 
     .container
+      .swiper-nav.d-flex.justify-content-between.align-items-center
+        .arrow-button.arrow-button__prev.events-button-prev
+          span PREV
+        .arrow-button.arrow-button__next.events-button-next
+          span NEXT
+
+  section.popular
+    .section-title.text-md-center Popular tracks
+    include partials/popular
 
   section.studio
     .swiper.studio-slider

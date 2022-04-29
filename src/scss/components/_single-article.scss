@@ -35,7 +35,7 @@
     grid-template-columns: auto 480px;
   }
   @media (min-width: 1700px) {
-    --articleGridGap: 9.25rem;
+    --articleGridGap: 5.25rem;
     grid-template-columns: auto 536px;
   }
 }
@@ -79,7 +79,7 @@
       transition: 0.35s ease;
       @include hover {
         color: $white;
-        box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
+        box-shadow: 0px 0px 41px 6px rgba(0, 154, 241, 0.2);
       }
     }
   }
@@ -149,6 +149,9 @@
   }
 
   .article-item__description {
+    > * {
+      font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.641)), 24px);
+    }
     p {
       opacity: 0.7;
       font-weight: 300;

@@ -642,6 +642,54 @@
   }
 }
 
+.btn-transparent {
+  border-radius: 54px;
+  color: $blue;
+  border: 1px solid $blue;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.2564)), 18px);
+  line-height: 1;
+  padding: 11px 20px 12px;
+  transition: 0.35s;
+  @include hover {
+    color: $dark-blue;
+    background-color: $blue;
+  }
+}
+
+.play-btn {
+  text-decoration: none;
+  color: $white;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  gap: 10px;
+  @include hover {
+    color: $white;
+  }
+  .play-btn__icon {
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: $blue;
+    svg {
+      width: 22px;
+      height: 22px;
+      path {
+        filter: drop-shadow(0px 0px 12px rgba(0, 154, 241, 0.78));
+      }
+    }
+  }
+}
+
 @media (min-width: 1025px) {
   .header-menu__toggle {
     display: none;

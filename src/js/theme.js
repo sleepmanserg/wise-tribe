@@ -20,7 +20,7 @@ testWebP(function (support) {
 /* Sticky header  */
 
 window.addEventListener('scroll', function () {
-	var header = document.querySelector('.site-header');
+	let header = document.querySelector('.site-header');
 	header.classList.toggle("sticky", window.scrollY > 50);
 })
 
@@ -140,9 +140,9 @@ const swiper = new Swiper(".releases-slider", {
 
 /** Popular tracks slider */
 
-var popularItem = document.querySelectorAll(".popular-slider .popular-item__number");
+let popularItem = document.querySelectorAll(".popular-slider .popular-item__number");
 
-for (var i = 0; i < popularItem.length; i++) {
+for (let i = 0; i < popularItem.length; i++) {
 	popularItem[i].index = i;
 	popularItem[i].innerHTML = i + 1;
 }
@@ -538,25 +538,25 @@ window.addEventListener('resize', checkForWindowResize);
 
 /** Load more button */
 
-const loadmore = document.querySelector('#loadmore');
-let currentItems = 9;
-if (loadmore) {
-	loadmore.addEventListener('click', (e) => {
-		console.log('hello')
-		const elementList = [...document.querySelectorAll('.events-grid .events-card')];
-		for (let i = currentItems; i < currentItems + 3; i++) {
-			if (elementList[i]) {
-				elementList[i].style.display = 'block';
-			}
-		}
-		currentItems += 3;
+// const loadmore = document.querySelector('#loadmore');
+// let currentItems = 4;
+// if (loadmore) {
+// 	loadmore.addEventListener('click', (e) => {
+// 		console.log('hello')
+// 		const elementList = [...document.querySelectorAll('.grid-card')];
+// 		for (let i = currentItems; i < currentItems + 3; i++) {
+// 			if (elementList[i]) {
+// 				elementList[i].style.display = 'block';
+// 			}
+// 		}
+// 		currentItems += 3;
 
-		// Load more button will be hidden after list fully loaded
-		if (currentItems >= elementList.length) {
-			event.target.style.display = 'none';
-		}
-	});
-}
+// 		// Load more button will be hidden after list fully loaded
+// 		if (currentItems >= elementList.length) {
+// 			event.target.style.display = 'none';
+// 		}
+// 	});
+// }
 
 /** Decorations parallax */
 
