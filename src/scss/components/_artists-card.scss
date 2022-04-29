@@ -5,10 +5,10 @@
   text-align: center;
   position: relative;
   box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
-  display: none;
-  &:nth-child(-n + 4) {
-    display: block;
-  }
+  // display: none;
+  // &:nth-child(-n + 4) {
+  //   display: block;
+  // }
   &::after {
     content: "";
     position: absolute;
