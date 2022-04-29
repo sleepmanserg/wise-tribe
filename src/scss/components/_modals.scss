@@ -1,0 +1,86 @@
+.custom-modal {
+  --modalRadius: 50px;
+  .modal-content {
+    border-radius: var(--modalRadius);
+    background: radial-gradient(
+      54.68% 54.68% at 50% 45.32%,
+      #050547 0%,
+      #000022 100%
+    );
+    box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
+  }
+  .modal-dialog {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .modal-header {
+    border-bottom: none;
+    padding: 0;
+    padding-top: 30px;
+  }
+  .modal-title {
+    text-align: center;
+    color: $white;
+    font-size: clamp(20px, calc(1.25rem + ((1vw - 3.2px) * 2)), 28px);
+    text-align: center;
+    line-height: 140%;
+    margin-bottom: 10px;
+  }
+  .modal-subtitle {
+    text-align: center;
+    max-width: 203px;
+    margin: 0 auto 30px;
+    font-size: clamp(12px, calc(0.75rem + ((1vw - 3.6px) * 1.1928)), 24px);
+    line-height: 130%;
+    opacity: 0.75;
+  }
+  .close-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 1000;
+  }
+  .modal-body {
+    padding: 0 20px;
+  }
+  .modal-footer {
+    border: none;
+    padding: 20px 15px 40px;
+  }
+  @media (min-width: 575px) {
+    --modalRadius: 70px;
+    .modal-dialog {
+      max-width: 430px;
+      margin: 0 auto;
+    }
+    .modal-footer {
+      padding-top: 40px;
+    }
+    .modal-subtitle {
+      max-width: 280px;
+    }
+  }
+  @media (min-width: 1024px) {
+    --modalRadius: 80px;
+    .modal-dialog {
+      max-width: 470px;
+    }
+    .modal-subtitle {
+      max-width: 320px;
+    }
+  }
+  @media (min-width: 1366px) {
+    .form-group {
+      margin-bottom: 30px;
+    }
+    .modal-dialog {
+      max-width: 510px;
+    }
+    .modal-subtitle {
+      max-width: 320px;
+    }
+    .modal-footer {
+      padding-top: 58px;
+    }
+  }
+}

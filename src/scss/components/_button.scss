@@ -617,6 +617,31 @@
   }
 }
 
+.close-btn {
+  --closeBtnSize: 30px;
+  margin: 0;
+  width: var(--closeBtnSize);
+  height: var(--closeBtnSize);
+  border-radius: 50px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0.2px solid rgba(171, 239, 255, 0.35);
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background-color: rgba(171, 239, 255, 0.1);
+    backdrop-filter: blur(20px);
+  }
+}
+
 @media (min-width: 1025px) {
   .header-menu__toggle {
     display: none;

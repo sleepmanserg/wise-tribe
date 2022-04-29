@@ -632,5 +632,9 @@ let randomCircles = function () {
 
 	}
 }
-
 randomCircles();
+
+/** Forms */
+
+let inputs = document.querySelectorAll('.form-input');
+
