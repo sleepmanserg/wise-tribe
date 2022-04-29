@@ -5,8 +5,7 @@
   }
   .events-slider__item {
     position: relative;
-    transition: transform 0.7s;
-    will-change: transform;
+    transition: 0.2s ease-in-out;
     &::after {
       content: "";
       position: absolute;
@@ -18,8 +17,8 @@
       border: 5px solid $blue-secondary;
       opacity: 0;
       visibility: hidden;
-      transition: all 1s;
-      transition-delay: 0.5s;
+      transition: 0.2s;
+      transition-delay: 0.2s;
     }
     &::before {
       content: "";
@@ -32,8 +31,8 @@
       opacity: 0.3;
       border: 1px solid $blue;
       border-radius: 100%;
-      transition: all 0.7s;
-      transition-delay: 0.5s;
+      transition: 0.2s;
+      transition-delay: 0.2s;
     }
   }
   .events-slider__img {
@@ -53,8 +52,8 @@
         rgba(15, 15, 60, 0.73) 51.47%,
         #11113f 100%
       );
-      transition: 0.35s;
-      transition-delay: 0.35s;
+      transition: 0.2s;
+      transition-delay: 0.2s;
     }
     &::before {
       content: "";
@@ -64,9 +63,9 @@
       width: 100%;
       height: 100%;
       border-radius: 100%;
-      box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
-      opacity: 0.5;
-      transition: 0.5s;
+      box-shadow: 0 0 0 5px #3c94bb, 0 0 90px 6px rgba(0, 154, 241, 0.48),
+        0 0 21px -1px rgba(60, 148, 187, 0.7);
+      transition: 0.2s;
     }
     img {
       position: absolute;
@@ -107,8 +106,7 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(50px);
-    transition: all 1s;
-    transition-delay: 0.35s;
+    transition: 0.15s 0.2s ease-in-out;
   }
   .events-slider__info-caption {
     flex: 1;
@@ -167,24 +165,27 @@
       visibility: visible;
     }
   }
+  .swiper-slide {
+    .events-slider__item {
+      transform: scale(0.7) !important;
+    }
+  }
+  .swiper-slide-next,
   .swiper-slide-prev {
     .events-slider__item {
-      transform: scale(0.8) translateX(10%);
+      transform: scale(0.8) !important;
     }
   }
-  .swiper-slide-next {
-    .events-slider__item {
-      transform: scale(0.8) translateX(-10%);
-    }
-  }
+
+  .swiper-slide-next-n1,
   .swiper-slide-prev-n1 {
     .events-slider__item {
-      transform: scale(0.6) translateX(60%);
+      transform: scale(0.7) !important;
     }
   }
-  .swiper-slide-next-n1 {
+  .swiper-slide.swiper-slide-active {
     .events-slider__item {
-      transform: scale(0.6) translateX(-60%);
+      transform: scale(1) !important;
     }
   }
 
@@ -201,6 +202,176 @@
     padding: 74px 0 50px;
   }
   @media (min-width: 1700px) {
-    padding: 110px 0 40px;
+    padding: 110px 0 70px;
+  }
+}
+
+.events-hero {
+  --sectionPaddingTop: 70px;
+  padding-top: var(--sectionPaddingTop);
+  padding-bottom: 0;
+  margin-bottom: 100px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url("../img/events/events-hero.jpg");
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        241.28deg,
+        rgba(14, 14, 57, 0.75) 31.43%,
+        rgba(22, 22, 66, 0.25) 70.06%,
+        #1e1e4a 106.29%
+      ),
+      linear-gradient(0deg, rgba(21, 21, 73, 0.2), rgba(21, 21, 73, 0.2));
+  }
+  .events-hero__caption {
+    max-width: 320px;
+    margin: 0 auto;
+    padding-top: 60px;
+    padding-bottom: 88px;
+    .section-title {
+      max-width: 280px;
+      text-align: center;
+      margin: 0 auto 10px;
+    }
+    .section-text {
+      font-size: clamp(18px, calc(1.125rem + ((1vw - 3.6px) * 0.7692)), 30px);
+      margin-bottom: 40px;
+    }
+  }
+  .events-single__labels {
+    display: flex;
+    justify-content: center;
+    // column-gap: 8px;
+    margin-bottom: 40px;
+  }
+  .events-card__date {
+    padding: 0;
+    padding-inline: 20px;
+    gap: 8px;
+    background: rgba(77, 122, 222, 0.35);
+    box-shadow: 0px 0px 64px rgba(0, 154, 241, 0.3);
+    backdrop-filter: blur(23px);
+    border-radius: 50px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    opacity: 0.8;
+    span {
+      font-size: 14px;
+      line-height: 140%;
+    }
+  }
+  .events-hero__btn {
+    text-align: center;
+  }
+
+  @media (min-width: 480px) {
+    .events-hero__caption {
+      max-width: 400px;
+    }
+  }
+  @media (min-width: 768px) {
+    --sectionPaddingTop: 88px;
+    margin-bottom: 120px;
+    .events-single__labels {
+      margin-bottom: 35px;
+      gap: 12px;
+    }
+    .events-card__date {
+      height: 48px;
+      span {
+        font-size: 18px;
+      }
+    }
+    .events-hero__caption {
+      max-width: 450px;
+      padding-bottom: 76px;
+      padding-top: 22px;
+      .section-title {
+        max-width: 100%;
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    margin-bottom: 130px;
+    .events-single__labels {
+      margin-bottom: 35px;
+      gap: 10px;
+    }
+    .events-card__date {
+      padding-inline: 32px;
+      height: 56px;
+    }
+    .events-hero__caption {
+      padding-top: 40px;
+      padding-bottom: 106px;
+      max-width: 540px;
+      .section-text {
+        margin-bottom: 72px;
+      }
+    }
+  }
+  @media (min-width: 1366px) {
+    padding-top: 108px;
+    margin-bottom: 160px;
+    .events-hero__caption {
+      padding-top: 60px;
+      padding-bottom: 80px;
+      max-width: 600px;
+      .section-text {
+        margin-bottom: 50px;
+      }
+    }
+  }
+  @media (min-width: 1700px) {
+    padding-top: 155px;
+    margin-bottom: 200px;
+    .events-hero__caption {
+      padding-top: 50px;
+      padding-bottom: 220px;
+      max-width: 700px;
+      .section-title {
+        margin-bottom: 20px;
+      }
+      .section-text {
+        margin-bottom: 80px;
+      }
+    }
+    .events-single__labels {
+      margin-bottom: 40px;
+    }
+    .events-card__date {
+      padding-inline: 40px;
+      height: 76px;
+      span {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+.webp {
+  .events-hero {
+    background-image: url("../img/events/events-hero.webp");
+  }
+}
+
+.no-webp {
+  .events-hero {
+    background-image: url("../img/events/events-hero.jpg");
   }
 }

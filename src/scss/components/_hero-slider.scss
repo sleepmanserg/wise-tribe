@@ -2,10 +2,15 @@ section.hero {
   [class*="swiper-button-"] {
     top: 100%;
   }
+  .swiper-nav {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 .hero-slider {
-  padding: 100px 0;
+  padding: 100px 0 120px;
+  margin-top: -50px;
   .hero-slider__item {
     position: relative;
   }

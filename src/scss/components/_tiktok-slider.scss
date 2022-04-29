@@ -1,0 +1,99 @@
+.tiktok-slider {
+  --paddingInline: 1.25rem;
+  margin-left: var(--paddingInline);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+      270.99deg,
+      #000023 -109.06%,
+      rgba(19, 19, 70, 0) 50%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+  .circle-button {
+    position: absolute;
+    right: var(--paddingInline);
+    z-index: 3;
+    top: 40%;
+    transform: translateY(-50%);
+    z-index: 99;
+  }
+  @media (min-width: 768px) {
+    --paddingInline: 2.5rem;
+  }
+}
+
+.titktok-slider__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  color: $white;
+  .tiktok-slider__img {
+    border-radius: 100%;
+    position: relative;
+    z-index: 1;
+    padding: 7px;
+    margin-bottom: 5px;
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 100%;
+      padding: 2px;
+      background: linear-gradient(
+        45deg,
+        #abf5ff,
+        #cafa7a,
+        #4cff7e,
+        #5d81ff,
+        #ff60ac
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: 2;
+    }
+  }
+  img {
+    border-radius: inherit;
+    max-width: 100%;
+    display: block;
+    position: relative;
+  }
+  .tiktok-slider__name {
+    color: $white;
+    text-align: center;
+    font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 1.0256)), 30px);
+    font-weight: 400;
+    line-height: 140%;
+    text-align: center;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 1;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    display: -webkit-box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  @media (min-width: 768px) {
+    .tiktok-slider__img {
+      margin-bottom: 10px;
+    }
+  }
+}

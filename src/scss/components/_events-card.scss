@@ -42,6 +42,9 @@
     border-radius: var(--eventsCardRadius);
     position: absolute;
     overflow: hidden;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
     &::after {
       content: "";
       position: absolute;
@@ -78,7 +81,13 @@
       font-size: clamp(32px, calc(2rem + ((1vw - 3.6px) * 1.9231)), 62px);
       line-height: 120%;
       font-weight: 600;
+      position: relative;
+      z-index: 4;
     }
+  }
+  .events-card__btn {
+    position: relative;
+    z-index: 4;
   }
   @media (min-width: 768px) {
     .events-card__body {
@@ -129,10 +138,11 @@
     height: 100%;
     background: rgba(17, 17, 72, 0.6);
     backdrop-filter: blur(23px);
+    z-index: 3;
   }
   > * {
     position: relative;
-    z-index: 2;
+    z-index: 4;
     font-weight: 300;
     line-height: 140%;
   }

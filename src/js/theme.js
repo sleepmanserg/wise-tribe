@@ -59,7 +59,7 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	effect: "coverflow",
 	slidesPerView: 'auto',
 	grabCursor: true,
-	autoHeight: true,
+	// autoHeight: true,
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
@@ -90,11 +90,18 @@ swiperMainHome.on('slideChange', function () {
 
 const swiperEvents = new Swiper(".events-slider", {
 	effect: "coverflow",
-	slidesPerView: 5,
-	spaceBetween: 35,
+	slidesPerView: 'auto',
+	autoHeight: true,
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
+	centeredSlidesBounds: true,
+	slideToClickedSlide: true,
+	loopedSlides: 5,
+	navigation: {
+		nextEl: ".events-button-next",
+		prevEl: ".events-button-prev"
+	},
 	coverflowEffect: {
 		rotate: 0,
 		stretch: 0,
@@ -102,21 +109,17 @@ const swiperEvents = new Swiper(".events-slider", {
 		modifier: 3,
 		slideShadows: false,
 	},
-	navigation: {
-		nextEl: ".events-button-next",
-		prevEl: ".events-button-prev"
+	breakpoints: {
+		1700: {
+			slidesPerView: 4.2,
+		},
 	},
-	// breakpoints: {
-	// 	320: {
-	// 		slidesPerView: 3.5,
-	// 		spaceBetween: 14,
-	// 	},
-	// 	1024: {
-	// 		slidesPerView: 4.5,
-	// 		spaceBetween: 35,
-	// 	}
-	// },
 	on: {
+		snapGridLengthChange: function () {
+			if (this.snapGrid.length != this.slidesGrid.length) {
+				this.snapGrid = this.slidesGrid.slice(0);
+			}
+		},
 		init: function () {
 			swiperHomeClassTweak(this.slides, this.activeIndex);
 		},
@@ -125,8 +128,8 @@ const swiperEvents = new Swiper(".events-slider", {
 
 swiperEvents.on('slideChange', function () {
 	swiperHomeClassTweak(this.slides, this.activeIndex);
-	this.loopFix();
 });
+
 
 /** Releases slider */
 
@@ -135,16 +138,96 @@ const swiper = new Swiper(".releases-slider", {
 	grabCursor: true,
 });
 
+/** Popular tracks slider */
+
+var popularItem = document.querySelectorAll(".popular-slider .popular-item__number");
+
+for (var i = 0; i < popularItem.length; i++) {
+	popularItem[i].index = i;
+	popularItem[i].innerHTML = i + 1;
+}
+
+const swiperPopular = new Swiper(".popular-slider", {
+	slidesPerView: 1,
+	speed: 500,
+	navigation: {
+		nextEl: '.popular-slider__btn',
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+		},
+		575: {
+			slidesPerView: 1.8,
+			spaceBetween: 70,
+		},
+		768: {
+			slidesPerView: 1.8,
+			spaceBetween: 70,
+		},
+		1024: {
+			slidesPerView: 2.3,
+			spaceBetween: 70,
+		},
+		1366: {
+			slidesPerView: 2.8,
+		},
+		1700: {
+			slidesPerView: 3,
+			spaceBetween: 38,
+		},
+	},
+});
+
 /** Studio slider */
 
 const swiperStudio = new Swiper(".studio-slider", {
 	slidesPerView: 1,
-	speed: 700,
+	speed: 500,
 	loop: true,
 	pagination: {
 		clickable: true,
 		el: ".studio-pagination",
 	},
+});
+
+/** Tiktok slider */
+
+const swiperTiktok = new Swiper(".tiktok-slider", {
+	slidesPerView: 3.5,
+	spaceBetween: 15,
+	loop: true,
+	speed: 500,
+	navigation: {
+		nextEl: '.tiktok-slider__btn',
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 3.5,
+			spaceBetween: 15,
+		},
+		768: {
+			slidesPerView: 4.3,
+			spaceBetween: 25,
+		},
+		1024: {
+			slidesPerView: 4.5,
+			spaceBetween: 30,
+		},
+		1366: {
+			slidesPerView: 4.8,
+			spaceBetween: 37,
+		},
+		1700: {
+			slidesPerView: 6,
+			spaceBetween: 30,
+		},
+	},
+	on: {
+		init: function () {
+			tiktokSliderBtnPosition();
+		},
+	}
 });
 
 
@@ -233,6 +316,7 @@ const blogSlider = new Swiper('.blog-latest-slider', {
 	slidesPerView: 1.2,
 	spaceBetween: 20,
 	grabCursor: true,
+	speed: 500,
 	// navigation: {
 	// 	nextEl: '.blog-button-next',
 	// 	prevEl: '.blog-button-prev',
@@ -308,6 +392,7 @@ const enableSwiper = function () {
 		slidesPerView: 1.2,
 		spaceBetween: 20,
 		a11y: true,
+		speed: 500,
 		keyboardControl: true,
 		grabCursor: true,
 		navigation: {
@@ -377,6 +462,7 @@ const projectsSlider = new Swiper('.projects-slider', {
 	slidesPerView: 1.2,
 	spaceBetween: 20,
 	grabCursor: true,
+	speed: 500,
 	navigation: {
 		nextEl: '.projects-slider__btn',
 	},
@@ -411,6 +497,19 @@ const projectsSlider = new Swiper('.projects-slider', {
 
 /** Slider circle arrow position */
 
+function tiktokSliderBtnPosition() {
+	let tiktokSliderItem = document.querySelectorAll('.titktok-slider__item');
+
+	tiktokSliderItem.forEach((item) => {
+		let tiktokSliderTitle = document.querySelectorAll('.tiktok-slider__name');
+
+		tiktokSliderTitle.forEach((title) => {
+			item.style.paddingBottom = title.offsetHeight + 'px';
+		})
+	});
+}
+
+
 function sliderArrowPosition() {
 	let projectsSLiderImg = document.querySelector('.projects-slider__thumb');
 	let projectsSliderArrow = document.querySelector('.projects-slider__btn');
@@ -428,6 +527,10 @@ function checkForWindowResize() {
 	if (document.querySelector('.projects-slider__btn')) {
 		sliderArrowPosition();
 	}
+	if (document.querySelector('.tiktok-slider__btn')) {
+		tiktokSliderBtnPosition();
+	}
+
 }
 
 window.addEventListener('resize', checkForWindowResize);
@@ -454,3 +557,80 @@ if (loadmore) {
 		}
 	});
 }
+
+/** Decorations parallax */
+
+const rellax = new Rellax('.rellax');
+
+
+// Some random colors
+const colors = ["#ff69f9", "#6c69ff", "#69d5ff"];
+
+const numBalls = 15;
+const balls = [];
+
+for (let i = 0; i < numBalls; i++) {
+	let ball = document.createElement("div");
+	ball.classList.add("decor-circle");
+	let random_color = colors[Math.floor(Math.random() * colors.length)];
+	ball.style.boxShadow = '0px 0px 5px 3px ' + random_color;
+	ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+	ball.style.top = `${Math.floor(Math.random())}`;
+	ball.style.transform = `scale(${Math.random()})`;
+	ball.style.width = `${Math.random()}em`;
+	ball.style.height = ball.style.width;
+
+	balls.push(ball);
+	document.body.append(ball);
+}
+
+// Keyframes
+balls.forEach((el, i, ra) => {
+	let to = {
+		x: Math.random() * (i % 2 === 0 ? -11 : 11),
+		y: Math.random() * 12
+	};
+
+	let anim = el.animate(
+		[
+			{ transform: "translate(0, 0)" },
+			{ transform: `translate(${to.x}rem, ${to.y}rem)` }
+		],
+		{
+			duration: (Math.random() + 1) * 5000, // random duration
+			direction: "alternate",
+			fill: "both",
+			iterations: Infinity,
+			easing: "ease-in-out"
+		}
+	);
+});
+
+
+let randomCircles = function () {
+	let decorCircles = document.querySelectorAll('.decor-circle');
+
+	// let experienceSection = document.querySelector('.experience');
+	let documentWidth = window.innerWidth;
+	let documentHeight = window.innerHeight;
+
+	for (let i = 0; i < decorCircles.length; i++) {
+
+		let thisDecorCircles = decorCircles[i];
+
+		let randomTop = getRandomNumber(0, documentHeight);
+		let randomLeft = getRandomNumber(0, documentWidth);
+
+		thisDecorCircles.style.top = randomTop + "px";
+		thisDecorCircles.style.left = randomLeft + "px";
+
+	}
+
+	function getRandomNumber(min, max) {
+
+		return Math.random() * (max - min) + min;
+
+	}
+}
+
+randomCircles();

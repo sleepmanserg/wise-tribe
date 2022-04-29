@@ -11,7 +11,7 @@ append config
 
 //- Page Content
 block content
-  section.events-hero.events-single
+  section.events-single
     .container
       a(href="events.html").back-btn
         i.icon-chevron-l
@@ -44,36 +44,120 @@ block content
       .section-title.mb-2 Program
       .section-text.opacity-7 The program of the event
 
-      #accordionFlushExample.accordion.accordion-flush.events-program__accordion
-        .accordion-item
-          h2#flush-headingOne.accordion-header
-            button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseOne' aria-expanded='false' aria-controls='flush-collapseOne')
-              | Accordion Item #1
-          #flush-collapseOne.accordion-collapse.collapse(aria-labelledby='flush-headingOne' data-bs-parent='#accordionFlushExample')
-            .accordion-body
-              | Placeholder content for this accordion, which is intended to demonstrate the
-              code .accordion-flush
-              |  class. This is the first item's accordion body.
-        .accordion-item
-          h2#flush-headingTwo.accordion-header
-            button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseTwo' aria-expanded='false' aria-controls='flush-collapseTwo')
-              | Accordion Item #2
-          #flush-collapseTwo.accordion-collapse.collapse(aria-labelledby='flush-headingTwo' data-bs-parent='#accordionFlushExample')
-            .accordion-body
-              | Placeholder content for this accordion, which is intended to demonstrate the
-              code .accordion-flush
-              |  class. This is the second item's accordion body. Let's imagine this being filled with some actual content.
-        .accordion-item
-          h2#flush-headingThree.accordion-header
-            button.accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#flush-collapseThree' aria-expanded='false' aria-controls='flush-collapseThree')
-              | Accordion Item #3
-          #flush-collapseThree.accordion-collapse.collapse(aria-labelledby='flush-headingThree' data-bs-parent='#accordionFlushExample')
-            .accordion-body
-              | Placeholder content for this accordion, which is intended to demonstrate the
-              code .accordion-flush
-              |  class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.
-
-
+      #accordionProgram.accordion.accordion-flush.program-accordion.pt-5
+        .program-accordion-item
+          h2#program-headingOne.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseOne' aria-expanded='false' aria-controls='program-collapseOne')
+              .accordion-icon
+                img(src="img/icons/events/run.svg", alt="")
+              .accordion-title.d-none.d-md-block Ecstatic Dance
+              .accordion-labels
+                .accordion-label(data-color="blue") Standard
+                .accordion-label(data-color="pink") Vip
+              .accordion-plus
+                .plus-icon
+          #program-collapseOne.program-accordion-collapse.collapse(aria-labelledby='program-headingOne' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+        .program-accordion-item
+          h2#program-headingTwo.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseTwo' aria-expanded='false' aria-controls='program-collapseTwo')
+              .accordion-icon
+                img(src="img/icons/events/heal.svg", alt="")
+              .accordion-title.d-none.d-md-block Healing
+              .accordion-labels
+                .accordion-label(data-color="blue") Standard
+                .accordion-label(data-color="pink") Vip
+              .accordion-plus
+                .plus-icon
+          #program-collapseTwo.program-accordion-collapse.collapse(aria-labelledby='program-headingTwo' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+        .program-accordion-item
+          h2#program-headingThree.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseThree' aria-expanded='false' aria-controls='program-collapseThree')
+              .accordion-icon
+                img(src="img/icons/events/music.svg", alt="")
+              .accordion-title.d-none.d-md-block Music
+              .accordion-labels
+                .accordion-label(data-color="blue") Standard
+                .accordion-label(data-color="pink") Vip
+                .accordion-label(data-color="purple") Fun
+              .accordion-plus
+                .plus-icon
+          #program-collapseThree.program-accordion-collapse.collapse(aria-labelledby='program-headingThree' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+        .program-accordion-item
+          h2#program-headingFour.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseFour' aria-expanded='false' aria-controls='program-collapseFour')
+              .accordion-icon
+                img(src="img/icons/events/meat.svg", alt="")
+              .accordion-title.d-none.d-md-block Networking
+              .accordion-labels
+                .accordion-label(data-color="blue") Standard
+                .accordion-label(data-color="pink") Vip
+              .accordion-plus
+                .plus-icon
+          #program-collapseFour.program-accordion-collapse.collapse(aria-labelledby='program-headingFour' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+        .program-accordion-item
+          h2#program-headingFive.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseFive' aria-expanded='false' aria-controls='program-collapseFive')
+              .accordion-icon
+                img(src="img/icons/events/art.svg", alt="")
+              .accordion-title.d-none.d-md-block Art
+              .accordion-labels
+                .accordion-label(data-color="blue") Standard
+                .accordion-label(data-color="pink") Vip
+              .accordion-plus
+                .plus-icon
+          #program-collapseFive.program-accordion-collapse.collapse(aria-labelledby='program-headingFive' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+        .program-accordion-item
+          h2#program-headingSix.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseSix' aria-expanded='false' aria-controls='program-collapseSix')
+              .accordion-icon
+                img(src="img/icons/events/speakers.svg", alt="")
+              .accordion-title.d-none.d-md-block Speakers
+              .accordion-labels
+                .accordion-label(data-color="pink") Vip
+                .accordion-label(data-color="purple") Fun
+              .accordion-plus
+                .plus-icon
+          #program-collapseSix.program-accordion-collapse.collapse(aria-labelledby='program-headingSix' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+        .program-accordion-item
+          h2#program-headingSeven.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseSeven' aria-expanded='false' aria-controls='program-collapseSeven')
+              .accordion-icon
+                img(src="img/icons/events/fire.svg", alt="")
+              .accordion-title.d-none.d-md-block Show
+              .accordion-labels
+                .accordion-label(data-color="blue") Standard
+                .accordion-label(data-color="pink") Vip
+              .accordion-plus
+                .plus-icon
+          #program-collapseSeven.program-accordion-collapse.collapse(aria-labelledby='program-headingSeven' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+        .program-accordion-item
+          h2#program-headingEight.program-accordion-header
+            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseEight' aria-expanded='false' aria-controls='program-collapseEight')
+              .accordion-icon
+                img(src="img/icons/events/meat.svg", alt="")
+              .accordion-title.d-none.d-md-block Food
+              .accordion-labels
+                .accordion-label(data-color="blue") Standard
+                .accordion-label(data-color="pink") Vip
+              .accordion-plus
+                .plus-icon
+          #program-collapseEight.program-accordion-collapse.collapse(aria-labelledby='program-headingEight' data-bs-parent='#accordionProgram')
+            .program-accordion-body
+              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
 
   section.events-about
     .container
@@ -83,5 +167,10 @@ block content
           .section-subtitle.info-card__subtitle New album presentation and greatest hits - meet Roma Nebo at ibiza nightclub
           .section-text.opacity-7 One of the most famous artists of our time will shake Paris with a cool show program, which will include all the songs that the audience loved - "Let Me On The Dance Floor", "Bird", "War Girl"and other YouTube millionaires. In addition, the guests of the evening will be the first to hear the work of the new album live!
 
+  include partials/popular
 
+  section.video-clips
+    .container
+      .section-title Video clips
+  include partials/video-clips
 

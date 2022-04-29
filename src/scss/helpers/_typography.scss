@@ -66,3 +66,26 @@
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
+
+.tiktok-title {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 15px;
+  span {
+    display: block;
+    width: 100%;
+  }
+  img {
+    flex: 0 0 25px;
+  }
+  @media (min-width: 768px) {
+    img {
+      flex: 0 0 35px;
+    }
+  }
+  @media (min-width: 1366px) {
+    img {
+      flex: 0 0 40px;
+    }
+  }
+}
