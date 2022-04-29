@@ -1,0 +1,21 @@
+.artists-grid {
+  --artistsGridGap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--artistsGridGap);
+  margin-bottom: 100px;
+  @media (min-width: 768px) {
+    --artistsGridGap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1024px) {
+    --artistsGridGap: 34px;
+  }
+  @media (min-width: 1366px) {
+    grid-template-columns: repeat(4, 1fr);
+    --artistsGridGap: 40px;
+  }
+  @media (min-width: 1700px) {
+    --artistsGridGap: 36px;
+  }
+}

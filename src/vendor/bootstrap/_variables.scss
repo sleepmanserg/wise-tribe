@@ -1286,8 +1286,14 @@ $modal-content-inner-border-radius: subtract(
 $modal-content-box-shadow-xs: $box-shadow-sm !default;
 $modal-content-box-shadow-sm-up: $box-shadow !default;
 
-$modal-backdrop-bg: $black !default;
-$modal-backdrop-opacity: 0.5 !default;
+$modal-backdrop-bg: radial-gradient(
+    81.91% 108.97% at 23.88% 18.09%,
+    rgba(255, 255, 255, 0.126) 0%,
+    rgba(255, 255, 255, 0) 100%
+  ),
+  radial-gradient(54.68% 54.68% at 50% 45.32%, #050547 0%, #000022 100%),
+  #ffffff !default;
+$modal-backdrop-opacity: 1 !default;
 $modal-header-border-color: $border-color !default;
 $modal-footer-border-color: $modal-header-border-color !default;
 $modal-header-border-width: $modal-content-border-width !default;

@@ -10,7 +10,7 @@ footer.footer
           li.footer-nav__list-item
             a.nav-link.footer-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html")  Events
           li.footer-nav__list-item
-            a(href="#").nav-link.footer-nav__link Artists
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Artists') ? "active" : "nav-link" href="artists.html") Artists
           li.footer-nav__list-item
             a.nav-link.footer-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html") Blog
           li.footer-nav__list-item
@@ -31,3 +31,32 @@ footer.footer
         a(href="mailto:wise@tribe.com").footer-mail.text-center wise@tribe.com
       .footer-policy
         a(href="#").footer-link Privacy Policy
+
+//- ! Modals
+
+// Modal
+#connectModal.custom-modal.modal.fade(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='connectModalLabel' aria-hidden='true')
+  button.close-btn(type='button' data-bs-dismiss='modal' aria-label='Close')
+    img(src="img/icons/close.svg", alt="")
+  .modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+    .modal-content
+      .modal-header.flex-column.justify-content-center.align-items-center
+        h5#connectModalLabel.modal-title Connect
+        h6.modal-subtitle To continue, you must fill in the following information
+      .modal-body
+        form(action="")#connectForm
+          .form-group
+            input(type="text" placeholder="Your name").form-input
+          .form-group
+            input(type="tel" placeholder="Phone number").form-input
+          .form-group
+            input(type="email" placeholder="Email").form-input
+          .form-group
+            textarea(type="text" placeholder="Write a comment" rows="1").form-input
+
+      .modal-footer.justify-content-center
+        .form-btn
+          button(type="submit").btn.btn-white-glow Continue
+
+
+

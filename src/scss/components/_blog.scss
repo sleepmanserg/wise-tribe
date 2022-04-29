@@ -250,6 +250,14 @@
   // }
   @include hover {
     color: $white;
+    .blog-item__title {
+      color: $blue;
+    }
+    .blog-item__img {
+      img {
+        transform: scale(1.1);
+      }
+    }
   }
   .blog-item__header {
     position: relative;
@@ -272,6 +280,7 @@
     --blogItemImgRadius: 30px;
     border-radius: var(--blogItemImgRadius);
     position: relative;
+    overflow: hidden;
     &::after {
       content: "";
       position: absolute;
@@ -291,6 +300,7 @@
       aspect-ratio: 4 / 3;
       border-radius: 30px;
       object-fit: cover;
+      transition: 0.35s ease;
       @media (min-width: 1024px) {
         aspect-ratio: 14 / 9;
       }
@@ -316,6 +326,7 @@
     word-wrap: break-word;
     -webkit-box-orient: vertical;
     box-orient: vertical;
+    transition: 0.25s;
   }
   .blog-item__descr {
     -ms-text-overflow: ellipsis;

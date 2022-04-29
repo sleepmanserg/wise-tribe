@@ -10,7 +10,7 @@ header.site-header
           li.header-nav__item
             a.nav-link.header-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html") Events
           li.header-nav__item
-            a(href="artists.html").nav-link.header-nav__link Artists
+            a.nav-link.header-nav__link(class=(pageTitle === 'Artists') ? "active" : "nav-link" href="artists.html") Artists
           li.header-nav__item
             a.nav-link.header-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html") Blog
           li.header-nav__item
@@ -36,7 +36,7 @@ header.site-header
       // !!! Important to keep container class .btn-glow__wrapper and inner classes, for css styles!!!
       .header-connect
         .btn-glow__wrapper
-          a(href="#").btn.btn-glow
+          button(data-bs-toggle="modal" data-bs-target="#connectModal").btn.btn-glow
             span.btn-glow__inner
               span.btn-glow__text Connect
       .triangle-wrapper

@@ -23,9 +23,9 @@
 
 .section-text {
   font-size: 14px;
-  line-height: 140%;
   font-weight: 300;
   font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 1.4103)), 36px);
+  line-height: 140%;
   .text-blue {
     font-weight: 600;
   }
