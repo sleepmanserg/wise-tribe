@@ -638,3 +638,12 @@ randomCircles();
 
 let inputs = document.querySelectorAll('.form-input');
 
+/** Preloader */
+
+window.addEventListener('load', () => {
+	const preload = document.querySelector('.preloader');
+	setTimeout(function () {
+		preload.classList.add('loaded');
+		document.body.classList.remove('overflow-hidden');
+	}, 5000);
+});

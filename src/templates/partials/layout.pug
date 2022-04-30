@@ -14,6 +14,14 @@ html(lang="en")
 
   // Body
   body
+
+    #preloader.preloader
+      - for(var x = 0; x < 8; x++)
+        div(class="preloader-star preloader-star-" + x)
+      - for(var x = 0; x < 8; x++)
+        div(class="preloader-circle preloader-circle-" + x)
+
+
     include header
 
     main

@@ -3,6 +3,7 @@
 .hero {
   --sectionPaddingBottom: 188px;
   --sectionPaddingTop: 158px;
+  overflow: hidden;
   padding-top: var(--sectionPaddingTop);
   @media (min-width: 768px) {
     --sectionPaddingTop: 140px;
