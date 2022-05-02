@@ -8,6 +8,9 @@
   left: 0;
   top: 0;
   z-index: 99;
+  height: var(--headerHeight);
+  display: flex;
+  align-items: center;
   &::after {
     content: "";
     position: absolute;
@@ -30,18 +33,31 @@
       visibility: visible;
     }
     @media (min-width: 768px) {
-      .header-container {
-        padding: 20px 40px 20px;
-      }
     }
+  }
+  @media (min-width: 768px) {
+    --headerHeight: 72px;
+  }
+
+  @media (min-width: 1024px) {
+    --headerHeight: 80px;
+  }
+
+  @media (min-width: 1366px) {
+    --headerHeight: 128px;
+  }
+
+  @media (min-width: 1700px) {
+    --headerHeight: 135px;
   }
 }
 
 .header-container {
   display: flex;
   align-items: center;
-  padding-top: 43px;
-  padding-bottom: 43px;
+  // padding-top: 43px;
+  // padding-bottom: 43px;
+  height: 100%;
   transition: 0.35s;
 }
 
@@ -293,10 +309,6 @@
 }
 
 @media (max-width: 1366px) {
-  .header-container {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
   .header-logo {
     max-width: 100px;
     flex: 0 0 100px;
@@ -334,7 +346,6 @@
         #000022 100%
       ),
       #ffffff;
-    padding-top: 25px;
     padding-bottom: 40px;
     opacity: 0;
     visibility: hidden;
@@ -369,7 +380,6 @@
   }
   .header-container {
     justify-content: space-between;
-    padding: 32px 40px 25px;
   }
   .header-nav {
     padding: 0;
@@ -412,14 +422,18 @@
   .header-shop {
     order: 1;
     margin-left: 0;
+    margin-top: 22px;
   }
   .header-connect {
     order: 3;
   }
   .header-languages {
     position: absolute;
-    top: 36px;
+    top: 33px;
     left: 40px;
+    .header-languages__dropdown {
+      margin-left: 10px;
+    }
   }
 }
 
@@ -431,16 +445,16 @@
   .header-languages {
     margin-right: 0;
     left: 20px;
+    top: 25px;
+  }
+  .header-shop {
+    margin-top: 13px;
   }
 }
 
 @media (max-width: 575px) {
-  .header-container {
-    padding: 25px 20px;
-  }
   .header-inner {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
   }
   .header-nav {
     padding-top: 40px;
@@ -449,10 +463,6 @@
       line-height: 34px;
       margin-bottom: 20px;
     }
-  }
-  .header-languages {
-    top: 31px;
-    left: 20px;
   }
 }
 

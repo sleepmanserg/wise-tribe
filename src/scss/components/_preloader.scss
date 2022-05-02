@@ -1,5 +1,4 @@
 #preloader {
-  align-items: center;
   background: radial-gradient(
       54.68% 54.68% at 50% 45.32%,
       #050547 0%,
@@ -7,19 +6,59 @@
     ),
     #ffffff;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   max-width: 100vw;
   justify-content: center;
   left: 0;
   position: fixed;
   top: 0;
-  transition: opacity 0.2s linear;
+  transition: 0.8s linear;
   width: 100%;
   z-index: 9999;
   opacity: 1;
+  .preloader-circle-logo {
+    background-color: transparent;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-180deg);
+    animation-name: preloaderCircle;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+    opacity: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  &.loaded {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 
-  // ! Remove
-  display: none;
+.preloader-logo {
+  width: 859px;
+  height: 185px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation-name: preloaderLogo;
+  animation-timing-function: linear;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-delay: 3s;
+  transition: 0.5s;
+  opacity: 0;
 }
 
 .preloader-star {
@@ -55,7 +94,62 @@
   }
 
   .preloader-star:nth-child(#{$i}) {
-    width: random(70) + px;
+    width: random(40) + px;
+  }
+}
+
+// .triangle-two
+// .triangle-four,
+// .triangle-five
+// .triangle-thirteen
+// .triangle-fourteen
+// .triangle-fifteen
+
+.preloader-triangles {
+  transform: scale(1.2);
+  .triangle-two,
+  // .triangle-three,
+  .triangle-four,
+  .triangle-five,
+  .triangle-six,
+  .triangle-seven,
+  .triangle-eight,
+  // .triangle-nine,
+  .triangle-ten,
+  .triangle-eleven,
+  .triangle-twelve,
+  .triangle-thirteen,
+  .triangle-fourteen,
+  .triangle-fifteen,
+  // .triangle-sixteen,
+  .triangle-seventeen {
+    opacity: 0;
+  }
+
+  .triangle-first {
+    animation-name: triangleFirst;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+  }
+  .triangle-second {
+    animation-name: triangleSecond;
+    animation-timing-function: linear;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 2.5s;
+    opacity: 0;
+    transform: translate3d(50%, 50%, 0px) scale(0.8);
+  }
+  .triangle-third {
+    animation-name: triangleThird;
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-delay: 2.5s;
+    opacity: 0;
   }
 }
 
@@ -65,5 +159,105 @@
   }
   to {
     opacity: random($limit: 1);
+  }
+}
+
+@keyframes triangleFirst {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes triangleSecond {
+  0% {
+    opacity: 0;
+    transform: translate3d(50%, 50%, 0px) scale(0.8);
+  }
+  10% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0%, 0%, 0px) scale(1);
+  }
+}
+
+@keyframes triangleThird {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.15;
+  }
+}
+
+@keyframes preloaderCircle {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-180deg);
+  }
+
+  30% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-180deg);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(0.8) rotate(-180deg);
+  }
+
+  70% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+  }
+
+  80% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.8) rotate(0deg);
+  }
+
+  95% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+  }
+}
+
+@keyframes preloaderLogo {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
   }
 }

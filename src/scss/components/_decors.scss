@@ -4,13 +4,6 @@
   position: absolute;
 }
 
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-}
-
 .decor-circle__one {
   width: 7px;
   height: 7px;
@@ -50,10 +43,16 @@ canvas {
           margin-left: 50px;
           width: 80px;
           height: 80px;
+          @media (max-width: 1366px) {
+            margin-top: -50px;
+          }
         }
         &:nth-child(2) {
           margin-top: -100px;
           margin-left: 70px;
+          @media (max-width: 1366px) {
+            margin-top: -150px;
+          }
         }
         &:nth-child(3) {
           margin-top: 50px;
@@ -81,6 +80,25 @@ canvas {
           margin-right: auto;
           margin-left: 0;
           margin-bottom: -150px;
+          @media (max-width: 1366px) {
+            width: 275px;
+            height: 275px;
+            margin-bottom: 0;
+          }
+          @media (max-width: 1024px) {
+            width: 225px;
+            height: 225px;
+          }
+          @media (max-width: 768px) {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 5rem;
+          }
+          @media (max-width: 575px) {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 0;
+          }
         }
         &:nth-child(8) {
           width: 65px;
@@ -132,6 +150,28 @@ canvas {
           position: absolute;
           bottom: -250px;
           z-index: -1;
+          @media (min-width: 1920px) {
+            bottom: -300px;
+            right: 4rem;
+          }
+          @media (max-width: 1500px) {
+            width: 400px;
+            height: 400px;
+            right: 3rem;
+            bottom: -5rem;
+          }
+          @media (max-width: 1024px) {
+            width: 260px;
+            height: 260px;
+            bottom: 0;
+            right: 1rem;
+          }
+          @media (max-width: 768px) {
+            width: 130px;
+            height: 130px;
+            bottom: 5rem;
+            right: 3.75rem;
+          }
         }
         &:nth-child(7) {
           width: 75px;
@@ -139,6 +179,13 @@ canvas {
           position: absolute;
           right: 15px;
           bottom: -50px;
+          @media (max-width: 1500px) {
+            bottom: -10rem;
+          }
+          @media (max-width: 1024px) {
+            bottom: 0;
+            right: 0;
+          }
         }
       }
     }
@@ -219,4 +266,45 @@ canvas {
   top: 100%;
   z-index: -1;
   opacity: 0.5;
+}
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}
+
+.random-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  @for $i from 1 through 50 {
+    .decor-circle:nth-child(#{$i}) {
+      top: percentage(calc(random(90) / 100));
+      left: random(100) + vw;
+      opacity: calc(random(10) / 10);
+      transform: scale(#{randomNum(0.7, 0.8)});
+      animation-name: decorCirclesAnim;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;
+    }
+  }
+}
+
+@keyframes decorCirclesAnim {
+  0% {
+    transform: scale(#{randomNum(0.7, 0.8)}) translate(0, 0);
+  }
+
+  100% {
+    transform: scale(#{randomNum(0.7, 0.8)}) translate(#{randomNum(100, 150)});
+  }
 }

@@ -47,7 +47,7 @@ const menuToggle = document.querySelector('.header-menu__toggle');
 if (menuToggle) {
 	const menuInner = document.querySelector('.header-inner');
 	menuToggle.addEventListener('click', () => {
-		document.body.classList.toggle('overflow-hidden');
+		document.documentElement.classList.toggle('overflow-hidden');
 		menuToggle.classList.toggle('active');
 		menuInner.classList.toggle('active');
 	});
@@ -91,13 +91,12 @@ swiperMainHome.on('slideChange', function () {
 const swiperEvents = new Swiper(".events-slider", {
 	effect: "coverflow",
 	slidesPerView: 'auto',
-	autoHeight: true,
+	grabCursor: true,
+	// autoHeight: true,
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	centeredSlidesBounds: true,
-	slideToClickedSlide: true,
-	loopedSlides: 5,
+	slideToClickedSlide: false,
 	navigation: {
 		nextEl: ".events-button-next",
 		prevEl: ".events-button-prev"
@@ -109,17 +108,7 @@ const swiperEvents = new Swiper(".events-slider", {
 		modifier: 3,
 		slideShadows: false,
 	},
-	breakpoints: {
-		1700: {
-			slidesPerView: 4.2,
-		},
-	},
 	on: {
-		snapGridLengthChange: function () {
-			if (this.snapGrid.length != this.slidesGrid.length) {
-				this.snapGrid = this.slidesGrid.slice(0);
-			}
-		},
 		init: function () {
 			swiperHomeClassTweak(this.slides, this.activeIndex);
 		},
@@ -347,6 +336,10 @@ const blogSlider = new Swiper('.blog-latest-slider', {
 			slidesPerView: 3.2,
 			spaceBetween: 36,
 		},
+		// 1920: {
+		// 	slidesPerView: 4.2,
+		// 	spaceBetween: 36,
+		// }
 	},
 });
 
@@ -432,22 +425,28 @@ breakpointChecker();
 // 	loop: true,
 // });
 
-// function blogSectionPaddingHack() {
+function sliderPaddingHack() {
 
-// 	if (document.querySelector('.blog-slider')) {
-// 		let sectionWidth = document.querySelector('.blog-slider').offsetWidth;
-// 		let containerWidth = document.querySelector('.container').offsetWidth;
-// 		let blogOffset = (sectionWidth - containerWidth) / 2;
-// 		let blogContent = document.querySelector('.blog-slider__content');
+	let offsetSliders = document.querySelectorAll('.offset-slider');
 
-// 		blogContent.style.paddingLeft = blogOffset + 'px';
+	offsetSliders.forEach(slider => {
+		let sliderContent = slider.closest('.offset-slider__content');
+		let sliderWidth = sliderContent.offsetWidth;
+		let containerWidth = document.querySelector('.container').offsetWidth;
+		let sliderOffset = (sliderWidth - containerWidth) / 2;
 
-// 		blogSwiper.update();
-// 	}
+		console.log(sliderWidth);
+		console.log(containerWidth);
+		console.log(sliderOffset);
 
-// };
+		sliderContent.style.paddingLeft = sliderOffset + 'px';
 
-// blogSectionPaddingHack();
+		console.log(slider);
+	});
+
+};
+
+sliderPaddingHack();
 
 // function checkForWindowResize() {
 // 	console.log(`Screen width: ${window.innerWidth}`);
@@ -535,57 +534,15 @@ function checkForWindowResize() {
 
 window.addEventListener('resize', checkForWindowResize);
 
-
-/** Load more button */
-
-// const loadmore = document.querySelector('#loadmore');
-// let currentItems = 4;
-// if (loadmore) {
-// 	loadmore.addEventListener('click', (e) => {
-// 		console.log('hello')
-// 		const elementList = [...document.querySelectorAll('.grid-card')];
-// 		for (let i = currentItems; i < currentItems + 3; i++) {
-// 			if (elementList[i]) {
-// 				elementList[i].style.display = 'block';
-// 			}
-// 		}
-// 		currentItems += 3;
-
-// 		// Load more button will be hidden after list fully loaded
-// 		if (currentItems >= elementList.length) {
-// 			event.target.style.display = 'none';
-// 		}
-// 	});
-// }
-
 /** Decorations parallax */
 
 const rellax = new Rellax('.rellax');
 
+/** Random circles animation  */
 
-// Some random colors
-const colors = ["#ff69f9", "#6c69ff", "#69d5ff"];
+let decorRandomCircles = document.querySelectorAll('.random-circles .decor-circle');
 
-const numBalls = 15;
-const balls = [];
-
-for (let i = 0; i < numBalls; i++) {
-	let ball = document.createElement("div");
-	ball.classList.add("decor-circle");
-	let random_color = colors[Math.floor(Math.random() * colors.length)];
-	ball.style.boxShadow = '0px 0px 5px 3px ' + random_color;
-	ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
-	ball.style.top = `${Math.floor(Math.random())}`;
-	ball.style.transform = `scale(${Math.random()})`;
-	ball.style.width = `${Math.random()}em`;
-	ball.style.height = ball.style.width;
-
-	balls.push(ball);
-	document.body.append(ball);
-}
-
-// Keyframes
-balls.forEach((el, i, ra) => {
+decorRandomCircles.forEach((el, i, ra) => {
 	let to = {
 		x: Math.random() * (i % 2 === 0 ? -11 : 11),
 		y: Math.random() * 12
@@ -606,44 +563,19 @@ balls.forEach((el, i, ra) => {
 	);
 });
 
-
-let randomCircles = function () {
-	let decorCircles = document.querySelectorAll('.decor-circle');
-
-	// let experienceSection = document.querySelector('.experience');
-	let documentWidth = window.innerWidth;
-	let documentHeight = window.innerHeight;
-
-	for (let i = 0; i < decorCircles.length; i++) {
-
-		let thisDecorCircles = decorCircles[i];
-
-		let randomTop = getRandomNumber(0, documentHeight);
-		let randomLeft = getRandomNumber(0, documentWidth);
-
-		thisDecorCircles.style.top = randomTop + "px";
-		thisDecorCircles.style.left = randomLeft + "px";
-
-	}
-
-	function getRandomNumber(min, max) {
-
-		return Math.random() * (max - min) + min;
-
-	}
-}
-randomCircles();
-
 /** Forms */
 
 let inputs = document.querySelectorAll('.form-input');
 
 /** Preloader */
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', (event) => {
 	const preload = document.querySelector('.preloader');
-	setTimeout(function () {
-		preload.classList.add('loaded');
-		document.body.classList.remove('overflow-hidden');
-	}, 5000);
+
+	if (preload) {
+		setTimeout(function () {
+			preload.classList.add('loaded');
+			document.documentElement.classList.remove('overflow-hidden');
+		}, 8000);
+	}
 });

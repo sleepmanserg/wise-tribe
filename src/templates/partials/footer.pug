@@ -36,11 +36,11 @@ footer.footer
 
 // Modal
 #connectModal.custom-modal.modal.fade(data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='connectModalLabel' aria-hidden='true')
-  button.close-btn(type='button' data-bs-dismiss='modal' aria-label='Close')
-    img(src="img/icons/close.svg", alt="")
-  .modal-dialog.modal-dialog-centered.modal-dialog-scrollable
+  .modal-dialog.modal-dialog-centered
     .modal-content
       .modal-header.flex-column.justify-content-center.align-items-center
+        button.close-btn(type='button' data-bs-dismiss='modal' aria-label='Close')
+          img(src="img/icons/close.svg", alt="")
         h5#connectModalLabel.modal-title Connect
         h6.modal-subtitle To continue, you must fill in the following information
       .modal-body

@@ -24,8 +24,22 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  text-decoration: none;
+  color: $white;
+  @include hover {
+    color: $white;
+    .popular-item__title {
+      color: $blue;
+    }
+  }
+  &:active {
+    color: $white;
+    .popular-item__title {
+      color: $blue;
+    }
+  }
   .popular-item__number {
-    flex: 0 0 30px;
+    flex: 0 0 20px;
     font-size: clamp(18px, calc(1.125rem + ((1vw - 3.6px) * 1.1538)), 36px);
     line-height: 140%;
     font-weight: 600;
@@ -50,7 +64,7 @@
     }
   }
   .popular-item__info {
-    flex: 0 0 195px;
+    flex: 0 0 50%;
   }
   .popular-item__title,
   .popular-item__artitst {
@@ -70,6 +84,7 @@
   .popular-item__title {
     font-size: clamp(18px, calc(1.125rem + ((1vw - 3.6px) * 0.7692)), 30px);
     font-weight: 600;
+    transition: 0.25s;
   }
   .popular-item__artitst {
     font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.641)), 24px);

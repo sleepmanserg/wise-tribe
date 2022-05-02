@@ -1,10 +1,20 @@
 //
 // Scaffolding
 // --------------------------------------------------
+
 html * {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// * {
+//   outline: 1px solid red;
+// }
+
+html {
+  // overflow-x: hidden;
+  // overflow-y: auto;
 }
 
 body {
@@ -21,12 +31,13 @@ body {
   background-repeat: no-repeat;
   min-height: 100vh;
   color: $white;
-  overflow-x: hidden;
   position: relative;
 }
 
 main {
   flex: 1;
+  overflow: hidden;
+  padding-top: var(--headerHeight);
 }
 
 img {
