@@ -140,6 +140,7 @@
     background: rgba(17, 17, 72, 0.6);
     backdrop-filter: blur(23px);
     z-index: 3;
+    border-radius: inherit;
   }
   > * {
     position: relative;

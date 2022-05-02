@@ -63,7 +63,7 @@
   }
   .blog-latest__img {
     border-radius: 100%;
-    outline: 3px solid $blue;
+    border: 3px solid $blue;
     box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
     position: relative;
     max-width: 600px;
@@ -281,6 +281,7 @@
     border-radius: var(--blogItemImgRadius);
     position: relative;
     overflow: hidden;
+    transform: translateZ(0);
     &::after {
       content: "";
       position: absolute;
