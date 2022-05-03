@@ -11,6 +11,12 @@ append config
 
 //- Page Content
 block content
+  .blog-triangles
+    picture
+      source(srcset='img/blog/triangles.webp' media='(min-width: 768px)' type='image/webp')
+      source(srcset='img/blog/triangles.png' media='(min-width: 768px)')
+      source(srcset='img/blog/triangles-mob.webp' type='image/webp')
+      img(src='img/blog/triangles-mob.png')
   section.blog-latest
     .container
       .row.align-items-center
@@ -29,122 +35,146 @@ block content
                 img(src='img/blog/blog.png')
               .blog-label.blog-latest__label newest
 
-  section.blog-slider
-    .blog-slider__content
-      .swiper.blog-latest-slider
+  section.blog-slider.position-relative
+    .offset-slider__content
+      .swiper.blog-latest-slider.offset-slider
         .swiper-wrapper
           .swiper-slide
-            a(href="open-news.html").blog-slider__item.blog-item
-              .blog-item__header
-                .blog-item__img
-                  picture
-                    source(srcset='img/blog/blog-slider1.webp' type='image/webp')
-                    img(src="img/blog/blog-slider1.jpg", alt="Artist image")
+            .blog-slider__item.blog-item
+              .blog-item__img-wrapper
+                a(href="open-news.html").blog-item__img-link
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='img/blog/blog-slider1.webp' type='image/webp')
+                        img(src="img/blog/blog-slider1.jpg", alt="Artist image")
                 .blog-item__actions
                   .blog-label concerts
                   .blog-activity.d-flex.align-items-center
-                    .blog-activity__item.blog-likes
+                    a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
                       span 171
                     .blog-activity__item.blog-views
                       i.icon-eye
                       span 231
               .blog-item__body
-                .blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
+                a(href="#").blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
                 .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been a lack of new names and fresh
               .blog-item__footer
                 .blog-item__date
                   i.icon-calendar
                   span.opacity-7 16 Oct 2021
           .swiper-slide
-            a(href="open-news.html").blog-slider__item.blog-item
-              .blog-item__header
-                .blog-item__img
-                  picture
-                    source(srcset='img/blog/blog-slider1.webp' type='image/webp')
-                    img(src="img/blog/blog-slider1.jpg", alt="Artist image")
+            .blog-slider__item.blog-item
+              .blog-item__img-wrapper
+                a(href="open-news.html").blog-item__img-link
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='img/blog/blog-slider1.webp' type='image/webp')
+                        img(src="img/blog/blog-slider1.jpg", alt="Artist image")
                 .blog-item__actions
-                  .blog-label concerts
+                  .blog-label songs
                   .blog-activity.d-flex.align-items-center
-                    .blog-activity__item.blog-likes
+                    a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
                       span 171
                     .blog-activity__item.blog-views
                       i.icon-eye
                       span 231
               .blog-item__body
-                .blog-item__title 30 most beautiful pictures of the independent Ukraine:  Roma Nebo
-                .blog-item__descr.section-text.opacity-7 On the day of the 30th anniversary of Ukraine's Independence, we asked Roma Nebo band leader Nata Zhyzhchenko to make a special...
+                a(href="#").blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
+                .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been a lack of new names and fresh
               .blog-item__footer
                 .blog-item__date
                   i.icon-calendar
                   span.opacity-7 16 Oct 2021
           .swiper-slide
-            a(href="open-news.html").blog-slider__item.blog-item
-              .blog-item__header
-                .blog-item__img
-                  picture
-                    source(srcset='img/blog/blog-slider1.webp' type='image/webp')
-                    img(src="img/blog/blog-slider1.jpg", alt="Artist image")
+            .blog-slider__item.blog-item
+              .blog-item__img-wrapper
+                a(href="open-news.html").blog-item__img-link
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='img/blog/blog-slider1.webp' type='image/webp')
+                        img(src="img/blog/blog-slider1.jpg", alt="Artist image")
                 .blog-item__actions
-                  .blog-label concerts
+                  .blog-label festivals
                   .blog-activity.d-flex.align-items-center
-                    .blog-activity__item.blog-likes
+                    a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
                       span 171
                     .blog-activity__item.blog-views
                       i.icon-eye
                       span 231
               .blog-item__body
-                .blog-item__title The Ultimate Guide to the Brave Festival! Factory 2021
-                .blog-item__descr.section-text.opacity-7 Already this weekend as part of the Brave electronic music festival! Factory Kievmetrobud plant will open its doors to visitors. What awaits guests from 21 to 23 August and what
+                a(href="#").blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
+                .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been a lack of new names and fresh
               .blog-item__footer
                 .blog-item__date
                   i.icon-calendar
                   span.opacity-7 16 Oct 2021
           .swiper-slide
-            a(href="open-news.html").blog-slider__item.blog-item
-              .blog-item__header
-                .blog-item__img
-                  picture
-                    source(srcset='img/blog/blog-slider1.webp' type='image/webp')
-                    img(src="img/blog/blog-slider1.jpg", alt="Artist image")
+            .blog-slider__item.blog-item
+              .blog-item__img-wrapper
+                a(href="open-news.html").blog-item__img-link
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='img/blog/blog-slider1.webp' type='image/webp')
+                        img(src="img/blog/blog-slider1.jpg", alt="Artist image")
                 .blog-item__actions
                   .blog-label concerts
                   .blog-activity.d-flex.align-items-center
-                    .blog-activity__item.blog-likes
+                    a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
                       span 171
                     .blog-activity__item.blog-views
                       i.icon-eye
                       span 231
               .blog-item__body
-                .blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
-                .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been
+                a(href="#").blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
+                .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been a lack of new names and fresh
               .blog-item__footer
                 .blog-item__date
                   i.icon-calendar
                   span.opacity-7 16 Oct 2021
           .swiper-slide
-            a(href="open-news.html").blog-slider__item.blog-item
-              .blog-item__header
-                .blog-item__img
-                  picture
-                    source(srcset='img/blog/blog-slider1.webp' type='image/webp')
-                    img(src="img/blog/blog-slider1.jpg", alt="Artist image")
+            .blog-slider__item.blog-item
+              .blog-item__img-wrapper
+                a(href="open-news.html").blog-item__img-link
+                  .blog-item__header
+                    .blog-item__img
+                      picture
+                        source(srcset='img/blog/blog-slider1.webp' type='image/webp')
+                        img(src="img/blog/blog-slider1.jpg", alt="Artist image")
                 .blog-item__actions
                   .blog-label concerts
                   .blog-activity.d-flex.align-items-center
-                    .blog-activity__item.blog-likes
+                    a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
                       span 171
                     .blog-activity__item.blog-views
                       i.icon-eye
                       span 231
               .blog-item__body
-                .blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
-                .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been
+                a(href="#").blog-item__title Tiano Bless performing "Sigue tu instinto" at Sofar Santiago on August 22th, 2015
+                .blog-item__descr.section-text.opacity-7 Even the most ardent adherents of the dance scene are ready to admit: in recent years, there has been a lack of new names and fresh
               .blog-item__footer
                 .blog-item__date
                   i.icon-calendar
                   span.opacity-7 16 Oct 2021
+        .swiper-nav.d-none.d-md-flex.justify-content-between.align-items-center.pt-md-4
+          .arrow-button.arrow-button__prev.blog-button-prev
+            span PREV
+          .arrow-button.arrow-button__next.blog-button-next
+            span NEXT
+    .blog-absolute.absolute.h-100.w-100
+      .container-fluid.h-100
+        .row.h-100
+          .col.h-100.blog-decor-bottom.position-relative
+            img.rellax(src="img/decorations/carrot.svg", alt="" data-rellax-speed="-1")
+            img.rellax(src="img/decorations/snake.svg", alt="" data-rellax-speed="-.5")
+            img.rellax(src="img/decorations/decor-11.svg", alt="" data-rellax-speed="-1")
+            img.rellax(src="img/decorations/decor-13.svg", alt="" data-rellax-speed="-1.5")
+

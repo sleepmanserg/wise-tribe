@@ -368,14 +368,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
-  padding: 17px 14px 16px 20px;
+  padding: 11px 12px 12px 14px;
   background-color: $white;
   border-radius: 54px;
   box-shadow: 0px 4px 27px rgba(255, 255, 255, 0.41);
   position: relative;
   i {
-    margin-right: 25px;
+    margin-right: 8px;
     color: $blue;
+    font-size: 12px;
   }
   &::after {
     content: "";
@@ -394,19 +395,19 @@
   }
   .btn-blue__price {
     color: $white;
-    font-size: 18px;
-    line-height: 1;
+    font-size: 12px;
+    line-height: 14px;
     position: relative;
     z-index: 1;
     display: block;
-    margin-left: 21px;
+    margin-left: 15px;
   }
   span {
     transition: 0.35s;
     &:not(.btn-blue__price) {
       font-weight: 600;
-      font-size: 16px;
-      line-height: 22px;
+      font-size: 14px;
+      line-height: 17px;
       color: #000022;
     }
   }
@@ -671,6 +672,9 @@
   gap: 10px;
   @include hover {
     color: $white;
+    .play-btn__icon {
+      background-color: darken($blue, 10%);
+    }
   }
   .play-btn__icon {
     width: 56px;
@@ -680,11 +684,56 @@
     justify-content: center;
     border-radius: 100%;
     background-color: $blue;
+    transition: 0.25s;
     svg {
       width: 22px;
       height: 22px;
       path {
         filter: drop-shadow(0px 0px 12px rgba(0, 154, 241, 0.78));
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    font-size: 20px;
+    .play-btn__icon {
+      width: 72px;
+      height: 72px;
+      svg {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    font-size: 24px;
+    .play-btn__icon {
+      width: 82px;
+      height: 82px;
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  @media (min-width: 1366px) {
+    font-size: 28px;
+    .play-btn__icon {
+      width: 102px;
+      height: 102px;
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  @media (min-width: 1700px) {
+    font-size: 32px;
+    .play-btn__icon {
+      width: 122px;
+      height: 122px;
+      svg {
+        width: 48px;
+        height: 48px;
       }
     }
   }

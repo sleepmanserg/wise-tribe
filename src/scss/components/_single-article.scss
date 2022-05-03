@@ -1,20 +1,17 @@
 .article {
   --sectionPaddingBottom: 60px;
-  --sectionPaddingTop: 88px;
+  --sectionPaddingTop: 0;
   padding-top: var(--sectionPaddingTop);
   @media (min-width: 768px) {
     --sectionPaddingBottom: 90px;
-    --sectionPaddingTop: 88px;
   }
   @media (min-width: 1024px) {
     --sectionPaddingBottom: 110px;
   }
   @media (min-width: 1366px) {
-    --sectionPaddingTop: 108px;
     --sectionPaddingBottom: 130px;
   }
   @media (min-width: 1700px) {
-    --sectionPaddingTop: 155px;
     --sectionPaddingBottom: 160px;
   }
 }

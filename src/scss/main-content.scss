@@ -2,22 +2,20 @@
 
 .hero {
   --sectionPaddingBottom: 188px;
-  --sectionPaddingTop: 158px;
+  --sectionPaddingTop: 50px;
   padding-top: var(--sectionPaddingTop);
+  padding-bottom: --sectionPaddingBottom;
   @media (min-width: 768px) {
-    --sectionPaddingTop: 140px;
     --sectionPaddingBottom: 167px;
   }
   @media (min-width: 1024px) {
-    --sectionPaddingTop: 140px;
     --sectionPaddingBottom: 144px;
   }
   @media (min-width: 1366px) {
-    --sectionPaddingTop: 173px;
     --sectionPaddingBottom: 237px;
   }
   @media (min-width: 1700px) {
-    --sectionPaddingTop: 215px;
+    --sectionPaddingTop: 60px;
     --sectionPaddingBottom: 166px;
   }
 }
@@ -67,7 +65,7 @@
       text-align: center;
     }
     .about-img {
-      order: 2;
+      // order: 2;
       flex: 0 0 100%;
       max-width: 100%;
       margin-left: -50px;
@@ -85,13 +83,11 @@
       text-align: center;
     }
     .about-img {
-      order: 2;
       flex: 0 0 80%;
       max-width: 80%;
       margin-left: -50px;
     }
     .about-caption {
-      order: 1;
       flex: 0 0 80%;
       max-width: 80%;
       margin-bottom: 27px;
@@ -118,7 +114,7 @@
       max-width: 50%;
       order: 2;
       .section-text {
-        max-width: 380px;
+        max-width: 420px;
         width: 100%;
       }
     }
@@ -872,24 +868,24 @@
 /* Events single */
 
 .events-single {
-  --sectionPaddingTop: 74px;
+  --sectionPaddingTop: 0;
   --sectionPaddingBottom: 88px;
   padding-top: var(--sectionPaddingTop);
-  @media (min-width: 768px) {
-    --sectionPaddingTop: 88px;
-    --sectionPaddingBottom: 150px;
-  }
-  @media (min-width: 1024px) {
-    --sectionPaddingBottom: 170px;
-  }
-  @media (min-width: 1366px) {
-    --sectionPaddingTop: 108px;
-    --sectionPaddingBottom: 200px;
-  }
-  @media (min-width: 1700px) {
-    --sectionPaddingTop: 155px;
-    --sectionPaddingBottom: 240px;
-  }
+  // @media (min-width: 768px) {
+  //   --sectionPaddingTop: 88px;
+  //   --sectionPaddingBottom: 150px;
+  // }
+  // @media (min-width: 1024px) {
+  //   --sectionPaddingBottom: 170px;
+  // }
+  // @media (min-width: 1366px) {
+  //   --sectionPaddingTop: 108px;
+  //   --sectionPaddingBottom: 200px;
+  // }
+  // @media (min-width: 1700px) {
+  //   --sectionPaddingTop: 155px;
+  //   --sectionPaddingBottom: 240px;
+  // }
 }
 
 /* WISE LIVE */

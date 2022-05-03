@@ -2,6 +2,7 @@
   --modalRadius: 50px;
   .modal-content {
     border-radius: var(--modalRadius);
+    overflow: inherit;
     background: radial-gradient(
       54.68% 54.68% at 50% 45.32%,
       #050547 0%,
@@ -21,7 +22,7 @@
   .modal-title {
     text-align: center;
     color: $white;
-    font-size: clamp(20px, calc(1.25rem + ((1vw - 3.2px) * 2)), 28px);
+    font-size: clamp(20px, calc(1.25rem + ((1vw - 3.6px) * 1.4103)), 42px);
     text-align: center;
     line-height: 140%;
     margin-bottom: 10px;
@@ -36,8 +37,8 @@
   }
   .close-btn {
     position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
+    top: -1.25rem;
+    right: -1.25rem;
     z-index: 1000;
   }
   .modal-body {
@@ -60,6 +61,16 @@
       max-width: 280px;
     }
   }
+  @media (min-width: 768px) {
+    .close-btn {
+      position: absolute;
+      top: 0;
+      right: -60px;
+    }
+    .modal-header {
+      padding-top: 40px;
+    }
+  }
   @media (min-width: 1024px) {
     --modalRadius: 80px;
     .modal-dialog {
@@ -70,6 +81,9 @@
     }
   }
   @media (min-width: 1366px) {
+    .close-btn {
+      right: -80px;
+    }
     .form-group {
       margin-bottom: 30px;
     }
@@ -77,10 +91,41 @@
       max-width: 510px;
     }
     .modal-subtitle {
-      max-width: 320px;
+      max-width: 360px;
     }
     .modal-footer {
       padding-top: 58px;
+    }
+  }
+  @media (min-width: 1700px) {
+    .close-btn {
+      right: -60px;
+    }
+    .modal-dialog {
+      max-width: 720px;
+    }
+    .modal-footer {
+      padding-bottom: 60px;
+    }
+    .modal-subtitle {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.success-modal {
+  .modal-header {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  .modal-subtitle {
+    max-width: 555px;
+    margin-bottom: 0;
+  }
+  .modal-footer {
+    .btn {
+      max-width: 200px;
+      width: 100%;
     }
   }
 }

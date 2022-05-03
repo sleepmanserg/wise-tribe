@@ -1,3 +1,8 @@
+.artist-wrapper {
+  margin-top: calc(-1 * var(--headerHeight));
+  margin-bottom: 100px;
+}
+
 .artist-hero {
   position: relative;
   padding: 70px 0 0;
@@ -14,6 +19,7 @@
       rgba(27, 27, 59, 0.24) 45.55%,
       rgba(9, 9, 62, 0.42) 97.22%
     );
+    z-index: 1;
   }
   .artist-hero__bg {
     position: absolute;
@@ -21,21 +27,21 @@
     left: 0;
     width: 100%;
     height: 100%;
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    z-index: 1;
   }
   .artist-hero__caption {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     margin-bottom: 21px;
     padding-top: 40px;
   }
   .artist-hero__title {
     text-transform: uppercase;
     font-size: clamp(32px, calc(2rem + ((1vw - 3.6px) * 7.1795)), 144px);
+
     line-height: 130%;
     margin-bottom: 10px;
     color: $white;
@@ -45,20 +51,89 @@
     line-height: 140%;
     color: $white;
     margin-bottom: 24px;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 3;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    display: -webkit-box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
   }
   .back-btn {
     z-index: 2;
   }
   @media (min-width: 768px) {
+    padding-bottom: 70px;
+    .artist-hero__caption {
+      padding-top: 50px;
+      position: static;
+    }
+    .artist-hero__title {
+      position: relative;
+      z-index: 2;
+    }
+    .artist-hero__description {
+      max-width: 350px;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .play-btn {
+      position: absolute;
+      bottom: 15%;
+      left: 2.5rem;
+      z-index: 2;
+    }
+  }
+  @media (min-width: 1024px) {
+    padding-top: 100px;
+    .artist-hero__caption {
+      padding-top: 80px;
+    }
+    .artist-hero__description {
+      max-width: 375px;
+    }
+  }
+  @media (min-width: 1366px) {
+    padding-top: 130px;
+    .artist-hero__caption {
+      padding-top: 80px;
+    }
+    .artist-hero__description {
+      max-width: 550px;
+    }
+  }
+  @media (min-width: 1700px) {
+    padding-bottom: 150px;
+    .artist-hero__caption {
+      padding-top: 100px;
+    }
+    .artist-hero__title {
+      margin-bottom: 20px;
+    }
+    .artist-hero__description {
+      max-width: 680px;
+    }
+  }
+  @media (min-width: 1760px) {
+    padding-bottom: 260px;
+    min-height: 70vh;
+    .play-btn {
+      position: relative;
+      left: 0;
+      transform: translateY(210px);
+    }
   }
 }
 
 .artist-hero__collapse {
-  --colapseRadius: 30px;
+  --colapseRadius: 40px;
   --textLineHeight: 1.5;
   --linesMax: 15;
   --textClamp: 6;
-  margin-left: 1rem;
   position: relative;
   z-index: 2;
   background: linear-gradient(
@@ -74,7 +149,7 @@
   padding-left: 28px;
   padding-right: 30px;
   transform: translateY(20px);
-  margin-top: -20px;
+  width: calc(100% + 1.25rem);
   .artist-hero__collapse-header {
     padding-bottom: 18px;
   }
@@ -148,10 +223,97 @@
   }
   @media (min-width: 768px) {
     --textClamp: 5;
-    transform: translateX(2.5rem);
-    margin-bottom: 50px;
-    > * {
-      max-width: 474px;
+    padding: 30px 40px;
+    margin-bottom: 0;
+    max-width: 474px;
+    width: 100%;
+    margin-left: auto;
+    .artist-hero__collapse-title {
+      font-size: 24px;
+      line-height: 29px;
     }
+    .artist-hero__collapse-btn {
+      font-size: 24px;
+    }
+    .artist-hero__collapse-text {
+      font-size: 16px;
+      max-height: calc(5 * 16px * var(--textLineHeight));
+    }
+  }
+  @media (min-width: 1024px) {
+    padding-top: 30px;
+    padding-left: 49px;
+    padding-bottom: 30px;
+    padding-right: 40px;
+    max-width: 540px;
+    .artist-hero__collapse-title {
+      font-size: 28px;
+      line-height: 34px;
+    }
+    .artist-hero__collapse-btn {
+      font-size: 28px;
+    }
+    .artist-hero__collapse-text {
+      font-size: 18px;
+      max-height: calc(6 * 18px * var(--textLineHeight));
+    }
+  }
+  @media (min-width: 1366px) {
+    --colapseRadius: 60px;
+    --textClamp: 4;
+    padding: 30px 40px 40px;
+    max-width: 593px;
+    .artist-hero__collapse-title {
+      font-size: 32px;
+      line-height: 38px;
+    }
+    .artist-hero__collapse-btn {
+      font-size: 32px;
+    }
+    .artist-hero__collapse-text {
+      font-size: 20px;
+      max-height: calc(4 * 20px * var(--textLineHeight));
+    }
+  }
+  @media (min-width: 1700px) {
+    --textClamp: 4;
+    --colapseRadius: 80px;
+    padding: 40px 60px 60px;
+    max-width: 800px;
+    margin-top: -80px;
+    .artist-hero__collapse-title {
+      font-size: 48px;
+      line-height: 58px;
+    }
+    .artist-hero__collapse-btn {
+      font-size: 48px;
+    }
+    .artist-hero__collapse-text {
+      font-size: 24px;
+      max-height: calc(4 * 24px * var(--textLineHeight));
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .artist-collapse {
+    transform: translateX(2.5rem);
+    z-index: 3;
+    // flex: 0 0 100vw;
+    // width: 100vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .artist-collapse {
+    margin-top: -100px;
+  }
+}
+
+@media (min-width: 1760px) {
+  .artist-collapse {
+    position: absolute;
+    right: 0;
+    bottom: 211px;
   }
 }
