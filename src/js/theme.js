@@ -306,10 +306,10 @@ const blogSlider = new Swiper('.blog-latest-slider', {
 	spaceBetween: 20,
 	grabCursor: true,
 	speed: 500,
-	// navigation: {
-	// 	nextEl: '.blog-button-next',
-	// 	prevEl: '.blog-button-prev',
-	// },
+	navigation: {
+		nextEl: '.blog-button-next',
+		prevEl: '.blog-button-prev',
+	},
 
 	breakpoints: {
 		320: {
@@ -565,7 +565,39 @@ decorRandomCircles.forEach((el, i, ra) => {
 
 /** Forms */
 
-let inputs = document.querySelectorAll('.form-input');
+(function () {
+	'use strict'
+	const forms = document.querySelectorAll('.needs-validation')
+	Array.from(forms)
+		.forEach(function (form) {
+			form.addEventListener('submit', function (event) {
+				if (!form.checkValidity()) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+				form.classList.add('was-validated');
+			}, false)
+		})
+})();
+
+document.querySelectorAll("textarea").forEach(function (el) {
+	el.addEventListener("input", function () {
+		var cs = window.getComputedStyle(this);
+		// reset height to allow textarea to shrink again
+		this.style.height = "auto";
+		// when "box-sizing: border-box" we need to add vertical border size to scrollHeight
+		this.style.height = (this.scrollHeight + parseInt(cs.getPropertyValue("border-top-width")) + parseInt(cs.getPropertyValue("border-bottom-width"))) + "px";
+	});
+});
+
+let phoneInputs = document.querySelectorAll('.phone-input');
+
+phoneInputs.forEach(phone => {
+	phone.addEventListener('input', function (e) {
+		var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+		e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+	});
+});
 
 /** Preloader */
 

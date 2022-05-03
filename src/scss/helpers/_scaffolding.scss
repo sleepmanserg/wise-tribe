@@ -38,6 +38,7 @@ main {
   flex: 1;
   overflow: hidden;
   padding-top: var(--headerHeight);
+  position: relative;
 }
 
 img {

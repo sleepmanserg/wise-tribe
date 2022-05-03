@@ -15,94 +15,94 @@ html(lang="en")
   // Body
   body
 
-    //- #preloader.preloader
-    //-   - for(var x = 0; x < 12; x++)
-    //-     div(class="preloader-star preloader-star-" + x)
-    //-   - for(var x = 0; x < 15; x++)
-    //-     div(class="preloader-circle preloader-circle-" + x)
-    //-   svg.preloader-triangles(width='100%' height='100%' viewBox='0 0 1920 940' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;')
-    //-     g(opacity='0.6')
-    //-       g.triangle-one.triangle-first
-    //-         path(d='M1078.29,-371.706L1629.79,993.299L171.914,788.407L1078.29,-371.706Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
-    //-         path(d='M1078.29,-371.706L1629.79,993.299L171.914,788.407L1078.29,-371.706Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
-    //-         path(d='M1078.29,-371.706L1629.79,993.299L171.914,788.407L1078.29,-371.706Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g.triangle-two.triangle-second
-    //-         path(d='M1058.5,-235.595L1520.57,908.058L299.101,736.392L1058.5,-235.595Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
-    //-         path(d='M1058.5,-235.595L1520.57,908.058L299.101,736.392L1058.5,-235.595Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
-    //-         g(opacity='0.9')
-    //-           path(d='M1058.5,-235.595L1520.57,908.058L299.101,736.392L1058.5,-235.595Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g.triangle-three.triangle-first
-    //-         path(d='M1044.34,-133.283L1439.34,844.356L395.18,697.609L1044.34,-133.283Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
-    //-         path(d='M1044.34,-133.283L1439.34,844.356L395.18,697.609L1044.34,-133.283Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
-    //-         g(opacity='0.8')
-    //-           path(d='M1044.34,-133.283L1439.34,844.356L395.18,697.609L1044.34,-133.283Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g.triangle-four.triangle-second
-    //-         path(d='M1033.18,-53.503L1376,795.013L469.756,667.649L1033.18,-53.503Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M1033.18,-53.503L1376,795.013L469.756,667.649L1033.18,-53.503Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         g(opacity='0.7')
-    //-           path(d='M1033.18,-53.503L1376,795.013L469.756,667.649L1033.18,-53.503Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g.triangle-five.triangle-second
-    //-         path(d='M1023.74,15.012L1321.85,752.852L533.81,642.1L1023.74,15.012Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M1023.74,15.012L1321.85,752.852L533.81,642.1L1023.74,15.012Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         g(opacity='0.6')
-    //-           path(d='M1023.74,15.012L1321.85,752.852L533.81,642.1L1023.74,15.012Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.25').triangle-six.triangle-third
-    //-         path(d='M991.946,242.636L1141,611.557L746.979,556.181L991.946,242.636Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M991.946,242.636L1141,611.557L746.979,556.181L991.946,242.636Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M991.946,242.636L1141,611.557L746.979,556.181L991.946,242.636Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+    #preloader.preloader
+      - for(var x = 0; x < 12; x++)
+        div(class="preloader-star preloader-star-" + x)
+      - for(var x = 0; x < 15; x++)
+        div(class="preloader-circle preloader-circle-" + x)
+      svg.preloader-triangles(width='100%' height='100%' viewBox='0 0 1920 940' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;')
+        g(opacity='0.6')
+          g.triangle-one.triangle-first
+            path(d='M1078.29,-371.706L1629.79,993.299L171.914,788.407L1078.29,-371.706Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            path(d='M1078.29,-371.706L1629.79,993.299L171.914,788.407L1078.29,-371.706Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            path(d='M1078.29,-371.706L1629.79,993.299L171.914,788.407L1078.29,-371.706Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g.triangle-two.triangle-second
+            path(d='M1058.5,-235.595L1520.57,908.058L299.101,736.392L1058.5,-235.595Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            path(d='M1058.5,-235.595L1520.57,908.058L299.101,736.392L1058.5,-235.595Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g(opacity='0.9')
+              path(d='M1058.5,-235.595L1520.57,908.058L299.101,736.392L1058.5,-235.595Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g.triangle-three.triangle-first
+            path(d='M1044.34,-133.283L1439.34,844.356L395.18,697.609L1044.34,-133.283Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:8px;')
+            path(d='M1044.34,-133.283L1439.34,844.356L395.18,697.609L1044.34,-133.283Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:8px;')
+            g(opacity='0.8')
+              path(d='M1044.34,-133.283L1439.34,844.356L395.18,697.609L1044.34,-133.283Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g.triangle-four.triangle-second
+            path(d='M1033.18,-53.503L1376,795.013L469.756,667.649L1033.18,-53.503Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M1033.18,-53.503L1376,795.013L469.756,667.649L1033.18,-53.503Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            g(opacity='0.7')
+              path(d='M1033.18,-53.503L1376,795.013L469.756,667.649L1033.18,-53.503Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g.triangle-five.triangle-second
+            path(d='M1023.74,15.012L1321.85,752.852L533.81,642.1L1023.74,15.012Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M1023.74,15.012L1321.85,752.852L533.81,642.1L1023.74,15.012Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            g(opacity='0.6')
+              path(d='M1023.74,15.012L1321.85,752.852L533.81,642.1L1023.74,15.012Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.25').triangle-six.triangle-third
+            path(d='M991.946,242.636L1141,611.557L746.979,556.181L991.946,242.636Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M991.946,242.636L1141,611.557L746.979,556.181L991.946,242.636Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M991.946,242.636L1141,611.557L746.979,556.181L991.946,242.636Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
 
-    //-       g(opacity='0.2').triangle-seven.triangle-third
-    //-         g
-    //-           path(d='M988.529,265.161L1122.68,597.189L768.059,547.351L988.529,265.161Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         g
-    //-           path(d='M988.529,265.161L1122.68,597.189L768.059,547.351L988.529,265.161Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         g
-    //-           path(d='M988.529,265.161L1122.68,597.189L768.059,547.351L988.529,265.161Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.15').triangle-eight.triangle-third
-    //-         path(d='M985.077,287.692L1104.32,582.828L789.103,538.528L985.077,287.692Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M985.077,287.692L1104.32,582.828L789.103,538.528L985.077,287.692Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M985.077,287.692L1104.32,582.828L789.103,538.528L985.077,287.692Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.1').triangle-nine.triangle-third
-    //-         path(d='M982.084,310.684L1086.42,568.928L810.607,530.165L982.084,310.684Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M982.084,310.684L1086.42,568.928L810.607,530.165L982.084,310.684Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M982.084,310.684L1086.42,568.928L810.607,530.165L982.084,310.684Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.1').triangle-ten.triangle-third
-    //-         path(d='M979.092,333.216L1068.52,554.568L832.112,521.343L979.092,333.216Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M979.092,333.216L1068.52,554.568L832.112,521.343L979.092,333.216Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M979.092,333.216L1068.52,554.568L832.112,521.343L979.092,333.216Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.2').triangle-seven.triangle-third
+            g
+              path(d='M988.529,265.161L1122.68,597.189L768.059,547.351L988.529,265.161Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            g
+              path(d='M988.529,265.161L1122.68,597.189L768.059,547.351L988.529,265.161Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            g
+              path(d='M988.529,265.161L1122.68,597.189L768.059,547.351L988.529,265.161Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.15').triangle-eight.triangle-third
+            path(d='M985.077,287.692L1104.32,582.828L789.103,538.528L985.077,287.692Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M985.077,287.692L1104.32,582.828L789.103,538.528L985.077,287.692Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M985.077,287.692L1104.32,582.828L789.103,538.528L985.077,287.692Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.1').triangle-nine.triangle-third
+            path(d='M982.084,310.684L1086.42,568.928L810.607,530.165L982.084,310.684Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M982.084,310.684L1086.42,568.928L810.607,530.165L982.084,310.684Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M982.084,310.684L1086.42,568.928L810.607,530.165L982.084,310.684Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.1').triangle-ten.triangle-third
+            path(d='M979.092,333.216L1068.52,554.568L832.112,521.343L979.092,333.216Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M979.092,333.216L1068.52,554.568L832.112,521.343L979.092,333.216Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M979.092,333.216L1068.52,554.568L832.112,521.343L979.092,333.216Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
 
-    //-       g(opacity='0.1').triangle-eleven.triangle-third
-    //-         path(d='M976.1,356.207L1050.63,540.667L853.616,512.979L976.1,356.207Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M976.1,356.207L1050.63,540.667L853.616,512.979L976.1,356.207Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M976.1,356.207L1050.63,540.667L853.616,512.979L976.1,356.207Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.1').triangle-twelve.triangle-third
-    //-         path(d='M972.648,378.74L1032.27,526.308L874.661,504.157L972.648,378.74Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M972.648,378.74L1032.27,526.308L874.661,504.157L972.648,378.74Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M972.648,378.74L1032.27,526.308L874.661,504.157L972.648,378.74Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.3').triangle-thirteen.triangle-third
-    //-         path(d='M994.973,219.637L1158.93,625.449L725.509,564.536L994.973,219.637Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M994.973,219.637L1158.93,625.449L725.509,564.536L994.973,219.637Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M994.973,219.637L1158.93,625.449L725.509,564.536L994.973,219.637Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.35').triangle-fourteen.triangle-third
-    //-         path(d='M997.966,196.646L1176.83,639.35L704.005,572.899L997.966,196.646Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M997.966,196.646L1176.83,639.35L704.005,572.899L997.966,196.646Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M997.966,196.646L1176.83,639.35L704.005,572.899L997.966,196.646Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.4').triangle-fifteen.triangle-third
-    //-         path(d='M1003.14,162.848L1204.37,660.89L672.438,586.132L1003.14,162.848Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M1003.14,162.848L1204.37,660.89L672.438,586.132L1003.14,162.848Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M1003.14,162.848L1204.37,660.89L672.438,586.132L1003.14,162.848Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.47').triangle-sixteen.triangle-third
-    //-         path(d='M1007.86,128.591L1231.44,681.971L640.412,598.907L1007.86,128.591Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M1007.86,128.591L1231.44,681.971L640.412,598.907L1007.86,128.591Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M1007.86,128.591L1231.44,681.971L640.412,598.907L1007.86,128.591Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-       g(opacity='0.5').triangle-seventeen.triangle-third
-    //-         path(d='M1014.31,83.067L1267.7,710.231L597.863,616.092L1014.31,83.067Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
-    //-         path(d='M1014.31,83.067L1267.7,710.231L597.863,616.092L1014.31,83.067Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
-    //-         path(d='M1014.31,83.067L1267.7,710.231L597.863,616.092L1014.31,83.067Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
-    //-   .preloader-circle-logo
-    //-     img(src="img/preloader-circle.webp", alt="")
-    //-   .preloader-logo
-    //-     img(src="img/preloader-logo.png", alt="")
+          g(opacity='0.1').triangle-eleven.triangle-third
+            path(d='M976.1,356.207L1050.63,540.667L853.616,512.979L976.1,356.207Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M976.1,356.207L1050.63,540.667L853.616,512.979L976.1,356.207Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M976.1,356.207L1050.63,540.667L853.616,512.979L976.1,356.207Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.1').triangle-twelve.triangle-third
+            path(d='M972.648,378.74L1032.27,526.308L874.661,504.157L972.648,378.74Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M972.648,378.74L1032.27,526.308L874.661,504.157L972.648,378.74Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M972.648,378.74L1032.27,526.308L874.661,504.157L972.648,378.74Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.3').triangle-thirteen.triangle-third
+            path(d='M994.973,219.637L1158.93,625.449L725.509,564.536L994.973,219.637Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M994.973,219.637L1158.93,625.449L725.509,564.536L994.973,219.637Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M994.973,219.637L1158.93,625.449L725.509,564.536L994.973,219.637Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.35').triangle-fourteen.triangle-third
+            path(d='M997.966,196.646L1176.83,639.35L704.005,572.899L997.966,196.646Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M997.966,196.646L1176.83,639.35L704.005,572.899L997.966,196.646Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M997.966,196.646L1176.83,639.35L704.005,572.899L997.966,196.646Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.4').triangle-fifteen.triangle-third
+            path(d='M1003.14,162.848L1204.37,660.89L672.438,586.132L1003.14,162.848Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M1003.14,162.848L1204.37,660.89L672.438,586.132L1003.14,162.848Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M1003.14,162.848L1204.37,660.89L672.438,586.132L1003.14,162.848Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.47').triangle-sixteen.triangle-third
+            path(d='M1007.86,128.591L1231.44,681.971L640.412,598.907L1007.86,128.591Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M1007.86,128.591L1231.44,681.971L640.412,598.907L1007.86,128.591Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M1007.86,128.591L1231.44,681.971L640.412,598.907L1007.86,128.591Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+          g(opacity='0.5').triangle-seventeen.triangle-third
+            path(d='M1014.31,83.067L1267.7,710.231L597.863,616.092L1014.31,83.067Z' style='fill:none;fill-rule:nonzero;stroke:rgb(0,99,239);stroke-width:6px;')
+            path(d='M1014.31,83.067L1267.7,710.231L597.863,616.092L1014.31,83.067Z' style='fill:none;fill-rule:nonzero;stroke:rgb(1,102,243);stroke-width:6px;')
+            path(d='M1014.31,83.067L1267.7,710.231L597.863,616.092L1014.31,83.067Z' style='fill:none;fill-rule:nonzero;stroke:white;stroke-width:1px;')
+      .preloader-circle-logo
+        img(src="img/preloader-circle.webp", alt="")
+      .preloader-logo
+        img(src="img/preloader-logo.png", alt="")
 
 
     include header
@@ -111,9 +111,9 @@ html(lang="en")
       block content
 
     .random-circles
-      - for(var x = 0; x < 25; x++)
+      - for(var x = 0; x < 15; x++)
         div(class="decor-circle decor-circle__one decor-circle-" + x)
-      - for(var x = 0; x < 25; x++)
+      - for(var x = 0; x < 15; x++)
         div(class="decor-circle decor-circle__two decor-circle-" + x)
 
     // JavaScript (jQuery) libraries, plugins and custom scripts

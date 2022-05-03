@@ -44,19 +44,34 @@ footer.footer
         h5#connectModalLabel.modal-title Connect
         h6.modal-subtitle To continue, you must fill in the following information
       .modal-body
-        form(action="")#connectForm
-          .form-group
-            input(type="text" placeholder="Your name").form-input
-          .form-group
-            input(type="tel" placeholder="Phone number").form-input
-          .form-group
-            input(type="email" placeholder="Email").form-input
-          .form-group
-            textarea(type="text" placeholder="Write a comment" rows="1").form-input
+        form(action="" novalidate='')#connectForm.needs-validation
+          .form-input
+            input(type="text" placeholder="Your name" required autocomplete="off").form-control
+            .form-control-line
+          .form-input
+            input(type="tel" placeholder="Phone number" required autocomplete="off").form-control.phone-input
+            .form-control-line
+          .form-input
+            input(type="email" placeholder="Email" required autocomplete="off").form-control
+            .form-control-line
+          .form-input
+            textarea(type="text" placeholder="Write a comment")#connectTextArea.form-control
+            .form-control-line
+          .modal-footer.justify-content-center
+            .form-btn
+              button(type="submit").btn.btn-white-glow Continue
 
-      .modal-footer.justify-content-center
-        .form-btn
-          button(type="submit").btn.btn-white-glow Continue
-
+#successModal.modal.custom-modal.success-modal.fade(tabindex='-1' aria-labelledby='successModalLabel' aria-hidden='true')
+  .modal-dialog.modal-dialog-centered
+    .modal-content
+      .modal-header.flex-column.justify-content-center.align-items-center
+        button.close-btn(type='button' data-bs-dismiss='modal' aria-label='Close')
+          img(src="img/icons/close.svg", alt="")
+        h5#successModalLabel.modal-title.text-center Success
+        .form-control-line
+      .modal-body
+        h6.modal-subtitle Your request has been successfully sent. We will contact you shortly.
+      .modal-footer.d-flex.justify-content-center
+        button.btn.btn-white-glow(type='button' data-bs-dismiss='modal') Ok
 
 

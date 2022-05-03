@@ -69,6 +69,7 @@
     word-wrap: break-word;
     -webkit-box-orient: vertical;
     box-orient: vertical;
+    pointer-events: none;
   }
   .artists-card__descr {
     font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.641)), 24px);
@@ -86,6 +87,7 @@
     word-wrap: break-word;
     -webkit-box-orient: vertical;
     box-orient: vertical;
+    pointer-events: none;
   }
   .btn {
     width: 100%;
