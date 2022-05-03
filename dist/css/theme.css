@@ -2526,6 +2526,11 @@ section.hero .swiper-nav {
   padding: 100px 0 120px;
   margin-top: -50px;
 }
+@media (max-width: 991px) {
+  .hero-slider {
+    padding: 80px 0;
+  }
+}
 .hero-slider .hero-slider__item {
   position: relative;
 }
@@ -2627,6 +2632,42 @@ section.hero .swiper-nav {
   opacity: 1;
   transition: 0.15s 0.2s ease-in-out;
 }
+@media (max-width: 1366px) {
+  .hero-slider .swiper-slide {
+    width: 304px;
+  }
+  .hero-slider .swiper-slide .hero-slider__item-inner .slider-actions__item {
+    width: 48px;
+    height: 48px;
+  }
+  .hero-slider .swiper-slide .hero-slider__item-inner .hero-slider__item-name {
+    font-size: 42px;
+  }
+}
+@media (max-width: 768px) {
+  .hero-slider .swiper-slide {
+    width: 256px;
+  }
+  .hero-slider .swiper-slide .hero-slider__item-inner .slider-actions__item {
+    width: 36px;
+    height: 36px;
+  }
+  .hero-slider .swiper-slide .hero-slider__item-inner .hero-slider__item-name {
+    font-size: 32px;
+  }
+}
+@media (max-width: 400px) {
+  .hero-slider .swiper-slide {
+    width: 206px;
+  }
+  .hero-slider .swiper-slide .hero-slider__item-inner .slider-actions__item {
+    width: 32px;
+    height: 32px;
+  }
+  .hero-slider .swiper-slide .hero-slider__item-inner .hero-slider__item-name {
+    font-size: 24px;
+  }
+}
 
 .swiper-slide-next .hero-slider__img,
 .swiper-slide-prev .hero-slider__img {
@@ -2647,10 +2688,12 @@ section.hero .swiper-nav {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  padding: 0 15px;
 }
 
 .nav-notification {
   padding: 0 90px;
+  white-space: nowrap;
 }
 
 .events-slider .events-slider__item,
@@ -3076,8 +3119,12 @@ section.hero .swiper-nav {
   opacity: 0;
 }
 .releases-slider .swiper-slide:not(.swiper-slide-active) .img-wrapper::after {
-  background-color: rgba(13, 38, 74, 0.5);
+  background-color: rgba(13, 38, 74, 0.3);
   transition: 0.25s;
+}
+.releases-slider .swiper-slide:not(.swiper-slide-active) .swiper-slide-prev::after,
+.releases-slider .swiper-slide:not(.swiper-slide-active) .swiper-slide-nex::after {
+  background-color: rgba(13, 38, 74, 0.5);
 }
 
 .popular-slider {

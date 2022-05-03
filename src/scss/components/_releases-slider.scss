@@ -32,8 +32,15 @@
         img { opacity: 0;}
 
         &::after {
-          background-color: rgba(#0D264A, 0.5);
+          background-color: rgba(#0D264A, 0.3);
           transition: .25s;
+        }
+      }
+
+      .swiper-slide-prev,
+      .swiper-slide-nex {
+        &::after {
+          background-color: rgba(#0D264A, 0.5);
         }
       }
     }
