@@ -1,0 +1,53 @@
+extends partials/layout
+
+//- Override default config variables
+append config
+
+  //- ********** Settings **********
+  //- ==============================
+  -var pageTitle = 'Cooperation'
+  //- ==============================
+  //- ********* Settings END *******
+
+
+//- Page Content
+block content
+  section.cooperation
+    .container
+      .cooperation-caption
+        h1.section-title.text-center.mb-3.mb-md-4.mb-lg-5 Wanna be a part of Wise Music?
+        h2.section-text.text-center.opacity-7.mb-3.mb-md-4.mb-lg-5 If you are an artist, young musician and creative person, you only need to apply and we will gladly consider your candidacy.
+        .d-flex.justify-content-center
+          a(href="#").btn.btn-white-glow Start now
+
+  section.cooperation-about
+    .container
+      .cooperation-about__card.info-card
+        .info-card__caption
+          .section-subtitle We are looking for talents!
+          .section-text.opacity-7 The label is also open for cooperation with producers, cameramen and directors, computer graphics specialists and designers, promo groups and concert show directors. We need creative people in various fields related to the music industry.
+          .section-subtitle Send all your suggestions to
+            a(href="mailto:wise@tribe.com") wise@tribe.com
+
+  section.map
+    .map-content
+      .container
+        .map-body
+          h3.map-title Contact us
+          .map-subtitle We are working 24/7 and we'd love to hear from you
+          .map-info.d-flex.align-items-center
+            .map-icon
+              i.icon-phone
+            .map-info__text
+              a(href="tel:+380 (50) 699 89 89") +380 (50) 699 89 89
+          .map-info.d-flex.align-items-center
+            .map-icon
+              i.icon-envelope
+            .map-info__text
+              a(href="mailto: wise@tribe.com") wise@tribe.com
+
+    .map-item
+      iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.523298216422!2d-74.2070873!3d40.684471300000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c252b76f1fb309%3A0xa6b02b3568c4d7c2!2s910%20Newark%20Ave%2C%20Elizabeth%2C%20NJ%2007208%2C%20USA!5e0!3m2!1sen!2sua!4v1651756602326!5m2!1sen!2sua' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade' width='600' height='450')
+
+
+

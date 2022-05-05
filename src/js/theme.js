@@ -63,7 +63,7 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: false,
+	slideToClickedSlide: true,
 	navigation: {
 		nextEl: ".swiper-btn-next",
 		prevEl: ".swiper-btn-prev"
@@ -96,7 +96,7 @@ const swiperEvents = new Swiper(".events-slider", {
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: false,
+	slideToClickedSlide: true,
 	navigation: {
 		nextEl: ".events-button-next",
 		prevEl: ".events-button-prev"
@@ -360,7 +360,7 @@ const breakpointChecker = function () {
 	if (breakpoint.matches === true) {
 
 		// clean up old instances and inline styles when available
-		if (blogSidebarSlider !== undefined) blogSidebarSlider.destroy(true, true);
+		if (blogSidebarSlider && blogSidebarSlider !== undefined) blogSidebarSlider.destroy(true, true);
 
 		// or/and do nothing
 		return;
@@ -416,14 +416,7 @@ breakpoint.addListener(breakpointChecker);
 
 breakpointChecker();
 
-
-
-
-// var blogSwiper = new Swiper(".latest-slider", {
-// 	slidesPerView: 1,
-// 	spaceBetween: 10,
-// 	loop: true,
-// });
+/** Slider padding hack */
 
 function sliderPaddingHack() {
 
@@ -522,12 +515,54 @@ if (document.querySelector('.projects-slider__btn')) {
 	sliderArrowPosition();
 }
 
+/** Projects slider */
+
+const videosSlider = new Swiper('.video-slider', {
+	slidesPerView: 1.2,
+	spaceBetween: 20,
+	grabCursor: true,
+	speed: 500,
+
+	breakpoints: {
+		320: {
+			slidesPerView: 1.35,
+			spaceBetween: 15,
+		},
+		575: {
+			slidesPerView: 1.5,
+			spaceBetween: 20,
+		},
+		768: {
+			slidesPerView: 2.1,
+			spaceBetween: 20,
+		},
+		1024: {
+			slidesPerView: 2.2,
+			spaceBetween: 30,
+		},
+		1366: {
+			slidesPerView: 2.7,
+			spaceBetween: 40,
+		},
+		1700: {
+			slidesPerView: 3.2,
+			spaceBetween: 36,
+		},
+	},
+});
+
+/** Check for resize */
+
 function checkForWindowResize() {
 	if (document.querySelector('.projects-slider__btn')) {
 		sliderArrowPosition();
 	}
 	if (document.querySelector('.tiktok-slider__btn')) {
 		tiktokSliderBtnPosition();
+	}
+
+	if (document.querySelector('.offset-slider')) {
+		sliderPaddingHack();
 	}
 
 }

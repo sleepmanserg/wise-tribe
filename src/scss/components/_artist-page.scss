@@ -1,6 +1,9 @@
 .artist-wrapper {
   margin-top: calc(-1 * var(--headerHeight));
   margin-bottom: 100px;
+  .swiper-nav {
+    padding: 0;
+  }
 }
 
 .artist-hero {

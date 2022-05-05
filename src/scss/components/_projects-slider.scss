@@ -40,7 +40,6 @@
     }
   }
   .projects-slider__thumb {
-    border-radius: 20px;
     position: relative;
     border-radius: var(--projecstSliderItemRadius);
     margin-bottom: 11px;
@@ -97,8 +96,21 @@
   }
   @media (min-width: 768px) {
     --paddingInline: 2.5rem;
+    .projects-slider__item {
+      --projecstSliderItemRadius: 30px;
+    }
     .circle-button {
       right: 2.5rem;
+    }
+  }
+  @media (min-width: 1366px) {
+    .projects-slider__item {
+      --projecstSliderItemRadius: 40px;
+    }
+  }
+  @media (min-width: 1700px) {
+    .projects-slider__item {
+      --projecstSliderItemRadius: 60px;
     }
   }
 }

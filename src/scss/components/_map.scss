@@ -1,0 +1,131 @@
+.map {
+  --mapRadius: 30px;
+}
+
+.map-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  border-radius: var(--mapRadius) var(--mapRadius) 0 0;
+  padding: 20px;
+  padding-right: 60px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(163, 192, 255, 0.1);
+    backdrop-filter: blur(30px);
+    border-radius: var(--mapRadius) var(--mapRadius) 0 0;
+  }
+  .map-title {
+    font-size: clamp(20px, calc(1.25rem + ((1vw - 3.6px) * 1.7949)), 48px);
+    line-height: 140%;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .map-subtitle {
+    margin-bottom: 12px;
+    font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.641)), 24px);
+    line-height: 150%;
+    opacity: 0.8;
+  }
+  .map-info {
+    gap: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  .map-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: relative;
+    color: #97ebff;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: rgba(171, 239, 255, 0.1);
+      box-shadow: 0px 0px 24px rgba(171, 239, 255, 0.27);
+      backdrop-filter: blur(23px);
+    }
+  }
+  .map-info__text {
+    > * {
+      font-size: clamp(16px, calc(1rem + ((1vw - 3.6px) * 0.8974)), 30px);
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+.map-content {
+  flex: 0 0 100%;
+  display: flex;
+}
+
+.map-item {
+  max-width: 100%;
+  padding-inline: 1.25rem;
+  overflow: hidden;
+  border-radius: 0 0 var(--mapRadius) var(--mapRadius);
+  > * {
+    width: 100%;
+    height: 190px;
+    border-radius: 0 0 var(--mapRadius) var(--mapRadius);
+  }
+}
+
+@media (min-width: 768px) {
+  .map {
+    display: flex;
+    overflow: hidden;
+    --mapRadius: 40px;
+  }
+  .map-body {
+    width: 40%;
+    border-radius: 0;
+    border-radius: var(--mapRadius) 0 0 var(--mapRadius);
+    &::before {
+      border-radius: inherit;
+    }
+  }
+  .map-item {
+    position: relative;
+    flex: 0 0 calc(((100vw - 2.5rem) * 0.6) + 1.25rem);
+    transform: translateX(-100%);
+    padding-bottom: 20%;
+    border-radius: 0;
+    > * {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+  }
+}
+
+@media (min-width: 1760px) {
+  .map-item {
+    flex: 0 0 calc(50vw - (0.4 - 0.5) * (1760px - 2.5rem));
+  }
+}
