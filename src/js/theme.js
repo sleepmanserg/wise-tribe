@@ -646,3 +646,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		}, 8000);
 	}
 });
+
+/** Audio player */
+
+const controls = [
+	'play', // Play/pause playback
+];
+
+const players = Plyr.setup('.hero-player', {
+	controls
+});
+
+swiperMainHome.on('slideChange', function () {
+
+	players.forEach(function (player) {
+		player.stop();
+	});
+
+	const index_currentSlide = swiperMainHome.activeIndex;
+	const currentSlide = swiperMainHome.slides[index_currentSlide];
+	setTimeout(() => {
+		currentSlide.querySelector('.plyr__controls__item').click();
+	}, 1000)
+});
+
