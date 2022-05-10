@@ -924,8 +924,45 @@
 /* Artists */
 
 .artists {
-  padding: 190px 0 176px;
-  .section-title {
-    margin-bottom: 5rem;
+  padding-top: 60px;
+  padding-bottom: 72px;
+  @media (min-width: 768px) {
+    padding-top: 85px;
+    padding-bottom: 60px;
   }
+  @media (min-width: 1024px) {
+    padding-top: 95px;
+    padding-bottom: 89px;
+  }
+  @media (min-width: 1366px) {
+    padding-bottom: 136px;
+  }
+  @media (min-width: 1700px) {
+    padding-top: 135px;
+    padding-bottom: 176px;
+  }
+}
+
+/* Video clips */
+
+.video-clips {
+  padding-top: 100px;
+  @media (min-width: 768px) {
+    padding-top: 160px;
+  }
+  @media (min-width: 1024px) {
+    padding-top: 180px;
+  }
+  @media (min-width: 1366px) {
+    padding-top: 220px;
+  }
+  @media (min-width: 1700px) {
+    padding-top: 280px;
+  }
+}
+
+/*  */
+
+.event-popular {
+  padding-top: 100px;
 }

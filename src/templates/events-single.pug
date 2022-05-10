@@ -11,166 +11,195 @@ append config
 
 //- Page Content
 block content
-  section.events-single
-    .container
-      a(href="events.html").back-btn
-        i.icon-chevron-l
-        span Back
-      .row.events-single__row.align-items-center
-        .col-md-5.col-lg-7
-          .events-single__media
-            .events-single__thumb
-              .events-single__img(style="background-image: url('img/events/1.png')")
-        .col-md-7.col-lg-5
-          .events-single__description
-            .events-single__caption
-              h1.section-title Roma Nebo
-              .events-single__labels
-                .events-card__date
-                  i.icon-calendar
-                  span 16 Oct 2021
-                .events-card__date
-                  i.icon-calendar
-                  span Silent Hill, 458
-              h2.section-subtitle big solo concert
-              p.section-text.opacity-7 Roma Nebo in Paris! On November 2, a concert of the famous artist Roma Nebo will take place in the Ibiza nightclub.
-              a(href="events-single.html").btn.btn-blue
-                i.icon-leather
-                span Buy Tickets
-                span.btn-blue__price $48
+  .events-single__wrapper
+    section.events-single.position-relative
+      //- img.triangles.absolute(src="img/events/triangles.png", alt="")
+      .container
+        a(href="events.html").back-btn
+          i.icon-chevron-l
+          span Back
+        .row.events-single__row.align-items-center
+          .col-md-5.col-lg-7
+            .events-single__media
+              .events-single__thumb
+                .events-single__img(style="background-image: url('img/events/1.png')")
+          .col-md-7.col-lg-5
+            .events-single__description
+              .events-single__caption
+                h1.section-title Roma Nebo
+                .events-single__labels
+                  .events-card__date
+                    i.icon-calendar
+                    span 16 Oct 2021
+                  .events-card__date
+                    i.icon-calendar
+                    span Silent Hill, 458
+                h2.section-subtitle big solo concert
+                p.section-text.opacity-7 Roma Nebo in Paris! On November 2, a concert of the famous artist Roma Nebo will take place in the Ibiza nightclub.
+                a(href="events-single.html").btn.btn-blue
+                  i.icon-leather
+                  span Buy Tickets
+                  span.btn-blue__price $48
 
-  section.events-program
-    .container
-      .section-title.mb-2 Program
-      .section-text.opacity-7 The program of the event
+    section.events-program
+      .container
+        .section-title.mb-2 Program
+        .section-text.opacity-7 The program of the event
 
-      #accordionProgram.accordion.accordion-flush.program-accordion.pt-5
-        .program-accordion-item
-          h2#program-headingOne.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseOne' aria-expanded='false' aria-controls='program-collapseOne')
-              .accordion-icon
-                img(src="img/icons/events/run.svg", alt="")
-              .accordion-title.d-none.d-md-block Ecstatic Dance
-              .accordion-labels
-                .accordion-label(data-color="blue") Standard
-                .accordion-label(data-color="pink") Vip
-              .accordion-plus
-                .plus-icon
-          #program-collapseOne.program-accordion-collapse.collapse(aria-labelledby='program-headingOne' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
-        .program-accordion-item
-          h2#program-headingTwo.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseTwo' aria-expanded='false' aria-controls='program-collapseTwo')
-              .accordion-icon
-                img(src="img/icons/events/heal.svg", alt="")
-              .accordion-title.d-none.d-md-block Healing
-              .accordion-labels
-                .accordion-label(data-color="blue") Standard
-                .accordion-label(data-color="pink") Vip
-              .accordion-plus
-                .plus-icon
-          #program-collapseTwo.program-accordion-collapse.collapse(aria-labelledby='program-headingTwo' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
-        .program-accordion-item
-          h2#program-headingThree.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseThree' aria-expanded='false' aria-controls='program-collapseThree')
-              .accordion-icon
-                img(src="img/icons/events/music.svg", alt="")
-              .accordion-title.d-none.d-md-block Music
-              .accordion-labels
-                .accordion-label(data-color="blue") Standard
-                .accordion-label(data-color="pink") Vip
-                .accordion-label(data-color="purple") Fun
-              .accordion-plus
-                .plus-icon
-          #program-collapseThree.program-accordion-collapse.collapse(aria-labelledby='program-headingThree' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
-        .program-accordion-item
-          h2#program-headingFour.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseFour' aria-expanded='false' aria-controls='program-collapseFour')
-              .accordion-icon
-                img(src="img/icons/events/meat.svg", alt="")
-              .accordion-title.d-none.d-md-block Networking
-              .accordion-labels
-                .accordion-label(data-color="blue") Standard
-                .accordion-label(data-color="pink") Vip
-              .accordion-plus
-                .plus-icon
-          #program-collapseFour.program-accordion-collapse.collapse(aria-labelledby='program-headingFour' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
-        .program-accordion-item
-          h2#program-headingFive.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseFive' aria-expanded='false' aria-controls='program-collapseFive')
-              .accordion-icon
-                img(src="img/icons/events/art.svg", alt="")
-              .accordion-title.d-none.d-md-block Art
-              .accordion-labels
-                .accordion-label(data-color="blue") Standard
-                .accordion-label(data-color="pink") Vip
-              .accordion-plus
-                .plus-icon
-          #program-collapseFive.program-accordion-collapse.collapse(aria-labelledby='program-headingFive' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
-        .program-accordion-item
-          h2#program-headingSix.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseSix' aria-expanded='false' aria-controls='program-collapseSix')
-              .accordion-icon
-                img(src="img/icons/events/speakers.svg", alt="")
-              .accordion-title.d-none.d-md-block Speakers
-              .accordion-labels
-                .accordion-label(data-color="pink") Vip
-                .accordion-label(data-color="purple") Fun
-              .accordion-plus
-                .plus-icon
-          #program-collapseSix.program-accordion-collapse.collapse(aria-labelledby='program-headingSix' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
-        .program-accordion-item
-          h2#program-headingSeven.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseSeven' aria-expanded='false' aria-controls='program-collapseSeven')
-              .accordion-icon
+        #accordionProgram.accordion.accordion-flush.program-accordion.pt-5
+          .program-accordion-item
+            h2#program-headingOne.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseOne' aria-expanded='false' aria-controls='program-collapseOne')
+                .accordion-icon
+                  img(src="img/icons/events/run.svg", alt="")
+                .accordion-title.d-none.d-md-block Ecstatic Dance
+                .accordion-labels
+                  .accordion-label(data-color="blue") Standard
+                  .accordion-label(data-color="pink") Vip
+                .accordion-plus
+                  .plus-icon
+            #program-collapseOne.program-accordion-collapse.collapse(aria-labelledby='program-headingOne' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+          .program-accordion-item
+            h2#program-headingTwo.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseTwo' aria-expanded='false' aria-controls='program-collapseTwo')
+                .accordion-icon
+                  img(src="img/icons/events/heal.svg", alt="")
+                .accordion-title.d-none.d-md-block Healing
+                .accordion-labels
+                  .accordion-label(data-color="blue") Standard
+                  .accordion-label(data-color="pink") Vip
+                .accordion-plus
+                  .plus-icon
+            #program-collapseTwo.program-accordion-collapse.collapse(aria-labelledby='program-headingTwo' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+          .program-accordion-item
+            h2#program-headingThree.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseThree' aria-expanded='false' aria-controls='program-collapseThree')
+                .accordion-icon
+                  img(src="img/icons/events/music.svg", alt="")
+                .accordion-title.d-none.d-md-block Music
+                .accordion-labels
+                  .accordion-label(data-color="blue") Standard
+                  .accordion-label(data-color="pink") Vip
+                  .accordion-label(data-color="purple") Fun
+                .accordion-plus
+                  .plus-icon
+            #program-collapseThree.program-accordion-collapse.collapse(aria-labelledby='program-headingThree' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+          .program-accordion-item
+            h2#program-headingFour.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseFour' aria-expanded='false' aria-controls='program-collapseFour')
+                .accordion-icon
+                  img(src="img/icons/events/meat.svg", alt="")
+                .accordion-title.d-none.d-md-block Networking
+                .accordion-labels
+                  .accordion-label(data-color="blue") Standard
+                  .accordion-label(data-color="pink") Vip
+                .accordion-plus
+                  .plus-icon
+            #program-collapseFour.program-accordion-collapse.collapse(aria-labelledby='program-headingFour' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+          .program-accordion-item
+            h2#program-headingFive.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseFive' aria-expanded='false' aria-controls='program-collapseFive')
+                .accordion-icon
+                  img(src="img/icons/events/art.svg", alt="")
+                .accordion-title.d-none.d-md-block Art
+                .accordion-labels
+                  .accordion-label(data-color="blue") Standard
+                  .accordion-label(data-color="pink") Vip
+                .accordion-plus
+                  .plus-icon
+            #program-collapseFive.program-accordion-collapse.collapse(aria-labelledby='program-headingFive' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+          .program-accordion-item
+            h2#program-headingSix.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseSix' aria-expanded='false' aria-controls='program-collapseSix')
+                .accordion-icon
+                  img(src="img/icons/events/speakers.svg", alt="")
+                .accordion-title.d-none.d-md-block Speakers
+                .accordion-labels
+                  .accordion-label(data-color="pink") Vip
+                  .accordion-label(data-color="purple") Fun
+                .accordion-plus
+                  .plus-icon
+            #program-collapseSix.program-accordion-collapse.collapse(aria-labelledby='program-headingSix' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+          .program-accordion-item
+            h2#program-headingSeven.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseSeven' aria-expanded='false' aria-controls='program-collapseSeven')
+                .accordion-icon
+                  img(src="img/icons/events/fire.svg", alt="")
+                .accordion-title.d-none.d-md-block Show
+                .accordion-labels
+                  .accordion-label(data-color="blue") Standard
+                  .accordion-label(data-color="pink") Vip
+                .accordion-plus
+                  .plus-icon
+            #program-collapseSeven.program-accordion-collapse.collapse(aria-labelledby='program-headingSeven' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+          .program-accordion-item
+            h2#program-headingEight.program-accordion-header
+              button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseEight' aria-expanded='false' aria-controls='program-collapseEight')
+                .accordion-icon
+                  img(src="img/icons/events/meat.svg", alt="")
+                .accordion-title.d-none.d-md-block Food
+                .accordion-labels
+                  .accordion-label(data-color="blue") Standard
+                  .accordion-label(data-color="pink") Vip
+                .accordion-plus
+                  .plus-icon
+            #program-collapseEight.program-accordion-collapse.collapse(aria-labelledby='program-headingEight' data-bs-parent='#accordionProgram')
+              .program-accordion-body
+                .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+
+    section.event-visit
+      .container
+        h2.section-title.text-center Why is it worth visiting the big universal concert?
+        .row
+          .col-md-4.mb-5
+            .event-visit__card
+              .event-visit__card-icon
                 img(src="img/icons/events/fire.svg", alt="")
-              .accordion-title.d-none.d-md-block Show
-              .accordion-labels
-                .accordion-label(data-color="blue") Standard
-                .accordion-label(data-color="pink") Vip
-              .accordion-plus
-                .plus-icon
-          #program-collapseSeven.program-accordion-collapse.collapse(aria-labelledby='program-headingSeven' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
-        .program-accordion-item
-          h2#program-headingEight.program-accordion-header
-            button.program-accordion-button.collapsed(type='button' data-bs-toggle='collapse' data-bs-target='#program-collapseEight' aria-expanded='false' aria-controls='program-collapseEight')
-              .accordion-icon
-                img(src="img/icons/events/meat.svg", alt="")
-              .accordion-title.d-none.d-md-block Food
-              .accordion-labels
-                .accordion-label(data-color="blue") Standard
-                .accordion-label(data-color="pink") Vip
-              .accordion-plus
-                .plus-icon
-          #program-collapseEight.program-accordion-collapse.collapse(aria-labelledby='program-headingEight' data-bs-parent='#accordionProgram')
-            .program-accordion-body
-              .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
+                span 01
+              .event-visit__card-text.text-center.opacity-7 Be part of the largest festival and global event in Eastern Europe
+          .col-md-4.mb-5
+            .event-visit__card
+              .event-visit__card-icon
+                img(src="img/icons/events/music-02.svg", alt="")
+                span 02
+              .event-visit__card-text.text-center.opacity-7 Hear the best performers live and attend the live performances of Western stars
+          .col-md-4.mb-5
+            .event-visit__card
+              .event-visit__card-icon
+                img(src="img/icons/events/sun.svg", alt="")
+                span 03
+              .event-visit__card-text.text-center.opacity-7 Relax with friends the way you have long dreamed of
 
-  section.events-about
-    .container
-      .events-about__card.info-card
-        .events-about__card-caption
-          .section-title.info-card__title About event
-          .section-subtitle.info-card__subtitle New album presentation and greatest hits - meet Roma Nebo at ibiza nightclub
-          .section-text.opacity-7 One of the most famous artists of our time will shake Paris with a cool show program, which will include all the songs that the audience loved - "Let Me On The Dance Floor", "Bird", "War Girl"and other YouTube millionaires. In addition, the guests of the evening will be the first to hear the work of the new album live!
+    section.events-about
+      .container
+        .events-about__card.info-card
+          .events-about__card-caption
+            .section-title.info-card__title About event
+            .section-subtitle.info-card__subtitle New album presentation and greatest hits - meet Roma Nebo at ibiza nightclub
+            .section-text.opacity-7 One of the most famous artists of our time will shake Paris with a cool show program, which will include all the songs that the audience loved - "Let Me On The Dance Floor", "Bird", "War Girl"and other YouTube millionaires. In addition, the guests of the evening will be the first to hear the work of the new album live!
 
-  include partials/popular
+    section.popular
+      .container
+        .section-title.text-md-center Popular tracks
+      include partials/popular
 
-  section.video-clips
-    .container
-      .section-title Video clips
-  include partials/video-clips
+
+    section.video-clips
+      .container
+        .section-title.mb-title Video clips
+      include partials/video-slider
 

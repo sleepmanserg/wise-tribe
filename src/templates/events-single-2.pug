@@ -152,6 +152,29 @@ block content
             .program-accordion-body
               .section-text.opacity-7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur atque obcaecati sequi quisquam necessitatibus dignissimos.
 
+  section.event-visit
+    .container
+      h2.section-title.text-center Why is it worth visiting the big universal concert?
+      .row
+        .col-md-4.mb-5
+          .event-visit__card
+            .event-visit__card-icon
+              img(src="img/icons/events/fire.svg", alt="")
+              span 01
+            .event-visit__card-text.text-center.opacity-7 Be part of the largest festival and global event in Eastern Europe
+        .col-md-4.mb-5
+          .event-visit__card
+            .event-visit__card-icon
+              img(src="img/icons/events/music-02.svg", alt="")
+              span 02
+            .event-visit__card-text.text-center.opacity-7 Hear the best performers live and attend the live performances of Western stars
+        .col-md-4.mb-5
+          .event-visit__card
+            .event-visit__card-icon
+              img(src="img/icons/events/sun.svg", alt="")
+              span 03
+            .event-visit__card-text.text-center.opacity-7 Relax with friends the way you have long dreamed of
+
   section.events-about
     .container
       .events-about__card.info-card
@@ -160,10 +183,13 @@ block content
           .section-subtitle.info-card__subtitle New album presentation and greatest hits - meet Roma Nebo at ibiza nightclub
           .section-text.opacity-7 One of the most famous artists of our time will shake Paris with a cool show program, which will include all the songs that the audience loved - "Let Me On The Dance Floor", "Bird", "War Girl"and other YouTube millionaires. In addition, the guests of the evening will be the first to hear the work of the new album live!
 
-  include partials/popular
+  section.event-popular
+    .container
+      .section-title.mb-title.text-center Popular artist tracks
+    include partials/popular
 
   section.video-clips
     .container
-      .section-title Video clips
-  include partials/video-clips
+      .section-title.mb-title Video clips
+    include partials/video-slider
 

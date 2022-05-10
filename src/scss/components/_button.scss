@@ -373,6 +373,7 @@
   border-radius: 54px;
   box-shadow: 0px 4px 27px rgba(255, 255, 255, 0.41);
   position: relative;
+  height: 40px;
   i {
     margin-right: 8px;
     color: $blue;
@@ -387,7 +388,7 @@
     height: 100%;
     background: linear-gradient(
       270deg,
-      #40d1f2 27.87%,
+      #40d1f2 65.87%,
       rgba(129, 226, 248, 0) 100%
     );
     filter: blur(23px);
@@ -422,6 +423,41 @@
     span {
       &:not(.btn-blue__price) {
         color: $dark-blue;
+      }
+    }
+  }
+  @media (min-width: 768px) {
+    i {
+      font-size: 12px;
+    }
+  }
+  @media (min-width: 1024px) {
+    height: 48px;
+    .btn-blue__price {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    span {
+      &:not(.btn-blue__price) {
+        font-size: 16px;
+        line-height: 19px;
+      }
+    }
+  }
+  @media (min-width: 1700px) {
+    height: 55px;
+    padding-right: 20px;
+    i {
+      font-size: 16px;
+    }
+    .btn-blue__price {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    span {
+      &:not(.btn-blue__price) {
+        font-size: 18px;
+        line-height: 22px;
       }
     }
   }
@@ -669,7 +705,9 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 140%;
-  gap: 10px;
+  gap: 15px;
+  border-radius: 100%;
+  border: none;
   @include hover {
     color: $white;
     .play-btn__icon {
@@ -690,6 +728,17 @@
       height: 22px;
       path {
         filter: drop-shadow(0px 0px 12px rgba(0, 154, 241, 0.78));
+      }
+    }
+  }
+  &.play-btn-transparent {
+    background: none;
+    .play-btn__icon {
+      background: rgba(171, 239, 255, 0.5);
+    }
+    @include hover {
+      .play-btn__icon {
+        background: rgba(171, 239, 255, 0.8);
       }
     }
   }

@@ -63,7 +63,7 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: false,
+	slideToClickedSlide: true,
 	navigation: {
 		nextEl: ".swiper-btn-next",
 		prevEl: ".swiper-btn-prev"
@@ -95,7 +95,7 @@ const swiperEvents = new Swiper(".events-slider", {
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: false,
+	slideToClickedSlide: true,
 	navigation: {
 		nextEl: ".events-button-next",
 		prevEl: ".events-button-prev"
@@ -364,7 +364,7 @@ const breakpointChecker = function () {
 	if (breakpoint.matches === true) {
 
 		// clean up old instances and inline styles when available
-		if (blogSidebarSlider !== undefined) blogSidebarSlider.destroy(true, true);
+		if (blogSidebarSlider && blogSidebarSlider !== undefined) blogSidebarSlider.destroy(true, true);
 
 		// or/and do nothing
 		return;
@@ -420,14 +420,7 @@ breakpoint.addListener(breakpointChecker);
 
 breakpointChecker();
 
-
-
-
-// var blogSwiper = new Swiper(".latest-slider", {
-// 	slidesPerView: 1,
-// 	spaceBetween: 10,
-// 	loop: true,
-// });
+/** Slider padding hack */
 
 function sliderPaddingHack() {
 
@@ -526,12 +519,54 @@ if (document.querySelector('.projects-slider__btn')) {
 	sliderArrowPosition();
 }
 
+/** Projects slider */
+
+const videosSlider = new Swiper('.video-slider', {
+	slidesPerView: 1.2,
+	spaceBetween: 20,
+	grabCursor: true,
+	speed: 500,
+
+	breakpoints: {
+		320: {
+			slidesPerView: 1.35,
+			spaceBetween: 15,
+		},
+		575: {
+			slidesPerView: 1.5,
+			spaceBetween: 20,
+		},
+		768: {
+			slidesPerView: 2.1,
+			spaceBetween: 20,
+		},
+		1024: {
+			slidesPerView: 2.2,
+			spaceBetween: 30,
+		},
+		1366: {
+			slidesPerView: 2.7,
+			spaceBetween: 40,
+		},
+		1700: {
+			slidesPerView: 3.2,
+			spaceBetween: 36,
+		},
+	},
+});
+
+/** Check for resize */
+
 function checkForWindowResize() {
 	if (document.querySelector('.projects-slider__btn')) {
 		sliderArrowPosition();
 	}
 	if (document.querySelector('.tiktok-slider__btn')) {
 		tiktokSliderBtnPosition();
+	}
+
+	if (document.querySelector('.offset-slider')) {
+		sliderPaddingHack();
 	}
 
 }
@@ -613,5 +648,165 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			preload.classList.add('loaded');
 			document.documentElement.classList.remove('overflow-hidden');
 		}, 8000);
+	}
+});
+
+/** Audio player */
+
+let allMusic = [
+	{
+		name: "Deftones - Elite",
+		artist: "Deftones",
+		img: "../img/covers/white-pony.jpg",
+		src: "../songs/Elite.mp3"
+	},
+	{
+		name: "Deftones - Diamond eyes",
+		artist: "Deftones",
+		img: "../img/covers/diamond-eyes.jpg",
+		src: "../songs/Diamond Eyes.mp3"
+	},
+	{
+		name: "Deftones - Minerva",
+		artist: "Deftones",
+		img: "../img/covers/minerva.jpg",
+		src: "../songs/Minerva.mp3"
+	},
+]
+
+const
+	playerWrapper = document.querySelector('.player-wrapper'),
+	trackImg = playerWrapper.querySelector('.player-track__img img'),
+	trackName = playerWrapper.querySelector('.player-controls-song-details .song-name'),
+	trackArtist = playerWrapper.querySelector('.player-controls-song-details .song-media'),
+	trackMain = playerWrapper.querySelector('#main-audio'),
+	playPauseBtn = playerWrapper.querySelector('#play-song'),
+	playerPrevBtn = playerWrapper.querySelector('#prev-song'),
+	playerNextBtn = playerWrapper.querySelector('#next-song'),
+	playerProgressBar = playerWrapper.querySelector('.progress_bar'),
+	playerProgressArea = playerWrapper.querySelector('.progress-area')
+
+let musicIndex = 1;
+
+window.addEventListener('load', () => {
+	loadMusic(musicIndex);
+});
+
+// Load music function
+function loadMusic(indexNumb) {
+	trackName.innerText = allMusic[indexNumb - 1].name;
+	trackArtist.innerText = allMusic[indexNumb - 1].artist;
+	trackImg.src = `${allMusic[indexNumb - 1].img}`;
+	trackMain.src = `${allMusic[indexNumb - 1].src}`;
+}
+
+// Play music function
+function playMusic() {
+	playerWrapper.classList.add('paused');
+	trackMain.play();
+}
+
+// Pause music function
+function pauseMusic() {
+	playerWrapper.classList.remove('paused');
+	trackMain.pause();
+}
+
+// Next music function
+function nextMusic() {
+	musicIndex++;
+	musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+	loadMusic(musicIndex);
+	playMusic();
+}
+
+// Prev music function
+function prevMusic() {
+	musicIndex--;
+	musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
+	loadMusic(musicIndex);
+	playMusic();
+}
+
+playPauseBtn.addEventListener('click', () => {
+	const isMusicPaused = playerWrapper.classList.contains('paused');
+	isMusicPaused ? pauseMusic() : playMusic();
+});
+
+playerNextBtn.addEventListener('click', () => {
+	nextMusic();
+});
+
+playerPrevBtn.addEventListener('click', () => {
+	prevMusic();
+});
+
+trackMain.addEventListener('timeupdate', (e) => {
+	const currentTime = e.target.currentTime;
+	const duration = e.target.duration;
+
+	let musicCurrentTime = document.querySelector('.player-timer__current');
+	let musicDuration = document.querySelector('.player-timer__end');
+
+	let progressWidth = (currentTime / duration) * 100;
+	playerProgressBar.style.width = `${progressWidth}%`;
+
+
+	trackMain.addEventListener('loadeddata', getData);
+
+	if (trackMain.readyState >= 2) {
+		getData();
+	}
+
+	function getData() {
+		let audioDuration = trackMain.duration;
+		// Update song duration
+		let totalMin = Math.floor(audioDuration / 60);
+		let totalSec = Math.floor(audioDuration % 60);
+		if (totalSec < 10) {
+			totalSec = `0${totalSec}`;
+		}
+		musicDuration.innerText = `${totalMin}:${totalSec}`;
+	}
+
+	// Update song current time
+
+	let currentMin = Math.floor(currentTime / 60);
+	let currentSec = Math.floor(currentTime % 60);
+	if (currentSec < 10) {
+		currentSec = `0${currentSec}`;
+	}
+	musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
+});
+
+// Song time update on progress bar width
+
+playerProgressArea.addEventListener('click', (e) => {
+	let progressWidthVal = playerProgressArea.clientWidth;
+	let clickedOffsetX = e.offsetX;
+	let songDuration = trackMain.duration;
+
+	trackMain.currentTime = (clickedOffsetX / progressWidthVal) * songDuration;
+	playMusic();
+});
+
+const repeatBtn = document.querySelector('#repeat-plist');
+repeatBtn.addEventListener('click', () => {
+	switch (repeatBtn.className) {
+		case 'bottom-controls-btn repeat':
+			repeatBtn.classList.remove('repeat');
+			repeatBtn.classList.add('repeat-one');
+			repeatBtn.setAttribute('title', 'Repeat one song');
+			break;
+		case 'bottom-controls-btn repeat-one':
+			repeatBtn.classList.remove('repeat-one');
+			repeatBtn.classList.add('repeat-all');
+			repeatBtn.setAttribute('title', 'Repeat playlist');
+			break;
+		case 'bottom-controls-btn repeat-all':
+			repeatBtn.classList.remove('repeat-all');
+			repeatBtn.classList.add('repeat');
+			repeatBtn.setAttribute('title', 'Repeat one song');
+			break;
 	}
 });

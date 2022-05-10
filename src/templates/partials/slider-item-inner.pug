@@ -1,6 +1,8 @@
 .hero-slider__item-inner
   .hero-slider__item-actions.slider-actions
-    .hero-slider__item-play.slider-actions__item PL
+    .hero-slider__item-play.slider-actions__item
+      audio(controls='').hero-player
+        source(src='https://audio.telefonansagen.de/telefonansagen/sprecher-telefonansagen/Deutsch_Sprecherin_01_Telefonansagen_DEMO.mp3' type='audio/mp3')
     .hero-slider__item-info.slider-actions__item IN
 
   .hero-slider__item-name

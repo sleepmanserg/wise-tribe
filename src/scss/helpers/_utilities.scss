@@ -16,3 +16,16 @@
   height: auto;
   z-index: -1;
 }
+
+.mb-title {
+  margin-bottom: 40px;
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+  }
+  @media (min-width: 1024px) {
+    margin-bottom: 65px;
+  }
+  @media (min-width: 1366px) {
+    margin-bottom: 70px;
+  }
+}

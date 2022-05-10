@@ -13,7 +13,7 @@ append config
 block content
   .artist-wrapper.position-relative
     section.artist-hero
-      .artist-hero__bg(style="background-image: url('img/artists/1.png')")
+      .artist-hero__bg(style="background-image: url('img/artists/artist-bg.png')")
       .container
         a(href="artists.html").back-btn.position-relative
             i.icon-chevron-l
@@ -21,8 +21,8 @@ block content
         .row
           .col-md-12
             .artist-hero__caption
-              h1.artist-hero__title Roma Nebo
-              p.artist-hero__description Roma Nebo is an American performer, actor, songwriter, producer, and entrepreneur. All his songs are his personal work of art
+              h1.artist-hero__title Moyenei
+              p.artist-hero__description Moyenei is an American performer, actor, songwriter, producer, and entrepreneur. All his songs are his personal work of art
               a(href="#").play-btn
                 span.play-btn__icon
                   svg(width='52' height='56' viewBox='0 0 52 56' fill='none' xmlns='http://www.w3.org/2000/svg')
@@ -55,3 +55,90 @@ block content
         .section-title.text-md-center Popular tracks
       include partials/popular
 
+    section.events.position-relative
+      h2.section-title.text-center Albums
+      .swiper.events-slider.scaled-slider
+        .swiper-wrapper
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/01.webp' type='image/webp')
+                  img(src="img/hero-slider/01.jpg", alt="Artist")
+
+              include partials/albums-slider-info
+
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/02.webp' type='image/webp')
+                  img(src="img/hero-slider/02.jpg", alt="Artist")
+
+              include partials/albums-slider-info
+
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/03.webp' type='image/webp')
+                  img(src="img/hero-slider/03.jpg", alt="Artist")
+
+              include partials/albums-slider-info
+
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/04.webp' type='image/webp')
+                  img(src="img/hero-slider/04.jpg", alt="Artist")
+
+              include partials/albums-slider-info
+
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/05.webp' type='image/webp')
+                  img(src="img/hero-slider/05.jpg", alt="Artist")
+
+              include partials/albums-slider-info
+
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/06.webp' type='image/webp')
+                  img(src="img/hero-slider/06.png", alt="Artist")
+
+              include partials/albums-slider-info
+
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/06.webp' type='image/webp')
+                  img(src="img/hero-slider/06.png", alt="Artist")
+
+              include partials/albums-slider-info
+
+          .swiper-slide
+            .events-slider__item
+              .events-slider__img
+                picture
+                  source(srcset='img/hero-slider/06.webp' type='image/webp')
+                  img(src="img/hero-slider/06.png", alt="Artist")
+
+              include partials/albums-slider-info
+      .container
+        .swiper-nav.d-flex.justify-content-between.align-items-center
+          .arrow-button.arrow-button__prev.events-button-prev
+            span PREV
+          .arrow-button.arrow-button__next.events-button-next
+            span NEXT
+
+    section.video-clips
+      .container
+        .section-title.mb-title Video clips
+
+      include partials/video-slider
