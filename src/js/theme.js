@@ -92,7 +92,6 @@ const swiperEvents = new Swiper(".events-slider", {
 	effect: "coverflow",
 	slidesPerView: 'auto',
 	grabCursor: true,
-	// autoHeight: true,
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
@@ -125,6 +124,11 @@ swiperEvents.on('slideChange', function () {
 const swiper = new Swiper(".releases-slider", {
 	effect: "cards",
 	grabCursor: true,
+	navigation: {
+		nextEl: ".releases-button-next",
+		prevEl: ".releases-button-prev",
+		disabledClass: "swiper-button-disabled"
+	},
 });
 
 /** Popular tracks slider */

@@ -276,13 +276,14 @@ block content
   section.releases
     .container
       .row
-        .col-md-6
+        .col-md-4.col-lg-6.d-flex.align-items-center.pb-5.justify-content-center
           .releases-caption
             h3.section-title.relises-title Releases
             h4.section-subtitle.release-subtitle Explore the latest tracks artists
             p.section-text.releases-text.opacity-7 We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.
-        .col-md-6
-          .swiper.releases-slider
+
+        .col-md-8.col-lg-6
+          .swiper.releases-slider.position-relative
             .swiper-wrapper
               .swiper-slide
                 .img-wrapper
@@ -312,6 +313,9 @@ block content
                 .img-wrapper
                   img(src="img/releases/01.png")
 
+            .releases-slider-nav
+              .circle-button.circle-button-prev.releases-button-prev
+              .circle-button.circle-button-next.releases-button-next
 
   //- section.events.position-relative
   //-   h2.section-title.text-center Coming events

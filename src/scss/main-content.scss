@@ -203,15 +203,12 @@
     margin-bottom: 10px;
   }
   .releases-caption {
-    max-width: 320px;
+    max-width: 400px;
   }
   @media (min-width: 768px) {
     // padding-top: 81px;
     .releases-title {
       margin-bottom: 25px;
-    }
-    .releases-caption {
-      max-width: 280px;
     }
   }
   @media (min-width: 1024px) {
