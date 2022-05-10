@@ -484,6 +484,26 @@ block content
               .circle-button.circle-button-prev.releases-button-prev
               .circle-button.circle-button-next.releases-button-next
 
+  section.events.position-relative
+    h2.section-title.text-center Coming events
+    .swiper.events-slider.scaled-slider
+      .swiper-wrapper
+        .swiper-slide
+          .events-slider__item
+            .events-slider__img
+              picture
+                source(srcset='img/hero-slider/06.webp' type='image/webp')
+                img(src="img/hero-slider/06.png", alt="Artist")
+
+            include partials/events-slider-info
+
+        .swiper-slide
+          .events-slider__item
+            .events-slider__img
+              picture
+                source(srcset='img/hero-slider/01.webp' type='image/webp')
+                img(src="img/hero-slider/01.jpg", alt="Artist")
+
             include partials/events-slider-info
 
         .swiper-slide
