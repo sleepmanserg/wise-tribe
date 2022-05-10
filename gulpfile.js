@@ -1,20 +1,20 @@
 const gulp = require('gulp'),
-      gulpif = require('gulp-if'),
-      del = require('del'),
-      rename = require('gulp-rename'),
-      gulpSass = require('gulp-sass')(require('sass'));
-      sass = require('sass');
-      pug = require('gulp-pug'),
-      autoprefixer = require('gulp-autoprefixer'),
-      sourcemaps = require('gulp-sourcemaps'),
-      emitty = require('emitty').setup('src/templates', 'pug'),
-      browserSync = require('browser-sync').create(),
-      reload = browserSync.reload,
-      concat = require('gulp-concat'),
-      babel = require('gulp-babel'),
-      uglify = require('gulp-uglify'),
-      imagemin = require('gulp-imagemin'),
-      package = require('./package.json');
+  gulpif = require('gulp-if'),
+  del = require('del'),
+  rename = require('gulp-rename'),
+  gulpSass = require('gulp-sass')(require('sass'));
+sass = require('sass');
+pug = require('gulp-pug'),
+  autoprefixer = require('gulp-autoprefixer'),
+  sourcemaps = require('gulp-sourcemaps'),
+  emitty = require('emitty').setup('src/templates', 'pug'),
+  browserSync = require('browser-sync').create(),
+  reload = browserSync.reload,
+  concat = require('gulp-concat'),
+  babel = require('gulp-babel'),
+  uglify = require('gulp-uglify'),
+  imagemin = require('gulp-imagemin'),
+  package = require('./package.json');
 
 
 // Define reusable paths
@@ -51,7 +51,7 @@ gulp.task('sass:bootstrap', () => {
       browsers: ['last 2 versions', 'ie 10', 'ie 11'],
       cascade: false
     }))
-    .pipe(rename({ suffix: '.min'}))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(path.src_css_vendor));
 });
 
@@ -82,7 +82,7 @@ gulp.task('sass:minified', () => {
     .pipe(autoprefixer({
       cascade: false
     }))
-    .pipe(rename({ suffix: '.min'}))
+    .pipe(rename({ suffix: '.min' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.dist_css))
     .pipe(browserSync.stream()); // Inject css into browser
@@ -127,8 +127,8 @@ gulp.task('pug', () =>
         .on('end', () => {
           reload(); // One time browser reload at end of pug compilation
           resolve();
-         })
-      });
+        })
+    });
   })
 );
 
@@ -234,9 +234,9 @@ gulp.task('watch', () => {
     .on('all', (event, filepath) => {
       global.emittyChangedFile = filepath;
     });
-    gulp.watch(path.src_scss + '/**/*.scss', gulp.series('sass:minified', 'sass:expanded'));
-    gulp.watch(path.src_js + '/*.js', gulp.series('js'));
-    gulp.watch(path.src + '/img/*', gulp.series('exports'));
+  gulp.watch(path.src_scss + '/**/*.scss', gulp.series('sass:minified', 'sass:expanded'));
+  gulp.watch(path.src_js + '/*.js', gulp.series('js'));
+  gulp.watch(path.src + '/img/*', gulp.series('exports'));
 });
 
 
