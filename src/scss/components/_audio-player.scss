@@ -340,8 +340,28 @@
     margin-bottom: 20px;
     cursor: pointer;
     text-decoration: none;
-
     scroll-snap-align: start;
+    @include hover {
+      .play-icon {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &.playing {
+      .pause-icon {
+        opacity: 1;
+        visibility: visible;
+      }
+      @include hover {
+        .play-icon {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+    > * {
+      pointer-events: none;
+    }
   }
   .player-list__item-rating {
     flex: 0 0 20px;
@@ -350,12 +370,27 @@
   .player-list__item-img {
     flex: 0 0 44px;
     aspect-ratio: 1 / 1;
-    // border-radius: 15px;
+    border-radius: 15px;
     // box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
     margin-right: 10px;
+    position: relative;
     img {
       border-radius: inherit;
       object-fit: cover;
+    }
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s;
+      z-index: 3;
+      &.pause-icon {
+        width: 15px;
+        height: 15px;
+      }
     }
   }
   .player-list__item-info {
@@ -440,6 +475,14 @@
   }
   .player-controls__bottom-actions {
     grid-area: song-controls;
+  }
+  .progress-area {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    z-index: 3;
   }
 }
 
@@ -531,19 +574,29 @@
 }
 
 .progress-area {
-  height: 5px;
+  height: 10px;
   width: 100%;
-  background-color: rgba(0, 154, 241, 0.78);
   border-radius: 50px;
   cursor: pointer;
   margin-bottom: 15px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 154, 241, 0.78);
+    height: 2px;
+    width: 100%;
+    z-index: 1;
+  }
   .progress_bar {
-    height: inherit;
+    height: 2px;
     border-radius: inherit;
     background-color: $blue;
     position: relative;
     width: 0;
     transition: 0.25s;
+    z-index: 2;
     &::before {
       content: "";
       position: absolute;
@@ -565,4 +618,99 @@
       }
     }
   }
+}
+
+.sound-container {
+  position: relative;
+  @include hover {
+    .sound-input {
+      opacity: 1;
+      visibility: visible;
+      //   transform: translateX(-50%) translateY(0);
+    }
+  }
+}
+
+.sound-control {
+  width: 90px;
+  height: 3px;
+}
+
+#song-sound {
+  &.muted {
+    background: $blue-secondary;
+  }
+}
+
+.sound-input {
+  background: linear-gradient(180deg, #0f0a39 0%, #0a0631 104.91%);
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  top: 50%;
+  left: 32px;
+  transform: translateY(-50%);
+  // transform: translateX(-50%) translateY(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
+  // transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 1px;
+    background: linear-gradient(
+      45deg,
+      #cafa7a,
+      #abf5ff,
+      #ff60ac,
+      #5d81ff,
+      #4cff7e
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: add, add;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.3;
+    z-index: -1;
+  }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: $blue-saturated;
+  cursor: pointer;
+  margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  border: none;
+}
+
+/* All the same stuff for Firefox */
+input[type="range"]::-moz-range-thumb {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: $blue;
+  cursor: pointer;
+  border: none;
+}
+
+/* All the same stuff for IE */
+input[type="range"]::-ms-thumb {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background: $blue-saturated;
+  cursor: pointer;
+  border: none;
 }

@@ -51,9 +51,6 @@ block content
 						span.player-timer__current 0:00
 						| /
 						span.player-timer__end
-					.progress-area
-						.progress_bar
-							span
 
 					audio(src="")#main-audio
 
@@ -71,31 +68,15 @@ block content
 					#home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
 						.player-playlist
 							ul.player-playlist__list.player-list
-								li.player-playlist__list-item.player-list__item
-									.player-list__item-rating
-										img(src="img/icons/arrow-rating.svg")
-									.player-list__item-img
-										img(src="img/popular/1.jpg")
-									.player-list__item-info
-										.player-list__item-artist Soi
-										.player-list__item-media Roma Nebo, Claudio asdasdasldkas
-									.player-list__item-duration
-										span.player-list__item-end 3:20
-								li.player-playlist__list-item.player-list__item
-									.player-list__item-rating
-										img(src="img/icons/arrow-rating.svg")
-									.player-list__item-img
-										img(src="img/popular/1.jpg")
-									.player-list__item-info
-										.player-list__item-artist Soi
-										.player-list__item-media Roma Nebo, Claudio asdasdasldkas
-									.player-list__item-duration
-										span.player-list__item-end 3:20
+
 
 					#profile.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab') ...
 
 
 				.player-controls__bottom.container
+					.progress-area
+						.progress_bar
+							span
 					.player-controls-likes
 						a(href="#").player-controls-dislike.bottom-controls-btn
 							i.icon-like
@@ -105,13 +86,16 @@ block content
 						p.song-name
 						p.song-media
 					.player-controls__bottom-actions
-						button#song-sound.bottom-controls-btn
-							i.icon-volume
+						.sound-container
+							button#song-sound.bottom-controls-btn
+								i.icon-volume
+							.sound-input
+								input.sound-control(type="range" min="0" max="1" step="any")
 						button#repeat-plist.bottom-controls-btn.repeat(title="Playlist looped")
 							i.icon-repeat
 							i.icon-repeat-one
 							i.icon-repeat-all
-						button#shuffle-plist.bottom-controls-btn
+						button#shuffle-plist.bottom-controls-btn(title="Playlist not shuffled")
 							i.icon-shuffle
 						button#fullscreen-btn.bottom-controls-btn
 							i.icon-shuffle

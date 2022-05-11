@@ -213,9 +213,6 @@
                 </div>
               </div>
               <div class="player-timer"><span class="player-timer__current">0:00</span>/<span class="player-timer__end"></span></div>
-              <div class="progress-area">
-                <div class="progress_bar"><span></span></div>
-              </div>
               <audio src="" id="main-audio"></audio>
             </div>
             <div class="container">
@@ -232,40 +229,29 @@
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="player-playlist">
-                  <ul class="player-playlist__list player-list">
-                    <li class="player-playlist__list-item player-list__item">
-                      <div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
-                      <div class="player-list__item-img"><img src="img/popular/1.jpg"></div>
-                      <div class="player-list__item-info">
-                        <div class="player-list__item-artist">Soi</div>
-                        <div class="player-list__item-media">Roma Nebo, Claudio asdasdasldkas</div>
-                      </div>
-                      <div class="player-list__item-duration"><span class="player-list__item-end">3:20</span></div>
-                    </li>
-                    <li class="player-playlist__list-item player-list__item">
-                      <div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
-                      <div class="player-list__item-img"><img src="img/popular/1.jpg"></div>
-                      <div class="player-list__item-info">
-                        <div class="player-list__item-artist">Soi</div>
-                        <div class="player-list__item-media">Roma Nebo, Claudio asdasdasldkas</div>
-                      </div>
-                      <div class="player-list__item-duration"><span class="player-list__item-end">3:20</span></div>
-                    </li>
-                  </ul>
+                  <ul class="player-playlist__list player-list"></ul>
                 </div>
               </div>
               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
             </div>
             <div class="player-controls__bottom container">
+              <div class="progress-area">
+                <div class="progress_bar"><span></span></div>
+              </div>
               <div class="player-controls-likes"><a class="player-controls-dislike bottom-controls-btn" href="#"><i class="icon-like"></i></a><a class="player-controls-like bottom-controls-btn" href="#"><i class="icon-dislike"></i></a></div>
               <div class="player-controls-song-details">
                 <p class="song-name"></p>
                 <p class="song-media"></p>
               </div>
               <div class="player-controls__bottom-actions">
-                <button class="bottom-controls-btn" id="song-sound"><i class="icon-volume"></i></button>
+                <div class="sound-container">
+                  <button class="bottom-controls-btn" id="song-sound"><i class="icon-volume"></i></button>
+                  <div class="sound-input">
+                    <input class="sound-control" type="range" min="0" max="1" step="any">
+                  </div>
+                </div>
                 <button class="bottom-controls-btn repeat" id="repeat-plist" title="Playlist looped"><i class="icon-repeat"></i><i class="icon-repeat-one"></i><i class="icon-repeat-all"></i></button>
-                <button class="bottom-controls-btn" id="shuffle-plist"><i class="icon-shuffle"></i></button>
+                <button class="bottom-controls-btn" id="shuffle-plist" title="Playlist not shuffled"><i class="icon-shuffle"></i></button>
                 <button class="bottom-controls-btn" id="fullscreen-btn"><i class="icon-shuffle"></i></button>
               </div>
             </div>
