@@ -17,7 +17,7 @@ block content
 			a(href="artists.html").back-btn.position-relative
 					i.icon-chevron-l
 					span Back
-		.container.px-0
+		.container.player-container
 			.player-wrapper
 				.player.player-big
 					.player-img__area
@@ -54,51 +54,56 @@ block content
 
 					audio(src="")#main-audio
 
+				.tab-wrapper
+					.container.tab-nav-container
+						ul#myTab.player-tabs.nav.nav-tabs(role='tablist')
+							li.nav-item(role='presentation')
+								button#home-tab.active(data-bs-toggle='tab' data-bs-target='#home' type='button' role='tab' aria-controls='home' aria-selected='true')
+									| Next
+							li.nav-item(role='presentation')
+								button#profile-tab(data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false')
+									| Text
+							.form-control-line
+
+					#myTabContent.tab-content
+						#home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
+							.player-playlist
+								ul.player-playlist__list.player-list
+
+						#profile.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab')
+							.song-text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae fuga facilis pariatur modi, commodi ducimus nemo eaque qui at totam suscipit asperiores porro similique quo quia dolores dolorum saepe, sequi hic, dolor possimus nulla neque quos! In doloribus, dolore animi numquam qui cupiditate at consectetur sapiente culpa nam aliquam reiciendis! Debitis et laborum, ex officiis animi ut incidunt nemo dolores aut quasi voluptatum explicabo cupiditate ullam esse doloremque autem magni accusamus suscipit totam quia. Facilis architecto quidem quibusdam eaque doloremque necessitatibus dolor incidunt iure voluptas temporibus adipisci aperiam officia, fugit voluptate quaerat! Laboriosam similique, neque expedita ut suscipit odio facilis, fugiat debitis placeat, libero unde quae provident omnis dolorem porro commodi perferendis sed rerum iure cum nemo tempora maxime quisquam atque. Ea cum deserunt totam obcaecati sit modi est, reprehenderit debitis alias amet explicabo itaque doloremque id nostrum minus quae aliquid molestias quibusdam iure accusantium porro possimus. A, aspernatur aut voluptates sit corrupti totam velit magni suscipit, voluptas perferendis fugit. Officiis dolor similique cumque. Eum doloremque modi debitis consequuntur nobis hic, corporis earum sapiente aliquid obcaecati libero unde eligendi aspernatur laborum eaque voluptatibus, deleniti illum blanditiis reprehenderit incidunt dolore vel neque! Pariatur nulla error neque veritatis consequatur hic voluptates aliquam minima nostrum corrupti libero voluptate, quidem cupiditate, necessitatibus praesentium officiis? Eos molestiae quas error, dolorem blanditiis consequatur quod nemo! Dolor voluptatum voluptates excepturi quas nisi eum, itaque explicabo doloribus quaerat atque eaque earum optio nihil impedit omnis eligendi sunt similique et voluptatem eveniet sequi, sit aspernatur facere. Commodi quos ad fuga quae ipsa magni sint, obcaecati odio aliquid, necessitatibus asperiores ex odit dolorum pariatur distinctio quibusdam corporis labore rerum nisi officia ab omnis veniam quasi voluptatem. Omnis, laudantium dolore quasi, porro amet molestiae quos neque excepturi tenetur ducimus hic rerum corrupti doloremque modi vero. Perferendis eligendi at delectus fuga? Voluptatum.
+
 				.container
-					ul#myTab.player-tabs.nav.nav-tabs(role='tablist')
-						li.nav-item(role='presentation')
-							button#home-tab.active(data-bs-toggle='tab' data-bs-target='#home' type='button' role='tab' aria-controls='home' aria-selected='true')
-								| Next
-						li.nav-item(role='presentation')
-							button#profile-tab(data-bs-toggle='tab' data-bs-target='#profile' type='button' role='tab' aria-controls='profile' aria-selected='false')
-								| Text
+					.player-controls__bottom
 						.form-control-line
-
-				#myTabContent.tab-content
-					#home.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='home-tab')
-						.player-playlist
-							ul.player-playlist__list.player-list
-
-
-					#profile.tab-pane.fade(role='tabpanel' aria-labelledby='profile-tab') ...
-
-
-				.player-controls__bottom.container
-					.progress-area
-						.progress_bar
-							span
-					.player-controls-likes
-						a(href="#").player-controls-dislike.bottom-controls-btn
-							i.icon-like
-						a(href="#").player-controls-like.bottom-controls-btn
-							i.icon-dislike
-					.player-controls-song-details
-						p.song-name
-						p.song-media
-					.player-controls__bottom-actions
-						.sound-container
-							button#song-sound.bottom-controls-btn
-								i.icon-volume
-							.sound-input
-								input.sound-control(type="range" min="0" max="1" step="any")
-						button#repeat-plist.bottom-controls-btn.repeat(title="Playlist looped")
-							i.icon-repeat
-							i.icon-repeat-one
-							i.icon-repeat-all
-						button#shuffle-plist.bottom-controls-btn(title="Playlist not shuffled")
-							i.icon-shuffle
-						button#fullscreen-btn.bottom-controls-btn
-							i.icon-shuffle
+						.progress-area
+							.progress_bar
+								span
+						.player-controls-likes
+							a(href="#").player-controls-dislike.bottom-controls-btn
+								i.icon-like
+							a(href="#").player-controls-like.bottom-controls-btn
+								i.icon-dislike
+						.player-controls-song-details
+							.player-controls__bottom-thumb
+								img(src="", alt="")
+							div
+								p.song-name
+								p.song-media
+						.player-controls__bottom-actions
+							.sound-container
+								button#song-sound.bottom-controls-btn
+									i.icon-volume
+								.sound-input
+									input.sound-control(type="range" min="0" max="1" step="any")
+							button#repeat-plist.bottom-controls-btn.repeat(title="Playlist looped")
+								i.icon-repeat
+								i.icon-repeat-one
+								i.icon-repeat-all
+							button#shuffle-plist.bottom-controls-btn(title="Playlist not shuffled")
+								i.icon-shuffle
+							button#fullscreen-btn.bottom-controls-btn
+								i.icon-shuffle
 
 
 

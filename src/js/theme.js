@@ -655,19 +655,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 let allMusic = [
 	{
-		name: "Deftones - Elite",
+		name: "Elite",
 		artist: "Deftones",
 		img: "../img/covers/white-pony.jpg",
 		src: "Elite"
 	},
 	{
-		name: "Deftones - Minerva",
+		name: "Minerva",
 		artist: "Deftones",
 		img: "../img/covers/minerva.jpg",
 		src: "Minerva"
 	},
 	{
-		name: "Deftones - Diamond eyes",
+		name: "Diamond eyes",
 		artist: "Deftones",
 		img: "../img/covers/diamond-eyes.jpg",
 		src: "Diamond Eyes"
@@ -687,7 +687,8 @@ const
 	playerProgressArea = playerWrapper.querySelector('.progress-area'),
 	playerVolumeBtn = playerWrapper.querySelector('#song-sound'),
 	playerVolumeSliderContainer = playerWrapper.querySelector('.sound-input'),
-	playerVolumeSlider = document.querySelector('.sound-container .sound-control');
+	playerVolumeSlider = document.querySelector('.sound-container .sound-control'),
+	bottomControlsSongThumb = document.querySelector('.player-controls-song-details img');
 
 let musicIndex = 1;
 
@@ -702,12 +703,14 @@ function loadMusic(indexNumb) {
 	trackArtist.innerText = allMusic[indexNumb - 1].artist;
 	trackImg.src = `${allMusic[indexNumb - 1].img}`;
 	trackMain.src = `../songs/${allMusic[indexNumb - 1].src}.mp3`;
+	bottomControlsSongThumb.src = trackImg.src;
 }
 
 
 // Play music function
 function playMusic() {
 	playerWrapper.classList.add('paused');
+	playerProgressArea.classList.add('is-visible');
 	trackMain.play();
 }
 
@@ -879,8 +882,6 @@ trackMain.addEventListener('ended', () => {
 });
 
 let playList = document.querySelector('.player-list');
-
-console.log(allMusic);
 
 for (let i = 0; i < allMusic.length; i++) {
 	let audioClassName = capitalizeFirstLetter(allMusic[i].artist + allMusic[i].src.split(" ").join(""));

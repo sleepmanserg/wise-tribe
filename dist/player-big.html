@@ -179,7 +179,7 @@
     <main>
       <section class="player-section">
         <div class="container"><a class="back-btn position-relative" href="artists.html"><i class="icon-chevron-l"></i><span>Back</span></a></div>
-        <div class="container px-0">
+        <div class="container player-container">
           <div class="player-wrapper">
             <div class="player player-big">
               <div class="player-img__area">
@@ -215,44 +215,54 @@
               <div class="player-timer"><span class="player-timer__current">0:00</span>/<span class="player-timer__end"></span></div>
               <audio src="" id="main-audio"></audio>
             </div>
-            <div class="container">
-              <ul class="player-tabs nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Next</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Text</button>
-                </li>
-                <div class="form-control-line"></div>
-              </ul>
-            </div>
-            <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <div class="player-playlist">
-                  <ul class="player-playlist__list player-list"></ul>
-                </div>
+            <div class="tab-wrapper">
+              <div class="container tab-nav-container">
+                <ul class="player-tabs nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Next</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Text</button>
+                  </li>
+                  <div class="form-control-line"></div>
+                </ul>
               </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-            </div>
-            <div class="player-controls__bottom container">
-              <div class="progress-area">
-                <div class="progress_bar"><span></span></div>
-              </div>
-              <div class="player-controls-likes"><a class="player-controls-dislike bottom-controls-btn" href="#"><i class="icon-like"></i></a><a class="player-controls-like bottom-controls-btn" href="#"><i class="icon-dislike"></i></a></div>
-              <div class="player-controls-song-details">
-                <p class="song-name"></p>
-                <p class="song-media"></p>
-              </div>
-              <div class="player-controls__bottom-actions">
-                <div class="sound-container">
-                  <button class="bottom-controls-btn" id="song-sound"><i class="icon-volume"></i></button>
-                  <div class="sound-input">
-                    <input class="sound-control" type="range" min="0" max="1" step="any">
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <div class="player-playlist">
+                    <ul class="player-playlist__list player-list"></ul>
                   </div>
                 </div>
-                <button class="bottom-controls-btn repeat" id="repeat-plist" title="Playlist looped"><i class="icon-repeat"></i><i class="icon-repeat-one"></i><i class="icon-repeat-all"></i></button>
-                <button class="bottom-controls-btn" id="shuffle-plist" title="Playlist not shuffled"><i class="icon-shuffle"></i></button>
-                <button class="bottom-controls-btn" id="fullscreen-btn"><i class="icon-shuffle"></i></button>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="song-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae fuga facilis pariatur modi, commodi ducimus nemo eaque qui at totam suscipit asperiores porro similique quo quia dolores dolorum saepe, sequi hic, dolor possimus nulla neque quos! In doloribus, dolore animi numquam qui cupiditate at consectetur sapiente culpa nam aliquam reiciendis! Debitis et laborum, ex officiis animi ut incidunt nemo dolores aut quasi voluptatum explicabo cupiditate ullam esse doloremque autem magni accusamus suscipit totam quia. Facilis architecto quidem quibusdam eaque doloremque necessitatibus dolor incidunt iure voluptas temporibus adipisci aperiam officia, fugit voluptate quaerat! Laboriosam similique, neque expedita ut suscipit odio facilis, fugiat debitis placeat, libero unde quae provident omnis dolorem porro commodi perferendis sed rerum iure cum nemo tempora maxime quisquam atque. Ea cum deserunt totam obcaecati sit modi est, reprehenderit debitis alias amet explicabo itaque doloremque id nostrum minus quae aliquid molestias quibusdam iure accusantium porro possimus. A, aspernatur aut voluptates sit corrupti totam velit magni suscipit, voluptas perferendis fugit. Officiis dolor similique cumque. Eum doloremque modi debitis consequuntur nobis hic, corporis earum sapiente aliquid obcaecati libero unde eligendi aspernatur laborum eaque voluptatibus, deleniti illum blanditiis reprehenderit incidunt dolore vel neque! Pariatur nulla error neque veritatis consequatur hic voluptates aliquam minima nostrum corrupti libero voluptate, quidem cupiditate, necessitatibus praesentium officiis? Eos molestiae quas error, dolorem blanditiis consequatur quod nemo! Dolor voluptatum voluptates excepturi quas nisi eum, itaque explicabo doloribus quaerat atque eaque earum optio nihil impedit omnis eligendi sunt similique et voluptatem eveniet sequi, sit aspernatur facere. Commodi quos ad fuga quae ipsa magni sint, obcaecati odio aliquid, necessitatibus asperiores ex odit dolorum pariatur distinctio quibusdam corporis labore rerum nisi officia ab omnis veniam quasi voluptatem. Omnis, laudantium dolore quasi, porro amet molestiae quos neque excepturi tenetur ducimus hic rerum corrupti doloremque modi vero. Perferendis eligendi at delectus fuga? Voluptatum.</div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="player-controls__bottom">
+                <div class="form-control-line"></div>
+                <div class="progress-area">
+                  <div class="progress_bar"><span></span></div>
+                </div>
+                <div class="player-controls-likes"><a class="player-controls-dislike bottom-controls-btn" href="#"><i class="icon-like"></i></a><a class="player-controls-like bottom-controls-btn" href="#"><i class="icon-dislike"></i></a></div>
+                <div class="player-controls-song-details">
+                  <div class="player-controls__bottom-thumb"><img src="" alt=""></div>
+                  <div>
+                    <p class="song-name"></p>
+                    <p class="song-media"></p>
+                  </div>
+                </div>
+                <div class="player-controls__bottom-actions">
+                  <div class="sound-container">
+                    <button class="bottom-controls-btn" id="song-sound"><i class="icon-volume"></i></button>
+                    <div class="sound-input">
+                      <input class="sound-control" type="range" min="0" max="1" step="any">
+                    </div>
+                  </div>
+                  <button class="bottom-controls-btn repeat" id="repeat-plist" title="Playlist looped"><i class="icon-repeat"></i><i class="icon-repeat-one"></i><i class="icon-repeat-all"></i></button>
+                  <button class="bottom-controls-btn" id="shuffle-plist" title="Playlist not shuffled"><i class="icon-shuffle"></i></button>
+                  <button class="bottom-controls-btn" id="fullscreen-btn"><i class="icon-shuffle"></i></button>
+                </div>
               </div>
             </div>
           </div>
