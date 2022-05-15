@@ -251,7 +251,7 @@
       width: 540px;
     }
   }
-  @media (min-width: 1700px) {
+  @media (min-width: 1650px) {
     .player-timer {
       width: 836px;
     }
@@ -282,7 +282,8 @@
     }
     img {
       border-radius: inherit;
-      background-size: cover;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
       transition: 0.25s;
     }
   }
@@ -306,6 +307,10 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: 0.25s;
+    @include hover {
+      background-color: $blue-secondary;
+    }
   }
   .play-pause {
     .player-big__controls-btn {
@@ -365,7 +370,7 @@
       transform: translateX(0) translateY(-50%);
     }
   }
-  @media (min-width: 1700px) {
+  @media (min-width: 1650px) {
     padding-left: 158px;
     .player-track__img {
       width: 536px;
@@ -451,10 +456,15 @@
     cursor: pointer;
     text-decoration: none;
     scroll-snap-align: start;
+    padding-right: 20px;
     @include hover {
       .play-icon {
         opacity: 1;
         visibility: visible;
+      }
+      .player-list__item-artist,
+      .player-list__item-media {
+        color: $blue;
       }
     }
     &.playing {
@@ -487,6 +497,7 @@
     img {
       border-radius: inherit;
       object-fit: cover;
+      aspect-ratio: 1 / 1;
     }
     svg {
       position: absolute;
@@ -519,15 +530,33 @@
   .player-list__item-artist {
     font-size: clamp(16px, calc(1rem + ((1vw - 3.6px) * 0.5128)), 24px);
     line-height: 140%;
+    transition: color 0.25s;
+    ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 1;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    display: -webkit-box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
   }
   .player-list__item-media {
     font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.2564)), 18px);
     opacity: 0.8;
+    transition: color 0.25s;
   }
   .player-list__item-duration {
     margin-left: auto;
     font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.3846)), 20px);
     opacity: 0.8;
+  }
+
+  @media (min-width: 480px) {
+    .player-list__item-info {
+      flex: 0 0 250px;
+    }
   }
 
   @media (min-width: 768px) {
@@ -579,7 +608,7 @@
       max-width: 320px;
     }
   }
-  @media (min-width: 1700px) {
+  @media (min-width: 1650px) {
     .player-list__item-img {
       width: 63px;
       height: 63px;
@@ -621,7 +650,7 @@
   }
   .form-control-line {
     top: 0;
-    @media (min-width: 1700px) {
+    @media (min-width: 1650px) {
       width: 100vw;
       left: 50%;
       transform: translateX(-50%);
@@ -752,7 +781,7 @@
       }
     }
   }
-  @media (min-width: 1700px) {
+  @media (min-width: 1650px) {
     max-width: 1760px;
     margin: 0 auto;
   }
@@ -764,13 +793,16 @@
   border-radius: 50%;
   appearance: none;
   background: rgba(171, 239, 255, 0.1);
-  box-shadow: 0px 0px 14px rgba(171, 239, 255, 0.27);
+  box-shadow: 0px 0px 10px rgba(171, 239, 255, 0.2);
   border: none;
   color: $blue-btn;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  &.active {
+    box-shadow: 0px 0px 15px 2px rgba(0, 154, 241, 0.78);
+  }
   i {
     pointer-events: none;
   }
@@ -788,7 +820,7 @@
       font-size: 22px;
     }
   }
-  @media (min-width: 1700px) {
+  @media (min-width: 1650px) {
     width: 50px;
     height: 50px;
   }
@@ -805,7 +837,7 @@
   @media (min-width: 1024px) {
     gap: 20px;
   }
-  @media (min-width: 1700px) {
+  @media (min-width: 1650px) {
     gap: 40px;
   }
 }
@@ -886,7 +918,7 @@
   @media (min-width: 768px) {
     margin-bottom: 25px;
   }
-  @media (min-width: 1700px) {
+  @media (min-width: 1650px) {
     margin-bottom: 40px;
   }
 }
@@ -916,6 +948,23 @@
     width: 0;
     transition: 0.25s;
     z-index: 2;
+    span {
+      position: absolute;
+      width: 45px;
+      height: 25px;
+      bottom: calc(100% + 8px);
+      right: -22px;
+      background: rgba(171, 239, 255, 0.1);
+      box-shadow: 0px 0px 15px rgba(171, 239, 255, 0.15);
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      font-size: 14px;
+      transition: 0.25s;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -942,6 +991,10 @@
   }
   @include hover {
     .progress_bar {
+      span {
+        opacity: 1;
+        visibility: visible;
+      }
       &::before {
         opacity: 1;
       }
@@ -1057,3 +1110,5 @@ input[type="range"]::-ms-thumb {
   cursor: pointer;
   border: none;
 }
+
+// ---------------------------------- //

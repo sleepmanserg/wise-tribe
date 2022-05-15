@@ -298,6 +298,44 @@
   }
 }
 
+.swiper-slide-active {
+  .artist-albums__item {
+    pointer-events: all;
+    @include hover {
+      .events-slider__img {
+        img {
+          -webkit-transform: translateZ(0) scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.artist-albums__item {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  pointer-events: none;
+  .events-slider__img-inner {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    z-index: 1;
+    img {
+      transition: 0.35s ease;
+      -webkit-transform-style: preserve-3d;
+      z-index: 1;
+    }
+  }
+  @include hover {
+    color: $white;
+  }
+}
+
 @media (min-width: 768px) {
   .artist-collapse {
     transform: translateX(2.5rem);

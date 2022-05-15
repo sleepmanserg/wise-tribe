@@ -1,0 +1,32 @@
+extends partials/layout-no-footer
+
+//- Override default config variables
+append config
+
+	//- ********** Settings **********
+	//- ==============================
+	-var pageTitle = 'Player Big'
+	//- ==============================
+	//- ********* Settings END *******
+
+
+//- Page Content
+block content
+	section.player-section
+		.container
+			a(href="artists.html").back-btn.position-relative
+					i.icon-chevron-l
+					span Back
+		.container.player-container
+			.video-player-wrapper.player-wrapper
+
+
+
+
+
+
+
+
+
+
+

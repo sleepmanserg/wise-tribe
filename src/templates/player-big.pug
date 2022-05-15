@@ -18,7 +18,7 @@ block content
 					i.icon-chevron-l
 					span Back
 		.container.player-container
-			.player-wrapper
+			.audio-player-wrapper.player-wrapper
 				.player.player-big
 					.player-img__area
 						.player-track__img
@@ -96,14 +96,14 @@ block content
 									i.icon-volume
 								.sound-input
 									input.sound-control(type="range" min="0" max="1" step="any")
-							button#repeat-plist.bottom-controls-btn.repeat(title="Playlist looped")
+							button#repeat-plist.bottom-controls-btn(title="Playlist looped")
 								i.icon-repeat
 								i.icon-repeat-one
 								i.icon-repeat-all
 							button#shuffle-plist.bottom-controls-btn(title="Playlist not shuffled")
 								i.icon-shuffle
-							button#fullscreen-btn.bottom-controls-btn
-								i.icon-shuffle
+							//- button#fullscreen-btn.bottom-controls-btn
+							//- 	i.icon-shuffle
 
 
 

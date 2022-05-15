@@ -104,6 +104,18 @@ gulp.task('js', () => {
     });
 });
 
+gulp.task('js', () => {
+  return gulp.src(path.src_js + '/player.js')
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    // .pipe(uglify())
+    .pipe(gulp.dest(path.dist_js))
+    .on('end', () => {
+      reload(); // One time browser reload at end of uglification (minification)
+    });
+});
+
 
 // Pug compiling
 
@@ -173,7 +185,7 @@ gulp.task('concat:js', () => {
 
 gulp.task('move:js', () => {
   return gulp.src([
-    path.src_js_vendor + '/bootstrap.min.js'
+    path.src_js + '/player.js'
   ])
     .pipe(gulp.dest(path.dist_js));
 });
@@ -244,5 +256,5 @@ gulp.task('watch', () => {
 
 gulp.task(
   'default',
-  gulp.series('clean', gulp.parallel('exports', 'concat:js', 'concat:css', 'uglify:js', 'pug', 'js', 'sass:bootstrap', 'sass:minified', 'sass:expanded'), 'watch')
+  gulp.series('clean', gulp.parallel('exports', 'concat:js', 'concat:css', 'move:js', 'uglify:js', 'pug', 'js', 'sass:bootstrap', 'sass:minified', 'sass:expanded'), 'watch')
 );
