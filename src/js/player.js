@@ -1,1 +1,1 @@
-console.log('hello from player.jssadsadsa')
+console.log('hello');

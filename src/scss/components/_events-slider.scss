@@ -5,7 +5,7 @@
   }
   .events-slider__item {
     position: relative;
-    transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out !important;
     &::after {
       content: "";
       position: absolute;
@@ -56,8 +56,7 @@
         rgba(15, 15, 60, 0.73) 51.47%,
         #11113f 100%
       );
-      transition: 0.2s;
-      transition-delay: 0.2s;
+      z-index: 2;
     }
     &::before {
       content: "";
