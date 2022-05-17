@@ -68,6 +68,14 @@
   .back-btn {
     z-index: 2;
   }
+  .plyr {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+  }
   @media (min-width: 768px) {
     padding-bottom: 70px;
     .artist-hero__caption {

@@ -104,18 +104,6 @@ gulp.task('js', () => {
     });
 });
 
-gulp.task('js', () => {
-  return gulp.src(path.src_js + '/player.js')
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
-    // .pipe(uglify())
-    .pipe(gulp.dest(path.dist_js))
-    .on('end', () => {
-      reload(); // One time browser reload at end of uglification (minification)
-    });
-});
-
 
 // Pug compiling
 
@@ -161,7 +149,7 @@ gulp.task('concat:css', () => {
 gulp.task('concat:js', () => {
   return gulp.src([
     path.src_js_vendor + '/*.js',
-    '!' + path.src_js_vendor,
+    '!' + path.src_js_vendor + '/player.js',
   ])
     .pipe(concat('vendor.min.js'))
     .pipe(gulp.dest(path.dist_js))
@@ -185,9 +173,12 @@ gulp.task('concat:js', () => {
 
 gulp.task('move:js', () => {
   return gulp.src([
-    path.src_js + '/player.js'
+    path.src_js_vendor + '/player.js'
   ])
-    .pipe(gulp.dest(path.dist_js));
+    .pipe(gulp.dest(path.dist_js))
+    .on('end', () => {
+      reload(); // One time browser reload at end of concatination
+    });
 });
 
 gulp.task('exports', () => {
@@ -248,6 +239,7 @@ gulp.task('watch', () => {
     });
   gulp.watch(path.src_scss + '/**/*.scss', gulp.series('sass:minified', 'sass:expanded'));
   gulp.watch(path.src_js + '/*.js', gulp.series('js'));
+  gulp.watch(path.src_js_vendor + '/player.js', gulp.series('move:js'));
   gulp.watch(path.src + '/img/*', gulp.series('exports'));
 });
 
