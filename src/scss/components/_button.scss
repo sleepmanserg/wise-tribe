@@ -708,6 +708,9 @@
   gap: 15px;
   border-radius: 100%;
   border: none;
+  background-color: transparent;
+  appearance: none;
+  border: none;
   @include hover {
     color: $white;
     .play-btn__icon {

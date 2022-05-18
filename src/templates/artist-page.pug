@@ -14,6 +14,7 @@ block content
   .artist-wrapper.position-relative
     section.artist-hero
       .artist-hero__bg(style="background-image: url('img/artists/artist-bg.png')")
+        #artist-video.plyr__video-embed(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
       .container
         a(href="artists.html").back-btn.position-relative
             i.icon-chevron-l
@@ -23,25 +24,31 @@ block content
             .artist-hero__caption
               h1.artist-hero__title Moyenei
               p.artist-hero__description Moyenei is an American performer, actor, songwriter, producer, and entrepreneur. All his songs are his personal work of art
-              a(href="#").play-btn
-                span.play-btn__icon
-                  svg(width='52' height='56' viewBox='0 0 52 56' fill='none' xmlns='http://www.w3.org/2000/svg')
-                    g(opacity='0.8' filter='url(#filter0_d_803_12335)')
-                      path(d='M39 26.2679C40.3333 27.0377 40.3333 28.9622 39 29.732L15 43.5885C13.6667 44.3583 12 43.396 12 41.8564L12 14.1436C12 12.604 13.6667 11.6417 15 12.4115L39 26.2679Z' fill='white')
-                    defs
-                      filter#filter0_d_803_12335(x='0' y='0.140625' width='52' height='55.7188' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB')
-                        feflood(flood-opacity='0' result='BackgroundImageFix')
-                        fecolormatrix(in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha')
-                        femorphology(radius='6' operator='dilate' in='SourceAlpha' result='effect1_dropShadow_803_12335')
-                        feoffset
-                        fegaussianblur(stdDeviation='3')
-                        fecomposite(in2='hardAlpha' operator='out')
-                        fecolormatrix(type='matrix' values='0 0 0 0 0 0 0 0 0 0.603922 0 0 0 0 0.945098 0 0 0 0.78 0')
-                        feblend(mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_803_12335')
-                        feblend(mode='normal' in='SourceGraphic' in2='effect1_dropShadow_803_12335' result='shape')
-                span Play Video
-              #artist-video.plyr__video-embed
-                iframe(src='https://www.youtube.com/embed/bTqVqk7FSmY?origin=https://plyr.io&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1' allowfullscreen='' allowtransparency='' allow='autoplay')
+              .artist-hero__buttons
+                button(type="button")#artistVideoPlay.play-btn.active
+                  span.play-btn__icon
+                    svg.play-icon(width='52' height='56' viewBox='0 0 52 56' fill='none' xmlns='http://www.w3.org/2000/svg')
+                      g(opacity='0.8' filter='url(#filter0_d_803_12335)')
+                        path(d='M39 26.2679C40.3333 27.0377 40.3333 28.9622 39 29.732L15 43.5885C13.6667 44.3583 12 43.396 12 41.8564L12 14.1436C12 12.604 13.6667 11.6417 15 12.4115L39 26.2679Z' fill='white')
+                      defs
+                        filter#filter0_d_803_12335(x='0' y='0.140625' width='52' height='55.7188' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB')
+                          feflood(flood-opacity='0' result='BackgroundImageFix')
+                          fecolormatrix(in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha')
+                          femorphology(radius='6' operator='dilate' in='SourceAlpha' result='effect1_dropShadow_803_12335')
+                          feoffset
+                          fegaussianblur(stdDeviation='3')
+                          fecomposite(in2='hardAlpha' operator='out')
+                          fecolormatrix(type='matrix' values='0 0 0 0 0 0 0 0 0 0.603922 0 0 0 0 0.945098 0 0 0 0.78 0')
+                          feblend(mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_803_12335')
+                          feblend(mode='normal' in='SourceGraphic' in2='effect1_dropShadow_803_12335' result='shape')
+                  span Play Video
+                button(type="button")#artistVideoPause.play-btn
+                  span.play-btn__icon
+                    svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                      g(opacity='0.9')
+                        rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                        rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                  span Pause Video
 
           .col-md-8.artist-collapse.d-flex.flex-column.justify-content-end.offset-md-4
             .artist-hero__collapse(data-active)

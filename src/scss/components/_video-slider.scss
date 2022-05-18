@@ -26,20 +26,6 @@
     background-size: cover;
     background-position: center center;
     border-radius: var(--videoCardRadius) var(--videoCardRadius) 0px 0px;
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--videoCardRadius) var(--videoCardRadius) 0px 0px;
-      background: linear-gradient(
-        0deg,
-        rgba(7, 7, 31, 0.3),
-        rgba(7, 7, 31, 0.3)
-      );
-    }
   }
   .video-card__body {
     border-radius: 0px 0px var(--videoCardRadius) var(--videoCardRadius);
@@ -77,5 +63,70 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    // z-index: 3;
+  }
+  .plyr--video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-top-left-radius: var(--videoCardRadius);
+    border-top-right-radius: var(--videoCardRadius);
+    // opacity: 0;
+    // visibility: hidden;
+    background: transparent !important;
+    &:fullscreen {
+      opacity: 1;
+      visibility: visible;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--videoCardRadius) var(--videoCardRadius) 0px 0px;
+      background: linear-gradient(
+        0deg,
+        rgba(7, 7, 31, 0.3),
+        rgba(7, 7, 31, 0.3)
+      );
+      z-index: 2;
+    }
+    &.plyr--paused {
+      .plyr__controls {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0s;
+      }
+    }
+    // &.plyr--playing {
+    //   .plyr__controls {
+    //     display: flex;
+    //   }
+    // }
+    .plyr__control[data-plyr="play"]:not(.plyr__control--pressed) {
+      width: 68px;
+      height: 68px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(171, 239, 255, 0.5);
+      svg {
+        fill: $blue;
+        // opacity: 0.8;
+      }
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: scale(1.7);
+      pointer-events: none;
+    }
   }
 }
