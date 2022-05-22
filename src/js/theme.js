@@ -63,7 +63,8 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: true,
+	slideToClickedSlide: false,
+	allowTouchMove: false,
 	navigation: {
 		nextEl: ".swiper-btn-next",
 		prevEl: ".swiper-btn-prev"

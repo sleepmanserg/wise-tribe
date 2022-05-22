@@ -1040,6 +1040,7 @@
     .sound-input {
       opacity: 1;
       visibility: visible;
+      z-index: 11;
       //   transform: translateX(-50%) translateY(0);
     }
   }
