@@ -23,9 +23,12 @@ block content
 					.player-img__area
 						.player-track__img
 							img(src="img/video-slider/01.jpg", alt="")
-						#main-video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
+						#video-main.player.col-sm-12.col-md-7
+							.js-playerx(data-plyr-provider='youtube' data-plyr-embed-id='https://youtu.be/1bwovDOke_4')
 
 					.player-playlist
+						.video-player-playlist__desktop Next video
+							.form-control-line
 						ul.player-playlist__list.player-list.video-list
 							li.video-player-playlist__actions
 								.player-controls-song-details
@@ -39,8 +42,8 @@ block content
 											svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
 												path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
 							li.video-player-playlist__header(data-target)
-								div Playlist
-								div
+								.video-player-playlist__header-text Playlist
+								.video-player-playlist__header-icon
 									i.icon-chevron-l
 							li.player-playlist__list-item.player-list__item
 								.player-list__item-rating
@@ -56,187 +59,7 @@ block content
 								.player-list__item-info
 									.player-list__item-artist Artist
 									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
-								.player-list__item-duration
-									span.player-list__item-end 3:20
-
-							li.player-playlist__list-item.player-list__item
-								.player-list__item-rating
-									img(src='img/icons/arrow-rating.svg')
-								.player-list__item-img
-									img(src="img/video-slider/01.jpg", alt="")
-									svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
-										path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
-									svg.pause-icon(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
-										g(opacity='0.9')
-											rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-											rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
-								.player-list__item-info
-									.player-list__item-artist Artist
-									.player-list__item-media Track name
-								.video-player__video(data-plyr-provider='youtube' data-plyr-embed-id='eVTXPUF4Oz4')
+								.video-player__video(data-plyr-provider='youtube' data-videoId="eVTXPUF4Oz4" data-plyr-embed-id='eVTXPUF4Oz4')
 								.player-list__item-duration
 									span.player-list__item-end 3:20
 
@@ -248,8 +71,8 @@ block content
 								span 0:25
 								span 3:22
 						.player-controls-song-details
-							.player-controls__bottom-thumb.d-none
-								img(src="", alt="")
+							.player-controls__bottom-thumb
+								img(src="img/video-slider/01.jpg", alt="")
 							div
 								p.song-name Track name name name name
 								p.song-media Artist name name name name name

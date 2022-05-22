@@ -347,105 +347,24 @@ const blogSlider = new Swiper('.blog-latest-slider', {
 	},
 });
 
-// /** Blog sidebar arrows handle */
 
-// document.addEventListener('click', e => {
-// 	let handle;
-// 	if (e.target.matches('.article-sidebar__nav .arrow-button')) {
-// 		handle = e.target
-// 	} else {
-// 		handle = e.target.closest('.article-sidebar__nav .arrow-button');
-// 	}
-// 	if (handle != null) {
-// 		onHandleClick(handle);
-// 	}
+const breakpoint = window.matchMedia('(min-width:1024px)');
 
-// 	function onHandleClick(handle) {
-// 		const sidebarSlider = handle.closest('.article-sidebar__items').querySelector('.blog-sidebar-slider');
-// 		const sliderIndex = parseInt(getComputedStyle(sidebarSlider).getPropertyValue('--slider-index'));
-// 		if (handle.classList.contains('arrow-button__prev')) {
-// 			sidebarSlider.style.setProperty('--slider-index', sliderIndex - 1);
-// 			console.log(sliderIndex);
-// 		}
-// 		if (handle.classList.contains('arrow-button__next')) {
-// 			sidebarSlider.style.setProperty('--slider-index', sliderIndex + 1);
-// 			console.log(sliderIndex);
-// 		}
-// 	}
-// });
+const breakpointChecker = function () {
+	if (breakpoint.matches === true) {
+		if (document.querySelector('.video-player-wrapper')) {
+			document.querySelector('.video-player-wrapper').classList.remove('active');
+		}
 
-/** Blog slider mobile (sidebar desktop) */
+	} else if (breakpoint.matches === false) {
+		console.log('min-width < 1024');
+	}
 
-// const breakpoint = window.matchMedia('(min-width:1024px)');
+};
 
-// // keep track of swiper instances to destroy later
-// let blogSidebarSlider;
+breakpoint.addListener(breakpointChecker);
 
-// //////////////////////////////////////////////////////////////////
-// //////////////////////////////////////////////////////////////////
-// //////////////////////////////////////////////////////////////////
-
-// const breakpointChecker = function () {
-
-// 	// if larger viewport and multi-row layout needed
-// 	if (breakpoint.matches === true) {
-
-// 		// clean up old instances and inline styles when available
-// 		if (blogSidebarSlider && blogSidebarSlider !== undefined) blogSidebarSlider.destroy(true, true);
-
-// 		// or/and do nothing
-// 		return;
-
-// 		// else if a small viewport and single column layout needed
-// 	} else if (breakpoint.matches === false) {
-
-// 		// fire small viewport version of swiper
-// 		return enableSwiper();
-
-// 	}
-
-// };
-
-// //////////////////////////////////////////////////////////////////
-// //////////////////////////////////////////////////////////////////
-// //////////////////////////////////////////////////////////////////
-
-// const enableSwiper = function () {
-
-// 	blogSidebarSlider = new Swiper('.blog-sidebar-slider', {
-// 		slidesPerView: 1.2,
-// 		spaceBetween: 20,
-// 		a11y: true,
-// 		speed: 500,
-// 		keyboardControl: true,
-// 		grabCursor: true,
-// 		navigation: {
-// 			nextEl: '.blog-button-next',
-// 			prevEl: '.blog-button-prev',
-// 		},
-
-// 		breakpoints: {
-// 			320: {
-// 				slidesPerView: 1.15,
-// 				spaceBetween: 20,
-// 			},
-// 			575: {
-// 				slidesPerView: 1.5,
-// 				spaceBetween: 20,
-// 			},
-// 			768: {
-// 				slidesPerView: 1.8,
-// 				spaceBetween: 22,
-// 			},
-// 		},
-// 	});
-// };
-
-// // keep an eye on viewport size changes
-
-// breakpoint.addListener(breakpointChecker);
-
-// breakpointChecker();
+breakpointChecker();
 
 /** Slider padding hack */
 
@@ -464,7 +383,6 @@ function sliderPaddingHack() {
 		console.log(sliderOffset);
 
 		sliderContent.style.paddingLeft = sliderOffset + 'px';
-
 		console.log(slider);
 	});
 
@@ -733,17 +651,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	// }
 
 
-	const videPlayers = Plyr.setup('.video-card__video', {
+	const videoPlayers = Plyr.setup('.video-card__video', {
 		fullscreen: {
 			iosNative: true
 		}
 	});
-	if (videPlayers) {
-		videPlayers.forEach(function (instance, index) {
+	if (videoPlayers) {
+		videoPlayers.forEach(function (instance, index) {
 			instance.volume = '0.5';
 			instance.on('play', function () {
 				instance.fullscreen.enter();
-				videPlayers.forEach(function (instance1, index1) {
+				videoPlayers.forEach(function (instance1, index1) {
 					if (instance != instance1) {
 						instance1.pause();
 					}
@@ -758,8 +676,220 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		});
 	}
+
+	/** Video player big */
+
+	let allVideo = [
+		{
+			name: "In the end",
+			artist: "Linkin Park",
+			youtubeId: "eVTXPUF4Oz4",
+		},
+		{
+			name: "Show Me How To Live",
+			artist: "Audioslave",
+			youtubeId: "vVXIK1xCRpY",
+		},
+	]
+
+	/* PLAYLIST  */
+	var myPlaylist = [
+		{
+			type: "vimeo",
+			title: "SLOVENIA - Cinematic Video",
+			author: "Erik Hedenfalk",
+			sources: [{
+				src: "https://youtu.be/1bwovDOke_4",
+				type: "youtube"
+			}],
+			poster: ""
+		},
+		{
+			type: "vimeo",
+			title: "SPACE by gnarly bay",
+			author: "gnarly bay",
+			sources: [{
+				src: "https://vimeo.com/146782320",
+				type: "vimeo"
+			}],
+			poster: ""
+		},
+		{
+			type: "vimeo",
+			title: "SLOVENIA",
+			author: "",
+			sources: [{
+				src: "https://vimeo.com/466558674",
+				type: "vimeo"
+			}],
+			poster: ""
+		},
+	];
+
+	var target = ".js-playerx";
+	var players = Plyr.setup(target, {
+		fullscreen: {
+			iosNative: true
+		}
+	});
+	var id = '#video-main';
+	var listclass = "col-sm-12 col-md-5";
+	var limit = 30;
+
+	$(document).ready(function () {
+		loadPlaylist(target, myPlaylist, id, listclass);  // LOAD VIDEO LIST
+
+	});
+
+	function loadPlaylist(target, myPlaylist, id, listclass) {
+
+		$("li.pls-playing").removeClass("pls-playing");
+		$(".plyr-playlist-wrapper").remove();
+
+
+		limit = limit - 1;
+
+
+		if (myPlaylist) {
+
+			PlyrPlaylist(".plyr-playlist", myPlaylist, limit, id, listclass);
+			//return
+		}
+
+		function PlyrPlaylist(target, myPlaylist, limit, id, listclass) {
+			$('<div class="plyr-playlist-wrapper  ' + listclass + '"><ul class="plyr-playlist"></ul></div>').insertAfter(id);
+
+
+			var startwith = 0; // Maybe a playlist option to start with choosen video
+
+			var playingclass = "";
+			var items = [];
+			$.each(myPlaylist, function (id, val) {
+
+				if (0 === id) playingclass = "pls-playing";
+				else playingclass = "";
+
+
+				items.push(
+					'<li class="' + playingclass + '"><a href="#" data-plyr-provider="' + val.sources[0].type + '" data-plyr-embed-id="' + val.sources[0].src + '"><img class="plyr-miniposter" src="' + val.poster + '"> ' +
+					val.title + " - " + val.author + "</a></li> ");
+
+				if (id == limit)
+					return false;
+
+			});
+			$(target).html(items.join(""));
+
+
+
+			players[0].on("ended", function (event) {
+				var $next = $(".plyr-playlist .pls-playing")
+					.next()
+					.find("a")
+					.trigger("click");
+			});
+
+		}
+
+		$(document).on("click", "ul.plyr-playlist li a", function (event) {
+			event.preventDefault();
+			$("li.pls-playing").removeClass("pls-playing");
+			$(this)
+				.parent()
+				.addClass("pls-playing");
+			var video_id = $(this).data("plyr-embed-id");
+
+			var video_type = $(this).data("plyr-provider");
+			var video_title = $(this).text();
+			players[0].source = {
+				type: 'video',
+				title: "video_title",
+				sources: [{ provider: video_type, src: video_id, type: video_type }]
+			};
+
+			players[0].on("ready", function (event) {
+				players[0].play();
+			});
+
+
+			$(".plyr-playlist").scrollTo(".pls-playing", 300);
+
+		});
+
+		players[0].on("ready", function (event) {
+
+
+		});
+
+	}
+
+
+	/****** GC ScrollTo **********/
+	jQuery.fn.scrollTo = function (elem, speed) {
+		jQuery(this).animate(
+			{
+				scrollTop:
+					jQuery(this).scrollTop() -
+					jQuery(this).offset().top +
+					jQuery(elem).offset().top
+			},
+			speed === undefined ? 1000 : speed
+		);
+		return this;
+	};
+
+	// const videoPlayerWrapper = document.querySelector('.video-player-big');
+
+	// if (videoPlayerWrapper) {
+
+	// 	const videoPlayersBig = Plyr.setup(".video-player__video");
+	// 	const
+	// 		videoImg = videoPlayerWrapper.querySelector('.player-track__img img'),
+	// 		videoName = videoPlayerWrapper.querySelector('.video-list .player-list__item-media'),
+	// 		videoArtist = videoPlayerWrapper.querySelector('.video-list .player-list__item-artist'),
+	// 		videoMain = videoPlayerWrapper.querySelector('#main-video .plyr'),
+	// 		videoPlayPauseBtn = videoPlayerWrapper.querySelector('#play-video'),
+	// 		videoPrevBtn = videoPlayerWrapper.querySelector('#prev-video'),
+	// 		videoNextBtn = videoPlayerWrapper.querySelector('#next-video'),
+	// 		videoProgressBar = videoPlayerWrapper.querySelector('.progress_bar'),
+	// 		videoProgressArea = videoPlayerWrapper.querySelector('.progress-area'),
+	// 		videoVolumeBtn = videoPlayerWrapper.querySelector('#song-sound'),
+	// 		videoVolumeSliderContainer = videoPlayerWrapper.querySelector('.sound-input'),
+	// 		videoVolumeSlider = videoPlayerWrapper.querySelector('.sound-container .sound-control'),
+	// 		videoBottomControlsSongThumb = videoPlayerWrapper.querySelector('.player-controls-song-details img');
+
+	// 	let videoIndex = 1;
+
+	// 	function loadVideo(indexNumb) {
+	// 		videoName.innerText = allVideo[indexNumb - 1].name;
+	// 		videoArtist.innerText = allVideo[indexNumb - 1].artist;
+	// 		videoImg.src = 'https://i.ytimg.com/vi/' + `${allVideo[indexNumb - 1].youtubeId}` + '/maxresdefault.jpg';
+	// 	}
+
+	// 	window.addEventListener('load', () => {
+	// 		loadVideo(videoIndex);
+	// 		console.log(videoMain);
+	// 		// videoPlayingNow();
+	// 	});
+
+	// 	// // Play music function
+	// 	// function playVideo() {
+	// 	// 	// playerWrapper.classList.add('paused');
+	// 	// 	// playerProgressArea.classList.add('is-visible');
+	// 	// 	videoMain.play();
+	// 	// }
+
+	// 	// videoPlayPauseBtn.addEventListener('click', () => {
+	// 	// 	// const isMusicPaused = playerWrapper.classList.contains('paused');
+	// 	// 	// isVideoPaused ? pauseVideo() : playVideo();
+	// 	// 	playVideo();
+	// 	// 	// playingNow();
+	// 	// });
+
+
+	// }
+
+
+
 });
-
-/** Video player big */
-
 

@@ -430,7 +430,7 @@
 
 .tab-content {
   @media (min-width: 1024px) {
-    padding-inline: 40px;
+    padding-inline-start: 40px;
   }
   @media (min-width: 1366px) {
     padding-right: 0;
@@ -447,8 +447,26 @@
   display: grid;
   grid-auto-flow: row;
   overflow-y: auto;
+  overflow-x: hidden;
   overscroll-behavior-y: contain;
   scroll-snap-type: y mandatory;
+  scrollbar-color: #abefff7a transparent;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 7px solid transparent;
+    background-clip: content-box;
+    background-color: #abefff7a;
+  }
   .player-list__item {
     display: flex;
     align-items: center;
