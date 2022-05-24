@@ -63,8 +63,7 @@ const swiperMainHome = new Swiper(".hero-slider", {
 	speed: 500,
 	loop: true,
 	centeredSlides: true,
-	slideToClickedSlide: false,
-	allowTouchMove: false,
+	slideToClickedSlide: true,
 	navigation: {
 		nextEl: ".swiper-btn-next",
 		prevEl: ".swiper-btn-prev"
@@ -628,30 +627,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		artistHeroVideoplayer.pause();
 	});
 
-
-
-	// Expose
-	// window.player = artistHeroVideoplayer;
-	// Bind event listener
-	// function onEvent(selector, type, callback) {
-	// 	document.querySelector(selector).addEventListener(type, callback, false);
-	// }
-
-	// // Play
-	// if (artistHeroVideoplayer) {
-
-	// 	artistHeroVideoPause.addEventListener('click', () => {
-	// 		artistHeroVideoplayer.pause();
-	// 		artistHeroVideoPlay.classList.add('active');
-	// 		artistHeroVideoPause.classList.remove('active');
-	// 	});
-	// 	artistHeroVideoplayer.on('ended', function (event) {
-	// 		artistHeroVideoPlay.classList.add('active');
-	// 		artistHeroVideoPause.classList.remove('active');
-	// 	});
-	// }
-
-
 	const videoPlayers = Plyr.setup('.video-card__video', {
 		fullscreen: {
 			iosNative: true
@@ -678,6 +653,25 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	const rangeInputs = document.querySelectorAll('input[type="range"]')
+
+	function handleInputChange(e) {
+		let target = e.target
+		if (e.target.type !== 'range') {
+			target = document.getElementById('range')
+		}
+		const min = target.min
+		const max = target.max
+		const val = target.value
+
+		target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+	}
+
+	rangeInputs.forEach(input => {
+		input.addEventListener('input', handleInputChange)
+	})
+
+
 	/** Video player big */
 
 	let allVideo = [
@@ -685,212 +679,532 @@ document.addEventListener('DOMContentLoaded', () => {
 			name: "In the end",
 			artist: "Linkin Park",
 			youtubeId: "eVTXPUF4Oz4",
+			img: 'https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg'
 		},
 		{
 			name: "Show Me How To Live",
 			artist: "Audioslave",
 			youtubeId: "vVXIK1xCRpY",
+			img: 'https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg'
 		},
 	]
 
-	/* PLAYLIST  */
-	var myPlaylist = [
-		{
-			type: "vimeo",
-			title: "SLOVENIA - Cinematic Video",
-			author: "Erik Hedenfalk",
-			sources: [{
-				src: "https://youtu.be/1bwovDOke_4",
-				type: "youtube"
-			}],
-			poster: ""
-		},
-		{
-			type: "vimeo",
-			title: "SPACE by gnarly bay",
-			author: "gnarly bay",
-			sources: [{
-				src: "https://vimeo.com/146782320",
-				type: "vimeo"
-			}],
-			poster: ""
-		},
-		{
-			type: "vimeo",
-			title: "SLOVENIA",
-			author: "",
-			sources: [{
-				src: "https://vimeo.com/466558674",
-				type: "vimeo"
-			}],
-			poster: ""
-		},
-	];
 
-	var target = ".js-playerx";
-	var players = Plyr.setup(target, {
-		fullscreen: {
-			iosNative: true
-		}
-	});
-	var id = '#video-main';
-	var listclass = "col-sm-12 col-md-5";
-	var limit = 30;
+	const videoPlayerWrapper = document.querySelector('.video-player-big');
 
-	$(document).ready(function () {
-		loadPlaylist(target, myPlaylist, id, listclass);  // LOAD VIDEO LIST
-
-	});
-
-	function loadPlaylist(target, myPlaylist, id, listclass) {
-
-		$("li.pls-playing").removeClass("pls-playing");
-		$(".plyr-playlist-wrapper").remove();
-
-
-		limit = limit - 1;
-
-
-		if (myPlaylist) {
-
-			PlyrPlaylist(".plyr-playlist", myPlaylist, limit, id, listclass);
-			//return
-		}
-
-		function PlyrPlaylist(target, myPlaylist, limit, id, listclass) {
-			$('<div class="plyr-playlist-wrapper  ' + listclass + '"><ul class="plyr-playlist"></ul></div>').insertAfter(id);
-
-
-			var startwith = 0; // Maybe a playlist option to start with choosen video
-
-			var playingclass = "";
-			var items = [];
-			$.each(myPlaylist, function (id, val) {
-
-				if (0 === id) playingclass = "pls-playing";
-				else playingclass = "";
-
-
-				items.push(
-					'<li class="' + playingclass + '"><a href="#" data-plyr-provider="' + val.sources[0].type + '" data-plyr-embed-id="' + val.sources[0].src + '"><img class="plyr-miniposter" src="' + val.poster + '"> ' +
-					val.title + " - " + val.author + "</a></li> ");
-
-				if (id == limit)
-					return false;
-
-			});
-			$(target).html(items.join(""));
+	if (videoPlayerWrapper) {
 
 
 
-			players[0].on("ended", function (event) {
-				var $next = $(".plyr-playlist .pls-playing")
-					.next()
-					.find("a")
-					.trigger("click");
-			});
+		var allVideos = [
+			{
+				type: "youtube",
+				title: "In the end",
+				author: "Linkin Park",
+				sources: [{
+					src: "https://youtu.be/eVTXPUF4Oz4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "Show Me How To Live",
+				author: "Audioslave",
+				sources: [{
+					src: "https://youtu.be/vVXIK1xCRpY",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "The Sound Of Silence",
+				author: "Disturbed",
+				sources: [{
+					src: "https://youtu.be/u9Dg-g7t2l4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "In the end",
+				author: "Linkin Park",
+				sources: [{
+					src: "https://youtu.be/eVTXPUF4Oz4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "Show Me How To Live",
+				author: "Audioslave",
+				sources: [{
+					src: "https://youtu.be/vVXIK1xCRpY",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "The Sound Of Silence",
+				author: "Disturbed",
+				sources: [{
+					src: "https://youtu.be/u9Dg-g7t2l4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "In the end",
+				author: "Linkin Park",
+				sources: [{
+					src: "https://youtu.be/eVTXPUF4Oz4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "Show Me How To Live",
+				author: "Audioslave",
+				sources: [{
+					src: "https://youtu.be/vVXIK1xCRpY",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "The Sound Of Silence",
+				author: "Disturbed",
+				sources: [{
+					src: "https://youtu.be/u9Dg-g7t2l4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "In the end",
+				author: "Linkin Park",
+				sources: [{
+					src: "https://youtu.be/eVTXPUF4Oz4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "Show Me How To Live",
+				author: "Audioslave",
+				sources: [{
+					src: "https://youtu.be/vVXIK1xCRpY",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "The Sound Of Silence",
+				author: "Disturbed",
+				sources: [{
+					src: "https://youtu.be/u9Dg-g7t2l4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "In the end",
+				author: "Linkin Park",
+				sources: [{
+					src: "https://youtu.be/eVTXPUF4Oz4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "Show Me How To Live",
+				author: "Audioslave",
+				sources: [{
+					src: "https://youtu.be/vVXIK1xCRpY",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
+			},
+			{
+				type: "youtube",
+				title: "The Sound Of Silence",
+				author: "Disturbed",
+				sources: [{
+					src: "https://youtu.be/u9Dg-g7t2l4",
+					type: "youtube"
+				}],
+				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
+			},
+		];
 
-		}
+		// let videoControlsWrapper = document.querySelector('.video-controls-wrapper');
+		const bigVideoPLayerControls = `
+			<div class="video-controls player-controls__bottom">
+				<div class="progress-area">
+						<input data-plyr="seek" type="range" min="0" max="100" step="0.01" value="0" aria-label="Seek">
+						<progress class="plyr__progress__buffer" min="0" max="100" value="0">% buffered</progress>
+						<span role="tooltip" class="plyr__tooltip">00:00</span>
+						<div class="progress_bar-time d-flex justify-content-between">
+							<div class="plyr__time plyr__time--current" aria-label="Current time">00:00</div>
+							<div class="plyr__time plyr__time--duration" aria-label="Duration">00:00</div>
+						</div>
+				</div>
+				<div class="player-controls-song-details">
+					<div class="player-controls__bottom-thumb"><img src="" /></div>
+					<div>
+						<p class="song-name"></p>
+						<p class="song-media">Artist name name name name name</p>
+					</div>
+				</div>
+				<div class="player-controls__bottom-main d-flex align-items-center">
+					<div class="player-big__controls-btn" id="prev-video">
+						<svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path opacity="0.6" d="M9.42847 10.7323C8.09513 9.96246 8.09513 8.03796 9.42847 7.26816L15.6428 3.68034C16.9761 2.91054 18.6428 3.87279 18.6428 5.41239L18.6428 12.588C18.6428 14.1276 16.9761 15.0899 15.6428 14.3201L9.42847 10.7323Z" fill="white"></path>
+							<path opacity="0.9" d="M3.85718 10.7323C2.52384 9.96246 2.52385 8.03796 3.85718 7.26816L10.0715 3.68034C11.4048 2.91054 13.0715 3.87279 13.0715 5.41239L13.0715 12.588C13.0715 14.1276 11.4048 15.0899 10.0715 14.3201L3.85718 10.7323Z" fill="white"></path>
+						</svg>
+					</div>
+					<div class="play-pause">
+						<button type="button"id="play-video" class="player-big__controls-btn" aria-label="Play, {title}" data-plyr="play">
+							<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
+							</svg>
+							<svg class="pause-icon d-none" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<g opacity="0.9">
+									<rect x="0.190796" y="0.428528" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+									<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+								</g>
+							</svg>
+							<span class="label--pressed plyr__tooltip" role="tooltip">Pause</span>
+							<span class="label--not-pressed plyr__tooltip" role="tooltip">Play</span>
+						</button>
+					</div>
 
-		$(document).on("click", "ul.plyr-playlist li a", function (event) {
-			event.preventDefault();
+					<div class="player-big__controls-btn" id="next-video">
+						<svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path opacity="0.6" d="M14.1428 7.26799C15.4762 8.03779 15.4762 9.96229 14.1428 10.7321L7.92853 14.3199C6.5952 15.0897 4.92853 14.1275 4.92853 12.5879L4.92854 5.41221C4.92854 3.87261 6.5952 2.91036 7.92854 3.68016L14.1428 7.26799Z" fill="white"></path>
+							<path opacity="0.9" d="M19.7144 7.26799C21.0477 8.03779 21.0477 9.96229 19.7144 10.7321L13.5001 14.3199C12.1667 15.0897 10.5001 14.1275 10.5001 12.5879L10.5001 5.41221C10.5001 3.87261 12.1667 2.91036 13.5001 3.68016L19.7144 7.26799Z" fill="white"></path>
+						</svg>
+					</div>
+				</div>
+				<div class="video-like"><a class="bottom-controls-btn" href="#" id="video-like"><i class="icon-heart"></i></a></div>
+
+				<div class="sound-container">
+					<button type="button" class="plyr__control bottom-controls-btn" aria-label="Mute" data-plyr="mute">
+						<svg class="icon--pressed" role="presentation"><use xlink:href="#plyr-muted"></use></svg>
+						<svg class="icon--not-pressed" role="presentation"><use xlink:href="#plyr-volume"></use></svg>
+						<span class="label--pressed plyr__tooltip" role="tooltip">Unmute</span>
+						<span class="label--not-pressed plyr__tooltip" role="tooltip">Mute</span>
+					</button>
+					<div class="plyr__volume">
+						<input data-plyr="volume" type="range" min="0" max="1" step="0.05" value="1" autocomplete="off" aria-label="Volume">
+					</div>
+				</div>
+				<button type="button" id="repeat-video-plist" class="plyr__control bottom-controls-btn" data-plyr="restart">
+					<svg role="presentation"><use xlink:href="#plyr-restart"></use></svg>
+					<span class="plyr__tooltip" role="tooltip">Restart</span>
+				</button>
+			</div>
+		`;
+
+		// videoControlsWrapper.insertAdjacentHTML('afterbegin', bigVideoPLayerControls);
+
+
+
+		var target = ".js-playerx";
+		var players = Plyr.setup(target, {
+			fullscreen: {
+				iosNative: true
+			},
+		});
+		var id = '#video-main';
+		var listclass = "player-playlist";
+		var limit = 30;
+
+		// players.forEach(function (instance, index) {
+		// 	instance.volume = '0.1';
+		// });
+
+		$(document).ready(function () {
+			loadPlaylist(target, allVideos, id, listclass);  // LOAD VIDEO LIST
+
+		});
+
+		function loadPlaylist(target, allVideos, id, listclass) {
+
 			$("li.pls-playing").removeClass("pls-playing");
-			$(this)
-				.parent()
-				.addClass("pls-playing");
-			var video_id = $(this).data("plyr-embed-id");
+			// $('.video-list li:first-of-type').addClass("pls-playing");
+			$(".plyr-playlist-wrapper").remove();
 
-			var video_type = $(this).data("plyr-provider");
-			var video_title = $(this).text();
-			players[0].source = {
-				type: 'video',
-				title: "video_title",
-				sources: [{ provider: video_type, src: video_id, type: video_type }]
-			};
+
+			limit = limit - 1;
+
+
+			if (allVideos) {
+
+				PlyrPlaylist(".player-playlist__list", allVideos, limit, id, listclass);
+				//return
+			}
+
+			function PlyrPlaylist(target, allVideos, limit, id, listclass) {
+				$('<div class="plyr-playlist-wrapper  ' + listclass + '"><ul class="player-playlist__list player-list video-list"></ul></div>').insertAfter($('.video-player-playlist__desktop'));
+
+				var playingclass = "";
+				var items = [];
+
+				$.each(allVideos, function (id, val) {
+
+					if (0 === id) playingclass = "pls-playing";
+					else playingclass = "";
+
+					items.push(
+						`
+							<li class="player-playlist__list-item ${playingclass}">
+								<a class="player-list__item w-100" href="#" data-plyr-provider="${val.sources[0].type}" data-plyr-embed-id="${val.sources[0].src}">
+									<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg" /></div>
+									<div class="player-list__item-img"><img src="${val.poster}" alt="" />
+										<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
+										</svg>
+										<svg class="pause-icon" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<g opacity="0.9">
+												<rect x="0.190796" y="0.428528" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+												<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+											</g>
+										</svg>
+									</div>
+									<div class="player-list__item-info">
+										<div class="player-list__item-artist">${val.author}</div>
+										<div class="player-list__item-media">${val.title}</div>
+									</div>
+
+								</a>
+							</li>
+						`);
+
+
+
+					if (id == limit)
+						return false;
+
+				});
+				$(target).html(items.join(""));
+
+				const
+					videoImg = videoPlayerWrapper.querySelector('.player-list__item-img img'),
+					videoName = videoPlayerWrapper.querySelector('.video-list .player-list__item-media'),
+					videoPlayPauseBtn = videoPlayerWrapper.querySelector('#play-video'),
+					videoPrevBtn = videoPlayerWrapper.querySelector('#prev-video'),
+					videoNextBtn = videoPlayerWrapper.querySelector('#next-video'),
+					videoTimelineContainer = videoPlayerWrapper.querySelector('.timeline-container'),
+					videoBottomControlsVideoTtime = videoPlayerWrapper.querySelector('.timeline-current-time'),
+					videoVolumeBtn = videoPlayerWrapper.querySelector('#video-sound'),
+					videoVolumeSliderContainer = videoPlayerWrapper.querySelector('.sound-input'),
+					videoVolumeSlider = videoPlayerWrapper.querySelector('.sound-container .sound-control'),
+					videoBottomControlsSongThumb = videoPlayerWrapper.querySelector('.player-controls__bottom-thumb img'),
+					videoBottomControlsFullscreen = videoPlayerWrapper.querySelector('.video-controls #video-full-screen');
+
+
+				// Timeline progress bar
+
+				// videoTimelineContainer.addEventListener('mousemove', handleTimeLineUpdate);
+				// videoTimelineContainer.addEventListener('mousedown', toggleScrubbing);
+				// document.addEventListener('mouseup', e => {
+				// 	if (isScrubbing) toggleScrubbing(e);
+				// });
+				// document.addEventListener('mousemove', e => {
+				// 	if (isScrubbing) handleTimeLineUpdate(e);
+				// });
+
+				let isScrubbing = false;
+				let wasPaused;
+
+				// function toggleScrubbing(e) {
+				// 	let isScrubbing = false;
+				// 	const rect = videoTimelineContainer.getBoundingClientRect();
+				// 	const timelinePercent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width;
+
+				// 	isScrubbing = (e.buttons & 1) === 1
+				// 	players[0].classList.toggle('scrubbing', isScrubbing);
+				// 	if (isScrubbing) {
+				// 		wasPaused = players[0].pause();
+				// 		players[0].pause();
+				// 	} else {
+				// 		players[0].currentTime = timelinePercent * players[0].duration;
+				// 		if (!wasPaused) players[0].play();
+				// 	}
+
+				// 	handleTimeLineUpdate(e);
+				// }
+
+				function handleTimeLineUpdate(e) {
+
+					const rect = videoTimelineContainer.getBoundingClientRect();
+					const timelinePercent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width;
+
+					videoTimelineContainer.style.setProperty("--preview-position", timelinePercent);
+
+					if (isScrubbing) {
+						e.preventDefault();
+						videoTimelineContainer.style.setProperty("--progress-position", timelinePercent);
+					}
+				}
+
+				function playVideo() {
+					videoPlayerWrapper.classList.add('paused');
+					players[0].play();
+				}
+
+				function pauseVideo() {
+					videoPlayerWrapper.classList.remove('paused');
+					players[0].pause();
+				}
+
+				function nextVideo() {
+					$(".player-playlist__list .pls-playing")
+						.next()
+						.find("a")
+						.trigger("click");
+				}
+				function prevVideo() {
+					$(".player-playlist__list .pls-playing")
+						.prev()
+						.find("a")
+						.trigger("click");
+				}
+
+				function toggleVideoMute() {
+					players[0].muted = !players[0].muted;
+				}
+
+				players[0].on('volumechange', () => {
+					videoVolumeSlider.value = players[0].volume;
+					let volumeLevel;
+					if (players[0].muted || players[0].volume === 0) {
+						videoVolumeSlider.value = 0;
+						volumeLevel = 'muted';
+					} else {
+						volumeLevel = 'high';
+					}
+					videoPlayerWrapper.dataset.volumeLevel = volumeLevel;
+				});
+
+				videoPlayPauseBtn.addEventListener('click', () => {
+					const isVideoPaused = videoPlayerWrapper.classList.contains('paused');
+					isVideoPaused ? pauseVideo() : playVideo();
+				});
+
+				videoNextBtn.addEventListener('click', () => {
+					nextVideo();
+				});
+
+				videoPrevBtn.addEventListener('click', () => {
+					prevVideo();
+				});
+
+				videoVolumeBtn.addEventListener('click', toggleVideoMute);
+				videoVolumeSlider.addEventListener('input', e => {
+					players[0].volume = e.target.value;
+					players[0].muted = e.target === 0;
+				});
+
+				videoBottomControlsFullscreen.addEventListener('click', () => {
+					players[0].fullscreen.enter();
+					setTimeout(() => {
+						$('#video-main .plyr').addClass('video-fullscreen');
+					}, 200);
+				});
+
+				players[0].on("ended", function (event) {
+					$('#video-main .plyr').addClass('video-fullscreen');
+					var $next = $(".player-playlist__list .pls-playing")
+						.next()
+						.find("a")
+						.trigger("click");
+				});
+
+				players[0].on('exitfullscreen', function () {
+					$('#video-main .plyr').removeClass('video-fullscreen');
+				});
+
+
+			}
+
+			$(document).on("click", "ul.player-playlist__list li a", function (event) {
+				event.preventDefault();
+				$("li.pls-playing").removeClass("pls-playing");
+				$(this)
+					.parent()
+					.addClass("pls-playing");
+				var video_id = $(this).data("plyr-embed-id");
+
+				var video_type = $(this).data("plyr-provider");
+				var video_title = $(this).text();
+				players[0].source = {
+					type: 'video',
+					title: "video_title",
+					sources: [{ provider: video_type, src: video_id, type: video_type }]
+				};
+
+				players[0].on("ready", function (event) {
+					players[0].play();
+				});
+
+
+
+			});
+
+			function videoControlsMediaText() {
+				let playingVideoArtist = $('li.pls-playing .player-list__item-artist').text();
+				let playingVideoText = $('li.pls-playing .player-list__item-media').text();
+
+				$('.video-controls .song-name').html(`<p>${playingVideoText}</p>`);
+				$('.video-controls .song-media').html(`<p>${playingVideoArtist}</p>`);
+			}
 
 			players[0].on("ready", function (event) {
-				players[0].play();
+				players[0].volume = .5;
+				let videoDuration = players[0].duration;
+				let totalVideoMin = Math.floor(videoDuration / 60);
+				let totalVideoSec = Math.floor(videoDuration % 60);
+
+				$('.video-controls .plyr__time.plyr__time--duration').html(`${totalVideoMin}` + ':' + `${totalVideoSec}`);
+				$('.video-controls .plyr__time.plyr__time--current').text('0:00');
+				$('.timeline-current-time').text('0:00');
+
+				$('.video-controls .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
+
+				videoControlsMediaText();
 			});
 
+			players[0].on("timeupdate", function (event) {
+				$('.video-controls .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
+				let currentVideoMin = Math.floor(players[0].currentTime / 60);
+				let currentVideoSec = Math.floor(players[0].currentTime % 60);
+				if (currentVideoSec < 10) {
+					currentVideoSec = `0${currentVideoSec}`;
+				}
+				$('.video-controls .plyr__time.plyr__time--current').html(`${currentVideoMin}` + ':' + `${currentVideoSec}`);
+				$('.timeline-current-time').html(`${currentVideoMin}` + ':' + `${currentVideoSec}`);
+				const timelinePercent = players[0].currentTime / players[0].duration;
+				const videoTimelineContainer = document.querySelector('.timeline-container');
+				videoTimelineContainer.style.setProperty("--preview-position", timelinePercent);
 
-			$(".plyr-playlist").scrollTo(".pls-playing", 300);
+			});
 
-		});
-
-		players[0].on("ready", function (event) {
-
-
-		});
-
+		}
 	}
-
-
-	/****** GC ScrollTo **********/
-	jQuery.fn.scrollTo = function (elem, speed) {
-		jQuery(this).animate(
-			{
-				scrollTop:
-					jQuery(this).scrollTop() -
-					jQuery(this).offset().top +
-					jQuery(elem).offset().top
-			},
-			speed === undefined ? 1000 : speed
-		);
-		return this;
-	};
-
-	// const videoPlayerWrapper = document.querySelector('.video-player-big');
-
-	// if (videoPlayerWrapper) {
-
-	// 	const videoPlayersBig = Plyr.setup(".video-player__video");
-	// 	const
-	// 		videoImg = videoPlayerWrapper.querySelector('.player-track__img img'),
-	// 		videoName = videoPlayerWrapper.querySelector('.video-list .player-list__item-media'),
-	// 		videoArtist = videoPlayerWrapper.querySelector('.video-list .player-list__item-artist'),
-	// 		videoMain = videoPlayerWrapper.querySelector('#main-video .plyr'),
-	// 		videoPlayPauseBtn = videoPlayerWrapper.querySelector('#play-video'),
-	// 		videoPrevBtn = videoPlayerWrapper.querySelector('#prev-video'),
-	// 		videoNextBtn = videoPlayerWrapper.querySelector('#next-video'),
-	// 		videoProgressBar = videoPlayerWrapper.querySelector('.progress_bar'),
-	// 		videoProgressArea = videoPlayerWrapper.querySelector('.progress-area'),
-	// 		videoVolumeBtn = videoPlayerWrapper.querySelector('#song-sound'),
-	// 		videoVolumeSliderContainer = videoPlayerWrapper.querySelector('.sound-input'),
-	// 		videoVolumeSlider = videoPlayerWrapper.querySelector('.sound-container .sound-control'),
-	// 		videoBottomControlsSongThumb = videoPlayerWrapper.querySelector('.player-controls-song-details img');
-
-	// 	let videoIndex = 1;
-
-	// 	function loadVideo(indexNumb) {
-	// 		videoName.innerText = allVideo[indexNumb - 1].name;
-	// 		videoArtist.innerText = allVideo[indexNumb - 1].artist;
-	// 		videoImg.src = 'https://i.ytimg.com/vi/' + `${allVideo[indexNumb - 1].youtubeId}` + '/maxresdefault.jpg';
-	// 	}
-
-	// 	window.addEventListener('load', () => {
-	// 		loadVideo(videoIndex);
-	// 		console.log(videoMain);
-	// 		// videoPlayingNow();
-	// 	});
-
-	// 	// // Play music function
-	// 	// function playVideo() {
-	// 	// 	// playerWrapper.classList.add('paused');
-	// 	// 	// playerProgressArea.classList.add('is-visible');
-	// 	// 	videoMain.play();
-	// 	// }
-
-	// 	// videoPlayPauseBtn.addEventListener('click', () => {
-	// 	// 	// const isMusicPaused = playerWrapper.classList.contains('paused');
-	// 	// 	// isVideoPaused ? pauseVideo() : playVideo();
-	// 	// 	playVideo();
-	// 	// 	// playingNow();
-	// 	// });
-
-
-	// }
-
-
 
 });
 
