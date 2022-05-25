@@ -618,9 +618,9 @@ const heroAudioPlayer = () => {
 			trackMain.volume = target.value / 100;
 		});
 	
-		// trackMain.addEventListener('volumechange', () => {
-		// 	trackMain.volume;
-		// });
+		trackMain.addEventListener('volumechange', () => {
+			trackMain.volume;
+		});
 	}
 };
 
