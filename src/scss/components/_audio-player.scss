@@ -489,6 +489,7 @@
     text-decoration: none;
     scroll-snap-align: start;
     padding-right: 20px;
+    color: $white;
     @include hover {
       .play-icon {
         opacity: 1;

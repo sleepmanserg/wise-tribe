@@ -624,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		artistHeroVideoplayer.fullscreen.exit();
 	});
 	artistHeroVideoplayer.on('exitfullscreen', function () {
-		artistHeroVideoplayer.pause();
+		// artistHeroVideoplayer.pause();
 	});
 
 	const videoPlayers = Plyr.setup('.video-card__video', {
@@ -727,126 +727,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				}],
 				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
 			},
-			{
-				type: "youtube",
-				title: "In the end",
-				author: "Linkin Park",
-				sources: [{
-					src: "https://youtu.be/eVTXPUF4Oz4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "Show Me How To Live",
-				author: "Audioslave",
-				sources: [{
-					src: "https://youtu.be/vVXIK1xCRpY",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "The Sound Of Silence",
-				author: "Disturbed",
-				sources: [{
-					src: "https://youtu.be/u9Dg-g7t2l4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "In the end",
-				author: "Linkin Park",
-				sources: [{
-					src: "https://youtu.be/eVTXPUF4Oz4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "Show Me How To Live",
-				author: "Audioslave",
-				sources: [{
-					src: "https://youtu.be/vVXIK1xCRpY",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "The Sound Of Silence",
-				author: "Disturbed",
-				sources: [{
-					src: "https://youtu.be/u9Dg-g7t2l4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "In the end",
-				author: "Linkin Park",
-				sources: [{
-					src: "https://youtu.be/eVTXPUF4Oz4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "Show Me How To Live",
-				author: "Audioslave",
-				sources: [{
-					src: "https://youtu.be/vVXIK1xCRpY",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "The Sound Of Silence",
-				author: "Disturbed",
-				sources: [{
-					src: "https://youtu.be/u9Dg-g7t2l4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "In the end",
-				author: "Linkin Park",
-				sources: [{
-					src: "https://youtu.be/eVTXPUF4Oz4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "Show Me How To Live",
-				author: "Audioslave",
-				sources: [{
-					src: "https://youtu.be/vVXIK1xCRpY",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg"
-			},
-			{
-				type: "youtube",
-				title: "The Sound Of Silence",
-				author: "Disturbed",
-				sources: [{
-					src: "https://youtu.be/u9Dg-g7t2l4",
-					type: "youtube"
-				}],
-				poster: "https://i.ytimg.com/vi/u9Dg-g7t2l4/maxresdefault.jpg"
-			},
+
 		];
 
 		// let videoControlsWrapper = document.querySelector('.video-controls-wrapper');
@@ -993,8 +874,6 @@ document.addEventListener('DOMContentLoaded', () => {
 							</li>
 						`);
 
-
-
 					if (id == limit)
 						return false;
 
@@ -1009,67 +888,69 @@ document.addEventListener('DOMContentLoaded', () => {
 					videoNextBtn = videoPlayerWrapper.querySelector('#next-video'),
 					videoTimelineContainer = videoPlayerWrapper.querySelector('.timeline-container'),
 					videoBottomControlsVideoTtime = videoPlayerWrapper.querySelector('.timeline-current-time'),
+					videoBottomControlsVideoTimelineThumb = videoPlayerWrapper.querySelector('.timeline-thumb'),
 					videoVolumeBtn = videoPlayerWrapper.querySelector('#video-sound'),
 					videoVolumeSliderContainer = videoPlayerWrapper.querySelector('.sound-input'),
 					videoVolumeSlider = videoPlayerWrapper.querySelector('.sound-container .sound-control'),
 					videoBottomControlsSongThumb = videoPlayerWrapper.querySelector('.player-controls__bottom-thumb img'),
+					videoMobilePlayBtn = videoPlayerWrapper.querySelector('.video-playlist-mobile .play-pause'),
 					videoBottomControlsFullscreen = videoPlayerWrapper.querySelector('.video-controls #video-full-screen');
 
 
-				// Timeline progress bar
+				// Timeline
+				videoTimelineContainer.addEventListener("mousemove", handleTimelineUpdate)
+				videoTimelineContainer.addEventListener("mousedown", toggleScrubbing)
+				// videoTimelineContainer.addEventListener("touchmove", handleTimelineUpdate)
+				// videoTimelineContainer.addEventListener("touchstart", toggleScrubbing)
+				document.addEventListener("mouseup", e => {
+					if (isScrubbing) toggleScrubbing(e)
+				})
+				document.addEventListener("mousemove", e => {
+					if (isScrubbing) handleTimelineUpdate(e)
+				})
 
-				// videoTimelineContainer.addEventListener('mousemove', handleTimeLineUpdate);
-				// videoTimelineContainer.addEventListener('mousedown', toggleScrubbing);
-				// document.addEventListener('mouseup', e => {
-				// 	if (isScrubbing) toggleScrubbing(e);
-				// });
-				// document.addEventListener('mousemove', e => {
-				// 	if (isScrubbing) handleTimeLineUpdate(e);
-				// });
+				let isScrubbing = false
+				let wasPaused
+				function toggleScrubbing(e) {
+					const rect = videoTimelineContainer.getBoundingClientRect()
+					const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+					isScrubbing = (e.buttons & 1) === 1
+					videoTimelineContainer.classList.toggle("scrubbing", isScrubbing)
+					if (isScrubbing) {
+						wasPaused = players[0].paused
+						players[0].pause()
+					} else {
+						players[0].currentTime = percent * players[0].duration
+						if (!wasPaused) players[0].play()
+					}
 
-				let isScrubbing = false;
-				let wasPaused;
+					handleTimelineUpdate(e)
+				}
 
-				// function toggleScrubbing(e) {
-				// 	let isScrubbing = false;
-				// 	const rect = videoTimelineContainer.getBoundingClientRect();
-				// 	const timelinePercent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width;
-
-				// 	isScrubbing = (e.buttons & 1) === 1
-				// 	players[0].classList.toggle('scrubbing', isScrubbing);
-				// 	if (isScrubbing) {
-				// 		wasPaused = players[0].pause();
-				// 		players[0].pause();
-				// 	} else {
-				// 		players[0].currentTime = timelinePercent * players[0].duration;
-				// 		if (!wasPaused) players[0].play();
-				// 	}
-
-				// 	handleTimeLineUpdate(e);
-				// }
-
-				function handleTimeLineUpdate(e) {
-
-					const rect = videoTimelineContainer.getBoundingClientRect();
-					const timelinePercent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width;
-
-					videoTimelineContainer.style.setProperty("--preview-position", timelinePercent);
+				function handleTimelineUpdate(e) {
+					const rect = videoTimelineContainer.getBoundingClientRect()
+					const percent = Math.min(Math.max(0, e.x - rect.x), rect.width) / rect.width
+					videoTimelineContainer.style.setProperty("--preview-position", percent)
 
 					if (isScrubbing) {
-						e.preventDefault();
-						videoTimelineContainer.style.setProperty("--progress-position", timelinePercent);
+						e.preventDefault()
+						videoTimelineContainer.style.setProperty("--progress-position", percent)
 					}
 				}
 
-				function playVideo() {
-					videoPlayerWrapper.classList.add('paused');
-					players[0].play();
-				}
 
-				function pauseVideo() {
-					videoPlayerWrapper.classList.remove('paused');
-					players[0].pause();
-				}
+
+				// function playVideo() {
+				// 	videoPlayerWrapper.classList.add('playing');
+				// 	videoPlayerWrapper.classList.remove('paused');
+				// 	players[0].play();
+				// }
+
+				// function pauseVideo() {
+				// 	videoPlayerWrapper.classList.remove('playing');
+				// 	videoPlayerWrapper.classList.add('paused');
+				// 	players[0].pause();
+				// }
 
 				function nextVideo() {
 					$(".player-playlist__list .pls-playing")
@@ -1100,9 +981,20 @@ document.addEventListener('DOMContentLoaded', () => {
 					videoPlayerWrapper.dataset.volumeLevel = volumeLevel;
 				});
 
+				function togglePlay() {
+					players[0].paused ? players[0].play() : players[0].pause();
+				}
+
 				videoPlayPauseBtn.addEventListener('click', () => {
-					const isVideoPaused = videoPlayerWrapper.classList.contains('paused');
-					isVideoPaused ? pauseVideo() : playVideo();
+					togglePlay();
+				});
+
+				videoMobilePlayBtn.addEventListener('click', () => {
+					togglePlay();
+					// setTimeout(() => {
+					// 	$('.video-player-wrapper').removeClass('active');
+					// }, 350);
+					// playVideo();
 				});
 
 				videoNextBtn.addEventListener('click', () => {
@@ -1136,9 +1028,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				players[0].on('exitfullscreen', function () {
 					$('#video-main .plyr').removeClass('video-fullscreen');
+					$('#video-main .plyr .plyr__controls').css('display', 'none');
+					$('#video-main .plyr').css('pointer-events', 'none');
 				});
 
-
+				players[0].on('enterfullscreen', function () {
+					$('#video-main .plyr').addClass('video-fullscreen');
+					// players[0].play();
+				});
 			}
 
 			$(document).on("click", "ul.player-playlist__list li a", function (event) {
@@ -1147,6 +1044,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				$(this)
 					.parent()
 					.addClass("pls-playing");
+				videoPlayerWrapper.classList.add('playing');
+				videoPlayerWrapper.classList.remove('paused');
 				var video_id = $(this).data("plyr-embed-id");
 
 				var video_type = $(this).data("plyr-provider");
@@ -1158,6 +1057,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				};
 
 				players[0].on("ready", function (event) {
+					$('.video-player-wrapper').removeClass('active');
 					players[0].play();
 				});
 
@@ -1171,7 +1071,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				$('.video-controls .song-name').html(`<p>${playingVideoText}</p>`);
 				$('.video-controls .song-media').html(`<p>${playingVideoArtist}</p>`);
+				$('.video-playlist-mobile .song-name').html(`${playingVideoText}`);
+				$('.video-playlist-mobile .song-media').html(`${playingVideoArtist}`);
 			}
+
+			players[0].on("play", () => {
+				videoPlayerWrapper.classList.remove('paused');
+
+				document.querySelector('.video-controls .pause-icon').classList.remove('d-none');
+				document.querySelector('.video-controls .play-icon').classList.add('d-none');
+				document.querySelector('.video-playlist-mobile .pause-icon').classList.remove('d-none');
+				document.querySelector('.video-playlist-mobile .play-icon').classList.add('d-none');
+			});
+			players[0].on("pause", () => {
+				videoPlayerWrapper.classList.add('paused');
+				document.querySelector('.video-controls .pause-icon').classList.add('d-none');
+				document.querySelector('.video-controls .play-icon').classList.remove('d-none');
+				document.querySelector('.video-playlist-mobile .pause-icon').classList.add('d-none');
+				document.querySelector('.video-playlist-mobile .play-icon').classList.remove('d-none');
+			});
 
 			players[0].on("ready", function (event) {
 				players[0].volume = .5;
@@ -1184,6 +1102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				$('.timeline-current-time').text('0:00');
 
 				$('.video-controls .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
+				$('.video-playlist-mobile .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
 
 				videoControlsMediaText();
 			});
@@ -1199,7 +1118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				$('.timeline-current-time').html(`${currentVideoMin}` + ':' + `${currentVideoSec}`);
 				const timelinePercent = players[0].currentTime / players[0].duration;
 				const videoTimelineContainer = document.querySelector('.timeline-container');
-				videoTimelineContainer.style.setProperty("--preview-position", timelinePercent);
+				videoTimelineContainer.style.setProperty("--progress-position", timelinePercent);
 
 			});
 
