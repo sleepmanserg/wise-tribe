@@ -545,12 +545,12 @@ const heroAudioPlayer = () => {
 			playPauseControls();
 		});
 		// })
-	
+
 		playerNextBtn.addEventListener('click', () => {
 			nextMusic(artistMusics);
 			playingNow();
 		});
-	
+
 		playerPrevBtn.addEventListener('click', () => {
 			prevMusic(artistMusics);
 			playingNow();
@@ -559,17 +559,17 @@ const heroAudioPlayer = () => {
 		trackMain.addEventListener('timeupdate', (e) => {
 			const currentTime = e.target.currentTime;
 			const duration = e.target.duration;
-	
+
 			let musicCurrentTime = document.querySelector('.player-timer__current');
 			let musicDuration = document.querySelector('.player-timer__end');
-	
+
 			trackMain.addEventListener('loadeddata', getData);
-	
+
 			if (trackMain.readyState >= 2) {
 				getData();
 				trackMain.volume = 0.1;
 			}
-	
+
 			function getData() {
 				let audioDuration = trackMain.duration;
 				// Update song duration
@@ -580,9 +580,9 @@ const heroAudioPlayer = () => {
 				}
 				musicDuration.innerText = `${totalMin}:${totalSec}`;
 			}
-	
+
 			// Update song current time
-	
+
 			let currentMin = Math.floor(currentTime / 60);
 			let currentSec = Math.floor(currentTime % 60);
 			if (currentSec < 10) {
@@ -617,7 +617,7 @@ const heroAudioPlayer = () => {
 			trackMain.muted = target.value === 0;
 			trackMain.volume = target.value / 100;
 		});
-	
+
 		// trackMain.addEventListener('volumechange', () => {
 		// 	trackMain.volume;
 		// });
