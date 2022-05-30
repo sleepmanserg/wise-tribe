@@ -55,37 +55,37 @@ if (menuToggle) {
 
 /** Hero slider */
 
-const swiperMainHome = new Swiper(".hero-slider", {
-	effect: "coverflow",
-	slidesPerView: 'auto',
-	grabCursor: true,
-	// autoHeight: true,
-	speed: 500,
-	loop: true,
-	centeredSlides: true,
-	slideToClickedSlide: false,
-	allowTouchMove: false,
-	navigation: {
-		nextEl: ".swiper-btn-next",
-		prevEl: ".swiper-btn-prev"
-	},
-	coverflowEffect: {
-		rotate: 0,
-		stretch: 0,
-		depth: 0,
-		modifier: 3,
-		slideShadows: false,
-	},
-	on: {
-		init: function () {
-			swiperHomeClassTweak(this.slides, this.activeIndex);
-		},
-	},
-});
+// const swiperMainHome = new Swiper(".hero-slider", {
+// 	effect: "coverflow",
+// 	slidesPerView: 'auto',
+// 	grabCursor: true,
+// 	// autoHeight: true,
+// 	speed: 500,
+// 	loop: true,
+// 	centeredSlides: true,
+// 	slideToClickedSlide: false,
+// 	allowTouchMove: false,
+// 	navigation: {
+// 		nextEl: ".swiper-btn-next",
+// 		prevEl: ".swiper-btn-prev"
+// 	},
+// 	coverflowEffect: {
+// 		rotate: 0,
+// 		stretch: 0,
+// 		depth: 0,
+// 		modifier: 3,
+// 		slideShadows: false,
+// 	},
+// 	on: {
+// 		init: function () {
+// 			swiperHomeClassTweak(this.slides, this.activeIndex);
+// 		},
+// 	},
+// });
 
-swiperMainHome.on('slideChange', function () {
-	swiperHomeClassTweak(this.slides, this.activeIndex);
-});
+// swiperMainHome.on('slideChange', function () {
+// 	swiperHomeClassTweak(this.slides, this.activeIndex);
+// });
 
 /** Events slider */
 
