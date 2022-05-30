@@ -608,7 +608,9 @@ document.addEventListener('DOMContentLoaded', () => {
 	const artistHeroVideoPause = document.querySelector('#artistVideoPause');
 
 	const artistHeroVideoplayer = new Plyr('#artist-video', {
-		// controls,
+		// fullscreen: {
+		// 	iosNative: true
+		// },
 		volume: 0.5
 	});
 
@@ -621,11 +623,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	artistHeroVideoplayer.on('enterfullscreen', function () {
+		document.documentElement.classList.add('overflow-hidden');
+	});
+
 	artistHeroVideoplayer.on('ended', function () {
 		artistHeroVideoplayer.fullscreen.exit();
 	});
 	artistHeroVideoplayer.on('exitfullscreen', function () {
-		// artistHeroVideoplayer.pause();
+		artistHeroVideoplayer.pause();
+		document.documentElement.classList.remove('overflow-hidden');
 	});
 
 	const videoPlayers = Plyr.setup('.video-card__video', {
