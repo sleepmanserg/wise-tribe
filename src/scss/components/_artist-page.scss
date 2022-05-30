@@ -135,6 +135,13 @@
     height: 58px;
     z-index: 2;
   }
+  .plyr--fullscreen-fallback {
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 10000000 !important;
+    height: 100vh;
+    position: fixed;
+  }
   @media (min-width: 768px) {
     padding-bottom: 70px;
     .artist-hero__caption {
