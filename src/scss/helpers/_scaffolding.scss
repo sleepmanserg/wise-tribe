@@ -32,6 +32,11 @@ body {
   min-height: 100vh;
   color: $white;
   position: relative;
+  &.video-fullscreen {
+    header {
+      z-index: 0;
+    }
+  }
 }
 
 main {
