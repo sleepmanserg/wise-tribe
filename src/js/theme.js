@@ -608,9 +608,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	const artistHeroVideoPause = document.querySelector('#artistVideoPause');
 
 	const artistHeroVideoplayer = new Plyr('#artist-video', {
-		// fullscreen: {
-		// 	iosNative: true
-		// },
+		fullscreen: {
+			iosNative: true
+		},
+		// controls,
 		volume: 0.5
 	});
 
@@ -623,16 +624,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-	artistHeroVideoplayer.on('enterfullscreen', function () {
-		document.documentElement.classList.add('overflow-hidden');
-	});
-
 	artistHeroVideoplayer.on('ended', function () {
 		artistHeroVideoplayer.fullscreen.exit();
 	});
+	artistHeroVideoplayer.on('play', function () {
+		this.classList.add('is-visible');
+		document.documentElement.classList.add('.video-fullscreen');
+	});
 	artistHeroVideoplayer.on('exitfullscreen', function () {
 		artistHeroVideoplayer.pause();
-		document.documentElement.classList.remove('overflow-hidden');
+		this.classList.remove('is-visible');
+		document.documentElement.classList.remove('.video-fullscreen');
 	});
 
 	const videoPlayers = Plyr.setup('.video-card__video', {
@@ -738,88 +740,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		];
 
-		// let videoControlsWrapper = document.querySelector('.video-controls-wrapper');
-		const bigVideoPLayerControls = `
-			<div class="video-controls player-controls__bottom">
-				<div class="progress-area">
-						<input data-plyr="seek" type="range" min="0" max="100" step="0.01" value="0" aria-label="Seek">
-						<progress class="plyr__progress__buffer" min="0" max="100" value="0">% buffered</progress>
-						<span role="tooltip" class="plyr__tooltip">00:00</span>
-						<div class="progress_bar-time d-flex justify-content-between">
-							<div class="plyr__time plyr__time--current" aria-label="Current time">00:00</div>
-							<div class="plyr__time plyr__time--duration" aria-label="Duration">00:00</div>
-						</div>
-				</div>
-				<div class="player-controls-song-details">
-					<div class="player-controls__bottom-thumb"><img src="" /></div>
-					<div>
-						<p class="song-name"></p>
-						<p class="song-media">Artist name name name name name</p>
-					</div>
-				</div>
-				<div class="player-controls__bottom-main d-flex align-items-center">
-					<div class="player-big__controls-btn" id="prev-video">
-						<svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path opacity="0.6" d="M9.42847 10.7323C8.09513 9.96246 8.09513 8.03796 9.42847 7.26816L15.6428 3.68034C16.9761 2.91054 18.6428 3.87279 18.6428 5.41239L18.6428 12.588C18.6428 14.1276 16.9761 15.0899 15.6428 14.3201L9.42847 10.7323Z" fill="white"></path>
-							<path opacity="0.9" d="M3.85718 10.7323C2.52384 9.96246 2.52385 8.03796 3.85718 7.26816L10.0715 3.68034C11.4048 2.91054 13.0715 3.87279 13.0715 5.41239L13.0715 12.588C13.0715 14.1276 11.4048 15.0899 10.0715 14.3201L3.85718 10.7323Z" fill="white"></path>
-						</svg>
-					</div>
-					<div class="play-pause">
-						<button type="button"id="play-video" class="player-big__controls-btn" aria-label="Play, {title}" data-plyr="play">
-							<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
-							</svg>
-							<svg class="pause-icon d-none" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g opacity="0.9">
-									<rect x="0.190796" y="0.428528" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
-									<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
-								</g>
-							</svg>
-							<span class="label--pressed plyr__tooltip" role="tooltip">Pause</span>
-							<span class="label--not-pressed plyr__tooltip" role="tooltip">Play</span>
-						</button>
-					</div>
-
-					<div class="player-big__controls-btn" id="next-video">
-						<svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path opacity="0.6" d="M14.1428 7.26799C15.4762 8.03779 15.4762 9.96229 14.1428 10.7321L7.92853 14.3199C6.5952 15.0897 4.92853 14.1275 4.92853 12.5879L4.92854 5.41221C4.92854 3.87261 6.5952 2.91036 7.92854 3.68016L14.1428 7.26799Z" fill="white"></path>
-							<path opacity="0.9" d="M19.7144 7.26799C21.0477 8.03779 21.0477 9.96229 19.7144 10.7321L13.5001 14.3199C12.1667 15.0897 10.5001 14.1275 10.5001 12.5879L10.5001 5.41221C10.5001 3.87261 12.1667 2.91036 13.5001 3.68016L19.7144 7.26799Z" fill="white"></path>
-						</svg>
-					</div>
-				</div>
-				<div class="video-like"><a class="bottom-controls-btn" href="#" id="video-like"><i class="icon-heart"></i></a></div>
-
-				<div class="sound-container">
-					<button type="button" class="plyr__control bottom-controls-btn" aria-label="Mute" data-plyr="mute">
-						<svg class="icon--pressed" role="presentation"><use xlink:href="#plyr-muted"></use></svg>
-						<svg class="icon--not-pressed" role="presentation"><use xlink:href="#plyr-volume"></use></svg>
-						<span class="label--pressed plyr__tooltip" role="tooltip">Unmute</span>
-						<span class="label--not-pressed plyr__tooltip" role="tooltip">Mute</span>
-					</button>
-					<div class="plyr__volume">
-						<input data-plyr="volume" type="range" min="0" max="1" step="0.05" value="1" autocomplete="off" aria-label="Volume">
-					</div>
-				</div>
-				<button type="button" id="repeat-video-plist" class="plyr__control bottom-controls-btn" data-plyr="restart">
-					<svg role="presentation"><use xlink:href="#plyr-restart"></use></svg>
-					<span class="plyr__tooltip" role="tooltip">Restart</span>
-				</button>
-			</div>
-		`;
-
-		// videoControlsWrapper.insertAdjacentHTML('afterbegin', bigVideoPLayerControls);
-
-
-
-		var target = ".js-playerx";
-		var players = Plyr.setup(target, {
+		const target = ".js-playerx";
+		const players = Plyr.setup(target, {
 			fullscreen: {
-				iosNative: true
+				// iosNative: true
 			},
 		});
-		var id = '#video-main';
-		var listclass = "player-playlist";
-		var limit = 30;
+		const id = '#video-main';
+		const listclass = "player-playlist";
+		let limit = 30;
 
 		// players.forEach(function (instance, index) {
 		// 	instance.volume = '0.1';
@@ -888,6 +817,38 @@ document.addEventListener('DOMContentLoaded', () => {
 				});
 				$(target).html(items.join(""));
 
+				const videoList = document.querySelector('.video-list');
+				const playListMobileControls = `
+							<li class="video-player-playlist__actions">
+								<div class="player-controls-song-details">
+									<div class="player-controls__bottom-thumb"></div>
+									<div>
+										<p class="song-name mb-0"></p>
+										<p class="song-media mb-0"></p>
+									</div>
+									<div class="play-pause mobile-play-pause">
+										<div class="player-big__controls-btn" id="play-video-playlist">
+											<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
+											</svg>
+											<svg class="pause-icon d-none" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<g opacity="0.9">
+													<rect x="0.190796" y="0.428528" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+													<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+												</g>
+											</svg>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="video-player-playlist__header" data-target>
+								<div class="video-player-playlist__header-text">Playlist</div>
+								<div class="video-player-playlist__header-icon"><i class="icon-chevron-l"></i></div>
+							</li>
+						`;
+
+				videoList.insertAdjacentHTML('afterbegin', playListMobileControls);
+
 				const
 					videoImg = videoPlayerWrapper.querySelector('.player-list__item-img img'),
 					videoName = videoPlayerWrapper.querySelector('.video-list .player-list__item-media'),
@@ -901,15 +862,13 @@ document.addEventListener('DOMContentLoaded', () => {
 					videoVolumeSliderContainer = videoPlayerWrapper.querySelector('.sound-input'),
 					videoVolumeSlider = videoPlayerWrapper.querySelector('.sound-container .sound-control'),
 					videoBottomControlsSongThumb = videoPlayerWrapper.querySelector('.player-controls__bottom-thumb img'),
-					videoMobilePlayBtn = videoPlayerWrapper.querySelector('.video-playlist-mobile .play-pause'),
+					videoMobilePlayBtn = videoPlayerWrapper.querySelector('.mobile-play-pause'),
 					videoBottomControlsFullscreen = videoPlayerWrapper.querySelector('.video-controls #video-full-screen');
 
 
 				// Timeline
 				videoTimelineContainer.addEventListener("mousemove", handleTimelineUpdate)
 				videoTimelineContainer.addEventListener("mousedown", toggleScrubbing)
-				// videoTimelineContainer.addEventListener("touchmove", handleTimelineUpdate)
-				// videoTimelineContainer.addEventListener("touchstart", toggleScrubbing)
 				document.addEventListener("mouseup", e => {
 					if (isScrubbing) toggleScrubbing(e)
 				})
@@ -945,20 +904,6 @@ document.addEventListener('DOMContentLoaded', () => {
 						videoTimelineContainer.style.setProperty("--progress-position", percent)
 					}
 				}
-
-
-
-				// function playVideo() {
-				// 	videoPlayerWrapper.classList.add('playing');
-				// 	videoPlayerWrapper.classList.remove('paused');
-				// 	players[0].play();
-				// }
-
-				// function pauseVideo() {
-				// 	videoPlayerWrapper.classList.remove('playing');
-				// 	videoPlayerWrapper.classList.add('paused');
-				// 	players[0].pause();
-				// }
 
 				function nextVideo() {
 					$(".player-playlist__list .pls-playing")
@@ -999,11 +944,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				videoMobilePlayBtn.addEventListener('click', () => {
 					togglePlay();
-					// setTimeout(() => {
-					// 	$('.video-player-wrapper').removeClass('active');
-					// }, 350);
-					// playVideo();
 				});
+
+				$('.video-player-playlist__header')
 
 				videoNextBtn.addEventListener('click', () => {
 					nextVideo();
@@ -1019,12 +962,14 @@ document.addEventListener('DOMContentLoaded', () => {
 					players[0].muted = e.target === 0;
 				});
 
-				videoBottomControlsFullscreen.addEventListener('click', () => {
-					players[0].fullscreen.enter();
+				videoBottomControlsFullscreen.addEventListener("click", toggleFullScreenMode);
+
+				function toggleFullScreenMode() {
+					players[0].fullscreen.toggle();
 					setTimeout(() => {
 						$('#video-main .plyr').addClass('video-fullscreen');
 					}, 200);
-				});
+				}
 
 				players[0].on("ended", function (event) {
 					$('#video-main .plyr').addClass('video-fullscreen');
@@ -1037,11 +982,14 @@ document.addEventListener('DOMContentLoaded', () => {
 				players[0].on('exitfullscreen', function () {
 					$('#video-main .plyr').removeClass('video-fullscreen');
 					$('#video-main .plyr .plyr__controls').css('display', 'none');
-					$('#video-main .plyr').css('pointer-events', 'none');
+					$('body').removeClass('video-fullscreen');
+					// $('#video-main .plyr').css('pointer-events', 'none');
 				});
 
 				players[0].on('enterfullscreen', function () {
 					$('#video-main .plyr').addClass('video-fullscreen');
+					$('#video-main .plyr .plyr__controls').css('display', 'flex');
+					$('body').addClass('video-fullscreen');
 					// players[0].play();
 				});
 			}
@@ -1079,8 +1027,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				$('.video-controls .song-name').html(`<p>${playingVideoText}</p>`);
 				$('.video-controls .song-media').html(`<p>${playingVideoArtist}</p>`);
-				$('.video-playlist-mobile .song-name').html(`${playingVideoText}`);
-				$('.video-playlist-mobile .song-media').html(`${playingVideoArtist}`);
+				$('.video-player-playlist__actions .song-name').html(`${playingVideoText}`);
+				$('.video-player-playlist__actions .song-media').html(`${playingVideoArtist}`);
 			}
 
 			players[0].on("play", () => {
@@ -1088,15 +1036,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 				document.querySelector('.video-controls .pause-icon').classList.remove('d-none');
 				document.querySelector('.video-controls .play-icon').classList.add('d-none');
-				document.querySelector('.video-playlist-mobile .pause-icon').classList.remove('d-none');
-				document.querySelector('.video-playlist-mobile .play-icon').classList.add('d-none');
+				document.querySelector('.video-player-playlist__actions .pause-icon').classList.remove('d-none');
+				document.querySelector('.video-player-playlist__actions .play-icon').classList.add('d-none');
 			});
 			players[0].on("pause", () => {
 				videoPlayerWrapper.classList.add('paused');
 				document.querySelector('.video-controls .pause-icon').classList.add('d-none');
 				document.querySelector('.video-controls .play-icon').classList.remove('d-none');
-				document.querySelector('.video-playlist-mobile .pause-icon').classList.add('d-none');
-				document.querySelector('.video-playlist-mobile .play-icon').classList.remove('d-none');
+				document.querySelector('.video-player-playlist__actions .pause-icon').classList.add('d-none');
+				document.querySelector('.video-player-playlist__actions .play-icon').classList.remove('d-none');
 			});
 
 			players[0].on("ready", function (event) {
@@ -1110,7 +1058,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				$('.timeline-current-time').text('0:00');
 
 				$('.video-controls .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
-				$('.video-playlist-mobile .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
+				$('.video-player-playlist__actions .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
 
 				videoControlsMediaText();
 			});
