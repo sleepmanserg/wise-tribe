@@ -1,5 +1,6 @@
 //Hero Slider
-section.hero.position-relative
+section.hero.position-relative(data-volume-level="high")
+  include player-controls
   .swiper.hero-slider
     audio(src="").main-audio
     .swiper-wrapper.playlist--list
@@ -9,11 +10,19 @@ section.hero.position-relative
             img(src="", alt="Artist")
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -23,11 +32,19 @@ section.hero.position-relative
             img(src="", alt="Artist")
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -37,11 +54,19 @@ section.hero.position-relative
             img(src="", alt="Artist")
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -52,11 +77,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -67,11 +100,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -82,11 +123,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -97,11 +146,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -112,11 +169,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -127,11 +192,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -142,11 +215,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -157,11 +238,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -172,11 +261,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -187,11 +284,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
 
@@ -202,11 +307,19 @@ section.hero.position-relative
 
           .hero-slider__item-inner
             .hero-slider__item-actions.slider-actions
-              .hero-slider__item-play.slider-actions__item.player-play-pause-btn PL
-              .hero-slider__item-info.slider-actions__item IN
+              .hero-slider__item-play.slider-actions__item.player-play-pause-btn
+                svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  g(opacity='0.9')
+                    rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+                    rect(x='5.63269' y='0.428406' width='2.17678' height='9.14286' rx='1.08839' fill='white')
+
+                svg.play-icon(width='13' height='16' viewBox='0 0 13 16' fill='none' xmlns='http://www.w3.org/2000/svg')
+                  path(opacity='0.8' d='M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z' fill='white')
+              a(href="artist-page.html").hero-slider__item-info.slider-actions__item
+                i.icon-info
 
             .hero-slider__item-name
-              .pb-sm-3 Roma Nebo
+              .pb-3.pt-3
               a(href="#").btn.btn-white-glow
                 span Learn more
   .swiper-nav.d-none.d-md-flex.justify-content-center.align-items-center
@@ -215,7 +328,7 @@ section.hero.position-relative
     .nav-notification Scroll to know more
     .arrow-button.arrow-button__next.swiper-btn-next
       span NEXT
-
+  //Player Controls
   .hero-absolute.absolute.hero-decor
     .container-fluid.h-100
       .row.h-100

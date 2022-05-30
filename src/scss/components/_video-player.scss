@@ -10,8 +10,7 @@
         overflow-y: auto;
       }
       .video-player-playlist__actions {
-        opacity: 1;
-        visibility: visible;
+        display: flex;
       }
       .player-img__area {
         opacity: 0;
@@ -262,10 +261,8 @@
       height: 50px;
       display: flex;
       align-items: center;
-      opacity: 0;
-      visibility: hidden;
+      display: none;
       width: calc(100% - 2.5rem);
-      transition: 0.35s ease-in-out;
       .player-controls-song-details {
         display: flex;
         align-items: center;

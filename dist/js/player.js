@@ -146,7 +146,7 @@ if (playerWrapper) {
 
 		if (trackMain.readyState >= 2) {
 			getData();
-			trackMain.volume = 0.1;
+			// trackMain.volume = 0.1;
 		}
 
 		function getData() {
@@ -340,22 +340,29 @@ if (playerWrapper) {
 	}
 
 	playerVolumeBtn.addEventListener('click', () => {
-		playerVolumeBtn.classList.toggle('active');
 		toggleMute();
-		// playerVolumeBtn.nextElementSibling(playerVolumeSliderContainer)
-		// playerVolumeSliderContainer.classList.toggle('active');
-	});
-	playerVolumeSlider.addEventListener('input', e => {
-		trackMain.volume = e.target.value;
-		trackMain.muted = e.target.value === 0;
 	});
 
 	function toggleMute() {
 		trackMain.muted = !trackMain.muted;
 	}
 
+	playerVolumeSlider.addEventListener('input', e => {
+		trackMain.volume = e.target.value;
+		trackMain.muted = e.target === 0;
+	});
+
 	trackMain.addEventListener('volumechange', () => {
-		trackMain.volume;
+		console.log('changed volume')
+		playerVolumeSlider.value = trackMain.volume;
+		let volumeLevel;
+		if (trackMain.muted || trackMain.volume === 0) {
+			playerVolumeSlider.value = 0;
+			volumeLevel = 'muted';
+		} else {
+			volumeLevel = 'high';
+		}
+		playerWrapper.dataset.volumeLevel = volumeLevel;
 	});
 }
 
@@ -404,7 +411,7 @@ const heroAudioPlayer = () => {
 				let artistInfo = allMusic[slide.dataset.artist - 1];
 				slide.children[0].children[0].src = `${artistInfo.img}`;
 				slide.children[0].children[0].alt = `${artistInfo.name + ' ' + artistInfo.artist}`;
-			});	
+			});
 		};
 
 		allMusic.forEach(music => {
@@ -413,7 +420,7 @@ const heroAudioPlayer = () => {
 			}
 		});
 		renderAudioList(artistMusics);
-		
+
 		// Load music function
 		function loadMusic(indexNumb, musics) {
 			heroSliderFirstRender();
@@ -548,6 +555,20 @@ const heroAudioPlayer = () => {
 			playingNow();
 		}
 
+		function heroSliderToggleBtnPlay() {
+			playPauseBtnSlide.querySelector('.play-icon').classList.add('d-none');
+			playPauseBtnSlide.querySelector('.pause-icon').classList.remove('d-none');
+			playPauseBtnControl.querySelector('.play-icon').classList.add('d-none');
+			playPauseBtnControl.querySelector('.pause-icon').classList.remove('d-none');
+		}
+
+		function heroSliderToggleBtnPause() {
+			playPauseBtnSlide.querySelector('.play-icon').classList.remove('d-none');
+			playPauseBtnSlide.querySelector('.pause-icon').classList.add('d-none');
+			playPauseBtnControl.querySelector('.play-icon').classList.remove('d-none');
+			playPauseBtnControl.querySelector('.pause-icon').classList.add('d-none');
+		}
+
 		// playPauseBtn.forEach(play => {
 		playPauseBtnSlide.addEventListener('click', () => {
 			playPauseControls();
@@ -568,6 +589,13 @@ const heroAudioPlayer = () => {
 			playingNow();
 		});
 
+		trackMain.addEventListener('playing', () => {
+			heroSliderToggleBtnPlay();
+		});
+		trackMain.addEventListener('pause', () => {
+			heroSliderToggleBtnPause();
+		});
+
 		trackMain.addEventListener('timeupdate', (e) => {
 			const currentTime = e.target.currentTime;
 			const duration = e.target.duration;
@@ -579,7 +607,7 @@ const heroAudioPlayer = () => {
 
 			if (trackMain.readyState >= 2) {
 				getData();
-				trackMain.volume = 0.1;
+				// trackMain.volume = 0.1;
 			}
 
 			function getData() {
@@ -610,29 +638,29 @@ const heroAudioPlayer = () => {
 		let currentVolume;
 
 		playerVolumeBtn.addEventListener('click', () => {
-			playerVolumeBtn.classList.toggle('active');
 			toggleMute();
 		});
 
 		function toggleMute() {
 			trackMain.muted = !trackMain.muted;
-			if (trackMain.muted) {
-				currentVolume = playerVolumeSlider.value
-				playerVolumeSlider.value = 0;
-			} else {
-				playerVolumeSlider.value = currentVolume;
-			}
 		}
 
 		playerVolumeSlider.addEventListener('input', e => {
-			const target = e.target;
-			trackMain.muted = target.value === 0;
-			trackMain.volume = target.value / 100;
+			trackMain.volume = e.target.value;
+			trackMain.muted = e.target === 0;
 		});
 
-		// trackMain.addEventListener('volumechange', () => {
-		// 	trackMain.volume;
-		// });
+		trackMain.addEventListener('volumechange', () => {
+			playerVolumeSlider.value = trackMain.volume;
+			let volumeLevel;
+			if (trackMain.muted || trackMain.volume === 0) {
+				playerVolumeSlider.value = 0;
+				volumeLevel = 'muted';
+			} else {
+				volumeLevel = 'high';
+			}
+			heroPlayerWrapper.dataset.volumeLevel = volumeLevel;
+		});
 	}
 };
 
@@ -668,6 +696,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	swiperMainHome.on('slideChange', function () {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
 		swiperMainHome.updateSlidesClasses();
+		document.querySelector('.hero .play-icon').classList.remove('d-none');
+		document.querySelector('.hero .pause-icon').classList.add('d-none');
+		document.querySelector('.player-controls .play-icon').classList.remove('d-none');
+		document.querySelector('.player-controls .pause-icon').classList.add('d-none');
 		heroAudioPlayer();
 	});
 

@@ -608,9 +608,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const artistHeroVideoPause = document.querySelector('#artistVideoPause');
 
 	const artistHeroVideoplayer = new Plyr('#artist-video', {
-		fullscreen: {
-			iosNative: true
-		},
 		// controls,
 		volume: 0.5
 	});
@@ -971,6 +968,10 @@ document.addEventListener('DOMContentLoaded', () => {
 					}, 200);
 				}
 
+				players[0].on("play", function () {
+					$('.video-player-wrapper').removeClass('active');
+				})
+
 				players[0].on("ended", function (event) {
 					$('#video-main .plyr').addClass('video-fullscreen');
 					var $next = $(".player-playlist__list .pls-playing")
@@ -1048,7 +1049,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 
 			players[0].on("ready", function (event) {
-				players[0].volume = .5;
 				let videoDuration = players[0].duration;
 				let totalVideoMin = Math.floor(videoDuration / 60);
 				let totalVideoSec = Math.floor(videoDuration % 60);
