@@ -246,3 +246,24 @@
     }
   }
 }
+
+.become-artist-absolute {
+  img {
+    &:nth-child(1) {
+      width: 25vw;
+      left: 0;
+      bottom: -100px;
+      z-index: 2;
+      @media (min-width: 1024px) {
+        bottom: auto;
+        top: 10%;
+        opacity: 0.5;
+      }
+    }
+    &:nth-child(2) {
+      width: 20vw;
+      right: 20%;
+      bottom: -80px;
+    }
+  }
+}

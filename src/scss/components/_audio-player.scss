@@ -83,7 +83,8 @@
     );
     box-shadow: 0px 0px 50px rgba(0, 154, 241, 0.48);
   }
-  .sound-btn {
+  .sound-btn,
+  .player-fullscreen-btn {
     background: rgba(171, 239, 255, 0.1);
     border: 0.2px solid rgba(171, 239, 255, 0.15);
     box-shadow: 0px 0px 10px rgba(171, 239, 255, 0.2);
@@ -93,6 +94,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    color: $blue;
+  }
+  .player-fullscreen-btn {
+    font-size: 14px;
   }
   .player-play-pause {
     border-radius: 50%;
@@ -797,6 +802,12 @@
   }
   .player-controls__bottom-actions {
     grid-area: song-controls;
+    .sound-container {
+      padding-block: 0;
+    }
+    .sound-input {
+      top: -22px;
+    }
   }
   .progress-area {
     position: absolute;

@@ -20,13 +20,17 @@ block content
   //About Section
   include home/about
 
+  //Mixes section
+
+  include home/mixes
+
   //Releases Slider
   include home/releases-slider
 
   //Events section
   include home/events
 
-  section.popular
+  section.popular.pt-0
     .container
       .section-title.text-md-center Popular tracks
     include partials/popular
@@ -45,7 +49,10 @@ block content
   //Studio Section
   include home/studio
 
-  section.become-artist
+  section.become-artist.position-relative
+    .become-artist-absolute
+      img(src="./img/decorations/jaguar.svg").position-absolute
+      img(src="./img/decorations/decor-07.svg").position-absolute
     .container
       .become-artist__card.info-card
         .become-artist__card-caption
@@ -78,6 +85,7 @@ block content
           .experience-circle__title.gradient-title w1se show
           a(href="#").btn.btn-white-glow Get member
 
+  //- include player-big-modal
 
 
 

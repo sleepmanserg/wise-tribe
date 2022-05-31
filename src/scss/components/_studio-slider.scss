@@ -1,6 +1,12 @@
 .studio-slider {
+  .swiper-slide {
+    height: auto;
+  }
   .studio-slider__item {
     position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
     &::after {
       content: "";
       position: absolute;

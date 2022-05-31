@@ -1,0 +1,195 @@
+.mixes {
+  --sectionPaddingBottom: 0;
+  --sectionPaddingTop: 50px;
+  .events-slider-container {
+    @media (min-width: 768px) {
+      margin-top: -50px;
+    }
+    @media (min-width: 1366px) {
+      margin-top: 0;
+    }
+  }
+  @media (min-width: 768px) {
+    --sectionPaddingBottom: 120px;
+  }
+}
+
+.mixes-slider {
+  padding-top: 150px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  margin-top: -115px;
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem;
+  }
+  @media (min-width: 1024px) {
+    .swiper-slide-prev,
+    .swiper-slide-next + .swiper-slide + .swiper-slide {
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+  }
+  @media (min-width: 1366px) {
+    margin-top: -70px;
+    .swiper-slide-prev,
+    .swiper-slide-next + .swiper-slide + .swiper-slide {
+      opacity: 1;
+    }
+  }
+}
+
+.mixes-slider__item {
+  color: $white;
+  text-decoration: none;
+  &:active {
+    color: $white;
+  }
+  @include hover {
+    color: $white;
+  }
+}
+
+.mixes-slider__img {
+  --mixesBorderRadius: 50px;
+  border-radius: var(--mixesBorderRadius);
+  position: relative;
+  box-shadow: 0px 0px 126px 6px rgba(0, 154, 241, 0.48);
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+      344.6deg,
+      #15153c -64.55%,
+      rgba(21, 21, 60, 0) 151.67%
+    );
+  }
+  img {
+    border-radius: inherit;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    transition: 0.35s ease;
+  }
+  @include hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+  @media (min-width: 1024px) {
+    --mixesBorderRadius: 70px;
+  }
+}
+
+.mixes-slider__main-title {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  z-index: 1;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 140%;
+  padding-inline: 50px;
+  &[data-color="chill"] {
+    background: linear-gradient(101.21deg, #ffb98e 10.75%, #ffa1f6 91.61%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  &[data-color="yoga"] {
+    background: linear-gradient(101.21deg, #f0c4ff 10.75%, #7bc8ff 91.61%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  &[data-color="sport"] {
+    background: linear-gradient(101.21deg, #ccffc4 10.75%, #7ba8ff 91.61%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  &[data-color="morning"] {
+    background: linear-gradient(101.21deg, #feffc4 10.75%, #7bff80 91.61%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  @media (min-width: 768px) {
+    font-size: 24px;
+    bottom: 20px;
+  }
+  @media (min-width: 1024px) {
+    font-size: 32px;
+    bottom: 30px;
+  }
+  @media (min-width: 1366px) {
+    font-size: 36px;
+  }
+}
+
+.mixes-slider__caption {
+  padding-top: 8px;
+  .mixes-slider__title {
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 140%;
+    text-transform: capitalize;
+  }
+  .mixes-slider__text {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 140%;
+    opacity: 0.8;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -ms-line-clamp: 2;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box;
+    word-wrap: break-word;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    padding-top: 12px;
+    .mixes-slider__title {
+      font-size: 20px;
+    }
+    .mixes-slider__text {
+      font-size: 1rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    padding-top: 25px;
+    .mixes-slider__title {
+      font-size: 28px;
+      margin-bottom: 1rem;
+    }
+    .mixes-slider__text {
+      font-size: 20px;
+    }
+  }
+  @media (min-width: 1366px) {
+    .mixes-slider__title {
+      font-size: 32px;
+    }
+    .mixes-slider__text {
+      font-size: 24px;
+    }
+  }
+}

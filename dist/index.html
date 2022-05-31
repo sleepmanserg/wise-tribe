@@ -225,6 +225,9 @@
                 <path opacity="0.9" d="M1.5 6.86603C0.833334 6.48113 0.833334 5.51887 1.5 5.13397L7.5 1.66987C8.16667 1.28497 9 1.7661 9 2.5359L9 9.4641C9 10.2339 8.16667 10.715 7.5 10.3301L1.5 6.86603Z" fill="white"></path>
               </svg>
             </button>
+          </div><span class="controls-divider"></span>
+          <div class="player-fullscreen">
+            <button class="player-btn player-fullscreen-btn"><i class="icon-fullscreen"></i></button>
           </div>
           <ul class="player-playlist__list player-list d-none" style="position: absolute; bottom: 100px;"></ul>
           <div class="player-timer d-none"><span class="player-timer__current">0:00</span>/<span class="player-timer__end"></span></div>
@@ -776,20 +779,68 @@
           </g>
         </svg>
       </section>
+      <!--Mixes section-->
+      <section class="mixes">
+        <div class="container">
+          <h3 class="section-title text-center">Mixes for you</h3>
+        </div>
+        <div class="mixes-slider swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><a class="mixes-slider__item d-block" href="#">
+                <div class="mixes-slider__img"><img src="./img/mixes/chill.jpg">
+                  <div class="mixes-slider__main-title" data-color="chill">Chill</div>
+                </div>
+                <div class="mixes-slider__caption">
+                  <div class="mixes-slider__title">Relaxing</div>
+                  <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div>
+                </div></a></div>
+            <div class="swiper-slide"><a class="mixes-slider__item d-block" href="#">
+                <div class="mixes-slider__img"><img src="./img/mixes/yoga.jpg">
+                  <div class="mixes-slider__main-title" data-color="yoga">Yoga</div>
+                </div>
+                <div class="mixes-slider__caption">
+                  <div class="mixes-slider__title">Yoga</div>
+                  <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div>
+                </div></a></div>
+            <div class="swiper-slide"><a class="mixes-slider__item d-block" href="#">
+                <div class="mixes-slider__img"><img src="./img/mixes/sport.jpg">
+                  <div class="mixes-slider__main-title" data-color="sport">Sport</div>
+                </div>
+                <div class="mixes-slider__caption">
+                  <div class="mixes-slider__title">Sport Motivate</div>
+                  <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div>
+                </div></a></div>
+            <div class="swiper-slide"><a class="mixes-slider__item d-block" href="#">
+                <div class="mixes-slider__img"><img src="./img/mixes/morning.jpg">
+                  <div class="mixes-slider__main-title" data-color="morning">Morning</div>
+                </div>
+                <div class="mixes-slider__caption">
+                  <div class="mixes-slider__title">Morning Mix</div>
+                  <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div>
+                </div></a></div>
+          </div>
+        </div>
+        <div class="container events-slider-container pt-5">
+          <div class="swiper-nav d-none d-md-flex justify-content-between align-items-center">
+            <div class="arrow-button arrow-button__prev mixes-button-prev"><span>PREV</span></div>
+            <div class="arrow-button arrow-button__next mixes-button-next"><span>NEXT</span></div>
+          </div>
+        </div>
+      </section>
       <!--Releases Slider-->
       <!--Releases Slider-->
       <section class="releases">
         <div class="container">
           <div class="row">
-            <div class="col-md-4 col-lg-6 d-flex align-items-center pb-5 justify-content-center">
+            <div class="col-md-6 col-lg-6 d-flex pb-5 pb-md-0 justify-content-sm-center justify-content-md-start align-items-center">
               <div class="releases-caption">
                 <h3 class="section-title relises-title">Releases</h3>
                 <h4 class="section-subtitle release-subtitle">Explore the latest tracks artists</h4>
                 <p class="section-text releases-text opacity-7">We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.</p>
               </div>
             </div>
-            <div class="col-md-8 col-lg-6">
-              <div class="swiper releases-slider position-relative">
+            <div class="col-md-6 col-lg-6">
+              <div class="swiper releases-slider position-relative"><img class="position-absolute" src="./img/decorations/eagle.svg">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <div class="img-wrapper"><img src="img/releases/01.png"></div>
@@ -838,7 +889,8 @@
       <!--Events section-->
       <!--Events section-->
       <section class="events position-relative">
-        <h2 class="section-title text-center">Coming events</h2>
+        <div class="events-absolute"><img class="position-absolute" src="./img/decorations/decor-06.svg"><img class="position-absolute" src="./img/decorations/decor-07.svg"><img class="position-absolute" src="./img/decorations/snake.svg"><img class="position-absolute" src="./img/decorations/jaguar.svg"></div>
+        <h2 class="section-title text-center mb-3 mb-md-5">Coming events</h2>
         <div class="swiper events-slider scaled-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
@@ -1035,18 +1087,19 @@
             </div>
           </div>
         </div>
-        <div class="container events-slider-container">
-          <div class="swiper-nav d-flex justify-content-between align-items-center">
+        <div class="container events-slider-container pt-5">
+          <div class="swiper-nav d-none d-md-flex justify-content-between align-items-center">
             <div class="arrow-button arrow-button__prev events-button-prev"><span>PREV</span></div>
             <div class="arrow-button arrow-button__next events-button-next"><span>NEXT</span></div>
           </div>
         </div>
       </section>
-      <section class="popular">
+      <section class="popular pt-0">
         <div class="container">
           <div class="section-title text-md-center">Popular tracks</div>
         </div>
-        <div class="swiper popular-slider">
+        <div class="swiper popular-slider position-relative">
+          <div class="popular-absolute"><img class="position-absolute" src="./img/decorations/decor-01.svg"></div>
           <div class="swiper-wrapper">
             <div class="swiper-slide"><a class="popular-item" href="#">
                 <div class="popular-item__number"></div>
@@ -1564,7 +1617,8 @@
           <div class="slider-pagination studio-pagination"></div>
         </div>
       </section>
-      <section class="become-artist">
+      <section class="become-artist position-relative">
+        <div class="become-artist-absolute"><img class="position-absolute" src="./img/decorations/jaguar.svg"><img class="position-absolute" src="./img/decorations/decor-07.svg"></div>
         <div class="container">
           <div class="become-artist__card info-card">
             <div class="become-artist__card-caption">
@@ -1605,6 +1659,38 @@
         </div>
       </section>
     </main>
+    <div class="random-circles">
+      <div class="decor-circle decor-circle__one decor-circle-0"></div>
+      <div class="decor-circle decor-circle__one decor-circle-1"></div>
+      <div class="decor-circle decor-circle__one decor-circle-2"></div>
+      <div class="decor-circle decor-circle__one decor-circle-3"></div>
+      <div class="decor-circle decor-circle__one decor-circle-4"></div>
+      <div class="decor-circle decor-circle__one decor-circle-5"></div>
+      <div class="decor-circle decor-circle__one decor-circle-6"></div>
+      <div class="decor-circle decor-circle__one decor-circle-7"></div>
+      <div class="decor-circle decor-circle__one decor-circle-8"></div>
+      <div class="decor-circle decor-circle__one decor-circle-9"></div>
+      <div class="decor-circle decor-circle__one decor-circle-10"></div>
+      <div class="decor-circle decor-circle__one decor-circle-11"></div>
+      <div class="decor-circle decor-circle__one decor-circle-12"></div>
+      <div class="decor-circle decor-circle__one decor-circle-13"></div>
+      <div class="decor-circle decor-circle__one decor-circle-14"></div>
+      <div class="decor-circle decor-circle__two decor-circle-0"></div>
+      <div class="decor-circle decor-circle__two decor-circle-1"></div>
+      <div class="decor-circle decor-circle__two decor-circle-2"></div>
+      <div class="decor-circle decor-circle__two decor-circle-3"></div>
+      <div class="decor-circle decor-circle__two decor-circle-4"></div>
+      <div class="decor-circle decor-circle__two decor-circle-5"></div>
+      <div class="decor-circle decor-circle__two decor-circle-6"></div>
+      <div class="decor-circle decor-circle__two decor-circle-7"></div>
+      <div class="decor-circle decor-circle__two decor-circle-8"></div>
+      <div class="decor-circle decor-circle__two decor-circle-9"></div>
+      <div class="decor-circle decor-circle__two decor-circle-10"></div>
+      <div class="decor-circle decor-circle__two decor-circle-11"></div>
+      <div class="decor-circle decor-circle__two decor-circle-12"></div>
+      <div class="decor-circle decor-circle__two decor-circle-13"></div>
+      <div class="decor-circle decor-circle__two decor-circle-14"></div>
+    </div>
     <!-- JavaScript (jQuery) libraries, plugins and custom scripts-->
     <script type="module" src="js/vendor.min.js"></script>
     <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js"></script>

@@ -96,9 +96,6 @@
       visibility: visible;
       z-index: 10000000;
     }
-    [data-plyr="play"] {
-      display: none;
-    }
     iframe,
     video {
       height: calc(100% + 400px);

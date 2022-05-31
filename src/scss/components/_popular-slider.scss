@@ -117,3 +117,12 @@
     }
   }
 }
+.popular-absolute {
+  img {
+    &:nth-child(1) {
+      width: 7vw;
+      bottom: 0;
+      left: 40%;
+    }
+  }
+}

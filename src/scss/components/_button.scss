@@ -551,6 +551,7 @@
   }
   span {
     transition: 0.25s;
+    font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 0.4545)), 20px);
   }
 }
 

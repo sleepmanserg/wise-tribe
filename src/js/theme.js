@@ -119,6 +119,41 @@ swiperEvents.on('slideChange', function () {
 	swiperHomeClassTweak(this.slides, this.activeIndex);
 });
 
+/** Mixes slider */
+
+const swiperMixes = new Swiper(".mixes-slider", {
+	grabCursor: true,
+	speed: 500,
+	loop: true,
+	navigation: {
+		nextEl: ".mixes-button-next",
+		prevEl: ".mixes-button-prev"
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 2.1,
+			centeredSlides: true,
+			spaceBetween: 20,
+		},
+		768: {
+			slidesPerView: 3,
+			spaceBetween: 20,
+		},
+		1024: {
+			slidesPerView: 3,
+			spaceBetween: 30,
+		},
+		1366: {
+			slidesPerView: 4,
+			spaceBetween: 40,
+		},
+		1921: {
+			slidesPerView: 5,
+			spaceBetween: 40,
+		}
+	},
+});
+
 
 /** Releases slider */
 
@@ -592,9 +627,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const preload = document.querySelector('.preloader');
 
 	if (preload) {
+		// document.documentElement.classList.add('overflow-hidden');
 		setTimeout(function () {
+			// document.documentElement.classList.remove('overflow-hidden');
 			preload.classList.add('loaded');
-			document.documentElement.classList.remove('overflow-hidden');
 		}, 8000);
 	}
 });
@@ -883,6 +919,7 @@ document.addEventListener('DOMContentLoaded', () => {
 					if (isScrubbing) {
 						wasPaused = players[0].paused
 						players[0].pause()
+						players[0].volume = 1
 					} else {
 						players[0].currentTime = percent * players[0].duration
 						if (!wasPaused) players[0].play()
@@ -1064,7 +1101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 
 			players[0].on("timeupdate", function (event) {
-				$('.video-controls .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
 				let currentVideoMin = Math.floor(players[0].currentTime / 60);
 				let currentVideoSec = Math.floor(players[0].currentTime % 60);
 				if (currentVideoSec < 10) {

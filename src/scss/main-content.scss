@@ -1,7 +1,7 @@
 /* Hero */
 
 .hero {
-  --sectionPaddingBottom: 188px;
+  --sectionPaddingBottom: 120px;
   --sectionPaddingTop: 50px;
   padding-top: var(--sectionPaddingTop);
   padding-bottom: --sectionPaddingBottom;
@@ -138,7 +138,7 @@
       flex: 0 0 50%;
       max-width: 50%;
       .section-text {
-        max-width: 380px;
+        max-width: 420px;
       }
     }
   }
@@ -213,6 +213,8 @@
   }
   @media (min-width: 1024px) {
     // padding-top: 264px;
+    --sectionPaddingBottom: 120px;
+    --sectionPaddingTop: 60px;
     .releases-subtitle {
       margin-bottom: 15px;
       max-width: 329px;
@@ -965,4 +967,28 @@
 
 .event-popular {
   padding-top: 100px;
+}
+
+/* Hero player modal */
+
+.hero-player-section {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  padding-top: var(--headerHeight);
+  z-index: 9999;
+  background: radial-gradient(
+      81.91% 108.97% at 23.88% 18.09%,
+      rgba(255, 255, 255, 0.126) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    radial-gradient(54.68% 54.68% at 50% 45.32%, #050547 0%, #000022 100%), #fff;
+  .sound-container {
+    padding: 0;
+    .sound-input {
+      top: -22px;
+    }
+  }
 }
