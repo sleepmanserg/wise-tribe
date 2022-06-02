@@ -117,7 +117,6 @@ const swiperEvents = new Swiper(".events-slider", {
 const swiperMixes = new Swiper(".mixes-slider", {
 	grabCursor: true,
 	speed: 500,
-	loop: true,
 	navigation: {
 		nextEl: ".mixes-button-next",
 		prevEl: ".mixes-button-prev"
@@ -127,22 +126,27 @@ const swiperMixes = new Swiper(".mixes-slider", {
 			slidesPerView: 2.1,
 			centeredSlides: true,
 			spaceBetween: 20,
+			slidesPerGroup: 2.1,
 		},
 		768: {
 			slidesPerView: 3,
 			spaceBetween: 20,
+			slidesPerGroup: 3,
 		},
 		1024: {
 			slidesPerView: 3,
 			spaceBetween: 30,
+			slidesPerGroup: 3,
 		},
 		1366: {
 			slidesPerView: 4,
 			spaceBetween: 40,
+			slidesPerGroup: 4,
 		},
 		1921: {
-			slidesPerView: 6,
+			slidesPerView: 5,
 			spaceBetween: 40,
+			slidesPerGroup: 5,
 		}
 	},
 });
@@ -549,28 +553,28 @@ const rellax = new Rellax('.rellax');
 
 /** Random circles animation  */
 
-let decorRandomCircles = document.querySelectorAll('.random-circles .decor-circle');
+// let decorRandomCircles = document.querySelectorAll('.random-circles .decor-circle');
 
-decorRandomCircles.forEach((el, i, ra) => {
-	let to = {
-		x: Math.random() * (i % 2 === 0 ? -11 : 11),
-		y: Math.random() * 12
-	};
+// decorRandomCircles.forEach((el, i, ra) => {
+// 	let to = {
+// 		x: Math.random() * (i % 2 === 0 ? -11 : 11),
+// 		y: Math.random() * 12
+// 	};
 
-	let anim = el.animate(
-		[
-			{ transform: "translate(0, 0)" },
-			{ transform: `translate(${to.x}rem, ${to.y}rem)` }
-		],
-		{
-			duration: (Math.random() + 1) * 5000, // random duration
-			direction: "alternate",
-			fill: "both",
-			iterations: Infinity,
-			easing: "ease-in-out"
-		}
-	);
-});
+// 	let anim = el.animate(
+// 		[
+// 			{ transform: "translate(0, 0)" },
+// 			{ transform: `translate(${to.x}rem, ${to.y}rem)` }
+// 		],
+// 		{
+// 			duration: (Math.random() + 1) * 5000, // random duration
+// 			direction: "alternate",
+// 			fill: "both",
+// 			iterations: Infinity,
+// 			easing: "ease-in-out"
+// 		}
+// 	);
+// });
 
 /** Forms */
 

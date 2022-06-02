@@ -27,6 +27,9 @@
     margin: 0 auto;
     padding: 0 40px;
   }
+  .swiper-slide {
+    user-select: none;
+  }
 }
 
 .popular-item {

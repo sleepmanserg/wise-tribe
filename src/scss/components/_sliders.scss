@@ -56,3 +56,12 @@
     }
   }
 }
+
+.swiper-slide {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+}
+.swiper-wrapper {
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: translateZ(0);
+}
