@@ -1,56 +1,56 @@
 /** Audio player */
-let allMusic = [
-	{
-		name: "Elite",
-		artist: "Deftones",
-		img: "../img/covers/white-pony.jpg",
-		src: "Elite",
-		artistId: '1',
-	},
-	{
-		name: "In the End",
-		artist: "Linkin Park",
-		img: "../img/covers/hybrid-theory.jpg",
-		src: "In the End",
-		artistId: '2',
-	},
-	{
-		name: "Sleep Now In The Fire",
-		artist: "Rage Against the Machine",
-		img: "../img/covers/rage-against.jpg",
-		src: "Sleep Now In The Fire",
-		artistId: '1',
-	},
-	{
-		name: "Minerva",
-		artist: "Deftones",
-		img: "../img/covers/minerva.jpg",
-		src: "Minerva",
-		artistId: '1',
-	},
-	{
-		name: "Faint",
-		artist: "Linkin Park",
-		img: "../img/covers/meteora.jpg",
-		src: "Faint",
-		artistId: '2',
-	},
-	{
-		name: "Diamond eyes",
-		artist: "Deftones",
-		img: "../img/covers/diamond-eyes.jpg",
-		src: "Diamond Eyes",
-		artistId: '1',
-	},
-	{
-		name: "Renegades Of Funk",
-		artist: "Rage Against the Machine",
-		img: "../img/covers/renegades.jpg",
-		src: "Renegades Of Funk",
-		artistId: '3',
-	},
+// let allMusic = [
+// 	{
+// 		name: "Elite",
+// 		artist: "Deftones",
+// 		img: "../img/covers/white-pony.jpg",
+// 		src: "Elite",
+// 		artistId: '1',
+// 	},
+// 	{
+// 		name: "In the End",
+// 		artist: "Linkin Park",
+// 		img: "../img/covers/hybrid-theory.jpg",
+// 		src: "In the End",
+// 		artistId: '2',
+// 	},
+// 	{
+// 		name: "Sleep Now In The Fire",
+// 		artist: "Rage Against the Machine",
+// 		img: "../img/covers/rage-against.jpg",
+// 		src: "Sleep Now In The Fire",
+// 		artistId: '1',
+// 	},
+// 	{
+// 		name: "Minerva",
+// 		artist: "Deftones",
+// 		img: "../img/covers/minerva.jpg",
+// 		src: "Minerva",
+// 		artistId: '1',
+// 	},
+// 	{
+// 		name: "Faint",
+// 		artist: "Linkin Park",
+// 		img: "../img/covers/meteora.jpg",
+// 		src: "Faint",
+// 		artistId: '2',
+// 	},
+// 	{
+// 		name: "Diamond eyes",
+// 		artist: "Deftones",
+// 		img: "../img/covers/diamond-eyes.jpg",
+// 		src: "Diamond Eyes",
+// 		artistId: '1',
+// 	},
+// 	{
+// 		name: "Renegades Of Funk",
+// 		artist: "Rage Against the Machine",
+// 		img: "../img/covers/renegades.jpg",
+// 		src: "Renegades Of Funk",
+// 		artistId: '3',
+// 	},
 
-]
+// ]
 
 const playerWrapper = document.querySelector('.audio-player-wrapper');
 
@@ -279,7 +279,7 @@ if (playerWrapper) {
 				<div class="player-list__item-artist">${allMusic[i].artist}</div>
 				<div class="player-list__item-media">${allMusic[i].name}</div>
 			</div>
-			<audio class="${audioClassName}" src="../songs/${allMusic[i].src}.mp3"></audio>
+			<audio class="${audioClassName}" src="${allMusic[i].src}"></audio>
 			<div class="player-list__item-duration"><span id="${audioClassName}" class="player-list__item-end">3:20</span></div>
 		</li>`;
 
@@ -381,10 +381,23 @@ if (playerWrapper) {
 
 
 
+const getData = (playlist) => {
+	let url = playlist;
+
+	return fetch(url).then(response => response.json());
+};
+
+
+const init = async (url) => {
+	const allMusic = await getData(url);
+
+	return await allMusic.music;
+};
+
 
 
 /*~/ Hero slider audio /~*/
-const heroAudioPlayer = () => {
+const heroAudioPlayer = async () => {
 	const heroPlayerWrapper = document.querySelector('.hero');
 
 	if (heroPlayerWrapper) {
@@ -404,43 +417,34 @@ const heroAudioPlayer = () => {
 
 		let musicIndex = 1;
 
-		let artistMusics = [];
+		let allMusic = await init(parentActiveSlideItem.dataset.playlist);
 
 		function heroSliderFirstRender() {
 			trackAllSlides.forEach(slide => {
-				let artistInfo = allMusic[slide.dataset.artist - 1];
-				slide.children[0].children[0].src = `${artistInfo.img}`;
-				slide.children[0].children[0].alt = `${artistInfo.name + ' ' + artistInfo.artist}`;
+				slide.children[0].children[0].src = slide.dataset.artist;
+				slide.children[0].children[0].alt = slide.children[1].children[1].children[0].textContent;
 			});
 		};
 
-		allMusic.forEach(music => {
-			if (music.artistId === parentActiveSlideItem.dataset.artist) {
-				artistMusics.push(music);
-			}
-		});
-		renderAudioList(artistMusics);
+		renderAudioList(allMusic);
 
 		// Load music function
 		function loadMusic(indexNumb, musics) {
 			heroSliderFirstRender();
 			let artistInfo = musics[indexNumb - 1];
 			trackName.innerText = artistInfo.name;
-			trackImg.src = `${artistInfo.img}`;
-			trackImg.alt = `${artistInfo.name + ' ' + artistInfo.artist}`;
-			trackMain.src = `../songs/${artistInfo.src}.mp3`;
+			trackImg.src = allMusic[musicIndex - 1].img;
+			trackImg.alt = artistInfo.artist;
+			trackMain.src = artistInfo.src;
 			trackControlImg.src = trackImg.src;
 		}
 
-		window.addEventListener('load', () => {
-			loadMusic(musicIndex, artistMusics);
-			playingNow();
-		});
-		loadMusic(musicIndex, artistMusics);
+		loadMusic(musicIndex, allMusic);
 
 		// Play music function
 		function playMusic() {
 			heroPlayerWrapper.classList.add('paused');
+			// trackImg.src = allMusic[musicIndex - 1].img;
 			trackMain.play();
 		}
 
@@ -454,7 +458,7 @@ const heroAudioPlayer = () => {
 		function nextMusic(musics) {
 			musicIndex++;
 			musicIndex > musics.length ? musicIndex = 1 : musicIndex = musicIndex;
-			loadMusic(musicIndex, artistMusics);
+			loadMusic(musicIndex, allMusic);
 			playMusic();
 		}
 
@@ -462,7 +466,7 @@ const heroAudioPlayer = () => {
 		function prevMusic(musics) {
 			musicIndex--;
 			musicIndex < 1 ? musicIndex = musics.length : musicIndex = musicIndex;
-			loadMusic(musicIndex, artistMusics);
+			loadMusic(musicIndex, allMusic);
 			playMusic();
 		}
 
@@ -472,7 +476,7 @@ const heroAudioPlayer = () => {
 
 			musics.forEach((music, i) => {
 				const { artist, src, img, name } = music;
-				let audioClassName = capitalizeFirstLetter(artist.split(" ").join("") + src.split(" ").join(""));
+				let audioClassName = capitalizeFirstLetter(artist.split(" ").join("") + src.split(" ").join("").slice(7).split('.')[0]);
 				let playListItem =
 					`<li li-index="${i + 1}" class="player-playlist__list-item player-list__item">
 						<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
@@ -492,7 +496,7 @@ const heroAudioPlayer = () => {
 							<div class="player-list__item-artist">${artist}</div>
 							<div class="player-list__item-media">${name}</div>
 						</div>
-						<audio class="${audioClassName}" src="../songs/${src}.mp3"></audio>
+						<audio class="${audioClassName}" src="${src}"></audio>
 						<div class="player-list__item-duration"><span id="${audioClassName}" class="player-list__item-end">3:20</span></div>
 					</li>`;
 
@@ -542,7 +546,7 @@ const heroAudioPlayer = () => {
 				function clicked(element) {
 					let getLiIndex = allPlayListItems[j].getAttribute('li-index');
 					musicIndex = getLiIndex;
-					loadMusic(musicIndex, artistMusics);
+					loadMusic(musicIndex, allMusic);
 					playMusic();
 					playingNow();
 				}
@@ -580,12 +584,12 @@ const heroAudioPlayer = () => {
 		// })
 
 		playerNextBtn.addEventListener('click', () => {
-			nextMusic(artistMusics);
+			nextMusic(allMusic);
 			playingNow();
 		});
 
 		playerPrevBtn.addEventListener('click', () => {
-			prevMusic(artistMusics);
+			prevMusic(allMusic);
 			playingNow();
 		});
 
@@ -754,14 +758,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		slides[nextSlidesIndexes[1]].classList.add('swiper-slide-next-n1');
 		slides[nextSlidesIndexes[2]].classList.add('swiper-slide-next-n2');
 	}
-
-	// const heroSliderBtns = document.querySelectorAll('.hero .arrow-button');
-
-	// heroSliderBtns.forEach(btn => {
-	// 	btn.addEventListener('click', () => {
-	// 		heroAudioPlayer();
-	// 	});
-	// });
 
 	heroAudioPlayer();
 });
