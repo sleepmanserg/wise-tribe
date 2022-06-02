@@ -3,14 +3,24 @@
   padding-left: var(--paddingInline);
   // padding-right: var(--paddingInline);
   .circle-button {
+    // position: absolute;
+    z-index: 3;
+    transform-origin: center;
+  }
+  .popular-slider-nav {
     position: absolute;
-    right: var(--paddingInline);
+    width: 100%;
+    height: 60px;
+    display: flex;
     top: 50%;
+    left: 0;
+    justify-content: space-between;
     transform: translateY(-50%);
     z-index: 3;
-  }
-  @media (min-width: 768px) {
-    --paddingInline: 2.5rem;
+    padding-inline: 1.25rem;
+    @media (min-width: 768px) {
+      --paddingInline: 2.5rem;
+    }
   }
   @media (min-width: 1366px) {
     max-width: 1760px;
@@ -39,7 +49,7 @@
     }
   }
   .popular-item__number {
-    flex: 0 0 20px;
+    flex: 0 0 40px;
     font-size: clamp(18px, calc(1.125rem + ((1vw - 3.6px) * 1.1538)), 36px);
     line-height: 140%;
     font-weight: 600;
@@ -120,9 +130,49 @@
 .popular-absolute {
   img {
     &:nth-child(1) {
-      width: 7vw;
+      width: #{randomNum(15, 20)}vw;
       bottom: 0;
-      left: 40%;
+      left: 10%;
+    }
+    &:nth-child(2) {
+      width: #{randomNum(30, 40)}vw;
+      transform: rotate(155deg);
+      top: #{randomNum(-20, -25)}vw;
+      left: #{randomNum(10, 15)}vw;
+    }
+    &:nth-child(3) {
+      width: #{randomNum(30, 40)}vw;
+      right: #{randomNum(10, 12)}vw;
+      top: #{randomNum(-5, -10)}vw;
+    }
+    &:nth-child(4) {
+      width: #{randomNum(10, 15)}vw;
+      right: #{randomNum(15, 20)}vw;
+      bottom: #{randomNum(20, 35)}vw;
+    }
+    @media (min-width: 768px) {
+      &:nth-child(1) {
+        width: #{randomNum(5, 7)}vw;
+        bottom: 0;
+        left: 40%;
+      }
+      &:nth-child(2) {
+        width: #{randomNum(15, 20)}vw;
+        transform: rotate(155deg);
+        top: #{randomNum(-2, -5)}vw;
+        left: #{randomNum(10, 15)}vw;
+      }
+      &:nth-child(3) {
+        width: #{randomNum(15, 20)}vw;
+        right: #{randomNum(10, 12)}vw;
+        top: #{randomNum(-5, -10)}vw;
+        opacity: 0.5;
+      }
+      &:nth-child(4) {
+        width: #{randomNum(3, 5)}vw;
+        left: #{randomNum(40, 50)}vw;
+        top: #{randomNum(-2, -5)}vw;
+      }
     }
   }
 }

@@ -223,7 +223,7 @@
     margin: -60px 0 -60px;
   }
   @media (min-width: 768px) {
-    padding: 53px 0 43px;
+    padding: 53px 0 70px;
     .events-slider__item {
       &::before {
         width: calc(100% + 25px);
@@ -270,7 +270,7 @@
     }
   }
   @media (min-width: 1366px) {
-    padding: 74px 0 50px;
+    padding: 74px 0 65px;
     .swiper-slide {
       width: 400px;
     }
@@ -281,19 +281,19 @@
   @media (min-width: 1700px) {
     padding: 110px 0 70px;
     .swiper-slide {
-      width: 500px;
+      width: 400px;
     }
     .events-slider__artist {
       font-size: 60px;
       max-width: 490px;
     }
     .events-slider__action {
-      transform: translateY(150px);
+      transform: translateY(50px);
       max-width: 231px;
     }
     .swiper-slide-active {
       .events-slider__action {
-        transform: translateY(80px);
+        transform: translateY(35px);
       }
     }
   }
@@ -562,7 +562,7 @@
       width: 3vw;
     }
     &:nth-child(3) {
-      width: 17vw;
+      width: 5vw;
       bottom: 0;
       right: 50px;
     }

@@ -95,6 +95,7 @@ const swiperEvents = new Swiper(".events-slider", {
 	grabCursor: true,
 	speed: 500,
 	loop: true,
+	loopFillGroupWithBlank: true,
 	centeredSlides: true,
 	slideToClickedSlide: true,
 	navigation: {
@@ -108,16 +109,8 @@ const swiperEvents = new Swiper(".events-slider", {
 		modifier: 3,
 		slideShadows: false,
 	},
-	on: {
-		init: function () {
-			swiperHomeClassTweak(this.slides, this.activeIndex);
-		},
-	},
 });
 
-swiperEvents.on('slideChange', function () {
-	swiperHomeClassTweak(this.slides, this.activeIndex);
-});
 
 /** Mixes slider */
 
@@ -148,7 +141,7 @@ const swiperMixes = new Swiper(".mixes-slider", {
 			spaceBetween: 40,
 		},
 		1921: {
-			slidesPerView: 5,
+			slidesPerView: 6,
 			spaceBetween: 40,
 		}
 	},
@@ -180,7 +173,8 @@ const swiperPopular = new Swiper(".popular-slider", {
 	slidesPerView: 1,
 	speed: 500,
 	navigation: {
-		nextEl: '.popular-slider__btn',
+		nextEl: '.circle-button-next.popular-slider__btn',
+		prevEl: '.circle-button-prev.popular-slider__btn',
 	},
 	breakpoints: {
 		320: {
@@ -251,6 +245,10 @@ const swiperTiktok = new Swiper(".tiktok-slider", {
 			slidesPerView: 6,
 			spaceBetween: 30,
 		},
+		1921: {
+			slidesPerView: 7,
+			spaceBetween: 30,
+		},
 	},
 	on: {
 		init: function () {
@@ -305,38 +303,24 @@ function swiperHomeClassTweak(slidesProp, activeSlide) {
 
 /** Circle Parallax */
 
+const parallaxItems = document.querySelectorAll('.parallax');
+const parallaxWrapper = document.querySelector('.parallax-wrap');
 
-// const parallaxItems = document.querySelectorAll('.parallax');
+if (parallaxWrapper) {
+	parallaxWrapper.addEventListener('mousemove', parallax);
 
-// if (parallaxItems) {
-// 	let applyParallax = section => {
+	function parallax(e) {
+		this.querySelectorAll('.parallax').forEach(layer => {
+			const speed = layer.getAttribute('data-speed');
 
-// 		section.addEventListener('mousemove', e => {
+			const x = (window.innerWidth - e.pageX * speed) / 100;
+			const y = (window.innerHeight - e.pageY * speed) / 100;
 
-// 			let { width, height } = section.getBoundingClientRect();
-// 			let offX = e.pageX - (width * 0.5);
-// 			let offY = e.pageY - (height * 0.5);
+			layer.style.transform = `translate(${x}px) translate(${y}px)`
+		});
+	}
+}
 
-// 			for (let layer of parallaxItems) {
-// 				const speed = layer.getAttribute('data-speed')
-// 				const x = (offX * speed) / 100;
-// 				const y = (offY * speed) / 2000;
-// 				layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-// 			}
-
-// 		});
-
-// 		section.addEventListener('mouseleave', e => {
-// 			for (let layer of parallaxItems) {
-// 				layer.style.transform = `translateX(${x}px) translateY(${y}px)`
-// 			}
-
-// 		});
-
-// 	};
-
-// 	// applyParallax(document.querySelector('.circle-section'));
-// }
 
 /** Blog slider */
 
@@ -508,6 +492,11 @@ const videosSlider = new Swiper('.video-slider', {
 	grabCursor: true,
 	speed: 500,
 	slideToClickedSlide: true,
+	slidesPerGroup: 1,
+	navigation: {
+		nextEl: ".video-button-next",
+		prevEl: ".video-button-prev"
+	},
 	breakpoints: {
 		320: {
 			slidesPerView: 1.35,
@@ -527,12 +516,10 @@ const videosSlider = new Swiper('.video-slider', {
 		},
 		1366: {
 			slidesPerView: 2.7,
-			slidesPerGroup: 2.7,
 			spaceBetween: 40,
 		},
 		1700: {
 			slidesPerView: 3.2,
-			slidesPerGroup: 3.2,
 			spaceBetween: 36,
 		},
 	},
@@ -627,9 +614,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const preload = document.querySelector('.preloader');
 
 	if (preload) {
-		// document.documentElement.classList.add('overflow-hidden');
+		document.documentElement.classList.add('overflow-hidden');
 		setTimeout(function () {
-			// document.documentElement.classList.remove('overflow-hidden');
+			document.documentElement.classList.remove('overflow-hidden');
 			preload.classList.add('loaded');
 		}, 8000);
 	}

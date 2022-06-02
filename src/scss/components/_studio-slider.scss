@@ -51,7 +51,7 @@
     margin-bottom: 10px;
   }
   .section-text {
-    font-size: clamp(0.875rem, 2vw, 2.25rem);
+    // font-size: clamp(0.875rem, 2vw, 2.25rem);
     margin-bottom: 40px;
   }
   .studio-pagination {
@@ -81,7 +81,7 @@
   }
   @media (min-width: 1024px) {
     .studio-slider__caption {
-      padding: 120px 0 181px;
+      padding: 120px 0 140px;
       max-width: 600px;
     }
     .studio-slider__title {
@@ -99,7 +99,7 @@
   }
   @media (min-width: 1366px) {
     .studio-slider__caption {
-      padding: 180px 0 160px;
+      padding: 140px 0 160px;
       max-width: 1170px;
     }
     .studio-slider__title {
@@ -117,7 +117,7 @@
   }
   @media (min-width: 1700px) {
     .studio-slider__caption {
-      padding: 240px 0;
+      padding: 160px 0;
       max-width: 1050px;
     }
     .studio-slider__title {
