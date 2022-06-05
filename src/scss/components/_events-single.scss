@@ -1,19 +1,8 @@
-// .events-single__grid {
-//   display: grid;
-//   grid-template-columns: 1fr;
-// }
-
 .events-single__wrapper {
-  // background-image: url("../img/events/triangles.png");
-  // background-size: 80%;
-  // background-repeat: no-repeat;
-  // background-position: -200px top;
   margin-top: calc(#{var(--headerHeight)} * -1);
   padding-top: var(--headerHeight);
 }
 .events-single {
-  padding-bottom: 500px;
-  margin-bottom: -300px;
   .triangles {
     top: calc(#{var(--headerHeight)} * -1);
     left: 0;
@@ -239,7 +228,7 @@
 }
 
 .event-visit {
-  padding-top: 100px;
+  padding-top: 40px;
   .section-title {
     max-width: 320px;
     margin: 0 auto 50px;

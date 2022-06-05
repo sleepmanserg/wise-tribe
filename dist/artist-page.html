@@ -95,12 +95,12 @@
             </div>
           </div>
         </section>
-        <section class="popular">
+        <section class="popular position-relative">
+          <div class="popular-absolute"><img class="position-absolute" src="./img/decorations/decor-01.svg"><img class="position-absolute" src="./img/decorations/snake.svg"><img class="position-absolute" src="./img/decorations/bird.svg"><img class="position-absolute" src="./img/decorations/decor-09.svg"></div>
           <div class="container">
             <div class="section-title text-md-center">Popular tracks</div>
           </div>
           <div class="swiper popular-slider position-relative">
-            <div class="popular-absolute"><img class="position-absolute" src="./img/decorations/decor-01.svg"></div>
             <div class="swiper-wrapper">
               <div class="swiper-slide"><a class="popular-item" href="#">
                   <div class="popular-item__number"></div>
@@ -523,11 +523,15 @@
                     <div class="popular-item__artitst">Roma Nebo • 2021</div>
                   </div></a></div>
             </div>
-            <div class="circle-button circle-button-next popular-slider__btn"></div>
+            <div class="popular-slider-nav">
+              <div class="circle-button circle-button-prev popular-slider__btn"></div>
+              <div class="circle-button circle-button-next popular-slider__btn"></div>
+            </div>
           </div>
         </section>
         <section class="events position-relative">
-          <h2 class="section-title text-center">Albums</h2>
+          <div class="artist-events-absolute"><img class="position-absolute" src="./img/decorations/decor-06.svg"><img class="position-absolute" src="./img/decorations/decor-07.svg"><img class="position-absolute" src="./img/decorations/eagle.svg"></div>
+          <h2 class="section-title text-center mb-md-5">Albums</h2>
           <div class="swiper events-slider scaled-slider">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><a class="events-slider__item artist-albums__item" href="#">
@@ -566,66 +570,6 @@
                     <div class="albums-slider-title">The wizard</div>
                     <div class="albums-slider-year">2018</div>
                   </div></a></div>
-              <div class="swiper-slide"><a class="events-slider__item artist-albums__item" href="#">
-                  <div class="events-slider__img">
-                    <div class="events-slider__img-inner">
-                      <picture>
-                        <source srcset="img/hero-slider/04.webp" type="image/webp"><img src="img/hero-slider/04.jpg" alt="Artist">
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="albums-slider-caption">
-                    <div class="albums-slider-title">The wizard</div>
-                    <div class="albums-slider-year">2018</div>
-                  </div></a></div>
-              <div class="swiper-slide"><a class="events-slider__item artist-albums__item" href="#">
-                  <div class="events-slider__img">
-                    <div class="events-slider__img-inner">
-                      <picture>
-                        <source srcset="img/hero-slider/05.webp" type="image/webp"><img src="img/hero-slider/05.jpg" alt="Artist">
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="albums-slider-caption">
-                    <div class="albums-slider-title">The wizard</div>
-                    <div class="albums-slider-year">2018</div>
-                  </div></a></div>
-              <div class="swiper-slide"><a class="events-slider__item artist-albums__item" href="#">
-                  <div class="events-slider__img">
-                    <div class="events-slider__img-inner">
-                      <picture>
-                        <source srcset="img/hero-slider/06.webp" type="image/webp"><img src="img/hero-slider/06.png" alt="Artist">
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="albums-slider-caption">
-                    <div class="albums-slider-title">The wizard</div>
-                    <div class="albums-slider-year">2018</div>
-                  </div></a></div>
-              <div class="swiper-slide"><a class="events-slider__item artist-albums__item" href="#">
-                  <div class="events-slider__img">
-                    <div class="events-slider__img-inner">
-                      <picture>
-                        <source srcset="img/hero-slider/06.webp" type="image/webp"><img src="img/hero-slider/06.png" alt="Artist">
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="albums-slider-caption">
-                    <div class="albums-slider-title">The wizard</div>
-                    <div class="albums-slider-year">2018</div>
-                  </div></a></div>
-              <div class="swiper-slide"><a class="events-slider__item artist-albums__item" href="#">
-                  <div class="events-slider__img">
-                    <div class="events-slider__img-inner">
-                      <picture>
-                        <source srcset="img/hero-slider/06.webp" type="image/webp"><img src="img/hero-slider/06.png" alt="Artist">
-                      </picture>
-                    </div>
-                  </div>
-                  <div class="albums-slider-caption">
-                    <div class="albums-slider-title">The wizard</div>
-                    <div class="albums-slider-year">2018</div>
-                  </div></a></div>
             </div>
           </div>
           <div class="container">
@@ -635,7 +579,8 @@
             </div>
           </div>
         </section>
-        <section class="video-clips">
+        <section class="video-clips position-relative">
+          <div class="video-clips-absolute"><img class="position-absolute" src="./img/decorations/decor-09.svg"><img class="position-absolute" src="./img/decorations/decor-05.svg"></div>
           <div class="container">
             <div class="section-title mb-title">Video clips</div>
           </div>
@@ -700,6 +645,12 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="swiper-nav d-flex justify-content-between align-items-center">
+              <div class="arrow-button arrow-button__prev video-button-prev"><span>PREV</span></div>
+              <div class="arrow-button arrow-button__next video-button-next"><span>NEXT</span></div>
             </div>
           </div>
         </section>

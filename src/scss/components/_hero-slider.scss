@@ -80,6 +80,15 @@ section.hero {
     i {
       font-size: 20px;
       transition: 0.25s;
+      &.icon-pause {
+        font-size: 32px;
+      }
+      @media (max-width: 768px) {
+        font-size: 14px;
+        &.icon-pause {
+          font-size: 22px;
+        }
+      }
     }
     svg {
       width: 20px;
@@ -88,6 +97,10 @@ section.hero {
       rect {
         fill: $blue;
         transition: 0.25s;
+      }
+      @media (max-width: 768px) {
+        width: 14px;
+        height: 14px;
       }
     }
     @include hover {

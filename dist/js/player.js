@@ -564,15 +564,15 @@ const heroAudioPlayer = async () => {
 		}
 
 		function heroSliderToggleBtnPlay() {
-			playPauseBtnSlide.querySelector('.play-icon').classList.add('d-none');
-			playPauseBtnSlide.querySelector('.pause-icon').classList.remove('d-none');
+			playPauseBtnSlide.querySelector('.icon-play-rounded').classList.add('d-none');
+			playPauseBtnSlide.querySelector('.icon-pause').classList.remove('d-none');
 			playPauseBtnControl.querySelector('.play-icon').classList.add('d-none');
 			playPauseBtnControl.querySelector('.pause-icon').classList.remove('d-none');
 		}
 
 		function heroSliderToggleBtnPause() {
-			playPauseBtnSlide.querySelector('.play-icon').classList.remove('d-none');
-			playPauseBtnSlide.querySelector('.pause-icon').classList.add('d-none');
+			playPauseBtnSlide.querySelector('.icon-play-rounded').classList.remove('d-none');
+			playPauseBtnSlide.querySelector('.icon-pause').classList.add('d-none');
 			playPauseBtnControl.querySelector('.play-icon').classList.remove('d-none');
 			playPauseBtnControl.querySelector('.pause-icon').classList.add('d-none');
 		}
@@ -707,8 +707,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	swiperMainHome.on('slideChange', function () {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
 		swiperMainHome.updateSlidesClasses();
-		document.querySelector('.hero .play-icon').classList.remove('d-none');
-		document.querySelector('.hero .pause-icon').classList.add('d-none');
+		document.querySelector('.hero .icon-play-rounded').classList.remove('d-none');
+		document.querySelector('.hero .icon-pause').classList.add('d-none');
 		document.querySelector('.player-controls .play-icon').classList.remove('d-none');
 		document.querySelector('.player-controls .pause-icon').classList.add('d-none');
 		heroAudioPlayer();
