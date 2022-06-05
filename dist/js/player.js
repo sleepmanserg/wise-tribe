@@ -1,56 +1,56 @@
 /** Audio player */
-// let allMusic = [
-// 	{
-// 		name: "Elite",
-// 		artist: "Deftones",
-// 		img: "../img/covers/white-pony.jpg",
-// 		src: "Elite",
-// 		artistId: '1',
-// 	},
-// 	{
-// 		name: "In the End",
-// 		artist: "Linkin Park",
-// 		img: "../img/covers/hybrid-theory.jpg",
-// 		src: "In the End",
-// 		artistId: '2',
-// 	},
-// 	{
-// 		name: "Sleep Now In The Fire",
-// 		artist: "Rage Against the Machine",
-// 		img: "../img/covers/rage-against.jpg",
-// 		src: "Sleep Now In The Fire",
-// 		artistId: '1',
-// 	},
-// 	{
-// 		name: "Minerva",
-// 		artist: "Deftones",
-// 		img: "../img/covers/minerva.jpg",
-// 		src: "Minerva",
-// 		artistId: '1',
-// 	},
-// 	{
-// 		name: "Faint",
-// 		artist: "Linkin Park",
-// 		img: "../img/covers/meteora.jpg",
-// 		src: "Faint",
-// 		artistId: '2',
-// 	},
-// 	{
-// 		name: "Diamond eyes",
-// 		artist: "Deftones",
-// 		img: "../img/covers/diamond-eyes.jpg",
-// 		src: "Diamond Eyes",
-// 		artistId: '1',
-// 	},
-// 	{
-// 		name: "Renegades Of Funk",
-// 		artist: "Rage Against the Machine",
-// 		img: "../img/covers/renegades.jpg",
-// 		src: "Renegades Of Funk",
-// 		artistId: '3',
-// 	},
+let allMusic = [
+	{
+		name: "Elite",
+		artist: "Deftones",
+		img: "../img/covers/white-pony.jpg",
+		src: "Elite",
+		artistId: '1',
+	},
+	{
+		name: "In the End",
+		artist: "Linkin Park",
+		img: "../img/covers/hybrid-theory.jpg",
+		src: "In the End",
+		artistId: '2',
+	},
+	{
+		name: "Sleep Now In The Fire",
+		artist: "Rage Against the Machine",
+		img: "../img/covers/rage-against.jpg",
+		src: "Sleep Now In The Fire",
+		artistId: '1',
+	},
+	{
+		name: "Minerva",
+		artist: "Deftones",
+		img: "../img/covers/minerva.jpg",
+		src: "Minerva",
+		artistId: '1',
+	},
+	{
+		name: "Faint",
+		artist: "Linkin Park",
+		img: "../img/covers/meteora.jpg",
+		src: "Faint",
+		artistId: '2',
+	},
+	{
+		name: "Diamond eyes",
+		artist: "Deftones",
+		img: "../img/covers/diamond-eyes.jpg",
+		src: "Diamond Eyes",
+		artistId: '1',
+	},
+	{
+		name: "Renegades Of Funk",
+		artist: "Rage Against the Machine",
+		img: "../img/covers/renegades.jpg",
+		src: "Renegades Of Funk",
+		artistId: '3',
+	},
 
-// ]
+]
 
 const playerWrapper = document.querySelector('.audio-player-wrapper');
 
@@ -389,9 +389,9 @@ const getData = (playlist) => {
 
 
 const init = async (url) => {
-	const allMusic = await getData(url);
+	const artistData = await getData(url);
 
-	return await allMusic.music;
+	return await artistData.music;
 };
 
 
@@ -417,7 +417,7 @@ const heroAudioPlayer = async () => {
 
 		let musicIndex = 1;
 
-		let allMusic = await init(parentActiveSlideItem.dataset.playlist);
+		let artistData = await init(parentActiveSlideItem.dataset.playlist);
 
 		function heroSliderFirstRender() {
 			trackAllSlides.forEach(slide => {
@@ -426,31 +426,45 @@ const heroAudioPlayer = async () => {
 			});
 		};
 
-		renderAudioList(allMusic);
+		renderAudioList(artistData);
 
 		// Load music function
 		function loadMusic(indexNumb, musics) {
 			heroSliderFirstRender();
 			let artistInfo = musics[indexNumb - 1];
 			trackName.innerText = artistInfo.name;
-			trackImg.src = allMusic[musicIndex - 1].img;
+			trackImg.src = artistData[musicIndex - 1].img;
 			trackImg.alt = artistInfo.artist;
 			trackMain.src = artistInfo.src;
 			trackControlImg.src = trackImg.src;
 		}
 
-		loadMusic(musicIndex, allMusic);
+		loadMusic(musicIndex, artistData);
+
+		function fetchAudioPlay() {
+			fetch(trackMain.src)
+			.then(response => response.blob())
+			.then(blob => {
+				console.log('Audio started...');
+				return trackMain.play();
+			})
+			.catch(e => {
+			  console.log('Audio failed...');
+			})
+		};
 
 		// Play music function
 		function playMusic() {
 			heroPlayerWrapper.classList.add('paused');
-			// trackImg.src = allMusic[musicIndex - 1].img;
-			trackMain.play();
+			console.log('play');
+			// trackMain.play();
+			fetchAudioPlay();
 		}
 
 		// Pause music function
 		function pauseMusic() {
 			heroPlayerWrapper.classList.remove('paused');
+			console.log('pause');
 			trackMain.pause();
 		}
 
@@ -458,7 +472,7 @@ const heroAudioPlayer = async () => {
 		function nextMusic(musics) {
 			musicIndex++;
 			musicIndex > musics.length ? musicIndex = 1 : musicIndex = musicIndex;
-			loadMusic(musicIndex, allMusic);
+			loadMusic(musicIndex, artistData);
 			playMusic();
 		}
 
@@ -466,7 +480,7 @@ const heroAudioPlayer = async () => {
 		function prevMusic(musics) {
 			musicIndex--;
 			musicIndex < 1 ? musicIndex = musics.length : musicIndex = musicIndex;
-			loadMusic(musicIndex, allMusic);
+			loadMusic(musicIndex, artistData);
 			playMusic();
 		}
 
@@ -540,23 +554,13 @@ const heroAudioPlayer = async () => {
 					allPlayListItems[j].classList.add('playing');
 					audioTag.innerText = "playing...";
 				}
-				allPlayListItems[j].addEventListener('click', () => {
-					clicked();
-				});
-				function clicked(element) {
-					let getLiIndex = allPlayListItems[j].getAttribute('li-index');
-					musicIndex = getLiIndex;
-					loadMusic(musicIndex, allMusic);
-					playMusic();
-					playingNow();
-				}
 			}
 		}
 
 		function playPauseControls() {
 			const isMusicPaused = heroPlayerWrapper.classList.contains('paused');
 			isMusicPaused ? pauseMusic() : playMusic();
-			playingNow();
+			// playingNow();
 		}
 
 		function heroSliderToggleBtnPlay() {
@@ -573,29 +577,32 @@ const heroAudioPlayer = async () => {
 			playPauseBtnControl.querySelector('.pause-icon').classList.add('d-none');
 		}
 
-		// playPauseBtn.forEach(play => {
 		playPauseBtnSlide.addEventListener('click', () => {
 			playPauseControls();
 		});
 
 		playPauseBtnControl.addEventListener('click', () => {
 			playPauseControls();
+
+			if (!trackMain.paused) {
+				trackMain.pause();
+			}
 		});
-		// })
 
 		playerNextBtn.addEventListener('click', () => {
-			nextMusic(allMusic);
+			nextMusic(artistData);
 			playingNow();
 		});
 
 		playerPrevBtn.addEventListener('click', () => {
-			prevMusic(allMusic);
+			prevMusic(artistData);
 			playingNow();
 		});
 
 		trackMain.addEventListener('playing', () => {
 			heroSliderToggleBtnPlay();
 		});
+		
 		trackMain.addEventListener('pause', () => {
 			heroSliderToggleBtnPause();
 		});
@@ -709,12 +716,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	swiperMainHome.on('tap', function () {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
-		heroAudioPlayer();
 	});
 
 	swiperMainHome.on('touchEnd', function () {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
-		heroAudioPlayer();
 	});
 
 	// Detect and add condition classes to slides

@@ -4,14 +4,14 @@
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/white-pony.jpg",
-            "src" : "/songs/Diamond Eyes.mp3",
+            "src" : "/songs/Elite.mp3",
             "is_main" : 1
         },
         {
             "name" : "Sleep Now In The Fire2",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/hybrid-theory.jpg",
-            "src" : "/songs/Elite.mp3",
+            "src" : "/songs/Diamond Eyes.mp3",
             "is_main" : 0
         },
         {
