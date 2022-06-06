@@ -279,7 +279,7 @@ if (playerWrapper) {
 				<div class="player-list__item-artist">${allMusic[i].artist}</div>
 				<div class="player-list__item-media">${allMusic[i].name}</div>
 			</div>
-			<audio class="${audioClassName}" src="../songs/${allMusic[i].src}.mp3"></audio>
+			<audio class="${audioClassName}" src="${allMusic[i].src}"></audio>
 			<div class="player-list__item-duration"><span id="${audioClassName}" class="player-list__item-end">3:20</span></div>
 		</li>`;
 
@@ -381,10 +381,23 @@ if (playerWrapper) {
 
 
 
+const getData = (playlist) => {
+	let url = playlist;
+
+	return fetch(url).then(response => response.json());
+};
+
+
+const init = async (url) => {
+	const artistData = await getData(url);
+
+	return await artistData.music;
+};
+
 
 
 /*~/ Hero slider audio /~*/
-const heroAudioPlayer = () => {
+const heroAudioPlayer = async () => {
 	const heroPlayerWrapper = document.querySelector('.hero');
 
 	if (heroPlayerWrapper) {
@@ -404,49 +417,54 @@ const heroAudioPlayer = () => {
 
 		let musicIndex = 1;
 
-		let artistMusics = [];
+		let artistData = await init(parentActiveSlideItem.dataset.playlist);
 
 		function heroSliderFirstRender() {
 			trackAllSlides.forEach(slide => {
-				let artistInfo = allMusic[slide.dataset.artist - 1];
-				slide.children[0].children[0].src = `${artistInfo.img}`;
-				slide.children[0].children[0].alt = `${artistInfo.name + ' ' + artistInfo.artist}`;
+				slide.children[0].children[0].src = slide.dataset.artist;
+				slide.children[0].children[0].alt = slide.children[1].children[1].children[0].textContent;
 			});
 		};
 
-		allMusic.forEach(music => {
-			if (music.artistId === parentActiveSlideItem.dataset.artist) {
-				artistMusics.push(music);
-			}
-		});
-		renderAudioList(artistMusics);
+		renderAudioList(artistData);
 
 		// Load music function
 		function loadMusic(indexNumb, musics) {
 			heroSliderFirstRender();
 			let artistInfo = musics[indexNumb - 1];
 			trackName.innerText = artistInfo.name;
-			trackImg.src = `${artistInfo.img}`;
-			trackImg.alt = `${artistInfo.name + ' ' + artistInfo.artist}`;
-			trackMain.src = `../songs/${artistInfo.src}.mp3`;
+			trackImg.src = artistData[musicIndex - 1].img;
+			trackImg.alt = artistInfo.artist;
+			trackMain.src = artistInfo.src;
 			trackControlImg.src = trackImg.src;
 		}
 
-		window.addEventListener('load', () => {
-			loadMusic(musicIndex, artistMusics);
-			playingNow();
-		});
-		loadMusic(musicIndex, artistMusics);
+		loadMusic(musicIndex, artistData);
+
+		function fetchAudioPlay() {
+			fetch(trackMain.src)
+			.then(response => response.blob())
+			.then(blob => {
+				console.log('Audio started...');
+				return trackMain.play();
+			})
+			.catch(e => {
+			  console.log('Audio failed...');
+			})
+		};
 
 		// Play music function
 		function playMusic() {
 			heroPlayerWrapper.classList.add('paused');
-			trackMain.play();
+			console.log('play');
+			// trackMain.play();
+			fetchAudioPlay();
 		}
 
 		// Pause music function
 		function pauseMusic() {
 			heroPlayerWrapper.classList.remove('paused');
+			console.log('pause');
 			trackMain.pause();
 		}
 
@@ -454,7 +472,7 @@ const heroAudioPlayer = () => {
 		function nextMusic(musics) {
 			musicIndex++;
 			musicIndex > musics.length ? musicIndex = 1 : musicIndex = musicIndex;
-			loadMusic(musicIndex, artistMusics);
+			loadMusic(musicIndex, artistData);
 			playMusic();
 		}
 
@@ -462,7 +480,7 @@ const heroAudioPlayer = () => {
 		function prevMusic(musics) {
 			musicIndex--;
 			musicIndex < 1 ? musicIndex = musics.length : musicIndex = musicIndex;
-			loadMusic(musicIndex, artistMusics);
+			loadMusic(musicIndex, artistData);
 			playMusic();
 		}
 
@@ -472,7 +490,7 @@ const heroAudioPlayer = () => {
 
 			musics.forEach((music, i) => {
 				const { artist, src, img, name } = music;
-				let audioClassName = capitalizeFirstLetter(artist.split(" ").join("") + src.split(" ").join(""));
+				let audioClassName = capitalizeFirstLetter(artist.split(" ").join("") + src.split(" ").join("").slice(7).split('.')[0]);
 				let playListItem =
 					`<li li-index="${i + 1}" class="player-playlist__list-item player-list__item">
 						<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
@@ -492,7 +510,7 @@ const heroAudioPlayer = () => {
 							<div class="player-list__item-artist">${artist}</div>
 							<div class="player-list__item-media">${name}</div>
 						</div>
-						<audio class="${audioClassName}" src="../songs/${src}.mp3"></audio>
+						<audio class="${audioClassName}" src="${src}"></audio>
 						<div class="player-list__item-duration"><span id="${audioClassName}" class="player-list__item-end">3:20</span></div>
 					</li>`;
 
@@ -536,23 +554,13 @@ const heroAudioPlayer = () => {
 					allPlayListItems[j].classList.add('playing');
 					audioTag.innerText = "playing...";
 				}
-				allPlayListItems[j].addEventListener('click', () => {
-					clicked();
-				});
-				function clicked(element) {
-					let getLiIndex = allPlayListItems[j].getAttribute('li-index');
-					musicIndex = getLiIndex;
-					loadMusic(musicIndex, artistMusics);
-					playMusic();
-					playingNow();
-				}
 			}
 		}
 
 		function playPauseControls() {
 			const isMusicPaused = heroPlayerWrapper.classList.contains('paused');
 			isMusicPaused ? pauseMusic() : playMusic();
-			playingNow();
+			// playingNow();
 		}
 
 		function heroSliderToggleBtnPlay() {
@@ -569,29 +577,32 @@ const heroAudioPlayer = () => {
 			playPauseBtnControl.querySelector('.pause-icon').classList.add('d-none');
 		}
 
-		// playPauseBtn.forEach(play => {
 		playPauseBtnSlide.addEventListener('click', () => {
 			playPauseControls();
 		});
 
 		playPauseBtnControl.addEventListener('click', () => {
 			playPauseControls();
+
+			if (!trackMain.paused) {
+				trackMain.pause();
+			}
 		});
-		// })
 
 		playerNextBtn.addEventListener('click', () => {
-			nextMusic(artistMusics);
+			nextMusic(artistData);
 			playingNow();
 		});
 
 		playerPrevBtn.addEventListener('click', () => {
-			prevMusic(artistMusics);
+			prevMusic(artistData);
 			playingNow();
 		});
 
 		trackMain.addEventListener('playing', () => {
 			heroSliderToggleBtnPlay();
 		});
+		
 		trackMain.addEventListener('pause', () => {
 			heroSliderToggleBtnPause();
 		});
@@ -705,12 +716,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	swiperMainHome.on('tap', function () {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
-		heroAudioPlayer();
 	});
 
 	swiperMainHome.on('touchEnd', function () {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
-		heroAudioPlayer();
 	});
 
 	// Detect and add condition classes to slides
@@ -754,14 +763,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		slides[nextSlidesIndexes[1]].classList.add('swiper-slide-next-n1');
 		slides[nextSlidesIndexes[2]].classList.add('swiper-slide-next-n2');
 	}
-
-	// const heroSliderBtns = document.querySelectorAll('.hero .arrow-button');
-
-	// heroSliderBtns.forEach(btn => {
-	// 	btn.addEventListener('click', () => {
-	// 		heroAudioPlayer();
-	// 	});
-	// });
 
 	heroAudioPlayer();
 });
