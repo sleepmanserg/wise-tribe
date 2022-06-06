@@ -13,7 +13,6 @@ append config
 //- Page Content
 block content
   .home-wrapper
-
     //Hero Slider
     include home/hero-slider
 
@@ -72,6 +71,11 @@ block content
               span Start now
 
     section.experience.parallax-wrap.position-relative
+      .random-circles
+        - for(var x = 0; x < 4; x++)
+          div(class="decor-circle decor-circle__one decor-circle-" + x)
+        - for(var x = 0; x < 4; x++)
+          div(class="decor-circle decor-circle__two decor-circle-" + x)
       .container
         .experience-caption
           h2.section-title.text-center WISE MUSIC Experience

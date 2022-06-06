@@ -315,7 +315,7 @@
 }
 
 .events-hero {
-  --sectionPaddingTop: 70px;
+  --sectionPaddingTop: var(--headerHeight);
   padding-top: var(--sectionPaddingTop);
   padding-bottom: 0;
   margin-bottom: 100px;
@@ -325,8 +325,8 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("../img/events/events-hero.jpg");
-  @media (max-width: 768px) {
-    min-height: 100vh;
+  min-height: 100vh;
+  .back-btn {
   }
   > * {
     position: relative;
@@ -352,6 +352,10 @@
     margin: 0 auto;
     padding-top: 60px;
     padding-bottom: 88px;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     .section-title {
       max-width: 280px;
       text-align: center;
@@ -397,7 +401,7 @@
     }
   }
   @media (min-width: 768px) {
-    --sectionPaddingTop: 88px;
+    // --sectionPaddingTop: 88px;
     margin-bottom: 120px;
     .events-single__labels {
       margin-bottom: 35px;
@@ -438,7 +442,7 @@
     }
   }
   @media (min-width: 1366px) {
-    padding-top: 108px;
+    // padding-top: 108px;
     margin-bottom: 160px;
     .events-hero__caption {
       padding-top: 60px;
@@ -450,7 +454,7 @@
     }
   }
   @media (min-width: 1700px) {
-    padding-top: 155px;
+    // padding-top: 155px;
     margin-bottom: 200px;
     .events-hero__caption {
       padding-top: 50px;

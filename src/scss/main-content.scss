@@ -609,7 +609,8 @@ main {
     .charity-img {
       --charityImgRadius: 100px;
       --charityMountRadius: 100px;
-      width: 90%;
+      width: 80%;
+      margin: 0 auto;
       img {
         aspect-ratio: 4 / 4;
       }
@@ -663,7 +664,7 @@ main {
       max-width: 822px;
     }
     .charity-img {
-      width: 95%;
+      width: 85%;
       --charityImgRadius: 160px;
       --charityMountRadius: 180px;
     }
@@ -823,18 +824,22 @@ main {
 }
 
 .no-webp {
-  .packaging-card {
-    &::before {
-      background-image: url("../img/charity/packaging.png");
+  .lazy-background.visible {
+    .packaging-card {
+      &::before {
+        background-image: url("../img/charity/packaging.png");
+      }
     }
   }
 }
 
 .webp {
-  .packaging-card {
-    &::before {
-      background-image: url("../img/charity/packaging.webp");
-      z-index: 2;
+  .lazy-background.visible {
+    .packaging-card {
+      &::before {
+        background-image: url("../img/charity/packaging.webp");
+        z-index: 2;
+      }
     }
   }
 }

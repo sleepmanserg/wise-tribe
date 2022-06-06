@@ -179,8 +179,8 @@ const swiperStudio = new Swiper(".studio-slider", {
 	slidesPerView: 1,
 	speed: 500,
 	loop: true,
-	preloadImages: false,
-	lazy: true,
+	// preloadImages: false,
+	// lazy: true,
 	pagination: {
 		clickable: true,
 		el: ".studio-pagination",
@@ -190,40 +190,31 @@ const swiperStudio = new Swiper(".studio-slider", {
 /** Tiktok slider */
 
 const swiperTiktok = new Swiper(".tiktok-slider", {
-	slidesPerView: 3.5,
+	slidesPerView: 'auto',
 	spaceBetween: 15,
-	loop: true,
 	speed: 500,
 	preloadImages: false,
 	lazy: true,
 	navigation: {
-		nextEl: '.tiktok-slider__btn',
+		nextEl: '.circle-button-next.tiktok-slider__btn',
+		prevEl: '.circle-button-prev.tiktok-slider__btn',
 	},
 	breakpoints: {
-		320: {
-			slidesPerView: 3.3,
-			spaceBetween: 15,
-		},
-		768: {
-			slidesPerView: 4.3,
-			spaceBetween: 25,
+		575: {
+			spaceBetween: 20,
 		},
 		1024: {
-			slidesPerView: 4.5,
 			spaceBetween: 30,
 		},
-		1366: {
-			slidesPerView: 4.8,
-			spaceBetween: 37,
-		},
-		1700: {
-			slidesPerView: 6,
-			spaceBetween: 30,
-		},
-		1921: {
-			slidesPerView: 7,
-			spaceBetween: 30,
-		},
+		// 1366: {
+		// 	spaceBetween: 30,
+		// },
+		// 1700: {
+		// 	spaceBetween: 30,
+		// },
+		// 1921: {
+		// 	spaceBetween: 30,
+		// },
 	},
 	on: {
 		init: function () {
@@ -395,37 +386,32 @@ sliderPaddingHack();
 /** Projects slider */
 
 const projectsSlider = new Swiper('.projects-slider', {
-	slidesPerView: 1.2,
+	slidesPerView: 'auto',
 	spaceBetween: 20,
 	grabCursor: true,
 	speed: 500,
 	navigation: {
-		nextEl: '.projects-slider__btn',
+		nextEl: '.circle-button-next.projects-slider__btn',
+		prevEl: '.circle-button-prev.projects-slider__btn',
 	},
 
 	breakpoints: {
 		320: {
-			slidesPerView: 1.35,
 			spaceBetween: 15,
 		},
 		575: {
-			slidesPerView: 1.5,
 			spaceBetween: 20,
 		},
 		768: {
-			slidesPerView: 2.1,
 			spaceBetween: 20,
 		},
 		1024: {
-			slidesPerView: 2.2,
 			spaceBetween: 30,
 		},
 		1366: {
-			slidesPerView: 2.7,
 			spaceBetween: 40,
 		},
 		1700: {
-			slidesPerView: 3.2,
 			spaceBetween: 36,
 		},
 	},
@@ -448,7 +434,7 @@ function tiktokSliderBtnPosition() {
 
 function sliderArrowPosition() {
 	let projectsSLiderImg = document.querySelector('.projects-slider__thumb');
-	let projectsSliderArrow = document.querySelector('.projects-slider__btn');
+	let projectsSliderArrow = document.querySelector('.projects-slider__nav');
 	let projectsSliderArrowHeight = projectsSliderArrow.offsetHeight / 2;
 	let projectsSliderImgHeight = projectsSLiderImg.offsetHeight / 2 - projectsSliderArrowHeight;
 
@@ -593,7 +579,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			document.body.style.overflow = '';
 			document.body.style.paddingRight = '';
 			preload.classList.add('loaded');
-		}, 1000);
+		}, 2000);
 	}
 });
 

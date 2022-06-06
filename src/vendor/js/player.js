@@ -443,14 +443,14 @@ const heroAudioPlayer = async () => {
 
 		function fetchAudioPlay() {
 			fetch(trackMain.src)
-			.then(response => response.blob())
-			.then(blob => {
-				console.log('Audio started...');
-				return trackMain.play();
-			})
-			.catch(e => {
-			  console.log('Audio failed...');
-			})
+				.then(response => response.blob())
+				.then(blob => {
+					console.log('Audio started...');
+					return trackMain.play();
+				})
+				.catch(e => {
+					console.log('Audio failed...');
+				})
 		};
 
 		// Play music function
@@ -602,7 +602,7 @@ const heroAudioPlayer = async () => {
 		trackMain.addEventListener('playing', () => {
 			heroSliderToggleBtnPlay();
 		});
-		
+
 		trackMain.addEventListener('pause', () => {
 			heroSliderToggleBtnPause();
 		});

@@ -1,6 +1,7 @@
 .projects-slider {
   --paddingInline: 1.25rem;
-  padding-left: var(--paddingInline);
+  padding-left: calc(var(--paddingInline) * 2);
+  margin-left: calc(var(--paddingInline) * -1);
   padding-right: var(--paddingInline);
   position: relative;
   &::after {
@@ -17,6 +18,18 @@
     );
     z-index: 2;
     pointer-events: none;
+  }
+  .swiper-slide {
+    width: 230px;
+    @media (min-width: 575px) {
+      width: 320px;
+    }
+    @media (min-width: 1024px) {
+      width: 360px;
+    }
+    @media (min-width: 1700px) {
+      width: 500px;
+    }
   }
   .projects-slider__item {
     --projecstSliderItemRadius: 20px;
@@ -82,10 +95,14 @@
     line-height: 140%;
   }
   .circle-button {
-    position: absolute;
-    top: 0;
+    // position: absolute;
+    // top: 0;
     right: 1.25rem;
     z-index: 5;
+    &.circle-button-prev {
+      // transform-origin: center top;
+      transform: rotate(0);
+    }
   }
   .projects-slider__navigation {
     // position: absolute;
@@ -112,5 +129,17 @@
     .projects-slider__item {
       --projecstSliderItemRadius: 60px;
     }
+  }
+}
+
+.projects-slider__nav {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 13;
+  pointer-events: none;
+  .circle-button {
+    pointer-events: all;
   }
 }
