@@ -53,40 +53,6 @@ if (menuToggle) {
 	});
 }
 
-/** Hero slider */
-
-// const swiperMainHome = new Swiper(".hero-slider", {
-// 	effect: "coverflow",
-// 	slidesPerView: 'auto',
-// 	grabCursor: true,
-// 	// autoHeight: true,
-// 	speed: 500,
-// 	loop: true,
-// 	centeredSlides: true,
-// 	slideToClickedSlide: false,
-// 	allowTouchMove: false,
-// 	navigation: {
-// 		nextEl: ".swiper-btn-next",
-// 		prevEl: ".swiper-btn-prev"
-// 	},
-// 	coverflowEffect: {
-// 		rotate: 0,
-// 		stretch: 0,
-// 		depth: 0,
-// 		modifier: 3,
-// 		slideShadows: false,
-// 	},
-// 	on: {
-// 		init: function () {
-// 			swiperHomeClassTweak(this.slides, this.activeIndex);
-// 		},
-// 	},
-// });
-
-// swiperMainHome.on('slideChange', function () {
-// 	swiperHomeClassTweak(this.slides, this.activeIndex);
-// });
-
 /** Events slider */
 
 const swiperEvents = new Swiper(".events-slider", {
@@ -98,6 +64,8 @@ const swiperEvents = new Swiper(".events-slider", {
 	loopFillGroupWithBlank: true,
 	centeredSlides: true,
 	slideToClickedSlide: true,
+	preloadImages: false,
+	lazy: true,
 	navigation: {
 		nextEl: ".events-button-next",
 		prevEl: ".events-button-prev"
@@ -111,12 +79,13 @@ const swiperEvents = new Swiper(".events-slider", {
 	},
 });
 
-
 /** Mixes slider */
 
 const swiperMixes = new Swiper(".mixes-slider", {
 	grabCursor: true,
 	speed: 500,
+	preloadImages: false,
+	lazy: true,
 	navigation: {
 		nextEl: ".mixes-button-next",
 		prevEl: ".mixes-button-prev"
@@ -126,7 +95,8 @@ const swiperMixes = new Swiper(".mixes-slider", {
 			slidesPerView: 2.1,
 			centeredSlides: true,
 			spaceBetween: 20,
-			slidesPerGroup: 2.1,
+			slidesPerGroup: 1,
+			loop: true
 		},
 		768: {
 			slidesPerView: 3,
@@ -143,11 +113,6 @@ const swiperMixes = new Swiper(".mixes-slider", {
 			spaceBetween: 40,
 			slidesPerGroup: 4,
 		},
-		1921: {
-			slidesPerView: 5,
-			spaceBetween: 40,
-			slidesPerGroup: 5,
-		}
 	},
 });
 
@@ -157,6 +122,8 @@ const swiperMixes = new Swiper(".mixes-slider", {
 const swiper = new Swiper(".releases-slider", {
 	effect: "cards",
 	grabCursor: true,
+	preloadImages: false,
+	lazy: true,
 	navigation: {
 		nextEl: ".releases-button-next",
 		prevEl: ".releases-button-prev",
@@ -212,6 +179,8 @@ const swiperStudio = new Swiper(".studio-slider", {
 	slidesPerView: 1,
 	speed: 500,
 	loop: true,
+	preloadImages: false,
+	lazy: true,
 	pagination: {
 		clickable: true,
 		el: ".studio-pagination",
@@ -225,12 +194,14 @@ const swiperTiktok = new Swiper(".tiktok-slider", {
 	spaceBetween: 15,
 	loop: true,
 	speed: 500,
+	preloadImages: false,
+	lazy: true,
 	navigation: {
 		nextEl: '.tiktok-slider__btn',
 	},
 	breakpoints: {
 		320: {
-			slidesPerView: 3.5,
+			slidesPerView: 3.3,
 			spaceBetween: 15,
 		},
 		768: {
@@ -618,11 +589,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	const preload = document.querySelector('.preloader');
 
 	if (preload) {
-		document.documentElement.classList.add('overflow-hidden');
 		setTimeout(function () {
-			document.documentElement.classList.remove('overflow-hidden');
+			document.body.style.overflow = '';
+			document.body.style.paddingRight = '';
 			preload.classList.add('loaded');
-		}, 8000);
+		}, 1000);
 	}
 });
 
@@ -1106,6 +1077,43 @@ document.addEventListener('DOMContentLoaded', () => {
 			});
 
 		}
+	}
+
+	const images = Array.from(document.querySelectorAll('.lazy-image img'));
+
+	if ('IntersectionObserver' in window) {
+		const imageObserver = new IntersectionObserver((entries, observer) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					const image = entry.target;
+
+					image.src = image.dataset.src;
+					image.onload = () => image.previousElementSibling.remove();
+					image.style.opacity = '1';
+
+					imageObserver.unobserve(image);
+				}
+			});
+		});
+
+		images.forEach(img => imageObserver.observe(img));
+	}
+
+	const lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-background"));
+
+	if ("IntersectionObserver" in window) {
+		let lazyBackgroundObserver = new IntersectionObserver(function (entries, observer) {
+			entries.forEach(function (entry) {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+					lazyBackgroundObserver.unobserve(entry.target);
+				}
+			});
+		});
+
+		lazyBackgrounds.forEach(function (lazyBackground) {
+			lazyBackgroundObserver.observe(lazyBackground);
+		});
 	}
 
 });

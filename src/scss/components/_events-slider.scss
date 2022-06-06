@@ -325,6 +325,9 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url("../img/events/events-hero.jpg");
+  @media (max-width: 768px) {
+    min-height: 100vh;
+  }
   > * {
     position: relative;
     z-index: 2;

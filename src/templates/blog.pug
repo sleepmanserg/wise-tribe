@@ -24,9 +24,10 @@ block content
         .col-12.col-md-6
           .blog-latest__img
             .blog-latest__img-item
-              picture
-                source(srcset='img/blog/blog.webp' type='image/webp')
-                img(src='img/blog/blog.png')
+              .lazy-image
+                .placeholder-image
+                  .icon-loading
+                img(data-src='img/blog/blog.webp')
               .blog-label.blog-latest__label newest
 
   section.blog-slider.position-relative

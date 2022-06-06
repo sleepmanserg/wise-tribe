@@ -54,6 +54,7 @@
     padding: 7px;
     margin-bottom: 5px;
     overflow: hidden;
+    aspect-ratio: 1 / 1;
     &::after {
       content: "";
       position: absolute;
@@ -81,6 +82,9 @@
     display: block;
     position: relative;
     transition: 0.25s;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
   }
   .tiktok-slider__name {
     color: $white;

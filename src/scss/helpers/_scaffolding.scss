@@ -88,3 +88,69 @@ a {
     color: inherit;
   }
 }
+
+.lazy-image {
+  position: relative;
+  .placeholder-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-loading {
+    width: 42px !important;
+    height: 42px !important;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -21px;
+    margin-top: -21px;
+    z-index: 10;
+    transform-origin: 50%;
+    box-sizing: border-box;
+    border: 4px solid $blue;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation-name: loadSpin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
+  img {
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .icon-loading {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -21px;
+    margin-top: -21px;
+    z-index: 10;
+    transform-origin: 50%;
+    box-sizing: border-box;
+    border: 4px solid $blue;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation-name: loadSpin;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-direction: forwards;
+    animation-iteration-count: infinite;
+    transform: rotate(0);
+  }
+
+  @keyframes loadSpin {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

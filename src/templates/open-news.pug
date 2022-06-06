@@ -30,10 +30,10 @@ block content
             a(href="#").blog-label songs
         .article-item__body
           .article-item__media
-            .article-item__thumb
-              picture
-                source(srcset='img/blog/article.webp' type='image/webp')
-                img(src="img/blog/article.jpg", alt="Image")
+            .article-item__thumb.lazy-image
+              .placeholder-image
+                .icon-loading
+              img(data-src="img/blog/article.webp")
             .article-item__media-info
               .article-item__media-title Hot! New song "Oore"
               .blog-activity.d-flex
