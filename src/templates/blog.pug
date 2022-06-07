@@ -24,10 +24,10 @@ block content
         .col-12.col-md-6
           .blog-latest__img
             .blog-latest__img-item
-              .lazy-image
-                .placeholder-image
-                  .icon-loading
-                img(data-src='img/blog/blog.webp')
+              .blog-item__img
+                picture
+                  source(srcset='img/artists/01.webp' type='image/webp')
+                  img(src="img/artists/01.webp" alt="Artist image")
               .blog-label.blog-latest__label newest
 
   section.blog-slider.position-relative
@@ -40,9 +40,9 @@ block content
                 a(href="open-news.html").blog-item__img-link
                   .blog-item__header
                     .blog-item__img.lazy-image
-                      .plazholder-image
-                        .icon-loading
-                      img(data-src="img/blog/blog-slider1.webp", alt="Artist image")
+                      picture
+                        source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
+                        img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
                   .blog-label concerts
                   .blog-activity.d-flex.align-items-center
@@ -65,9 +65,9 @@ block content
                 a(href="open-news.html").blog-item__img-link
                   .blog-item__header
                     .blog-item__img.lazy-image
-                      .plazholder-image
-                        .icon-loading
-                      img(data-src="img/blog/blog-slider1.webp", alt="Artist image")
+                      picture
+                        source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
+                        img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
                   .blog-label songs
                   .blog-activity.d-flex.align-items-center
@@ -90,9 +90,9 @@ block content
                 a(href="open-news.html").blog-item__img-link
                   .blog-item__header
                     .blog-item__img.lazy-image
-                      .plazholder-image
-                        .icon-loading
-                      img(data-src="img/blog/blog-slider1.webp", alt="Artist image")
+                      picture
+                        source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
+                        img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
                   .blog-label festivals
                   .blog-activity.d-flex.align-items-center
@@ -115,9 +115,9 @@ block content
                 a(href="open-news.html").blog-item__img-link
                   .blog-item__header
                     .blog-item__img.lazy-image
-                      .plazholder-image
-                        .icon-loading
-                      img(data-src="img/blog/blog-slider1.webp", alt="Artist image")
+                      picture
+                        source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
+                        img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
                   .blog-label concerts
                   .blog-activity.d-flex.align-items-center
@@ -140,9 +140,9 @@ block content
                 a(href="open-news.html").blog-item__img-link
                   .blog-item__header
                     .blog-item__img.lazy-image
-                      .plazholder-image
-                        .icon-loading
-                      img(data-src="img/blog/blog-slider1.webp", alt="Artist image")
+                      picture
+                        source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
+                        img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
                   .blog-label concerts
                   .blog-activity.d-flex.align-items-center
@@ -168,8 +168,8 @@ block content
       .container-fluid.h-100
         .row.h-100
           .col.h-100.blog-decor-bottom.position-relative
-            img.rellax(src="img/decorations/carrot.svg", alt="" data-rellax-speed="-1")
-            img.rellax(src="img/decorations/snake.svg", alt="" data-rellax-speed="-.5")
-            img.rellax(src="img/decorations/decor-11.svg", alt="" data-rellax-speed="-1")
-            img.rellax(src="img/decorations/decor-13.svg", alt="" data-rellax-speed="-1.5")
+            img.rellax(data-src="img/decorations/carrot.svg", src="img/1x1.png" data-rellax-speed="-1")
+            img.rellax(data-src="img/decorations/snake.svg", src="img/1x1.png" data-rellax-speed="-.5")
+            img.rellax(src="img/decorations/decor-11.svg", data-rellax-speed="-1")
+            img.rellax(src="img/decorations/decor-13.svg", data-rellax-speed="-1.5")
 

@@ -53,6 +53,7 @@ main {
 /* About */
 
 .about {
+  background-color: transparent;
   .about-row {
     display: flex;
     align-items: center;
@@ -60,6 +61,9 @@ main {
   }
   .about-img {
     height: 100%;
+    .lazy-image {
+      margin-left: 50px;
+    }
     img {
       max-width: 100%;
       height: auto;
