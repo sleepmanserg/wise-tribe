@@ -5,56 +5,64 @@
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/rage-against.jpg",
             "src" : "/songs/Faint.mp3",
-            "is_main" : 0
+            "is_main" : 0,
+            "songId": "s9"
         },
         {
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/white-pony.jpg",
             "src" : "/songs/Diamond Eyes.mp3",
-            "is_main" : 0
+            "is_main" : 0,
+            "songId": "s10"
         },
         {
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/hybrid-theory.jpg",
             "src" : "/songs/Elite.mp3",
-            "is_main" : 1
+            "is_main" : 1,
+            "songId": "s11"
         },
         {
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/minerva.jpg",
             "src" : "/songs/In the End.mp3",
-            "is_main" : 0
+            "is_main" : 0,
+            "songId": "s12"
         },
         {
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/meteora.jpg",
             "src" : "/songs/Minerva.mp3",
-            "is_main" : 0
+            "is_main" : 0,
+            "songId": "s13"
         },
         {
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/diamond-eyes.jpg",
             "src" : "/songs/Renegades Of Funk.mp3",
-            "is_main" : 0
+            "is_main" : 0,
+            "songId": "s14"
         },
         {
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/renegades.jpg",
             "src" : "/songs/Sleep Now In The Fire.mp3",
-            "is_main" : 0
+            "is_main" : 0,
+            "songId": "s15"
         },
         {
             "name" : "Sleep Now In The Fire",
             "artist" : "Rage Against the Machine",
             "img" : "/img/covers/rage-against.jpg",
             "src" : "/songs/Sleep Now In The Fire.mp3",
-            "is_main" : 0
+            "is_main" : 0,
+            "songId": "s16"
         }
     ]
 }
