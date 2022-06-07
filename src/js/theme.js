@@ -622,7 +622,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		setTimeout(function () {
 			document.documentElement.classList.remove('overflow-hidden');
 			preload.classList.add('loaded');
-		}, 8000);
+		}, 2000);
 	}
 });
 
