@@ -456,16 +456,21 @@ const heroAudioPlayer = async () => {
 		// Play music function
 		function playMusic() {
 			heroPlayerWrapper.classList.add('paused');
-			console.log('play');
-			// trackMain.play();
-			fetchAudioPlay();
+			
+			if (trackMain.paused) {
+				console.log('play');
+				fetchAudioPlay();
+			}
 		}
 
 		// Pause music function
 		function pauseMusic() {
 			heroPlayerWrapper.classList.remove('paused');
-			console.log('pause');
-			trackMain.pause();
+
+			if (!trackMain.paused) {
+				console.log('pause');
+				trackMain.pause();
+			}
 		}
 
 		// // Next music function
@@ -489,8 +494,8 @@ const heroAudioPlayer = async () => {
 			playList.innerHTML = '';
 
 			musics.forEach((music, i) => {
-				const { artist, src, img, name } = music;
-				let audioClassName = capitalizeFirstLetter(artist.split(" ").join("") + src.split(" ").join("").slice(7).split('.')[0]);
+				const { artist, src, img, name, songId } = music;
+				let audioClassName = songId;
 				let playListItem =
 					`<li li-index="${i + 1}" class="player-playlist__list-item player-list__item">
 						<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
@@ -560,7 +565,6 @@ const heroAudioPlayer = async () => {
 		function playPauseControls() {
 			const isMusicPaused = heroPlayerWrapper.classList.contains('paused');
 			isMusicPaused ? pauseMusic() : playMusic();
-			// playingNow();
 		}
 
 		function heroSliderToggleBtnPlay() {
@@ -583,10 +587,6 @@ const heroAudioPlayer = async () => {
 
 		playPauseBtnControl.addEventListener('click', () => {
 			playPauseControls();
-
-			if (!trackMain.paused) {
-				trackMain.pause();
-			}
 		});
 
 		playerNextBtn.addEventListener('click', () => {
@@ -714,13 +714,13 @@ document.addEventListener('DOMContentLoaded', () => {
 		heroAudioPlayer();
 	});
 
-	swiperMainHome.on('tap', function () {
-		swiperHomeClassTweak(this.slides, this.activeIndex);
-	});
+	// swiperMainHome.on('tap', function () {
+	// 	swiperHomeClassTweak(this.slides, this.activeIndex);
+	// });
 
-	swiperMainHome.on('touchEnd', function () {
-		swiperHomeClassTweak(this.slides, this.activeIndex);
-	});
+	// swiperMainHome.on('touchEnd', function () {
+	// 	swiperHomeClassTweak(this.slides, this.activeIndex);
+	// });
 
 	// Detect and add condition classes to slides
 	function swiperHomeClassTweak(slidesProp, activeSlide) {
