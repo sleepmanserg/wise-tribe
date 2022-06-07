@@ -12,10 +12,13 @@ html(lang="en")
   include head
 
   // Body
-  body
+  body(style="overflow: hidden;padding-right: 15px;")
+    //Preloader
+    include preloader
+
     include header
 
-    main
+    main.lazy-background
       block content
 
     .random-circles

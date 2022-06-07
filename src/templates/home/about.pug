@@ -3,9 +3,10 @@ section.about.position-relative
   .container
     .about-row
       .about-img
-        picture
-          source(srcset='img/about/about.webp' type='image/webp')
-          img(src='img/about/about.webp')
+        .lazy-image
+          .placeholder-image
+            .icon-loading
+          img(width="800" height="761" data-src="img/about/about.webp")
       .about-caption
         h2.section-title About Wise Music
         p.section-text.opacity-7

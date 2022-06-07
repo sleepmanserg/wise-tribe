@@ -2,8 +2,6 @@
   --paddingInline: 1.25rem;
   padding-top: 120px;
   margin-top: -120px;
-  // padding-bottom: 100px;
-  // margin-bottom: -60px;
   padding-bottom: 100px;
   padding-left: 140px;
   margin-left: -100px;
@@ -116,11 +114,6 @@
         transform: scale(1.2);
       }
     }
-    // &.plyr--playing {
-    //   .plyr__controls {
-    //     display: flex;
-    //   }
-    // }
     .plyr__control[data-plyr="play"]:not(.plyr__control--pressed) {
       width: 68px;
       height: 68px;
@@ -130,7 +123,6 @@
       background: rgba(171, 239, 255, 0.5);
       svg {
         fill: $blue;
-        // opacity: 0.8;
       }
     }
     iframe {
@@ -139,7 +131,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      // transform: scale(1.7);
       top: -50%;
       height: 200%;
       pointer-events: none;

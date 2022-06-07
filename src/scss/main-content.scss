@@ -1,27 +1,31 @@
 main {
-  background-image: url("../img/decorations/triangles-home-1.avif");
   background-repeat: no-repeat;
   background-position-y: 30%;
   background-position-x: left;
   background-size: 85%;
   position: relative;
+  &.lazy-background.visible {
+    background-image: url("../img/decorations/triangles-home-1.avif");
+    .home-wrapper {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        background-image: url("../img/decorations/triangles-home-2.avif");
+        background-repeat: no-repeat;
+        background-position: bottom 25% right;
+        background-size: 85%;
+        z-index: -2;
+      }
+    }
+  }
 }
 
 .home-wrapper {
   position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    right: 0;
-    background-image: url("../img/decorations/triangles-home-2.avif");
-    background-repeat: no-repeat;
-    background-position: bottom 25% right;
-    background-size: 85%;
-    z-index: -2;
-  }
 }
 
 /* Hero */
@@ -53,6 +57,13 @@ main {
     display: flex;
     align-items: center;
     flex-direction: row;
+  }
+  .about-img {
+    height: 100%;
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   }
   .about-caption {
     .section-title {
@@ -95,6 +106,15 @@ main {
       flex: 0 0 100%;
       max-width: 100%;
       margin-left: -50px;
+      .icon-loading {
+        margin-left: 0;
+      }
+      img {
+        height: auto;
+        max-width: 100%;
+        display: block;
+        min-height: 250px;
+      }
     }
     .about-caption {
       order: 1;
@@ -338,6 +358,7 @@ main {
   .experience-circle {
     margin: 35px auto 0;
     max-width: 287px;
+    background-color: #050547;
   }
   .experience-circle__inner {
     position: relative;
@@ -588,7 +609,8 @@ main {
     .charity-img {
       --charityImgRadius: 100px;
       --charityMountRadius: 100px;
-      width: 90%;
+      width: 80%;
+      margin: 0 auto;
       img {
         aspect-ratio: 4 / 4;
       }
@@ -642,7 +664,7 @@ main {
       max-width: 822px;
     }
     .charity-img {
-      width: 95%;
+      width: 85%;
       --charityImgRadius: 160px;
       --charityMountRadius: 180px;
     }
@@ -802,18 +824,22 @@ main {
 }
 
 .no-webp {
-  .packaging-card {
-    &::before {
-      background-image: url("../img/charity/packaging.png");
+  .lazy-background.visible {
+    .packaging-card {
+      &::before {
+        background-image: url("../img/charity/packaging.png");
+      }
     }
   }
 }
 
 .webp {
-  .packaging-card {
-    &::before {
-      background-image: url("../img/charity/packaging.webp");
-      z-index: 2;
+  .lazy-background.visible {
+    .packaging-card {
+      &::before {
+        background-image: url("../img/charity/packaging.webp");
+        z-index: 2;
+      }
     }
   }
 }
@@ -881,21 +907,6 @@ main {
   --sectionPaddingTop: 0;
   --sectionPaddingBottom: 88px;
   padding-top: var(--sectionPaddingTop);
-  // @media (min-width: 768px) {
-  //   --sectionPaddingTop: 88px;
-  //   --sectionPaddingBottom: 150px;
-  // }
-  // @media (min-width: 1024px) {
-  //   --sectionPaddingBottom: 170px;
-  // }
-  // @media (min-width: 1366px) {
-  //   --sectionPaddingTop: 108px;
-  //   --sectionPaddingBottom: 200px;
-  // }
-  // @media (min-width: 1700px) {
-  //   --sectionPaddingTop: 155px;
-  //   --sectionPaddingBottom: 240px;
-  // }
 }
 
 /* WISE LIVE */

@@ -4,25 +4,13 @@
   .swiper-nav {
     padding: 0;
   }
-  // &::after {
-  //   content: "";
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  //   bottom: 0;
-  //   right: 0;
-  //   background-image: url("../img/decorations/triangles-home-2.avif");
-  //   background-repeat: no-repeat;
-  //   background-position: bottom 0 right;
-  //   background-size: 85%;
-  //   z-index: -2;
-  // }
 }
 
 .artist-hero {
   position: relative;
   padding: 70px 0 0;
   margin-bottom: 100px;
+  min-height: 100vh;
   &::after {
     content: "";
     position: absolute;
@@ -97,14 +85,6 @@
     transition: 0.25s;
     opacity: 0;
     visibility: hidden;
-    // &.plyr--playing {
-    //   opacity: 1;
-    //   visibility: visible;
-    // }
-    // &.plyr--paused {
-    //   opacity: 0;
-    //   visibility: hidden;
-    // }
     &:fullscreen {
       opacity: 1;
       visibility: visible;
@@ -115,9 +95,6 @@
       height: calc(100% + 400px);
       width: 100vw;
       top: -200px;
-      // transform: scale(6);
-      // object-fit: cover;
-      // aspect-ratio: 1 / 1;
     }
   }
   .play-btn {
@@ -176,12 +153,6 @@
       bottom: 90px;
       left: 2.5rem;
     }
-    // .play-btn {
-    //   position: absolute;
-    //   bottom: 15%;
-    //   left: 2.5rem;
-    //   z-index: 2;
-    // }
   }
   @media (min-width: 1024px) {
     min-height: 100vh;
@@ -264,11 +235,6 @@
   }
   @media (min-width: 1760px) {
     padding-bottom: 150px;
-    // .play-btn {
-    //   position: relative;
-    //   left: 0;
-    //   transform: translateY(210px);
-    // }
   }
 }
 
@@ -472,8 +438,6 @@
   .artist-collapse {
     transform: translateX(2.5rem);
     z-index: 3;
-    // flex: 0 0 100vw;
-    // width: 100vw;
   }
 }
 

@@ -21,14 +21,14 @@ block content
             a(href="#").btn.btn-light On the site
         .charity-column.charity-column__img
           .charity-img
-            .charity-img__inner
-              picture
-                source(srcset='img/charity/1.webp' type='image/webp')
-                img(src='img/charity/charity.jpg')
+            .charity-img__inner.lazy-image
+              .placeholder-image
+                .icon-loading
+              img(data-src='img/charity/1.webp')
   section.packaging
     .container
       .row
-        .col-md-12
+        .col-md-12.lazy-background
           .packaging-card
             .packaging-card__caption
               h2.packaging-card__title Biodegradable packaging
@@ -38,40 +38,57 @@ block content
   section.projects
     .container
       h2.section-title Projects
-    .offset-slider__content
+    .offset-slider__content.position-relative
       .swiper.projects-slider.offset-slider
         .swiper-wrapper
           .swiper-slide
             a(href="#").projects-slider__item
-              .projects-slider__thumb
-                picture
-                  source(srcset='img/charity/2.webp' type='image/webp')
-                  img(src='img/charity/2.jpg')
+              .projects-slider__thumb.lazy-image
+                .image-placeholder
+                  .icon-loading
+                img(data-src='img/charity/2.webp')
               .projects-slider__title Global tree planting
               .projects-slider__date.opacity-7 June, 2021
           .swiper-slide
             a(href="#").projects-slider__item
-              .projects-slider__thumb
-                picture
-                  source(srcset='img/charity/1.webp' type='image/webp')
-                  img(src='img/charity/1.jpg')
+              .projects-slider__thumb.lazy-image
+                .image-placeholder
+                  .icon-loading
+                img(data-src='img/charity/1.webp')
               .projects-slider__title Production of biodegradable packaging
               .projects-slider__date.opacity-7 June, 2021
           .swiper-slide
             a(href="#").projects-slider__item
-              .projects-slider__thumb
-                picture
-                  source(srcset='img/charity/3.webp' type='image/webp')
-                  img(src='img/charity/3.jpg')
+              .projects-slider__thumb.lazy-image
+                .image-placeholder
+                  .icon-loading
+                img(data-src='img/charity/3.webp')
               .projects-slider__title Production of biodegradable packaging
               .projects-slider__date.opacity-7 June, 2021
           .swiper-slide
             a(href="#").projects-slider__item
-              .projects-slider__thumb
-                picture
-                  source(srcset='img/charity/1.webp' type='image/webp')
-                  img(src='img/charity/1.jpg')
+              .projects-slider__thumb.lazy-image
+                .image-placeholder
+                  .icon-loading
+                img(data-src='img/charity/1.webp')
               .projects-slider__title Production of biodegradable packaging
               .projects-slider__date.opacity-7 June, 2021
-
+          .swiper-slide
+            a(href="#").projects-slider__item
+              .projects-slider__thumb.lazy-image
+                .image-placeholder
+                  .icon-loading
+                img(data-src='img/charity/2.webp')
+              .projects-slider__title Production of biodegradable packaging
+              .projects-slider__date.opacity-7 June, 2021
+          .swiper-slide
+            a(href="#").projects-slider__item
+              .projects-slider__thumb.lazy-image
+                .image-placeholder
+                  .icon-loading
+                img(data-src='img/charity/1.webp')
+              .projects-slider__title Production of biodegradable packaging
+              .projects-slider__date.opacity-7 June, 2021
+      .container.d-flex.justify-content-between.align-items-center.projects-slider__nav
+        .circle-button.circle-button-prev.projects-slider__btn
         .circle-button.circle-button-next.projects-slider__btn
