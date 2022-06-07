@@ -284,27 +284,12 @@
   pointer-events: none;
   z-index: -1;
   overflow: hidden;
-  @for $i from 1 through 50 {
+  @for $i from 1 through 30 {
     .decor-circle:nth-child(#{$i}) {
       top: percentage(calc(random(90) / 100));
       left: random(100) + vw;
       opacity: calc(random(10) / 10);
       transform: scale(#{randomNum(0.7, 0.8)});
-      animation-name: decorCirclesAnim;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      animation-fill-mode: both;
-      animation-timing-function: ease-in-out;
     }
-  }
-}
-
-@keyframes decorCirclesAnim {
-  0% {
-    transform: scale(#{randomNum(0.7, 0.8)}) translate(0, 0);
-  }
-
-  100% {
-    transform: scale(#{randomNum(0.7, 0.8)}) translate(#{randomNum(100, 150)});
   }
 }

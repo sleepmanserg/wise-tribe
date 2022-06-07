@@ -47,12 +47,21 @@
   @media (min-width: 1700px) {
     column-gap: 25px;
     .swiper-pagination-bullet {
-      width: 20px;
-      height: 20px;
+      width: 15px;
+      height: 15px;
       &.swiper-pagination-bullet-active {
-        width: 26px;
-        height: 26px;
+        width: 17px;
+        height: 17px;
       }
     }
   }
+}
+
+.swiper-slide {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+}
+.swiper-wrapper {
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: translateZ(0);
 }

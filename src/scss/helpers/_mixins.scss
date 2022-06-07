@@ -22,3 +22,10 @@ Hover styling for all devices and browsers
     }
   }
 }
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+
+  @return $randomNum;
+}

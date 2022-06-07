@@ -1,7 +1,3 @@
-// All partial styles import
-
-@import "main-content";
-
 // Core variables, mixins and placeholders
 @import "helpers/variables";
 @import "helpers/mixins";
@@ -11,6 +7,10 @@
 @import "helpers/font-import";
 @import "helpers/icon-font";
 @import "helpers/typography";
+
+// All partial styles import
+
+@import "main-content";
 
 // Components
 @import "components/button";

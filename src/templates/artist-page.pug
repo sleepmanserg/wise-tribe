@@ -59,13 +59,22 @@ block content
                   span Hide
               .artist-hero__collapse-text In 2010, released his debut studio album, Oore, which debuted at the top of the Billboard 200 charts and was later certified platinum. Subsequently, he will release two more studio albums, Take Care and Nothing Was the Same, which. Music Produser; Vibrational Alchemist Nebo articulates bridges into the space-time of light through his expression of music. When tuned in, your senses connect you with the omni multiverse. Expanding the dimensions of the mind. Truth is in the frequencies, and through God’s will, Music will unify us all. In 2010, released his debut studio album, Oore, which debuted at the top of the Billboard 200 charts and was later certified platinum. Subsequently, he will release two more studio albums, Take Care and Nothing Was the Same, whic Music Produser; Vibrational Alchemist… Nebo articulates bridges into the space-time of light through his expression of music. When tuned in, your senses connect you with the omni multiverse. Expanding the dimensions of the mind. Truth is in the frequencies, and through God’s will, Music will unify us all.
 
-    section.popular
+    section.popular.position-relative
+      .popular-absolute
+        img(src="./img/decorations/decor-01.svg").position-absolute
+        img(src="./img/decorations/snake.svg").position-absolute
+        img(src="./img/decorations/bird.svg").position-absolute
+        img(src="./img/decorations/decor-09.svg").position-absolute
       .container
         .section-title.text-md-center Popular tracks
       include partials/popular
 
     section.events.position-relative
-      h2.section-title.text-center Albums
+      .artist-events-absolute
+        img(src="./img/decorations/decor-06.svg").position-absolute
+        img(src="./img/decorations/decor-07.svg").position-absolute
+        img(src="./img/decorations/eagle.svg").position-absolute
+      h2.section-title.text-center.mb-md-5 Albums
       .swiper.events-slider.scaled-slider
         .swiper-wrapper
           .swiper-slide
@@ -98,55 +107,55 @@ block content
 
               include partials/albums-slider-info
 
-          .swiper-slide
-            a(href="#").events-slider__item.artist-albums__item
-              .events-slider__img
-                .events-slider__img-inner
-                  picture
-                    source(srcset='img/hero-slider/04.webp' type='image/webp')
-                    img(src="img/hero-slider/04.jpg", alt="Artist")
+          //- .swiper-slide
+          //-   a(href="#").events-slider__item.artist-albums__item
+          //-     .events-slider__img
+          //-       .events-slider__img-inner
+          //-         picture
+          //-           source(srcset='img/hero-slider/04.webp' type='image/webp')
+          //-           img(src="img/hero-slider/04.jpg", alt="Artist")
 
-              include partials/albums-slider-info
+          //-     include partials/albums-slider-info
 
-          .swiper-slide
-            a(href="#").events-slider__item.artist-albums__item
-              .events-slider__img
-                .events-slider__img-inner
-                  picture
-                    source(srcset='img/hero-slider/05.webp' type='image/webp')
-                    img(src="img/hero-slider/05.jpg", alt="Artist")
+          //- .swiper-slide
+          //-   a(href="#").events-slider__item.artist-albums__item
+          //-     .events-slider__img
+          //-       .events-slider__img-inner
+          //-         picture
+          //-           source(srcset='img/hero-slider/05.webp' type='image/webp')
+          //-           img(src="img/hero-slider/05.jpg", alt="Artist")
 
-              include partials/albums-slider-info
+          //-     include partials/albums-slider-info
 
-          .swiper-slide
-            a(href="#").events-slider__item.artist-albums__item
-              .events-slider__img
-                .events-slider__img-inner
-                  picture
-                    source(srcset='img/hero-slider/06.webp' type='image/webp')
-                    img(src="img/hero-slider/06.png", alt="Artist")
+          //- .swiper-slide
+          //-   a(href="#").events-slider__item.artist-albums__item
+          //-     .events-slider__img
+          //-       .events-slider__img-inner
+          //-         picture
+          //-           source(srcset='img/hero-slider/06.webp' type='image/webp')
+          //-           img(src="img/hero-slider/06.png", alt="Artist")
 
-              include partials/albums-slider-info
+          //-     include partials/albums-slider-info
 
-          .swiper-slide
-            a(href="#").events-slider__item.artist-albums__item
-              .events-slider__img
-                .events-slider__img-inner
-                  picture
-                    source(srcset='img/hero-slider/06.webp' type='image/webp')
-                    img(src="img/hero-slider/06.png", alt="Artist")
+          //- .swiper-slide
+          //-   a(href="#").events-slider__item.artist-albums__item
+          //-     .events-slider__img
+          //-       .events-slider__img-inner
+          //-         picture
+          //-           source(srcset='img/hero-slider/06.webp' type='image/webp')
+          //-           img(src="img/hero-slider/06.png", alt="Artist")
 
-              include partials/albums-slider-info
+          //-     include partials/albums-slider-info
 
-          .swiper-slide
-            a(href="#").events-slider__item.artist-albums__item
-              .events-slider__img
-                .events-slider__img-inner
-                  picture
-                    source(srcset='img/hero-slider/06.webp' type='image/webp')
-                    img(src="img/hero-slider/06.png", alt="Artist")
+          //- .swiper-slide
+          //-   a(href="#").events-slider__item.artist-albums__item
+          //-     .events-slider__img
+          //-       .events-slider__img-inner
+          //-         picture
+          //-           source(srcset='img/hero-slider/06.webp' type='image/webp')
+          //-           img(src="img/hero-slider/06.png", alt="Artist")
 
-              include partials/albums-slider-info
+          //-     include partials/albums-slider-info
       .container
         .swiper-nav.d-flex.justify-content-between.align-items-center
           .arrow-button.arrow-button__prev.events-button-prev
@@ -154,7 +163,10 @@ block content
           .arrow-button.arrow-button__next.events-button-next
             span NEXT
 
-    section.video-clips
+    section.video-clips.position-relative
+      .video-clips-absolute
+        img(src="./img/decorations/decor-09.svg").position-absolute
+        img(src="./img/decorations/decor-05.svg").position-absolute
       .container
         .section-title.mb-title Video clips
 
