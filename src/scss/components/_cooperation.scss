@@ -1,11 +1,14 @@
 .cooperation {
-  background-image: url("../img/cooperation/cooperation-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   position: relative;
   padding-bottom: 0;
   margin-bottom: 80px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  margin-top: calc(var(--headerHeight) * -1);
   &::before {
     content: "";
     position: absolute;
@@ -36,15 +39,17 @@
 }
 
 .cooperation-caption {
-  --cooperationPaddingTop: 108px;
-  --cooperationPaddingBottom: 32px;
+  // --cooperationPaddingTop: 108px;
+  // --cooperationPaddingBottom: 32px;
   padding-top: var(--cooperationPaddingTop);
   padding-bottom: var(--cooperationPaddingBottom);
   max-width: 304px;
   margin: 0 auto;
-  margin-top: calc(#{var(--headerHeight)} * -1);
+  // margin-top: calc(#{var(--headerHeight)} * -1);
   position: relative;
   z-index: 1;
+  min-height: 95vh;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,16 +57,16 @@
     max-width: 400px;
   }
   @media (min-width: 768px) {
-    --cooperationPaddingTop: 178px;
-    --cooperationPaddingBottom: 65px;
+    // --cooperationPaddingTop: 178px;
+    // --cooperationPaddingBottom: 65px;
     max-width: 630px;
     .section-text {
       max-width: 460px;
     }
   }
   @media (min-width: 1024px) {
-    --cooperationPaddingTop: 215px;
-    --cooperationPaddingBottom: 120px;
+    // --cooperationPaddingTop: 215px;
+    // --cooperationPaddingBottom: 120px;
     .section-text {
       max-width: 520px;
     }
@@ -74,8 +79,8 @@
   }
   @media (min-width: 1700px) {
     max-width: 1110px;
-    --cooperationPaddingTop: 350px;
-    --cooperationPaddingBottom: 200px;
+    // --cooperationPaddingTop: 350px;
+    // --cooperationPaddingBottom: 200px;
     .section-text {
       max-width: 730px;
     }
@@ -98,8 +103,16 @@
   }
 }
 
+.lazy-background.visible {
+  .cooperation {
+    background-image: url("../img/cooperation/cooperation-bg.jpg");
+  }
+  .cooperation-about__card {
+    background-image: url("../img/cooperation/cooperation-about.png");
+  }
+}
+
 .cooperation-about__card {
-  background-image: url("../img/cooperation/cooperation-about.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -170,7 +183,7 @@
     }
   }
   @media (min-width: 1700px) {
-    padding: 170px 120px 190px;
+    // padding: 170px 120px 190px;
     .section-text {
       margin-bottom: 70px;
     }

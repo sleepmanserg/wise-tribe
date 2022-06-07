@@ -1,6 +1,7 @@
 .tiktok-slider {
   --paddingInline: 1.25rem;
-  margin-left: var(--paddingInline);
+  padding-left: var(--paddingInline);
+  padding-right: var(--paddingInline);
   &::after {
     content: "";
     position: absolute;
@@ -16,6 +17,9 @@
     z-index: 1;
     pointer-events: none;
   }
+  .swiper-slide {
+    width: 90px;
+  }
   .circle-button {
     position: absolute;
     right: var(--paddingInline);
@@ -23,9 +27,37 @@
     top: 40%;
     transform: translateY(-50%);
     z-index: 99;
+    transform-origin: top;
+    &.circle-button-prev {
+      left: var(--paddingInline);
+      transform: rotate(180deg) translateY(-50%);
+    }
   }
-  @media (min-width: 768px) {
+  @media (min-width: 575px) {
     --paddingInline: 2.5rem;
+    .swiper-slide {
+      width: 150px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .swiper-slide {
+      width: 194px;
+    }
+  }
+  @media (min-width: 1366px) {
+    .swiper-slide {
+      width: 234px;
+    }
+  }
+  @media (min-width: 1700px) {
+    .swiper-slide {
+      width: 274px;
+    }
+  }
+  @media (min-width: 1921px) {
+    .swiper-slide {
+      width: 350px;
+    }
   }
 }
 
@@ -47,6 +79,11 @@
       color: $blue;
     }
   }
+  .lazy-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .tiktok-slider__img {
     border-radius: 100%;
     position: relative;
@@ -54,6 +91,8 @@
     padding: 7px;
     margin-bottom: 5px;
     overflow: hidden;
+    aspect-ratio: 1 / 1;
+    width: 100%;
     &::after {
       content: "";
       position: absolute;
@@ -81,6 +120,12 @@
     display: block;
     position: relative;
     transition: 0.25s;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
   .tiktok-slider__name {
     color: $white;
@@ -108,5 +153,7 @@
     .tiktok-slider__img {
       margin-bottom: 10px;
     }
+  }
+  @media (min-width: 1024px) {
   }
 }
