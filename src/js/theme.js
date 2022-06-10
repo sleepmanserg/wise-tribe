@@ -1114,5 +1114,4 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-});
-
+})
