@@ -4,9 +4,9 @@ section.about.position-relative
     .about-row
       .about-img
         .lazy-image
-          .placeholder-image
-            .icon-loading
-          img(width="800" height="761" data-src="img/about/about.webp")
+          picture
+            source(data-srcset='img/about/about.webp' srcset="img/1x1.png" type='image/webp')
+            img(data-src='img/about/about.png' src="img/1x1.png" alt="About image")
       .about-caption
         h2.section-title About Wise Music
         p.section-text.opacity-7

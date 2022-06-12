@@ -1065,17 +1065,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	const images = Array.from(document.querySelectorAll('.lazy-image img'));
+	const images = Array.from(document.querySelectorAll('img[data-src]'));
 
 	if ('IntersectionObserver' in window) {
 		const imageObserver = new IntersectionObserver((entries, observer) => {
 			entries.forEach(entry => {
 				if (entry.isIntersecting) {
 					const image = entry.target;
+					const imageSiblingSource = entry.target.previousElementSibling;
+
+					// console.log(imageSiblingSource);
+
+					if (imageSiblingSource) {
+						if (imageSiblingSource.hasAttribute('data-srcset')) {
+							imageSiblingSource.srcset = imageSiblingSource.dataset.srcset;
+							imageSiblingSource.removeAttribute('data-srcset');
+						}
+					}
+
 
 					image.src = image.dataset.src;
-					image.onload = () => image.previousElementSibling.remove();
-					image.style.opacity = '1';
+					image.removeAttribute('data-src');
+
+					image.onload = () => image.style.opacity = '1';
 
 					imageObserver.unobserve(image);
 				}
@@ -1102,5 +1114,4 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
-});
-
+})

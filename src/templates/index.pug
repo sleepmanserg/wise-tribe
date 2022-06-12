@@ -32,8 +32,8 @@ block content
     section.popular.pt-0.position-relative
       .popular-absolute
         img(src="./img/decorations/decor-01.svg").position-absolute
-        img(src="./img/decorations/snake.svg").position-absolute
-        img(src="./img/decorations/bird.svg").position-absolute
+        img(data-src="./img/decorations/snake.svg").position-absolute
+        img(data-src="./img/decorations/bird.svg" src="img/1x1.png").position-absolute
         img(src="./img/decorations/decor-09.svg").position-absolute
       .container
         .section-title.text-md-center Popular tracks
@@ -55,14 +55,14 @@ block content
 
     section.become-artist.position-relative
       .become-artist-absolute
-        img(src="./img/decorations/frog.svg").position-absolute
-        img(src="./img/decorations/decor-07.svg").position-absolute
+        img(data-src="./img/decorations/frog.svg" src="img/1x1.png").position-absolute
+        img(data-src="./img/decorations/decor-07.svg" src="img/1x1.png").position-absolute
       .container
         .become-artist__card.info-card
           .lazy-image
-            .placeholder-image
-              .icon-loading
-            img(src="" data-src="./img/become-artist.webp")
+            picture
+              source(data-srcset='img/become-artist.webp' srcset="img/1x1.png" type='image/webp')
+              img(data-src="./img/become-artist.webp" src="img/1x1.png")
           .become-artist__card-caption
             .section-title.info-card__title Become an artist of Wise Music!
             .section-subtitle.info-card__subtitle We provide artists with the best
@@ -82,9 +82,9 @@ block content
           .section-text.opacity-7.text-center We want to create a large-scale music-show that the world has not seen yet.
         .experience-circle.circle-parallax
           .circle-parallax__bg.lazy-image
-            .placeholder-image
-              .icon-loading
-            img(data-src='img/circle/circle-bg.webp')
+            picture
+              source(data-srcset='img/circle/circle-bg.webp' srcset="img/1x1.png" type='image/webp')
+              img(data-src='img/circle/circle-bg.webp' src="img/1x1.png")
           .circle-parallax__figure.circle-parallax__figure-first.parallax(data-speed="0.5")
             svg(width='766' height='727' viewBox='0 0 766 727' fill='none' xmlns='http://www.w3.org/2000/svg')
               path(fill-rule='evenodd' clip-rule='evenodd' d='M764 363.5L691.235 587.537L500.735 726H265.264L74.7645 587.537L2 363.5L74.7645 139.463L265.264 1L500.735 1L691.235 139.463L764 363.5Z' fill='#040435')

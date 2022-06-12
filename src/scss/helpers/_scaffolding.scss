@@ -91,52 +91,41 @@ a {
 
 .lazy-image {
   position: relative;
-  .placeholder-image {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .icon-loading {
-    width: 42px !important;
-    height: 42px !important;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -21px;
-    margin-top: -21px;
-    z-index: 10;
-    transform-origin: 50%;
-    box-sizing: border-box;
-    border: 4px solid $blue;
-    border-radius: 50%;
-    border-top-color: transparent;
-  }
+  background: url("../img/loading.gif") center / 450px no-repeat;
+  background-color: transparent;
   img {
-    opacity: 0;
     transition: 0.5s;
+    opacity: 0;
   }
-  .icon-loading {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -21px;
-    margin-top: -21px;
-    z-index: 10;
-    transform-origin: 50%;
-    box-sizing: border-box;
-    border: 4px solid $blue;
-    border-radius: 50%;
-    border-top-color: transparent;
+  @media (max-width: 768px) {
+    background-size: 250px;
   }
 }
 
+// .icon-loading {
+//   &::before {
+//     content: "";
+//     width: 30px;
+//     height: 30px;
+//     display: block;
+//     position: absolute;
+//     transform: translate(-50%, -50%);
+//     left: 50%;
+//     top: 50%;
+//     margin-left: -15px;
+//     margin-top: -15px;
+//     z-index: 10;
+//     transform-origin: 50%;
+//     box-sizing: border-box;
+//     border: 4px solid $blue;
+//     border-radius: 50%;
+//     border-top-color: transparent;
+//     animation: loadSpin 2s linear infinite;
+//   }
+// }
+
 .icon-loading {
-  animation: loadSpin 2s linear infinite;
+  // animation: loadSpin 2s linear infinite;
 }
 
 @keyframes loadSpin {
@@ -146,4 +135,17 @@ a {
   to {
     transform: rotate(359deg);
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 1s ease;
 }
