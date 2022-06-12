@@ -11,10 +11,9 @@ const init = async (url) => {
 	return await artistData.music;
 };
 
-const modalAudioPlayer = async () => {
+const modalAudioPlayer = async (firstOpenModal) => {
 	const playerWrapper = document.querySelector('.audio-player-wrapper');
-	const heroAudioTrack = document.querySelector('.main-audio');
-	heroAudioTrack.pause();
+	const heroPlayerWrapper = document.querySelector('.hero');
 	
 	if (playerWrapper) {
 		const
@@ -22,7 +21,7 @@ const modalAudioPlayer = async () => {
 			trackImg = playerWrapper.querySelector('.player-track__img img'),
 			trackName = playerWrapper.querySelector('.player-controls-song-details .song-name'),
 			trackArtist = playerWrapper.querySelector('.player-controls-song-details .song-media'),
-			trackMain = playerWrapper.querySelector('#main-audio'),
+			trackMain = heroPlayerWrapper.querySelector('.main-audio'),
 			playPauseBtn = playerWrapper.querySelector('#play-song'),
 			playerPrevBtn = playerWrapper.querySelector('#prev-song'),
 			playerNextBtn = playerWrapper.querySelector('#next-song'),
@@ -32,12 +31,13 @@ const modalAudioPlayer = async () => {
 			playerVolumeSlider = playerWrapper.querySelector('.sound-container .sound-control'),
 			bottomControlsSongThumb = playerWrapper.querySelector('.player-controls-song-details img');
 
-
 		let musicIndex = 1;
 
 		let allMusic = await init(parentActiveSlideItem.dataset.playlist);
 
 		renderAudioList(allMusic);
+
+		firstOpenModal = true;
 
 		// Load music function
 		function loadMusic(indexNumb) {
@@ -45,7 +45,9 @@ const modalAudioPlayer = async () => {
 			trackName.innerText = artistInfo.name;
 			trackArtist.innerText = artistInfo.artist;
 			trackImg.src = artistInfo.img;
-			trackMain.src = artistInfo.src;
+			if (firstOpenModal) {
+				trackMain.src = artistInfo.src;
+			}
 			bottomControlsSongThumb.src = trackImg.src;
 		}
 
@@ -53,21 +55,20 @@ const modalAudioPlayer = async () => {
 			fetch(trackMain.src)
 				.then(response => response.blob())
 				.then(blob => {
-					console.log('Audio started...');
+					// console.log('Audio started...');
 					return trackMain.play();
 				})
 				.catch(e => {
-					console.log('Audio failed...');
+					// console.log('Audio failed...');
 				})
 		};
 
 		// Play music function
 		function playMusic() {
 			playerWrapper.classList.add('paused');
-			playerProgressArea.classList.add('is-visible');
 
 			if (trackMain.paused) {
-				console.log('play');
+				// console.log('play');
 				fetchAudioPlay();
 			}
 		}
@@ -77,7 +78,7 @@ const modalAudioPlayer = async () => {
 			playerWrapper.classList.remove('paused');
 
 			if (!trackMain.paused) {
-				console.log('pause');
+				// console.log('pause');
 				trackMain.pause();
 			}
 		}
@@ -142,7 +143,6 @@ const modalAudioPlayer = async () => {
 			}
 
 			// Update song current time
-
 			let currentMin = Math.floor(currentTime / 60);
 			let currentSec = Math.floor(currentTime % 60);
 
@@ -156,12 +156,9 @@ const modalAudioPlayer = async () => {
 			};
 			
 			playerProgressBar.querySelector('span').innerText = `${currentMin}:${currentSec}`;
-
-
 		});
 
 		// Song time update on progress bar width
-
 		playerProgressArea.addEventListener('click', (e) => {
 			let progressWidthVal = playerProgressArea.clientWidth;
 			let clickedOffsetX = e.offsetX;
@@ -220,9 +217,7 @@ const modalAudioPlayer = async () => {
 
 		function renderAudioList(musics) {
 			loadMusic(musicIndex);
-			let playListHero = document.querySelector('.player-playlist__list.player-list');
-			playListHero.remove();
-
+			playerProgressArea.classList.add('is-visible');
 			let playList = document.querySelector('#player-list-modal');
 			playList.innerHTML = '';
 
@@ -284,12 +279,12 @@ const modalAudioPlayer = async () => {
 		function playingNow() {
 			for (let j = 0; j < allPlayListItems.length; j++) {
 				let audioTag = allPlayListItems[j].querySelector('.player-list__item-end');
+
 				if (allPlayListItems[j].classList.contains('playing')) {
 					allPlayListItems[j].classList.remove('playing');
 					let adDuration = audioTag.getAttribute("t-duration");
 					audioTag.innerText = adDuration;
 				}
-
 				if (allPlayListItems[j].getAttribute("li-index") == musicIndex) {
 					allPlayListItems[j].classList.add('playing');
 					audioTag.innerText = "playing...";
@@ -308,6 +303,9 @@ const modalAudioPlayer = async () => {
 				}
 			}
 		}
+		setTimeout(() => {
+			playingNow();
+		}, 1000);
 
 		playerVolumeBtn.addEventListener('click', () => {
 			toggleMute();
@@ -358,6 +356,7 @@ const modalAudioPlayer = async () => {
 /*~/ Hero slider audio /~*/
 const heroAudioPlayer = async () => {
 	const heroPlayerWrapper = document.querySelector('.hero');
+	const playerWrapper = document.querySelector('.audio-player-wrapper');
 
 	if (heroPlayerWrapper) {
 		const
@@ -527,6 +526,7 @@ const heroAudioPlayer = async () => {
 			playPauseBtnSlide.querySelector('.icon-pause').classList.remove('d-none');
 			playPauseBtnControl.querySelector('.play-icon').classList.add('d-none');
 			playPauseBtnControl.querySelector('.pause-icon').classList.remove('d-none');
+			playerWrapper.classList.add('paused');
 		}
 
 		function heroSliderToggleBtnPause() {
@@ -534,6 +534,7 @@ const heroAudioPlayer = async () => {
 			playPauseBtnSlide.querySelector('.icon-pause').classList.add('d-none');
 			playPauseBtnControl.querySelector('.play-icon').classList.remove('d-none');
 			playPauseBtnControl.querySelector('.pause-icon').classList.add('d-none');
+			playerWrapper.classList.remove('paused');
 		}
 
 		playPauseBtnSlide.addEventListener('click', () => {
@@ -721,14 +722,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const playerControlContainer = document.querySelector('.player-fullscreen');
 	const audioModalContainer = document.querySelector('.player-section.hero-player-section');
-
+	let firstOpenModal = false;
 	try {
 		playerControlContainer.addEventListener('click', () => {
 			audioModalContainer.style.cssText = `
 				opacity: 1;
 				z-index: 11;
 			`;
-			modalAudioPlayer();
+			modalAudioPlayer(firstOpenModal);
 		});
 	} catch (error) {
 		
