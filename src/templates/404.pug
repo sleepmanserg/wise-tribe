@@ -1,0 +1,25 @@
+extends partials/layout-no-footer
+
+//- Override default config variables
+append config
+
+	//- ********** Settings **********
+	//- ==============================
+	//- ==============================
+	//- ********* Settings END *******
+
+
+//- Page Content
+block content
+	section.four-zero-four
+		picture
+			source(srcset="img/404/404_mob.jpg 1x, img/404/404_mob@2x.jpg 2x" media="(max-width: 480px)")
+			source(srcset="img/404/404_tablet-vertical.jpg 1x, img/404/404_tablet-vertical@2x.jpg 2x" media="(max-width: 768px)")
+			source(srcset="img/404/404_tablet.jpg 1x, img/404/404_tablet@2x.jpg 2x" media="(max-width: 1024px)")
+			source(srcset="img/404/404_desktop-sm.jpg 1x, img/404/404_desktop-sm@2x.jpg 2x" media="(max-width: 1366px)")
+			img(src="img/404/404_desktop.jpg" srcset="img/404/404_desktop@2x.jpg 2x")
+		h1.four-zero-four__title Oops...
+			span.d-block page not found...
+		a(href="/").arrow-button.arrow-button__next.text-white.text-decoration-none
+			span To main
+

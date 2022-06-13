@@ -41,10 +41,10 @@
   align-items: center;
   justify-content: space-around;
   position: fixed;
-  width: 212px;
+  width: 280px;
   height: 52px;
   right: 1.25rem;
-  bottom: 1.25rem;
+  bottom: 0;
   background: radial-gradient(
       54.68% 54.68% at 50% 45.32%,
       #050547 0%,
@@ -58,12 +58,11 @@
   z-index: 10;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(100px);
-  transition: 0.25s;
+  transition: opacity 0.5s;
   &.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    bottom: 1.25rem;
   }
   .player-btn {
     appearance: none;
@@ -98,8 +97,8 @@
     border: 0.2px solid rgba(171, 239, 255, 0.15);
     box-shadow: 0px 0px 10px rgba(171, 239, 255, 0.2);
     border-radius: 50px;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -672,7 +671,7 @@
   @media (min-width: 1024px) {
     overflow-x: hidden;
     padding-inline: 0;
-    padding-bottom: 90px;
+    padding-bottom: 100px;
     height: calc(100vh - var(--headerHeight) - 150px);
     display: flex;
     flex-flow: column;
@@ -1110,11 +1109,28 @@
   padding-inline: 20px;
   font-size: clamp(16px, calc(1rem + ((1vw - 3.6px) * 0.5128)), 24px);
   line-height: 140%;
-  height: 50vh;
+  height: calc(100vh - var(--headerHeight) - 150px);
   overflow-y: auto;
   overflow-x: hidden;
-  padding-bottom: 40px;
+  padding-bottom: 150px;
   opacity: 0.8;
+  scrollbar-color: #abefff7a transparent;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 7px solid transparent;
+    background-clip: content-box;
+    background-color: #abefff7a;
+  }
   @media (min-width: 768px) {
     padding-inline: 40px;
   }
@@ -1306,6 +1322,19 @@ input[type="number"]:focus {
   transition: 0.5s;
   pointer-events: none;
   opacity: 0;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/decorations/triangles-player.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    pointer-events: none;
+    z-index: -1;
+  }
   .back-btn {
     cursor: pointer;
   }

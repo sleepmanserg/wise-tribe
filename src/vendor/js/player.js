@@ -736,6 +736,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				pointer-events: all;
 			`;
 			playerControlsSmall.classList.remove('active');
+			document.body.classList.add('overflow-hidden');
+			document.body.style.paddingRight = '15px';
 			modalAudioPlayer(firstOpenModal);
 		});
 	} catch (error) {
@@ -748,7 +750,11 @@ document.addEventListener('DOMContentLoaded', () => {
 				pointer-events: none;
 			`;
 		playerControlsSmall.classList.add('active');
+		document.body.classList.remove('overflow-hidden');
+		document.body.style.paddingRight = '0';
 	}
-	audioModalBackBtn.addEventListener('click', audioModalFullScreenExit);
-	audioModalexitFullscreenBtn.addEventListener('click', audioModalFullScreenExit);
+	if (audioModalBackBtn && audioModalexitFullscreenBtn) {
+		audioModalBackBtn.addEventListener('click', audioModalFullScreenExit);
+		audioModalexitFullscreenBtn.addEventListener('click', audioModalFullScreenExit);
+	}
 });

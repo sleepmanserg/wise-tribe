@@ -572,14 +572,22 @@ phoneInputs.forEach(phone => {
 /** Preloader */
 
 window.addEventListener('DOMContentLoaded', (event) => {
-	const preload = document.querySelector('.preloader');
+	const preloadHome = document.querySelector('.preloader-home');
+	const preloadSite = document.querySelector('.preloader-site');
 
-	if (preload) {
+	if (preloadHome) {
 		setTimeout(function () {
 			document.body.style.overflow = '';
 			document.body.style.paddingRight = '';
-			preload.classList.add('loaded');
-		}, 2000);
+			preloadHome.classList.add('loaded');
+		}, 7800);
+	}
+	if (preloadSite) {
+		setTimeout(function () {
+			document.body.style.overflow = '';
+			document.body.style.paddingRight = '';
+			preloadSite.classList.add('loaded');
+		}, 1500);
 	}
 });
 
