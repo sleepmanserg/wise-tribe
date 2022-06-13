@@ -1,6 +1,6 @@
 section.player-section.hero-player-section(style="opacity: 0; z-index: -1;")
 	.container
-		a(href="artists.html").back-btn.position-relative
+		.back-btn.position-relative#close-player-modal
 				i.icon-chevron-l
 				span Back
 	.container.player-container
@@ -87,10 +87,8 @@ section.player-section.hero-player-section(style="opacity: 0; z-index: -1;")
 							i.icon-repeat
 							i.icon-repeat-one
 							i.icon-repeat-all
-						button#shuffle-plist.bottom-controls-btn(title="Playlist not shuffled")
-							i.icon-shuffle
-						//- button#fullscreen-btn.bottom-controls-btn
-						//- 	i.icon-shuffle
+						button.bottom-controls-btn#player-fulllscreen-exit
+							i.icon-smallscreen
 
 
 

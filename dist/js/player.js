@@ -14,7 +14,7 @@ const init = async (url) => {
 const modalAudioPlayer = async (firstOpenModal) => {
 	const playerWrapper = document.querySelector('.audio-player-wrapper');
 	const heroPlayerWrapper = document.querySelector('.hero');
-	
+
 	if (playerWrapper) {
 		const
 			parentActiveSlideItem = document.querySelector('.swiper-slide-active .hero-slider__item'),
@@ -154,7 +154,7 @@ const modalAudioPlayer = async (firstOpenModal) => {
 			if (musicDuration.innerText === musicCurrentTime.innerText) {
 				playerNextBtn.click();
 			};
-			
+
 			playerProgressBar.querySelector('span').innerText = `${currentMin}:${currentSec}`;
 		});
 
@@ -169,7 +169,7 @@ const modalAudioPlayer = async (firstOpenModal) => {
 		});
 
 		const repeatBtn = document.querySelector('#repeat-plist');
-		const shuffleBtn = document.querySelector('#shuffle-plist');
+		// const shuffleBtn = document.querySelector('#shuffle-plist');
 
 		repeatBtn.addEventListener('click', () => {
 			repeatBtn.classList.add('active');
@@ -187,16 +187,16 @@ const modalAudioPlayer = async (firstOpenModal) => {
 			}
 		});
 
-		shuffleBtn.addEventListener('click', () => {
-			shuffleBtn.classList.toggle('active');
+		// shuffleBtn.addEventListener('click', () => {
+		// 	shuffleBtn.classList.toggle('active');
 
-			let ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
-			console.log(ranIndex);
-			do {
-				ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
-			} while (musicIndex == ranIndex)
-			musicIndex = ranIndex;
-		});
+		// 	let ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
+		// 	console.log(ranIndex);
+		// 	do {
+		// 		ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
+		// 	} while (musicIndex == ranIndex)
+		// 	musicIndex = ranIndex;
+		// });
 
 		trackMain.addEventListener('ended', () => {
 			switch (repeatBtn.className) {
@@ -414,9 +414,11 @@ const heroAudioPlayer = async () => {
 		// Play music function
 		function playMusic() {
 			heroPlayerWrapper.classList.add('paused');
+			const playerControlsSmall = document.querySelector('.player-controls');
 
 			if (trackMain.paused) {
 				console.log('play');
+				playerControlsSmall.classList.add('active');
 				fetchAudioPlay();
 			}
 		}
@@ -722,16 +724,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const playerControlContainer = document.querySelector('.player-fullscreen');
 	const audioModalContainer = document.querySelector('.player-section.hero-player-section');
+	const audioModalBackBtn = document.querySelector('#close-player-modal');
+	const audioModalexitFullscreenBtn = document.querySelector('#player-fulllscreen-exit');
+	const playerControlsSmall = document.querySelector('.player-controls');
 	let firstOpenModal = false;
 	try {
 		playerControlContainer.addEventListener('click', () => {
 			audioModalContainer.style.cssText = `
 				opacity: 1;
 				z-index: 11;
+				pointer-events: all;
 			`;
+			playerControlsSmall.classList.remove('active');
 			modalAudioPlayer(firstOpenModal);
 		});
 	} catch (error) {
-		
+
 	}
+	function audioModalFullScreenExit() {
+		audioModalContainer.style.cssText = `
+				opacity: 0;
+				z-index: -1;
+				pointer-events: none;
+			`;
+		playerControlsSmall.classList.add('active');
+	}
+	audioModalBackBtn.addEventListener('click', audioModalFullScreenExit);
+	audioModalexitFullscreenBtn.addEventListener('click', audioModalFullScreenExit);
 });
