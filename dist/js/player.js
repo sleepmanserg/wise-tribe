@@ -14,6 +14,7 @@ const init = async (url) => {
 const modalAudioPlayer = async (firstOpenModal) => {
 	const playerWrapper = document.querySelector('.audio-player-wrapper');
 	const heroPlayerWrapper = document.querySelector('.hero');
+	const playerWrapperMain = document.querySelector('[data-volume-level]');
 
 	if (playerWrapper) {
 		const
@@ -329,7 +330,7 @@ const modalAudioPlayer = async (firstOpenModal) => {
 			} else {
 				volumeLevel = 'high';
 			}
-			playerWrapper.dataset.volumeLevel = volumeLevel;
+			playerWrapperMain.dataset.volumeLevel = volumeLevel;
 		});
 	}
 }
@@ -357,6 +358,7 @@ const modalAudioPlayer = async (firstOpenModal) => {
 const heroAudioPlayer = async () => {
 	const heroPlayerWrapper = document.querySelector('.hero');
 	const playerWrapper = document.querySelector('.audio-player-wrapper');
+	const playerWrapperMain = document.querySelector('[data-volume-level]');
 
 	if (heroPlayerWrapper) {
 		const
@@ -626,7 +628,7 @@ const heroAudioPlayer = async () => {
 			} else {
 				volumeLevel = 'high';
 			}
-			heroPlayerWrapper.dataset.volumeLevel = volumeLevel;
+			document.body.dataset.volumeLevel = volumeLevel;
 		});
 	}
 };

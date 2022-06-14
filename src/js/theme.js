@@ -580,7 +580,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			document.body.style.overflow = '';
 			document.body.style.paddingRight = '';
 			preloadHome.classList.add('loaded');
-		}, 7800);
+		}, 0);
 	}
 	if (preloadSite) {
 		setTimeout(function () {
