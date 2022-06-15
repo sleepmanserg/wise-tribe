@@ -1,4 +1,7 @@
 /** Audio player */
+const trackMain = document.querySelector('.player-controls .main-audio');
+let musicIndex = 1;
+
 const getData = (playlist) => {
 	let url = playlist;
 
@@ -11,18 +14,107 @@ const init = async (url) => {
 	return await artistData.music;
 };
 
+function fetchAudioPlay() {
+	fetch(trackMain.src)
+		.then(response => response.blob())
+		.then(blob => {
+			return trackMain.play();
+		})
+		.catch(e => {})
+};
+
+function next(musics) {
+	musicIndex++;
+	musicIndex > musics.length ? musicIndex = 1 : musicIndex = musicIndex;
+}
+
+function prev(musics) {
+	musicIndex--;
+	musicIndex < 1 ? musicIndex = musics.length : musicIndex = musicIndex;
+}
+
+function renderViewPlaylist(i, artist, src, img, name, songId) {
+	let playlist = `
+		<li li-index="${i + 1}" class="player-playlist__list-item player-list__item">
+			<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
+			<div class="player-list__item-img">
+				<img src="${img}">
+				<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
+				</svg>
+				<svg class="pause-icon" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<g opacity="0.9">
+						<rect x="0.190796" y="0.428528" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+						<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
+					</g>
+				</svg>
+			</div>
+			<div class="player-list__item-info">
+				<div class="player-list__item-artist">${artist}</div>
+				<div class="player-list__item-media">${name}</div>
+			</div>
+			<audio class="${songId}" src="${src}"></audio>
+			<div class="player-list__item-duration"><span id="${songId}" class="player-list__item-end">3:20</span></div>
+		</li>`;
+
+	return playlist;
+}
+
+function currentSongDuration(songId, playList) {
+	let liAudioDuration = playList.querySelector(`#${songId}`);
+	let liAudioTag = playList.querySelector(`.${songId}`);
+
+	liAudioTag.addEventListener('loadeddata', () => {
+		let playlistAudioDuration = liAudioTag.duration;
+
+		// Update song duration
+		let totalMin = Math.floor(playlistAudioDuration / 60);
+		let totalSec = Math.floor(playlistAudioDuration % 60);
+		if (totalSec < 10) {
+			totalSec = `0${totalSec}`;
+		}
+		liAudioDuration.innerText = `${totalMin}:${totalSec}`;
+		liAudioDuration.setAttribute("t-duration", `${totalMin}:${totalSec}`);
+	});
+} 
+
+function currentPlayingSong(allPlayListItems) {
+	for (let j = 0; j < allPlayListItems.length; j++) {
+		let audioTag = allPlayListItems[j].querySelector('.player-list__item-end');
+
+		if (allPlayListItems[j].classList.contains('playing')) {
+			allPlayListItems[j].classList.remove('playing');
+			let adDuration = audioTag.getAttribute("t-duration");
+			audioTag.innerText = adDuration;
+		}
+		if (allPlayListItems[j].getAttribute("li-index") == musicIndex) {
+			allPlayListItems[j].classList.add('playing');
+			audioTag.innerText = "playing...";
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
 const modalAudioPlayer = async (firstOpenModal) => {
 	const playerWrapper = document.querySelector('.audio-player-wrapper');
 	const heroPlayerWrapper = document.querySelector('.hero');
 	const playerWrapperMain = document.querySelector('[data-volume-level]');
 
-	if (playerWrapper) {
+	// if (playerWrapper) {
 		const
 			parentActiveSlideItem = document.querySelector('.swiper-slide-active .hero-slider__item'),
 			trackImg = playerWrapper.querySelector('.player-track__img img'),
 			trackName = playerWrapper.querySelector('.player-controls-song-details .song-name'),
 			trackArtist = playerWrapper.querySelector('.player-controls-song-details .song-media'),
-			trackMain = heroPlayerWrapper.querySelector('.main-audio'),
+			// trackMain = heroPlayerWrapper.querySelector('.main-audio'),
 			playPauseBtn = playerWrapper.querySelector('#play-song'),
 			playerPrevBtn = playerWrapper.querySelector('#prev-song'),
 			playerNextBtn = playerWrapper.querySelector('#next-song'),
@@ -31,8 +123,6 @@ const modalAudioPlayer = async (firstOpenModal) => {
 			playerVolumeBtn = playerWrapper.querySelector('#song-sound'),
 			playerVolumeSlider = playerWrapper.querySelector('.sound-container .sound-control'),
 			bottomControlsSongThumb = playerWrapper.querySelector('.player-controls-song-details img');
-
-		let musicIndex = 1;
 
 		let allMusic = await init(parentActiveSlideItem.dataset.playlist);
 
@@ -51,18 +141,6 @@ const modalAudioPlayer = async (firstOpenModal) => {
 			}
 			bottomControlsSongThumb.src = trackImg.src;
 		}
-
-		function fetchAudioPlay() {
-			fetch(trackMain.src)
-				.then(response => response.blob())
-				.then(blob => {
-					// console.log('Audio started...');
-					return trackMain.play();
-				})
-				.catch(e => {
-					// console.log('Audio failed...');
-				})
-		};
 
 		// Play music function
 		function playMusic() {
@@ -85,17 +163,15 @@ const modalAudioPlayer = async (firstOpenModal) => {
 		}
 
 		// Next music function
-		function nextMusic() {
-			musicIndex++;
-			musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+		function nextMusic(musics) {
+			next(musics);
 			loadMusic(musicIndex);
 			playMusic();
 		}
 
 		// Prev music function
-		function prevMusic() {
-			musicIndex--;
-			musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
+		function prevMusic(musics) {
+			prev(musics);
 			loadMusic(musicIndex);
 			playMusic();
 		}
@@ -107,12 +183,12 @@ const modalAudioPlayer = async (firstOpenModal) => {
 		});
 
 		playerNextBtn.addEventListener('click', () => {
-			nextMusic();
+			nextMusic(allMusic);
 			playingNow();
 		});
 
 		playerPrevBtn.addEventListener('click', () => {
-			prevMusic();
+			prevMusic(allMusic);
 			playingNow();
 		});
 
@@ -229,47 +305,11 @@ const modalAudioPlayer = async (firstOpenModal) => {
 
 			musics.forEach((music, i) => {
 				const { artist, src, img, name, songId } = music;
-				let audioClassName = songId;
-				let playListItem =
-					`<li li-index="${i + 1}" class="player-playlist__list-item player-list__item">
-						<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
-						<div class="player-list__item-img">
-							<img src="${img}">
-							<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
-							</svg>
-							<svg class="pause-icon" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g opacity="0.9">
-									<rect x="0.190796" y="0.428528" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
-									<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
-								</g>
-							</svg>
-						</div>
-						<div class="player-list__item-info">
-							<div class="player-list__item-artist">${artist}</div>
-							<div class="player-list__item-media">${name}</div>
-						</div>
-						<audio class="${audioClassName}" src="${src}"></audio>
-						<div class="player-list__item-duration"><span id="${audioClassName}" class="player-list__item-end">3:20</span></div>
-					</li>`;
+				let playListItem = renderViewPlaylist(i, artist, src, img, name, songId);
 
 				playList.insertAdjacentHTML("beforeend", playListItem);
 
-				let liAudioDuration = playList.querySelector(`#${audioClassName}`);
-				let liAudioTag = playList.querySelector(`.${audioClassName}`);
-
-				liAudioTag.addEventListener('loadeddata', () => {
-					let playlistAudioDuration = liAudioTag.duration;
-
-					// Update song duration
-					let totalMin = Math.floor(playlistAudioDuration / 60);
-					let totalSec = Math.floor(playlistAudioDuration % 60);
-					if (totalSec < 10) {
-						totalSec = `0${totalSec}`;
-					}
-					liAudioDuration.innerText = `${totalMin}:${totalSec}`;
-					liAudioDuration.setAttribute("t-duration", `${totalMin}:${totalSec}`);
-				});
+				currentSongDuration(songId, playList);
 			});
 		}
 
@@ -278,23 +318,13 @@ const modalAudioPlayer = async (firstOpenModal) => {
 		const allPlayListItems = document.querySelectorAll('.player-list__item');
 
 		function playingNow() {
+			currentPlayingSong(allPlayListItems);
+
 			for (let j = 0; j < allPlayListItems.length; j++) {
-				let audioTag = allPlayListItems[j].querySelector('.player-list__item-end');
-
-				if (allPlayListItems[j].classList.contains('playing')) {
-					allPlayListItems[j].classList.remove('playing');
-					let adDuration = audioTag.getAttribute("t-duration");
-					audioTag.innerText = adDuration;
-				}
-				if (allPlayListItems[j].getAttribute("li-index") == musicIndex) {
-					allPlayListItems[j].classList.add('playing');
-					audioTag.innerText = "playing...";
-				}
-
 				allPlayListItems[j].addEventListener('click', () => {
 					clicked();
 				});
-
+	
 				function clicked(element) {
 					let getLiIndex = allPlayListItems[j].getAttribute('li-index');
 					musicIndex = getLiIndex;
@@ -332,7 +362,7 @@ const modalAudioPlayer = async (firstOpenModal) => {
 			}
 			playerWrapperMain.dataset.volumeLevel = volumeLevel;
 		});
-	}
+	// }
 }
 
 
@@ -367,15 +397,13 @@ const heroAudioPlayer = async () => {
 			trackAllSlides = heroPlayerWrapper.querySelectorAll('.hero-slider__item'),
 			trackName = heroPlayerWrapper.querySelector('.swiper-slide-active .hero-slider__item-name div'),
 			trackControlImg = document.querySelector('.player-controls .track-img'),
-			trackMain = heroPlayerWrapper.querySelector('.hero-slider .main-audio'),
+			// trackMain = heroPlayerWrapper.querySelector('.hero-slider .main-audio'),
 			playPauseBtnSlide = document.querySelector('.swiper-slide-active .player-play-pause-btn'),
 			playPauseBtnControl = document.querySelector('.player-controls .player-play-pause-btn'),
 			playerPrevBtn = document.querySelector('.player-prev-btn'),
 			playerNextBtn = document.querySelector('.player-next-btn'),
 			playerVolumeBtn = document.querySelector('.player-btn.sound-btn'),
 			playerVolumeSlider = document.querySelector('.sound-container .sound-control');
-
-		let musicIndex = 1;
 
 		let artistData = await init(parentActiveSlideItem.dataset.playlist);
 
@@ -401,18 +429,6 @@ const heroAudioPlayer = async () => {
 
 		loadMusic(musicIndex, artistData);
 
-		function fetchAudioPlay() {
-			fetch(trackMain.src)
-				.then(response => response.blob())
-				.then(blob => {
-					console.log('Audio started...');
-					return trackMain.play();
-				})
-				.catch(e => {
-					console.log('Audio failed...');
-				})
-		};
-
 		// Play music function
 		function playMusic() {
 			heroPlayerWrapper.classList.add('paused');
@@ -437,16 +453,14 @@ const heroAudioPlayer = async () => {
 
 		// // Next music function
 		function nextMusic(musics) {
-			musicIndex++;
-			musicIndex > musics.length ? musicIndex = 1 : musicIndex = musicIndex;
+			next(musics);
 			loadMusic(musicIndex, artistData);
 			playMusic();
 		}
 
 		// // Prev music function
 		function prevMusic(musics) {
-			musicIndex--;
-			musicIndex < 1 ? musicIndex = musics.length : musicIndex = musicIndex;
+			prev(musics);
 			loadMusic(musicIndex, artistData);
 			playMusic();
 		}
@@ -457,67 +471,19 @@ const heroAudioPlayer = async () => {
 
 			musics.forEach((music, i) => {
 				const { artist, src, img, name, songId } = music;
-				let audioClassName = songId;
-				let playListItem =
-					`<li li-index="${i + 1}" class="player-playlist__list-item player-list__item">
-						<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg"></div>
-						<div class="player-list__item-img">
-							<img src="${img}">
-							<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
-							</svg>
-							<svg class="pause-icon" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g opacity="0.9">
-									<rect x="0.190796" y="0.428528" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
-									<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
-								</g>
-							</svg>
-						</div>
-						<div class="player-list__item-info">
-							<div class="player-list__item-artist">${artist}</div>
-							<div class="player-list__item-media">${name}</div>
-						</div>
-						<audio class="${audioClassName}" src="${src}"></audio>
-						<div class="player-list__item-duration"><span id="${audioClassName}" class="player-list__item-end">3:20</span></div>
-					</li>`;
+
+				let playListItem = renderViewPlaylist(i, artist, src, img, name, songId);
 
 				playList.insertAdjacentHTML("beforeend", playListItem);
 
-				let liAudioDuration = playList.querySelector(`#${audioClassName}`);
-				let liAudioTag = playList.querySelector(`.${audioClassName}`);
-
-				liAudioTag.addEventListener('loadeddata', () => {
-					let playlistAudioDuration = liAudioTag.duration;
-
-					// Update song duration
-					let totalMin = Math.floor(playlistAudioDuration / 60);
-					let totalSec = Math.floor(playlistAudioDuration % 60);
-					if (totalSec < 10) {
-						totalSec = `0${totalSec}`;
-					}
-					liAudioDuration.innerText = `${totalMin}:${totalSec}`;
-					liAudioDuration.setAttribute("t-duration", `${totalMin}:${totalSec}`);
-
-				});
+				currentSongDuration(songId, playList);
 			});
 		}
 
 		const allPlayListItems = document.querySelectorAll('.player-list__item');
 
 		function playingNow() {
-			for (let j = 0; j < allPlayListItems.length; j++) {
-				let audioTag = allPlayListItems[j].querySelector('.player-list__item-end');
-				if (allPlayListItems[j].classList.contains('playing')) {
-					allPlayListItems[j].classList.remove('playing');
-					let adDuration = audioTag.getAttribute("t-duration");
-					audioTag.innerText = adDuration;
-				}
-
-				if (allPlayListItems[j].getAttribute("li-index") == musicIndex) {
-					allPlayListItems[j].classList.add('playing');
-					audioTag.innerText = "playing...";
-				}
-			}
+			currentPlayingSong(allPlayListItems);
 		}
 
 		function playPauseControls() {
@@ -754,6 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		playerControlsSmall.classList.add('active');
 		document.body.classList.remove('overflow-hidden');
 		document.body.style.paddingRight = '0';
+		// heroAudioPlayer();
 	}
 	if (audioModalBackBtn && audioModalexitFullscreenBtn) {
 		audioModalBackBtn.addEventListener('click', audioModalFullScreenExit);
