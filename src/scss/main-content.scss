@@ -35,6 +35,7 @@ main {
   --sectionPaddingTop: 50px;
   padding-top: var(--sectionPaddingTop);
   padding-bottom: --sectionPaddingBottom;
+  user-select: none;
   @media (min-width: 768px) {
     --sectionPaddingBottom: 167px;
   }

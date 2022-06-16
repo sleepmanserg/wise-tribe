@@ -2,21 +2,21 @@
 header.site-header
   .container.header-container
     .header-logo
-      a(href="index.html").header-logo__link
+      a(href="index.html" data-ajax-link).header-logo__link
         img(src="img/logo.svg", alt="Wise Music")
     .header-inner
       nav.header-nav
         ul.header-nav__list
           li.header-nav__item
-            a.nav-link.header-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html") Events
+            a.nav-link.header-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html" data-ajax-link) Events
           li.header-nav__item
-            a.nav-link.header-nav__link(class=(pageTitle === 'Artists') ? "active" : "nav-link" href="artists.html") Artists
+            a.nav-link.header-nav__link(class=(pageTitle === 'Artists') ? "active" : "nav-link" href="artists.html" data-ajax-link) Artists
           li.header-nav__item
-            a.nav-link.header-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html") Blog
+            a.nav-link.header-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html" data-ajax-link) Blog
           li.header-nav__item
-            a.nav-link.header-nav__link(class=(pageTitle === 'Cooperation') ? "active" : "nav-link" href="cooperation.html") Cooperation
+            a.nav-link.header-nav__link(class=(pageTitle === 'Cooperation') ? "active" : "nav-link" href="cooperation.html" data-ajax-link) Cooperation
           li.header-nav__item
-            a.nav-link.header-nav__link(class=(pageTitle === 'Charity') ? "active" : "nav-link" href="charity.html") Charity
+            a.nav-link.header-nav__link(class=(pageTitle === 'Charity') ? "active" : "nav-link" href="charity.html" data-ajax-link) Charity
 
       .header-shop
         a(href="#").shop__btn

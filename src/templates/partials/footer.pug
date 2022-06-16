@@ -8,15 +8,15 @@ footer.footer
       nav.footer-nav
         ul.footer-nav__list
           li.footer-nav__list-item
-            a.nav-link.footer-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html")  Events
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Events') ? "active" : "nav-link" href="events.html" data-ajax-link)  Events
           li.footer-nav__list-item
-            a.nav-link.footer-nav__link(class=(pageTitle === 'Artists') ? "active" : "nav-link" href="artists.html") Artists
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Artists') ? "active" : "nav-link" href="artists.html" data-ajax-link) Artists
           li.footer-nav__list-item
-            a.nav-link.footer-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html") Blog
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Blog') ? "active" : "nav-link" href="blog.html" data-ajax-link) Blog
           li.footer-nav__list-item
-            a.nav-link.footer-nav__link(class=(pageTitle === 'Cooperation') ? "active" : "nav-link" href="cooperation.html") Сooperation
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Cooperation') ? "active" : "nav-link" href="cooperation.html" data-ajax-link) Сooperation
           li.footer-nav__list-item
-            a.nav-link.footer-nav__link(class=(pageTitle === 'Charity') ? "active" : "nav-link" href="charity.html") Charity
+            a.nav-link.footer-nav__link(class=(pageTitle === 'Charity') ? "active" : "nav-link" href="charity.html" data-ajax-link) Charity
       .socials.footer-socials
         a(href="#").footer-socials__link
           i.icon-facebook
@@ -30,4 +30,4 @@ footer.footer
         span.footer-text Contact us easily
         a(href="mailto:wise@tribe.com").footer-mail.text-center wise@tribe.com
       .footer-policy
-        a(href="privacy.html").footer-link Privacy Policy
+        a(href="privacy.html" data-ajax-link).footer-link Privacy Policy

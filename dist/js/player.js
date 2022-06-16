@@ -20,7 +20,7 @@ function fetchAudioPlay() {
 		.then(blob => {
 			return trackMain.play();
 		})
-		.catch(e => {})
+		.catch(e => { })
 };
 
 function next(musics) {
@@ -76,7 +76,7 @@ function currentSongDuration(songId, playList) {
 		liAudioDuration.innerText = `${totalMin}:${totalSec}`;
 		liAudioDuration.setAttribute("t-duration", `${totalMin}:${totalSec}`);
 	});
-} 
+}
 
 function currentPlayingSong(allPlayListItems) {
 	for (let j = 0; j < allPlayListItems.length; j++) {
@@ -109,259 +109,259 @@ const modalAudioPlayer = async (firstOpenModal) => {
 	const playerWrapperMain = document.querySelector('[data-volume-level]');
 
 	// if (playerWrapper) {
-		const
-			parentActiveSlideItem = document.querySelector('.swiper-slide-active .hero-slider__item'),
-			trackImg = playerWrapper.querySelector('.player-track__img img'),
-			trackName = playerWrapper.querySelector('.player-controls-song-details .song-name'),
-			trackArtist = playerWrapper.querySelector('.player-controls-song-details .song-media'),
-			// trackMain = heroPlayerWrapper.querySelector('.main-audio'),
-			playPauseBtn = playerWrapper.querySelector('#play-song'),
-			playerPrevBtn = playerWrapper.querySelector('#prev-song'),
-			playerNextBtn = playerWrapper.querySelector('#next-song'),
-			playerProgressBar = playerWrapper.querySelector('.progress_bar'),
-			playerProgressArea = playerWrapper.querySelector('.progress-area'),
-			playerVolumeBtn = playerWrapper.querySelector('#song-sound'),
-			playerVolumeSlider = playerWrapper.querySelector('.sound-container .sound-control'),
-			bottomControlsSongThumb = playerWrapper.querySelector('.player-controls-song-details img');
+	const
+		parentActiveSlideItem = document.querySelector('.swiper-slide-active .hero-slider__item'),
+		trackImg = playerWrapper.querySelector('.player-track__img img'),
+		trackName = playerWrapper.querySelector('.player-controls-song-details .song-name'),
+		trackArtist = playerWrapper.querySelector('.player-controls-song-details .song-media'),
+		// trackMain = heroPlayerWrapper.querySelector('.main-audio'),
+		playPauseBtn = playerWrapper.querySelector('#play-song'),
+		playerPrevBtn = playerWrapper.querySelector('#prev-song'),
+		playerNextBtn = playerWrapper.querySelector('#next-song'),
+		playerProgressBar = playerWrapper.querySelector('.progress_bar'),
+		playerProgressArea = playerWrapper.querySelector('.progress-area'),
+		playerVolumeBtn = playerWrapper.querySelector('#song-sound'),
+		playerVolumeSlider = playerWrapper.querySelector('.sound-container .sound-control'),
+		bottomControlsSongThumb = playerWrapper.querySelector('.player-controls-song-details img');
 
-		let allMusic = await init(parentActiveSlideItem.dataset.playlist);
+	let allMusic = await init(parentActiveSlideItem.dataset.playlist);
 
-		renderAudioList(allMusic);
+	renderAudioList(allMusic);
 
-		firstOpenModal = true;
+	firstOpenModal = true;
 
-		// Load music function
-		function loadMusic(indexNumb) {
-			let artistInfo = allMusic[indexNumb - 1];
-			trackName.innerText = artistInfo.name;
-			trackArtist.innerText = artistInfo.artist;
-			trackImg.src = artistInfo.img;
-			if (firstOpenModal) {
-				trackMain.src = artistInfo.src;
-			}
-			bottomControlsSongThumb.src = trackImg.src;
+	// Load music function
+	function loadMusic(indexNumb) {
+		let artistInfo = allMusic[indexNumb - 1];
+		trackName.innerText = artistInfo.name;
+		trackArtist.innerText = artistInfo.artist;
+		trackImg.src = artistInfo.img;
+		if (firstOpenModal) {
+			trackMain.src = artistInfo.src;
+		}
+		bottomControlsSongThumb.src = trackImg.src;
+	}
+
+	// Play music function
+	function playMusic() {
+		playerWrapper.classList.add('paused');
+
+		if (trackMain.paused) {
+			// console.log('play');
+			fetchAudioPlay();
+		}
+	}
+
+	// Pause music function
+	function pauseMusic() {
+		playerWrapper.classList.remove('paused');
+
+		if (!trackMain.paused) {
+			// console.log('pause');
+			trackMain.pause();
+		}
+	}
+
+	// Next music function
+	function nextMusic(musics) {
+		next(musics);
+		loadMusic(musicIndex);
+		playMusic();
+	}
+
+	// Prev music function
+	function prevMusic(musics) {
+		prev(musics);
+		loadMusic(musicIndex);
+		playMusic();
+	}
+
+	playPauseBtn.addEventListener('click', () => {
+		const isMusicPaused = playerWrapper.classList.contains('paused');
+		isMusicPaused ? pauseMusic() : playMusic();
+		playingNow();
+	});
+
+	playerNextBtn.addEventListener('click', () => {
+		nextMusic(allMusic);
+		playingNow();
+	});
+
+	playerPrevBtn.addEventListener('click', () => {
+		prevMusic(allMusic);
+		playingNow();
+	});
+
+	trackMain.addEventListener('timeupdate', (e) => {
+		const currentTime = e.target.currentTime;
+		const duration = e.target.duration;
+
+		let musicCurrentTime = document.querySelector('.audio-player-wrapper .player-timer__current');
+		let musicDuration = document.querySelector('.audio-player-wrapper .player-timer__end');
+
+		let progressWidth = (currentTime / duration) * 100;
+		playerProgressBar.style.width = `${progressWidth}%`;
+
+		trackMain.addEventListener('loadeddata', getData);
+
+		if (trackMain.readyState >= 2) {
+			getData();
 		}
 
-		// Play music function
-		function playMusic() {
-			playerWrapper.classList.add('paused');
-
-			if (trackMain.paused) {
-				// console.log('play');
-				fetchAudioPlay();
+		function getData() {
+			let audioDuration = trackMain.duration;
+			// Update song duration
+			let totalMin = Math.floor(audioDuration / 60);
+			let totalSec = Math.floor(audioDuration % 60);
+			if (totalSec < 10) {
+				totalSec = `0${totalSec}`;
 			}
+			musicDuration.innerText = `${totalMin}:${totalSec}`;
 		}
 
-		// Pause music function
-		function pauseMusic() {
-			playerWrapper.classList.remove('paused');
+		// Update song current time
+		let currentMin = Math.floor(currentTime / 60);
+		let currentSec = Math.floor(currentTime % 60);
 
-			if (!trackMain.paused) {
-				// console.log('pause');
-				trackMain.pause();
-			}
+		if (currentSec < 10) {
+			currentSec = `0${currentSec}`;
 		}
+		musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
 
-		// Next music function
-		function nextMusic(musics) {
-			next(musics);
-			loadMusic(musicIndex);
-			playMusic();
+		if (musicDuration.innerText === musicCurrentTime.innerText) {
+			playerNextBtn.click();
+		};
+
+		playerProgressBar.querySelector('span').innerText = `${currentMin}:${currentSec}`;
+	});
+
+	// Song time update on progress bar width
+	playerProgressArea.addEventListener('click', (e) => {
+		let progressWidthVal = playerProgressArea.clientWidth;
+		let clickedOffsetX = e.offsetX;
+		let songDuration = trackMain.duration;
+
+		trackMain.currentTime = (clickedOffsetX / progressWidthVal) * songDuration;
+		playMusic();
+	});
+
+	const repeatBtn = document.querySelector('#repeat-plist');
+	// const shuffleBtn = document.querySelector('#shuffle-plist');
+
+	repeatBtn.addEventListener('click', () => {
+		repeatBtn.classList.add('active');
+		switch (repeatBtn.className) {
+			case 'bottom-controls-btn active':
+				repeatBtn.classList.remove('repeat');
+				repeatBtn.classList.add('repeat-one');
+				repeatBtn.setAttribute('title', 'Repeat one song');
+				break;
+			case 'bottom-controls-btn active repeat-one':
+				repeatBtn.classList.remove('active');
+				repeatBtn.classList.remove('repeat-one');
+				repeatBtn.setAttribute('title', 'Playlist looped');
+				break;
 		}
+	});
 
-		// Prev music function
-		function prevMusic(musics) {
-			prev(musics);
-			loadMusic(musicIndex);
-			playMusic();
+	// shuffleBtn.addEventListener('click', () => {
+	// 	shuffleBtn.classList.toggle('active');
+
+	// 	let ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
+	// 	console.log(ranIndex);
+	// 	do {
+	// 		ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
+	// 	} while (musicIndex == ranIndex)
+	// 	musicIndex = ranIndex;
+	// });
+
+	trackMain.addEventListener('ended', () => {
+		switch (repeatBtn.className) {
+			case 'bottom-controls-btn':
+				nextMusic();
+				break;
+			case 'bottom-controls-btn active repeat-one':
+				trackMain.currentTime = 0;
+				playMusic();
+				repeatBtn.classList.remove('repeat');
+				repeatBtn.classList.add('repeat-one');
+				repeatBtn.setAttribute('title', 'Repeat one song');
+				break;
 		}
-
-		playPauseBtn.addEventListener('click', () => {
-			const isMusicPaused = playerWrapper.classList.contains('paused');
-			isMusicPaused ? pauseMusic() : playMusic();
-			playingNow();
-		});
-
-		playerNextBtn.addEventListener('click', () => {
-			nextMusic(allMusic);
-			playingNow();
-		});
-
-		playerPrevBtn.addEventListener('click', () => {
-			prevMusic(allMusic);
-			playingNow();
-		});
-
-		trackMain.addEventListener('timeupdate', (e) => {
-			const currentTime = e.target.currentTime;
-			const duration = e.target.duration;
-
-			let musicCurrentTime = document.querySelector('.audio-player-wrapper .player-timer__current');
-			let musicDuration = document.querySelector('.audio-player-wrapper .player-timer__end');
-
-			let progressWidth = (currentTime / duration) * 100;
-			playerProgressBar.style.width = `${progressWidth}%`;
-
-			trackMain.addEventListener('loadeddata', getData);
-
-			if (trackMain.readyState >= 2) {
-				getData();
-			}
-
-			function getData() {
-				let audioDuration = trackMain.duration;
-				// Update song duration
-				let totalMin = Math.floor(audioDuration / 60);
-				let totalSec = Math.floor(audioDuration % 60);
-				if (totalSec < 10) {
-					totalSec = `0${totalSec}`;
-				}
-				musicDuration.innerText = `${totalMin}:${totalSec}`;
-			}
-
-			// Update song current time
-			let currentMin = Math.floor(currentTime / 60);
-			let currentSec = Math.floor(currentTime % 60);
-
-			if (currentSec < 10) {
-				currentSec = `0${currentSec}`;
-			}
-			musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
-
-			if (musicDuration.innerText === musicCurrentTime.innerText) {
-				playerNextBtn.click();
-			};
-
-			playerProgressBar.querySelector('span').innerText = `${currentMin}:${currentSec}`;
-		});
-
-		// Song time update on progress bar width
-		playerProgressArea.addEventListener('click', (e) => {
-			let progressWidthVal = playerProgressArea.clientWidth;
-			let clickedOffsetX = e.offsetX;
-			let songDuration = trackMain.duration;
-
-			trackMain.currentTime = (clickedOffsetX / progressWidthVal) * songDuration;
-			playMusic();
-		});
-
-		const repeatBtn = document.querySelector('#repeat-plist');
-		// const shuffleBtn = document.querySelector('#shuffle-plist');
-
-		repeatBtn.addEventListener('click', () => {
-			repeatBtn.classList.add('active');
-			switch (repeatBtn.className) {
-				case 'bottom-controls-btn active':
-					repeatBtn.classList.remove('repeat');
-					repeatBtn.classList.add('repeat-one');
-					repeatBtn.setAttribute('title', 'Repeat one song');
-					break;
-				case 'bottom-controls-btn active repeat-one':
-					repeatBtn.classList.remove('active');
-					repeatBtn.classList.remove('repeat-one');
-					repeatBtn.setAttribute('title', 'Playlist looped');
-					break;
-			}
-		});
-
-		// shuffleBtn.addEventListener('click', () => {
-		// 	shuffleBtn.classList.toggle('active');
-
-		// 	let ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
-		// 	console.log(ranIndex);
-		// 	do {
-		// 		ranIndex = Math.floor((Math.random() * allMusic.length) + 1);
-		// 	} while (musicIndex == ranIndex)
-		// 	musicIndex = ranIndex;
-		// });
-
-		trackMain.addEventListener('ended', () => {
-			switch (repeatBtn.className) {
-				case 'bottom-controls-btn':
-					nextMusic();
-					break;
-				case 'bottom-controls-btn active repeat-one':
-					trackMain.currentTime = 0;
-					playMusic();
-					repeatBtn.classList.remove('repeat');
-					repeatBtn.classList.add('repeat-one');
-					repeatBtn.setAttribute('title', 'Repeat one song');
-					break;
-			}
-			playingNow();
-		});
+		playingNow();
+	});
 
 
-		function renderAudioList(musics) {
-			loadMusic(musicIndex);
-			playerProgressArea.classList.add('is-visible');
-			let playList = document.querySelector('#player-list-modal');
-			playList.innerHTML = '';
+	function renderAudioList(musics) {
+		loadMusic(musicIndex);
+		playerProgressArea.classList.add('is-visible');
+		let playList = document.querySelector('#player-list-modal');
+		playList.innerHTML = '';
 
-			playList.style.cssText = `
+		playList.style.cssText = `
 				opacity: 1;
 				display: block !important;
 			`;
 
-			musics.forEach((music, i) => {
-				const { artist, src, img, name, songId } = music;
-				let playListItem = renderViewPlaylist(i, artist, src, img, name, songId);
+		musics.forEach((music, i) => {
+			const { artist, src, img, name, songId } = music;
+			let playListItem = renderViewPlaylist(i, artist, src, img, name, songId);
 
-				playList.insertAdjacentHTML("beforeend", playListItem);
+			playList.insertAdjacentHTML("beforeend", playListItem);
 
-				currentSongDuration(songId, playList);
+			currentSongDuration(songId, playList);
+		});
+	}
+
+	// Playlist item click to play song
+
+	const allPlayListItems = document.querySelectorAll('.player-list__item');
+
+	function playingNow() {
+		currentPlayingSong(allPlayListItems);
+
+		for (let j = 0; j < allPlayListItems.length; j++) {
+			allPlayListItems[j].addEventListener('click', () => {
+				clicked();
 			});
-		}
 
-		// Playlist item click to play song
-
-		const allPlayListItems = document.querySelectorAll('.player-list__item');
-
-		function playingNow() {
-			currentPlayingSong(allPlayListItems);
-
-			for (let j = 0; j < allPlayListItems.length; j++) {
-				allPlayListItems[j].addEventListener('click', () => {
-					clicked();
-				});
-	
-				function clicked(element) {
-					let getLiIndex = allPlayListItems[j].getAttribute('li-index');
-					musicIndex = getLiIndex;
-					loadMusic(musicIndex);
-					playMusic();
-					playingNow();
-				}
+			function clicked(element) {
+				let getLiIndex = allPlayListItems[j].getAttribute('li-index');
+				musicIndex = getLiIndex;
+				loadMusic(musicIndex);
+				playMusic();
+				playingNow();
 			}
 		}
-		setTimeout(() => {
-			playingNow();
-		}, 1000);
+	}
+	setTimeout(() => {
+		playingNow();
+	}, 1000);
 
-		playerVolumeBtn.addEventListener('click', () => {
-			toggleMute();
-		});
+	playerVolumeBtn.addEventListener('click', () => {
+		toggleMute();
+	});
 
-		function toggleMute() {
-			trackMain.muted = !trackMain.muted;
+	function toggleMute() {
+		trackMain.muted = !trackMain.muted;
+	}
+
+	playerVolumeSlider.addEventListener('input', e => {
+		trackMain.volume = e.target.value;
+		trackMain.muted = e.target === 0;
+	});
+
+	trackMain.addEventListener('volumechange', () => {
+		playerVolumeSlider.value = trackMain.volume;
+		let volumeLevel;
+		if (trackMain.muted || trackMain.volume === 0) {
+			playerVolumeSlider.value = 0;
+			volumeLevel = 'muted';
+		} else {
+			volumeLevel = 'high';
 		}
-
-		playerVolumeSlider.addEventListener('input', e => {
-			trackMain.volume = e.target.value;
-			trackMain.muted = e.target === 0;
-		});
-
-		trackMain.addEventListener('volumechange', () => {
-			playerVolumeSlider.value = trackMain.volume;
-			let volumeLevel;
-			if (trackMain.muted || trackMain.volume === 0) {
-				playerVolumeSlider.value = 0;
-				volumeLevel = 'muted';
-			} else {
-				volumeLevel = 'high';
-			}
-			playerWrapperMain.dataset.volumeLevel = volumeLevel;
-		});
+		playerWrapperMain.dataset.volumeLevel = volumeLevel;
+	});
 	// }
 }
 
@@ -631,8 +631,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	swiperMainHome.on('slideChange', function () {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
 		swiperMainHome.updateSlidesClasses();
-		document.querySelector('.hero .icon-play-rounded').classList.remove('d-none');
-		document.querySelector('.hero .icon-pause').classList.add('d-none');
+		const heroSliderPlayBtns = document.querySelectorAll('.hero .icon-play-rounded');
+		const heroSliderPauseBtns = document.querySelectorAll('.hero .icon-pause');
+
+		heroSliderPlayBtns.forEach(btn => {
+			btn.classList.remove('d-none');
+		});
+		heroSliderPauseBtns.forEach(btn => {
+			btn.classList.add('d-none');
+		});
+		document.querySelector('.hero').classList.remove('paused');
+
 		document.querySelector('.player-controls .play-icon').classList.remove('d-none');
 		document.querySelector('.player-controls .pause-icon').classList.add('d-none');
 		heroAudioPlayer();
@@ -704,7 +713,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				pointer-events: all;
 			`;
 			playerControlsSmall.classList.remove('active');
-			document.body.classList.add('overflow-hidden');
+			document.documentElement.classList.add('overflow-hidden');
 			document.body.style.paddingRight = '15px';
 			modalAudioPlayer(firstOpenModal);
 		});
@@ -718,7 +727,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				pointer-events: none;
 			`;
 		playerControlsSmall.classList.add('active');
-		document.body.classList.remove('overflow-hidden');
+		document.documentElement.classList.remove('overflow-hidden');
 		document.body.style.paddingRight = '0';
 		// heroAudioPlayer();
 	}
