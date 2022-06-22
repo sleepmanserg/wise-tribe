@@ -10,6 +10,16 @@
   @media (min-width: 1024px) {
     padding: 0 80px;
   }
+  &.playing {
+    .play-wrap {
+      .icon-play-rounded {
+        display: none;
+      }
+      .icon-pause {
+        display: block;
+      }
+    }
+  }
   > img {
     bottom: -140px;
     width: 15vw;
@@ -133,6 +143,30 @@
   .play-wrap {
     max-width: 122px;
     width: 100%;
+    position: relative;
+    .release-play-btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: $white;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      @include hover {
+        color: $blue;
+      }
+    }
+    i {
+      transition: 0.25s;
+    }
+    .icon-play-rounded {
+      font-size: 10px;
+    }
+    .icon-pause {
+      font-size: 12px;
+      display: none;
+    }
   }
 
   .info-wrap {

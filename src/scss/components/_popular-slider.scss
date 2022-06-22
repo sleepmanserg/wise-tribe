@@ -16,6 +16,10 @@
     transform: translateY(-50%);
     z-index: 3;
     padding-inline: 1.25rem;
+    pointer-events: none;
+    .popular-slider__btn {
+      pointer-events: all;
+    }
     @media (min-width: 768px) {
       --paddingInline: 2.5rem;
     }
@@ -37,11 +41,42 @@
   margin-bottom: 20px;
   text-decoration: none;
   color: $white;
+  &.playing {
+    .play-icon {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .pause-icon {
+      opacity: 1;
+      visibility: visible;
+    }
+    @include hover {
+      .play-icon {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .pause-icon {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  &:not(.playing) {
+    @include hover {
+      color: $white;
+      .popular-item__title {
+        color: $blue;
+      }
+      .popular-item__thumb {
+        .play-icon {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
   @include hover {
     color: $white;
-    .popular-item__title {
-      color: $blue;
-    }
   }
   &:active {
     color: $white;
@@ -63,6 +98,16 @@
     position: relative;
     img {
       border-radius: inherit;
+    }
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s;
     }
   }
   .popular-item__info {

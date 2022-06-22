@@ -36,6 +36,11 @@
       opacity: 1;
     }
   }
+  @media (min-width: 1700px) {
+    .swiper-slide {
+      max-width: 400px;
+    }
+  }
 }
 
 .mixes-slider__item {

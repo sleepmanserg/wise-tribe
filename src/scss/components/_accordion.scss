@@ -60,6 +60,9 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
+    @media (max-width: 767px) {
+      margin-right: auto;
+    }
   }
   .accordion-title {
     color: $white;
