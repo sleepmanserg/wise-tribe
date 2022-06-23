@@ -82,6 +82,18 @@
     &:fullscreen {
       opacity: 1;
       visibility: visible;
+      .plyr__controls {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      .plyr__control[data-plyr="play"]:not(.plyr__control--pressed) {
+        background: transparent;
+        width: auto;
+        height: auto;
+        svg {
+          fill: $white;
+        }
+      }
     }
     &::before {
       content: "";
