@@ -18,9 +18,17 @@ block content
         span Back
     .article-grid.blog-slider__content
       .article-item
-        .blog-item__date
-          i.icon-calendar
-          span.opacity-7 Published October 16, 2021
+        .article-item__media-info.d-flex.justify-content-between.flex-wrap.align-items-center
+          .blog-item__date
+            i.icon-calendar
+            span.opacity-7 Published October 16, 2021
+          .blog-activity.d-inline-flex.mb-0
+              a(href="#").blog-activity__item.blog-likes
+                i.icon-heart
+                span 171
+              .blog-activity__item.blog-views
+                i.icon-eye
+                span 231
         .artcile-item__header
           .article-item__title Roma Nebo presented a new song
           .article-item__subtitle.section-text Roma Nebo presented a new song "Oore", which became the main soundtrack to the series "My favorite Strashko"
@@ -29,21 +37,14 @@ block content
             a(href="#").blog-label concerts
             a(href="#").blog-label songs
         .article-item__body
-          .article-item__media
-            .article-item__thumb.lazy-image
-              picture
-                source(data-srcset='img/blog/article.webp' srcset="img/1x1.png" type='image/webp')
-                img(data-src="img/blog/article.webp" src="img/1x1.png", alt="Artist image")
-            .article-item__media-info
-              .article-item__media-title Hot! New song "Oore"
-              .blog-activity.d-flex
-                a(href="#").blog-activity__item.blog-likes
-                  i.icon-heart
-                  span 171
-                .blog-activity__item.blog-views
-                  i.icon-eye
-                  span 231
           .article-item__description
+            .article-item__media
+              .article-item__thumb.lazy-image
+                picture
+                  source(data-srcset='img/blog/article.webp' srcset="img/1x1.png" type='image/webp')
+                  img(data-src="img/blog/article.webp" src="img/1x1.png", alt="Artist image")
+              .article-item__media-info
+                .article-item__media-title Hot! New song "Oore"
             ul
               li Lorem ipsum dolor sit amet.
               li Lorem ipsum dolor sit amet.
@@ -72,7 +73,7 @@ block content
                         source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
                         img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
-                  .blog-label concerts
+                  a(href="#").blog-label concerts
                   .blog-activity.d-flex.align-items-center
                     a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
@@ -97,7 +98,7 @@ block content
                         source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
                         img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
-                  .blog-label concerts
+                  a(href="#").blog-label concerts
                   .blog-activity.d-flex.align-items-center
                     a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
@@ -122,7 +123,7 @@ block content
                         source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
                         img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
-                  .blog-label concerts
+                  a(href="#").blog-label concerts
                   .blog-activity.d-flex.align-items-center
                     a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
@@ -147,7 +148,7 @@ block content
                         source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
                         img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
-                  .blog-label concerts
+                  a(href="#").blog-label concerts
                   .blog-activity.d-flex.align-items-center
                     a(href="#").blog-activity__item.blog-likes
                       i.icon-heart
@@ -172,7 +173,7 @@ block content
                         source(data-srcset='img/blog/blog-slider1.webp' srcset="img/1x1.png" type='image/webp')
                         img(data-src="img/blog/blog-slider1.webp" src="img/1x1.png", alt="Artist image")
                 .blog-item__actions
-                  .blog-label concerts
+                  a(href="#").blog-label concerts
                   .blog-activity.d-flex.align-items-center
                     a(href="#").blog-activity__item.blog-likes
                       i.icon-heart

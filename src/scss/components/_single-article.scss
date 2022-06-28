@@ -22,7 +22,7 @@
   @media (min-width: 1024px) {
     --articleGridGap: 1.25rem;
     display: grid;
-    grid-template-columns: auto 382px;
+    grid-template-columns: auto 420px;
     gap: var(--articleGridGap);
     max-width: 1760px;
     margin: 0 auto;
@@ -43,10 +43,15 @@
   padding-top: var(--articlePaddingTop);
   padding-left: var(--paddingInline);
   padding-right: var(--paddingInline);
+  .article-item__media-info {
+    gap: 1.5rem;
+    margin-bottom: 2.4rem;
+  }
   .blog-item__date {
-    --articleDateGap: 1rem;
+    // --articleDateGap: 1rem;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
-    margin-bottom: var(--articleDateGap);
+    padding: 0;
+    // margin-bottom: var(--articleDateGap);
     i {
       font-size: clamp(1.5rem, 3vw, 1.625rem);
     }
@@ -190,7 +195,7 @@
   @media (min-width: 768px) {
     --articlePaddingTop: 32px;
     .blog-item__date {
-      --articleDateGap: 2.42rem;
+      // --articleDateGap: 2.42rem;
     }
     .article-item__title {
       --articleTitleGap: 1rem;
@@ -223,6 +228,16 @@
   padding-top: --articleSidebarPadding;
   @media (min-width: 1024px) {
     --articleSidebarPadding: 0;
+  }
+  .blog-item__actions {
+    .blog-label {
+      text-decoration: none;
+      transition: 0.25s;
+      @include hover {
+        color: #fff;
+        box-shadow: 0px 0px 41px 6px rgba(0, 154, 241, 0.2);
+      }
+    }
   }
 }
 
