@@ -2,7 +2,7 @@
     "music" : [
         {
             "name" : "Sleep Now In The Fire",
-            "artist" : "Rage Against the Machine",
+            "artist" : "3Rage Against the Machine",
             "img" : "/img/covers/minerva.jpg",
             "src" : "/songs/In the End.mp3",
             "is_main" : 0,
@@ -18,7 +18,7 @@
         },
         {
             "name" : "Sleep Now In The Fire",
-            "artist" : "Rage Against the Machine",
+            "artist" : "Third List the Machine",
             "img" : "/img/covers/white-pony.jpg",
             "src" : "/songs/Diamond Eyes.mp3",
             "is_main" : 0,

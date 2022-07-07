@@ -2,7 +2,7 @@
     "music" : [
         {
             "name" : "Sleep Now In The Fire",
-            "artist" : "Rage Against the Machine",
+            "artist" : "2Rage Against the Machine",
             "img" : "/img/covers/rage-against.jpg",
             "src" : "/songs/Faint.mp3",
             "is_main" : 0,
@@ -18,7 +18,7 @@
         },
         {
             "name" : "Sleep Now In The Fire",
-            "artist" : "Rage Against the Machine",
+            "artist" : "Second List the Machine",
             "img" : "/img/covers/hybrid-theory.jpg",
             "src" : "/songs/Elite.mp3",
             "is_main" : 1,
@@ -63,6 +63,14 @@
             "src" : "/songs/Sleep Now In The Fire.mp3",
             "is_main" : 0,
             "songId": "s16"
+        },
+        {
+            "name" : "Sleep Now In The Fire",
+            "artist" : "Rage Against the Machine",
+            "img" : "/img/covers/minerva.jpg",
+            "src" : "/songs/In the End.mp3",
+            "is_main" : 0,
+            "songId": "s171"
         }
     ]
 }

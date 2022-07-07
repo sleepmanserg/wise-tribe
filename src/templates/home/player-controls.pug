@@ -1,22 +1,22 @@
 //Player Controls
-.player-controls
+.player-controls.active(data-playlist="/json/artist_music.json")
   audio(src="").main-audio
   .player-volume.sound-container
-    button.player-btn.sound-btn
+    button.player-btn.sound-btn(data-sound-btn)
       i.icon-volume
       i.icon-sound-off
     .sound-input
-      input.sound-control(type="range" min="0" max="1" step="any" value="1")
+      input.sound-control(type="range" min="0" max="1" step="any" value="1" data-sound-slider)
   span.controls-divider
   .player-prev
-    button.player-btn.player-prev-btn
+    button.player-btn.player-prev-btn(data-song-play-prev)
       svg(width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg')
         path(opacity='0.6' d='M5.5 6.86603C4.83333 6.48113 4.83333 5.51887 5.5 5.13397L11.5 1.66987C12.1667 1.28497 13 1.7661 13 2.5359L13 9.4641C13 10.2339 12.1667 10.715 11.5 10.3301L5.5 6.86603Z' fill='white')
         path(opacity='0.9' d='M1.5 6.86603C0.833334 6.48113 0.833334 5.51887 1.5 5.13397L7.5 1.66987C8.16667 1.28497 9 1.7661 9 2.5359L9 9.4641C9 10.2339 8.16667 10.715 7.5 10.3301L1.5 6.86603Z' fill='white')
 
 
   .player-play-pause
-    button.player-btn.player-play-pause-btn.paused
+    button.player-btn.player-play-pause-btn.paused(data-song-play-pause)
       svg.pause-icon.d-none(width='8' height='10' viewBox='0 0 8 10' fill='none' xmlns='http://www.w3.org/2000/svg')
         g(opacity='0.9')
           rect(x='0.190796' y='0.428528' width='2.17678' height='9.14286' rx='1.08839' fill='white')
@@ -32,7 +32,7 @@
         .progress-bar
 
   .player-next
-    button.player-btn.player-next-btn
+    button.player-btn.player-next-btn(data-song-play-next)
       svg(width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg')
         path(opacity='0.6' d='M5.5 6.86603C4.83333 6.48113 4.83333 5.51887 5.5 5.13397L11.5 1.66987C12.1667 1.28497 13 1.7661 13 2.5359L13 9.4641C13 10.2339 12.1667 10.715 11.5 10.3301L5.5 6.86603Z' fill='white')
         path(opacity='0.9' d='M1.5 6.86603C0.833334 6.48113 0.833334 5.51887 1.5 5.13397L7.5 1.66987C8.16667 1.28497 9 1.7661 9 2.5359L9 9.4641C9 10.2339 8.16667 10.715 7.5 10.3301L1.5 6.86603Z' fill='white')
@@ -41,8 +41,8 @@
     button.player-btn.player-fullscreen-btn
       i.icon-fullscreen
 
-  ul.player-playlist__list.player-list.d-none(style="position: absolute; bottom: 100px;")
-  .player-timer.d-none
-    span.player-timer__current 0:00
-    | /
-    span.player-timer__end
+  //- ul.player-playlist__list.player-list.d-none(style="position: absolute; bottom: 100px;")
+  //- .player-timer.d-none
+  //-   span.player-timer__current 0:00
+  //-   | /
+  //-   span.player-timer__end
