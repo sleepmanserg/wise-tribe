@@ -150,6 +150,7 @@ gulp.task('concat:js', () => {
   return gulp.src([
     path.src_js_vendor + '/*.js',
     '!' + path.src_js_vendor + '/player.js',
+    '!' + path.src_js_vendor + '/video-player.js',
   ])
     .pipe(concat('vendor.min.js'))
     .pipe(gulp.dest(path.dist_js))
@@ -173,7 +174,8 @@ gulp.task('concat:js', () => {
 
 gulp.task('move:js', () => {
   return gulp.src([
-    path.src_js_vendor + '/player.js'
+    path.src_js_vendor + '/player.js',
+    path.src_js_vendor + '/video-player.js'
   ])
     .pipe(gulp.dest(path.dist_js))
     .on('end', () => {
@@ -240,6 +242,7 @@ gulp.task('watch', () => {
   gulp.watch(path.src_scss + '/**/*.scss', gulp.series('sass:minified', 'sass:expanded'));
   gulp.watch(path.src_js + '/*.js', gulp.series('js'));
   gulp.watch(path.src_js_vendor + '/player.js', gulp.series('move:js'));
+  gulp.watch(path.src_js_vendor + '/video-player.js', gulp.series('move:js'));
   gulp.watch(path.src + '/img/*', gulp.series('exports'));
 });
 

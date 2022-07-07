@@ -1,0 +1,20 @@
+{
+	"video" : [
+		{
+			"type": "youtube",
+			"title": "In the end",
+			"author": "Linkin Park",
+			"src": "https://youtu.be/eVTXPUF4Oz4",
+			"poster": "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg",
+            "videoId": "v1"
+		},
+		{
+			"type": "youtube",
+			"title": "Show Me How To Live",
+			"author": "Audioslave",
+			"src": "https://youtu.be/vVXIK1xCRpY",
+			"poster": "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg",
+            "videoId": "v2"
+		}
+	]
+}

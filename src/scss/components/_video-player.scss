@@ -83,11 +83,11 @@
       }
       .plyr__poster {
         transform: scale(1.7);
-        z-index: 9999999999;
+        // z-index: 9999999999;
       }
       iframe {
         transform: scale(1.7);
-        z-index: 999999999999;
+        // z-index: 999999999999;
       }
       @media (min-width: 768px) {
         .plyr__poster {
