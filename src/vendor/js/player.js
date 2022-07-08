@@ -15,6 +15,9 @@ const playerVolumeSlider = document.querySelectorAll('[data-sound-slider]');
 const playerPlayPauseSongBtns = document.querySelectorAll('[data-song-play-pause]');
 const playerNextSongBtns = document.querySelectorAll('[data-song-play-next]');
 const playerPrevSongBtns = document.querySelectorAll('[data-song-play-prev]');
+const playerSongTextTab = document.querySelector('[data-song-text]');
+const playerSongTextContent = document.querySelector('#profile .song-text');
+const playerSongsListTab = document.querySelector('#home-tab');
 let slideChange;
 
 let musicIndex = 1;
@@ -45,6 +48,14 @@ function createModalView(data, index) {
 	trackMain.src = artistInfo.src;
 	trackControlImg.src = trackImg.src;
 	bottomControlsSongThumb.src = trackImg.src;
+	if (artistInfo.songText) {
+		playerSongTextTab.style.display = 'block';
+		playerSongTextContent.textContent = artistInfo.songText;
+	} else {
+		playerSongTextTab.style.display = 'none';
+		playerSongTextContent.textContent = '';
+		playerSongsListTab.click();
+	}
 }
 
 function fetchAudioPlay() {
@@ -482,7 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		playerControlsSmall.classList.add('active');
 		document.body.classList.remove('overflow-hidden');
 		document.body.style.paddingRight = '0';
-		// heroAudioPlayer();
+		heroAudioPlayer();
 	}
 	if (audioModalBackBtn && audioModalexitFullscreenBtn) {
 		audioModalBackBtn.addEventListener('click', audioModalFullScreenExit);
