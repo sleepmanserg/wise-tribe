@@ -4,6 +4,20 @@
 
 /** All sliders function */
 
+document.addEventListener('click', e => {
+	const isTargetButton = e.target.matches('[data-target]');
+	if (!isTargetButton && e.target.closest('[data-active]') != null) return;
+	let currentTarget;
+	if (isTargetButton) {
+		currentTarget = e.target.closest('[data-active]');
+		currentTarget.classList.toggle('active');
+	}
+	document.querySelectorAll('[data-active].active').forEach(item => {
+		if (item == currentTarget) return;
+		item.classList.remove('active');
+	});
+});
+
 const allSliders = function () {
 
 	// Detect and add condition classes to slides
@@ -425,9 +439,9 @@ const innerSliders = function () {
 			let containerWidth = document.querySelector('.container').offsetWidth;
 			let sliderOffset = (sliderWidth - containerWidth) / 2;
 
-			console.log(sliderWidth);
-			console.log(containerWidth);
-			console.log(sliderOffset);
+			// console.log(sliderWidth);
+			// console.log(containerWidth);
+			// console.log(sliderOffset);
 
 			sliderContent.style.paddingLeft = sliderOffset + 'px';
 			// console.log(slider);

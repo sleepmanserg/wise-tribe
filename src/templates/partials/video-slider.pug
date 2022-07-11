@@ -1,48 +1,39 @@
 .offset-slider__content
-	.swiper.video-slider.offset-slider
+	.swiper.video-slider.offset-slider(data-video-playlist="/json/artist_video.json")
 		.swiper-wrapper
 			.swiper-slide
 				.video-slider__card.video-card
 					.video-card__header(style="background-image: url('img/video-slider/01.jpg')")
-
-						.video-card__video()
+						.video-card__play-btn(data-bs-toggle="modal" data-bs-target="#videoPlayerModal" data-video-id="v1")
+							i.icon-play
 					.video-card__body
 						.video-card__title Reality
 						.video-card__artist Roma Nebo
 			.swiper-slide
 				.video-slider__card.video-card
 					.video-card__header(style="background-image: url('img/video-slider/01.jpg')")
-
-
-						.video-card__video()
-					.video-card__body
-						.video-card__title The Star Nation
-						.video-card__artist Moyenei
-			.swiper-slide
-				.video-slider__card.video-card
-					.video-card__header(style="background-image: url('img/video-slider/01.jpg')")
-
-						.video-card__video()
+						.video-card__play-btn(data-bs-toggle="modal" data-bs-target="#videoPlayerModal" data-video-id="v2")
+							i.icon-play
 					.video-card__body
 						.video-card__title Reality
 						.video-card__artist Roma Nebo
 			.swiper-slide
 				.video-slider__card.video-card
 					.video-card__header(style="background-image: url('img/video-slider/01.jpg')")
-
-						.video-card__video
-							iframe(src='https://www.youtube.com/embed/eVTXPUF4Oz4?rel=0&origin=https://plyr.io&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1' allowfullscreen='' allowtransparency='' allow='autoplay')
+						.video-card__play-btn(data-bs-toggle="modal" data-bs-target="#videoPlayerModal" data-video-id="v4")
+							i.icon-play
 					.video-card__body
 						.video-card__title Reality
 						.video-card__artist Roma Nebo
 			.swiper-slide
 				.video-slider__card.video-card
 					.video-card__header(style="background-image: url('img/video-slider/01.jpg')")
-
-						.video-card__video()
+						.video-card__play-btn(data-bs-toggle="modal" data-bs-target="#videoPlayerModal" data-video-id="v4")
+							i.icon-play
 					.video-card__body
 						.video-card__title Reality
 						.video-card__artist Roma Nebo
+
 .container
 	.swiper-nav.d-flex.justify-content-between.align-items-center
 		.arrow-button.arrow-button__prev.video-button-prev

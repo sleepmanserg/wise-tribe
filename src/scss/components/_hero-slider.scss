@@ -134,9 +134,8 @@ section.hero {
 .hero-slider {
   .swiper-slide {
     width: 380px;
-
     .hero-slider__img {
-      transition: 0.2s ease-in-out !important;
+      transition: 0.2s ease-in-out;
       border-radius: 50%;
       aspect-ratio: 1 / 1;
       img {

@@ -69,10 +69,10 @@
         width: 100%;
         height: 100%;
         border-radius: inherit;
-        pointer-events: none;
+        // pointer-events: none;
         .plyr__control.plyr__control--overlaid,
         .plyr__controls {
-          display: none;
+          // display: none;
         }
         &.video-fullscreen {
           pointer-events: all;
@@ -82,19 +82,19 @@
         }
       }
       .plyr__poster {
-        transform: scale(1.7);
+        // transform: scale(1.7);
         // z-index: 9999999999;
       }
       iframe {
-        transform: scale(1.7);
+        // transform: scale(1.7);
         // z-index: 999999999999;
       }
       @media (min-width: 768px) {
         .plyr__poster {
-          transform: scale(2);
+          // transform: scale(2);
         }
         iframe {
-          transform: scale(2);
+          // transform: scale(2);
         }
       }
     }
@@ -254,6 +254,16 @@
     }
     > li:last-of-type {
       padding-bottom: 20px;
+    }
+    .pls-playing {
+      .player-list__item-info {
+        color: $blue;
+      }
+    }
+    .player-list__item-info {
+      @media (max-width: 480px) {
+        flex: 0 0 280px;
+      }
     }
     .video-player-playlist__actions {
       z-index: 5;
@@ -439,7 +449,7 @@
       }
     }
     .player-img__area {
-      height: 61vh;
+      height: 55vh;
       margin-bottom: 0;
       .player-track__img {
         height: 100%;
@@ -501,6 +511,10 @@
         order: 2;
         flex: 0 0 200px;
         max-width: 200px;
+        @media (min-width: 1900px) {
+          flex: 0 0 300px;
+          max-width: 300px;
+        }
         .song-name {
           font-size: 18px;
         }
@@ -713,4 +727,151 @@
 .video-container.scrubbing .timeline,
 .timeline-container:hover .timeline {
   height: 100%;
+}
+
+.video-modal {
+  overflow-y: auto;
+  .back-btn {
+    cursor: pointer;
+  }
+  .modal-dialog {
+    min-height: 100vh;
+    max-width: 100%;
+    transform: translate(0, 0) !important;
+    transition: opacity 0.5s linear !important;
+    margin: 0;
+  }
+  .modal-content {
+    padding-top: calc(var(--headerHeight) + 15px);
+    min-height: 100vh;
+    height: 100%;
+    background: radial-gradient(
+        81.91% 108.97% at 23.88% 18.09%,
+        rgba(255, 255, 255, 0.126) 0%,
+        rgba(255, 255, 255, 0) 100%
+      ),
+      radial-gradient(54.68% 54.68% at 50% 45.32%, #050547 0%, #000022 100%),
+      #fff;
+    background-repeat: repeat, repeat, repeat;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/decorations/triangles-player.avif");
+      background-repeat: no-repeat;
+      background-size: cover;
+      pointer-events: none;
+    }
+  }
+  .player-section {
+  }
+}
+
+.video-player-visible {
+  .site-header {
+    z-index: 9991;
+  }
+}
+
+.plyr iframe {
+  transition: 1s filter;
+  filter: opacity(1);
+}
+
+.plyr {
+  .plyr__controls {
+    display: none;
+  }
+}
+
+.plyr .video-fullscreen {
+  .plyr__controls {
+    display: flex;
+  }
+}
+
+.plyr.plyr--paused iframe {
+  filter: opacity(0);
+  transition: 0.2s filter;
+}
+
+.plyr iframe[id^="youtube"] {
+  opacity: 1;
+  -webkit-transition: all 500ms;
+  transition: all 500ms;
+}
+
+.plyr.plyr--paused iframe[id^="youtube"] {
+  opacity: 0;
+  -webkit-transition: all 150ms;
+  transition: all 150ms;
+}
+
+.plyr--paused .plyr__poster {
+  z-index: 2;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.plyr iframe[id^="youtube"] {
+  // transition: 0.2s filter linear;
+  top: -50%;
+  height: 200%;
+  z-index: 1;
+  pointer-events: none !important;
+}
+.plyr--full-ui input[type="range"] {
+  color: $blue;
+}
+.plyr.plyr--paused iframe {
+  // filter: blur(1.5rem);
+  pointer-events: none;
+}
+.plyr--video .plyr__control {
+  border-radius: 50%;
+}
+.plyr--video .plyr__control.plyr__tab-focus,
+.plyr--video .plyr__control:hover,
+.plyr--video .plyr__control[aria-expanded="true"] {
+  background-color: $blue;
+}
+.plyr__control svg {
+  fill: currentColor;
+  display: block;
+  height: 18px;
+  height: var(--plyr-control-icon-size, 16px);
+  pointer-events: none;
+  width: 18px;
+  width: var(--plyr-control-icon-size, 16px);
+}
+
+.plyr__control--overlaid,
+.plyr--full-ui.plyr--video .plyr__control--overlaid {
+  width: 80px;
+  height: 80px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    background-color: $blue;
+    border-radius: inherit;
+    opacity: 0.5;
+  }
 }

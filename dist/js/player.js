@@ -53,7 +53,7 @@ function fetchAudioPlay() {
 		.then(blob => {
 			return trackMain.play();
 		})
-		.catch(e => {})
+		.catch(e => { })
 };
 
 function toggleMute() {
@@ -150,7 +150,7 @@ function currentSongDuration(songId, playList) {
 		liAudioDuration.innerText = `${totalMin}:${totalSec}`;
 		liAudioDuration.setAttribute("t-duration", `${totalMin}:${totalSec}`);
 	});
-} 
+}
 
 function currentPlayingSong(allPlayListItems) {
 	for (let j = 0; j < allPlayListItems.length; j++) {
@@ -209,7 +209,7 @@ const player = async (slideChange = true) => {
 			currentPlayingSong(allPlayListItems);
 			playMusic();
 		}
-		
+
 		for (let j = 0; j < allPlayListItems.length; j++) {
 			allPlayListItems[j].addEventListener('click', () => {
 				clicked(j);
@@ -312,7 +312,7 @@ const heroAudioPlayer = async () => {
 			playPauseBtnSlide = document.querySelector('.swiper-slide-active .player-play-pause-btn'),
 			playPauseBtnControl = document.querySelector('.player-controls .player-play-pause-btn');
 
-			playerControlsSmall.dataset.playlist = parentActiveSlideItem.dataset.playlist;
+		playerControlsSmall.dataset.playlist = parentActiveSlideItem.dataset.playlist;
 
 		let data = await loadData();
 
@@ -628,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 			loadMusic(i, data, song);
 	// 			playMusic();
 	// 		});
-	// 	});	
+	// 	});
 	// };
 
 	// allSongsContainer('.popular .popular-slider', '.popular-item');

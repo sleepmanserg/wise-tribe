@@ -3,19 +3,15 @@
 const videoPlayerPage = function () {
 	/** Video player big */
 
-	document.addEventListener('click', e => {
-		const isTargetButton = e.target.matches('[data-target]');
-		if (!isTargetButton && e.target.closest('[data-active]') != null) return;
-		let currentTarget;
-		if (isTargetButton) {
-			currentTarget = e.target.closest('[data-active]');
-			currentTarget.classList.toggle('active');
-		}
-		document.querySelectorAll('[data-active].active').forEach(item => {
-			if (item == currentTarget) return;
-			item.classList.remove('active');
+	var simulateClick = function (elem) {
+		var evt = new MouseEvent('click', {
+			bubbles: true,
+			cancelable: true,
+			view: window
 		});
-	});
+		// If cancelled, don't dispatch our event
+		var canceled = !elem.dispatchEvent(evt);
+	};
 
 
 
@@ -24,7 +20,7 @@ const videoPlayerPage = function () {
 	if (videoPlayerWrapper) {
 
 
-		const videoPlaylistJson = document.querySelector('.video-player-wrapper').dataset.videoPlaylist;
+		const videoPlaylistJson = document.querySelector('.video-slider').dataset.videoPlaylist;
 
 		const getJSON = async url => {
 			const response = await fetch(url);
@@ -75,14 +71,13 @@ const videoPlayerPage = function () {
 				var items = [];
 
 				$.each(allVideos, function (id, val) {
-
 					if (0 === id) playingclass = "pls-playing";
 					else playingclass = "";
 					val.forEach(item => {
 
 						items.push(
 							`
-								<li class="player-playlist__list-item ${playingclass}">
+								<li class="player-playlist__list-item ${playingclass}" data-video-id="${item.videoId}">
 									<a class="player-list__item w-100" href="#" data-plyr-provider="${item.type}" data-plyr-embed-id="${item.src}">
 										<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg" /></div>
 										<div class="player-list__item-img"><img src="${item.poster}" alt="" />
@@ -104,6 +99,30 @@ const videoPlayerPage = function () {
 									</a>
 								</li>
 							`);
+
+						const videoSliderItems = document.querySelectorAll('.video-slider .video-card__play-btn');
+						videoSliderItems.forEach(video => {
+							const videoId = video.dataset.videoId;
+
+							video.addEventListener('click', () => {
+								const playlistItems = document.querySelectorAll('.player-playlist__list-item');
+
+								playlistItems.forEach(videoItem => {
+									if (videoId === item.videoId && videoId === videoItem.dataset.videoId) {
+										const playerListItem = videoItem.querySelector('.player-list__item');
+
+										simulateClick(playerListItem);
+
+
+										// $(".player-playlist__list li")
+										// 	.next()
+										// 	.find("a")
+										// 	.trigger("click");
+									}
+
+								});
+							});
+						});
 					});
 
 					if (id == limit)
@@ -111,12 +130,12 @@ const videoPlayerPage = function () {
 
 				});
 				$(target).html(items.join(""));
-
 				const videoList = document.querySelector('.video-list');
+				videoList.firstElementChild.classList.add('pls-playing');
 				const playListMobileControls = `
 							<li class="video-player-playlist__actions">
 								<div class="player-controls-song-details">
-									<div class="player-controls__bottom-thumb"></div>
+									<div class="player-controls__bottom-thumb"><img src="" /></div>
 									<div>
 										<p class="song-name mb-0"></p>
 										<p class="song-media mb-0"></p>
@@ -158,9 +177,26 @@ const videoPlayerPage = function () {
 					videoVolumeSlider = videoPlayerWrapper.querySelector('.sound-container .sound-control'),
 					videoBottomControlsSongThumb = videoPlayerWrapper.querySelector('.player-controls__bottom-thumb img'),
 					videoMobilePlayBtn = videoPlayerWrapper.querySelector('.mobile-play-pause'),
-					videoBottomControlsFullscreen = videoPlayerWrapper.querySelector('.video-controls #video-full-screen');
+					videoBottomControlsFullscreen = videoPlayerWrapper.querySelector('.video-controls #video-full-screen'),
+					videoRepeatBtn = document.querySelector('#repeat-video-plist');
 
+				// Repeat btn
 
+				videoRepeatBtn.addEventListener('click', () => {
+					videoRepeatBtn.classList.add('active');
+					switch (videoRepeatBtn.className) {
+						case 'bottom-controls-btn active':
+							videoRepeatBtn.classList.remove('repeat');
+							videoRepeatBtn.classList.add('repeat-one');
+							videoRepeatBtn.setAttribute('title', 'Repeat one song');
+							break;
+						case 'bottom-controls-btn active repeat-one':
+							videoRepeatBtn.classList.remove('active');
+							videoRepeatBtn.classList.remove('repeat-one');
+							videoRepeatBtn.setAttribute('title', 'Playlist looped');
+							break;
+					}
+				});
 				// Timeline
 				videoTimelineContainer.addEventListener("mousemove", handleTimelineUpdate)
 				videoTimelineContainer.addEventListener("mousedown", toggleScrubbing)
@@ -220,6 +256,15 @@ const videoPlayerPage = function () {
 					players[0].muted = !players[0].muted;
 				}
 
+				var videoPlayerModal = document.getElementById('videoPlayerModal')
+				videoPlayerModal.addEventListener('hide.bs.modal', function (event) {
+					players[0].stop();
+					document.body.classList.remove('video-player-visible');
+				})
+				videoPlayerModal.addEventListener('show.bs.modal', function (event) {
+					document.body.classList.add('video-player-visible');
+				})
+
 				players[0].on('volumechange', () => {
 					videoVolumeSlider.value = players[0].volume;
 					let volumeLevel;
@@ -271,11 +316,25 @@ const videoPlayerPage = function () {
 
 				players[0].on("play", function () {
 					$('.video-player-wrapper').removeClass('active');
-				})
+				});
 
 				players[0].on("ended", function (event) {
 					$('#video-main .plyr').addClass('video-fullscreen');
-					nextVideo();
+					switch (videoRepeatBtn.className) {
+						case 'bottom-controls-btn':
+							nextVideo();
+							break;
+						case 'bottom-controls-btn active repeat-one':
+							players[0].currentTime = 0;
+							players[0].play();
+							videoRepeatBtn.classList.remove('repeat');
+							videoRepeatBtn.classList.add('repeat-one');
+							videoRepeatBtn.setAttribute('title', 'Repeat one song');
+							break;
+					}
+					if (videoList.lastChild.nextSibling === null) {
+						console.log('last element null')
+					}
 				});
 
 				players[0].on('exitfullscreen', function () {
@@ -289,7 +348,6 @@ const videoPlayerPage = function () {
 					$('#video-main .plyr').addClass('video-fullscreen');
 					$('#video-main .plyr .plyr__controls').css('display', 'flex');
 					$('body').addClass('video-fullscreen');
-					// players[0].play();
 				});
 			}
 
@@ -327,6 +385,9 @@ const videoPlayerPage = function () {
 			function videoControlsMediaText() {
 				let playingVideoArtist = $('li.pls-playing .player-list__item-artist').text();
 				let playingVideoText = $('li.pls-playing .player-list__item-media').text();
+				let playingVideoThumb = $('li.pls-playing .player-list__item-img img');
+
+				console.log(playingVideoThumb);
 
 				$('.video-controls .song-name').html(`<p>${playingVideoText}</p>`);
 				$('.video-controls .song-media').html(`<p>${playingVideoArtist}</p>`);
@@ -361,7 +422,7 @@ const videoPlayerPage = function () {
 				$('.video-controls .plyr__time.plyr__time--current').text('0:00');
 				$('.timeline-current-time').text('0:00');
 
-				$('.video-controls .player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
+				$('.player-controls__bottom-thumb').html(`<img src="${players[0].poster}"></img>`);
 				$('.video-controls .song-name').html(`<p>${allVideos.video[0].title}</p>`);
 				$('.video-controls .song-media').html(`<p>${allVideos.video[0].author}</p>`);
 				// console.log()

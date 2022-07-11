@@ -17,86 +17,86 @@ block content
     include home/hero-slider
 
     //About Section
-    //- include home/about
+    include home/about
 
     //Mixes section
 
-    //- include home/mixes
+    include home/mixes
 
     //Releases Slider
-    //- include home/releases-slider
+    include home/releases-slider
 
     //Events section
-    //- include home/events
+    include home/events
 
-    //- section.popular.pt-0.position-relative
-    //-   .popular-absolute
-    //-     img(src="./img/decorations/decor-01.svg").position-absolute
-    //-     img(data-src="./img/decorations/snake.svg").position-absolute
-    //-     img(data-src="./img/decorations/bird.svg" src="img/1x1.png").position-absolute
-    //-     img(src="./img/decorations/decor-09.svg").position-absolute
-    //-   .container
-    //-     .section-title.text-md-center Popular tracks
-    //-   include partials/popular
+    section.popular.pt-0.position-relative
+      .popular-absolute
+        img(src="./img/decorations/decor-01.svg").position-absolute
+        img(data-src="./img/decorations/snake.svg").position-absolute
+        img(data-src="./img/decorations/bird.svg" src="img/1x1.png").position-absolute
+        img(src="./img/decorations/decor-09.svg").position-absolute
+      .container
+        .section-title.text-md-center Popular tracks
+      include partials/popular
 
-    //- section.wise-live
-    //-   .container
-    //-     .wise-live__header.pb-5
-    //-       .tiktok-title.section-title.text-md-center
-    //-         img(src='img/icons/tiktok-color.svg' alt='')
-    //-         span Wise Live
-    //-       a.tiktok-subscribe(href='#')
-    //-         i.icon-tiktok
-    //-         span Subscribe
-    //-   include partials/wise-live
+    section.wise-live
+      .container
+        .wise-live__header.pb-5
+          .tiktok-title.section-title.text-md-center
+            img(src='img/icons/tiktok-color.svg' alt='')
+            span Wise Live
+          a.tiktok-subscribe(href='#')
+            i.icon-tiktok
+            span Subscribe
+      include partials/wise-live
 
     //Studio Section
-    //- include home/studio
+    include home/studio
 
-    //- section.become-artist.position-relative
-    //-   .become-artist-absolute
-    //-     img(data-src="./img/decorations/frog.svg" src="img/1x1.png").position-absolute
-    //-     img(data-src="./img/decorations/decor-07.svg" src="img/1x1.png").position-absolute
-    //-   .container
-    //-     .become-artist__card.info-card
-    //-       .lazy-image
-    //-         picture
-    //-           source(data-srcset='img/become-artist.webp' srcset="img/1x1.png" type='image/webp')
-    //-           img(data-src="./img/become-artist.webp" src="img/1x1.png")
-    //-       .become-artist__card-caption
-    //-         .section-title.info-card__title Become an artist of Wise Music!
-    //-         .section-subtitle.info-card__subtitle We provide artists with the best
-    //-         p.info-card__text.section-text.opacity-7 Employees have experience in promoting great artists, teams, working with them. So hitting the radio or writing a hit song on a label can take much less time.
-    //-         a(href="#").btn.btn-light
-    //-           span Start now
+    section.become-artist.position-relative
+      .become-artist-absolute
+        img(data-src="./img/decorations/frog.svg" src="img/1x1.png").position-absolute
+        img(data-src="./img/decorations/decor-07.svg" src="img/1x1.png").position-absolute
+      .container
+        .become-artist__card.info-card
+          .lazy-image
+            picture
+              source(data-srcset='img/become-artist.webp' srcset="img/1x1.png" type='image/webp')
+              img(data-src="./img/become-artist.webp" src="img/1x1.png")
+          .become-artist__card-caption
+            .section-title.info-card__title Become an artist of Wise Music!
+            .section-subtitle.info-card__subtitle We provide artists with the best
+            p.info-card__text.section-text.opacity-7 Employees have experience in promoting great artists, teams, working with them. So hitting the radio or writing a hit song on a label can take much less time.
+            a(href="#").btn.btn-light
+              span Start now
 
-    //- section.experience.parallax-wrap.position-relative
-    //-   .random-circles
-    //-     - for(var x = 0; x < 4; x++)
-    //-       div(class="decor-circle decor-circle__one decor-circle-" + x)
-    //-     - for(var x = 0; x < 4; x++)
-    //-       div(class="decor-circle decor-circle__two decor-circle-" + x)
-    //-   .container
-    //-     .experience-caption
-    //-       h2.section-title.text-center WISE MUSIC Experience
-    //-       .section-text.opacity-7.text-center We want to create a large-scale music-show that the world has not seen yet.
-    //-     .experience-circle.circle-parallax
-    //-       .circle-parallax__bg.lazy-image
-    //-         picture
-    //-           source(data-srcset='img/circle/circle-bg.webp' srcset="img/1x1.png" type='image/webp')
-    //-           img(data-src='img/circle/circle-bg.webp' src="img/1x1.png")
-    //-       .circle-parallax__figure.circle-parallax__figure-first.parallax(data-speed="0.5")
-    //-         svg(width='766' height='727' viewBox='0 0 766 727' fill='none' xmlns='http://www.w3.org/2000/svg')
-    //-           path(fill-rule='evenodd' clip-rule='evenodd' d='M764 363.5L691.235 587.537L500.735 726H265.264L74.7645 587.537L2 363.5L74.7645 139.463L265.264 1L500.735 1L691.235 139.463L764 363.5Z' fill='#040435')
-    //-           path(fill-rule='evenodd' clip-rule='evenodd' d='M264.939 0H501.06L692.086 138.845L765.051 363.5L692.086 588.155L501.06 727H264.939L73.9135 588.155L0.948242 363.5L73.9135 138.845L264.939 0ZM265.589 2L75.6149 140.081L3.05108 363.5L75.6149 586.919L265.589 725H500.41L690.384 586.919L762.948 363.5L690.384 140.081L500.41 2H265.589Z' fill='#ABEFFF' fill-opacity='0.7')
-    //-       .circle-parallax__figure.circle-parallax__figure-second.parallax(data-speed="1")
-    //-         svg(width='604' height='575' viewBox='0 0 604 575' fill='none' xmlns='http://www.w3.org/2000/svg')
-    //-           path(fill-rule='evenodd' clip-rule='evenodd' d='M208.824 0.5H395.177L545.94 110.124L603.476 287.346L603 287.5L603.476 287.654L545.94 464.876L395.177 574.5H208.824L58.0608 464.876L0.474609 287.5L58.0608 110.124L208.824 0.5ZM602.475 287.5L545.089 110.742L394.852 1.5H209.149L58.9116 110.742L1.52599 287.5L58.9116 464.258L209.149 573.5H394.852L545.089 464.258L602.475 287.5Z' fill='#ABEFFF' fill-opacity='0.3')
+    section.experience.parallax-wrap.position-relative
+      .random-circles
+        - for(var x = 0; x < 4; x++)
+          div(class="decor-circle decor-circle__one decor-circle-" + x)
+        - for(var x = 0; x < 4; x++)
+          div(class="decor-circle decor-circle__two decor-circle-" + x)
+      .container
+        .experience-caption
+          h2.section-title.text-center WISE MUSIC Experience
+          .section-text.opacity-7.text-center We want to create a large-scale music-show that the world has not seen yet.
+        .experience-circle.circle-parallax
+          .circle-parallax__bg.lazy-image
+            picture
+              source(data-srcset='img/circle/circle-bg.webp' srcset="img/1x1.png" type='image/webp')
+              img(data-src='img/circle/circle-bg.webp' src="img/1x1.png")
+          .circle-parallax__figure.circle-parallax__figure-first.parallax(data-speed="0.5")
+            svg(width='766' height='727' viewBox='0 0 766 727' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' clip-rule='evenodd' d='M764 363.5L691.235 587.537L500.735 726H265.264L74.7645 587.537L2 363.5L74.7645 139.463L265.264 1L500.735 1L691.235 139.463L764 363.5Z' fill='#040435')
+              path(fill-rule='evenodd' clip-rule='evenodd' d='M264.939 0H501.06L692.086 138.845L765.051 363.5L692.086 588.155L501.06 727H264.939L73.9135 588.155L0.948242 363.5L73.9135 138.845L264.939 0ZM265.589 2L75.6149 140.081L3.05108 363.5L75.6149 586.919L265.589 725H500.41L690.384 586.919L762.948 363.5L690.384 140.081L500.41 2H265.589Z' fill='#ABEFFF' fill-opacity='0.7')
+          .circle-parallax__figure.circle-parallax__figure-second.parallax(data-speed="1")
+            svg(width='604' height='575' viewBox='0 0 604 575' fill='none' xmlns='http://www.w3.org/2000/svg')
+              path(fill-rule='evenodd' clip-rule='evenodd' d='M208.824 0.5H395.177L545.94 110.124L603.476 287.346L603 287.5L603.476 287.654L545.94 464.876L395.177 574.5H208.824L58.0608 464.876L0.474609 287.5L58.0608 110.124L208.824 0.5ZM602.475 287.5L545.089 110.742L394.852 1.5H209.149L58.9116 110.742L1.52599 287.5L58.9116 464.258L209.149 573.5H394.852L545.089 464.258L602.475 287.5Z' fill='#ABEFFF' fill-opacity='0.3')
 
 
-    //-       .experience-circle__inner
-    //-         .experience-circle__title.gradient-title w1se show
-    //-         a(href="#").btn.btn-white-glow Get member
+          .experience-circle__inner
+            .experience-circle__title.gradient-title w1se show
+            a(href="#").btn.btn-white-glow Get member
 
   //- include player-big-modal
 
