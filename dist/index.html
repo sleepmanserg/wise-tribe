@@ -48,7 +48,7 @@
         <!--Hero Slider-->
         <section class="hero position-relative">
           <!--Player Controls-->
-          <div class="player-controls active" data-playlist="/json/artist_music.json">
+          <div class="player-controls" data-playlist="/json/artist_music.json">
             <audio class="main-audio" src=""></audio>
             <div class="player-volume sound-container">
               <button class="player-btn sound-btn" data-sound-btn><i class="icon-volume"></i><i class="icon-sound-off"></i></button>
@@ -313,9 +313,355 @@
           </div>
         </section>
         <!--About Section-->
+        <!--About Section-->
+        <section class="about position-relative">
+          <div class="container">
+            <div class="about-row">
+              <div class="about-img">
+                <div class="lazy-image">
+                  <picture>
+                    <source data-srcset="img/about/about.webp" srcset="img/1x1.png" type="image/webp"><img data-src="img/about/about.png" src="img/1x1.png" alt="About image">
+                  </picture>
+                </div>
+              </div>
+              <div class="about-caption">
+                <h2 class="section-title">About Wise Music</h2>
+                <p class="section-text opacity-7"><span class="text-blue">W1SE  Music</span> is a record label dedicated to recording and promoting cross-cultural high vibrational music. With unique sounds, inspirational lyrics, and passionate personalities expect unique music dedicated to raising the awareness of the world around us.</p>
+              </div>
+            </div>
+          </div>
+        </section>
         <!--Mixes section-->
+        <section class="mixes swiper--lazy" id="swiperLazy1">
+          <div class="container">
+            <h3 class="section-title text-center">Mixes for you</h3>
+          </div>
+          <div class="mixes-slider swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="mixes-slider__item d-block" data-playlist="/json/artist_music3.json" data-song-play-pause style="cursor: pointer">
+                  <div class="mixes-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/mixes/chill.webp" srcset="img/1x1.png" type="image/webp"><img data-src="img/mixes/chill.jpg" src="img/1x1.png">
+                    </picture>
+                    <div class="mixes-slider__main-title" data-color="chill">Chill</div>
+                  </div><a class="mixes-slider__caption" href="#" style="text-decoration: none; color: inherit;display: block;">
+                    <div class="mixes-slider__title">Relaxing</div>
+                    <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div></a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="mixes-slider__item d-block" data-playlist="/json/artist_music2.json" data-song-play-pause style="cursor: pointer">
+                  <div class="mixes-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/mixes/yoga.webp" srcset="img/1x1.png" type="image/webp"><img data-src="img/mixes/yoga.jpg" src="img/1x1.png">
+                    </picture>
+                    <div class="mixes-slider__main-title" data-color="yoga">Yoga</div>
+                  </div><a class="mixes-slider__caption" href="#" style="text-decoration: none; color: inherit;display: block;">
+                    <div class="mixes-slider__title">Yoga</div>
+                    <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div></a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="mixes-slider__item d-block" data-playlist="/json/artist_music.json" data-song-play-pause style="cursor: pointer">
+                  <div class="mixes-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/mixes/sport.webp" srcset="img/1x1.png" type="image/webp"><img data-src="img/mixes/sport.jpg" src="img/1x1.png">
+                    </picture>
+                    <div class="mixes-slider__main-title" data-color="sport">Sport</div>
+                  </div><a class="mixes-slider__caption" href="#" style="text-decoration: none; color: inherit;display: block;">
+                    <div class="mixes-slider__title">Sport Motivate</div>
+                    <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div></a>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="mixes-slider__item d-block" data-playlist="/json/artist_music.json" data-song-play-pause style="cursor: pointer">
+                  <div class="mixes-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/mixes/morning.webp" srcset="img/1x1.png" type="image/webp"><img data-src="img/mixes/morning.jpg" src="img/1x1.png">
+                    </picture>
+                    <div class="mixes-slider__main-title" data-color="morning">Morning</div>
+                  </div><a class="mixes-slider__caption" href="#" style="text-decoration: none; color: inherit;display: block;">
+                    <div class="mixes-slider__title">Morning Mix</div>
+                    <div class="mixes-slider__text">Parricio Labarca, Camilo, Andreas Espinosa</div></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container events-slider-container pt-5">
+            <div class="swiper-nav d-none d-md-flex justify-content-between align-items-center">
+              <div class="arrow-button arrow-button__prev mixes-button-prev"><span>PREV</span></div>
+              <div class="arrow-button arrow-button__next mixes-button-next"><span>NEXT</span></div>
+            </div>
+          </div>
+        </section>
         <!--Releases Slider-->
+        <!--Releases Slider-->
+        <section class="releases">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-lg-6 d-flex pb-5 pb-md-0 justify-content-sm-center justify-content-md-start align-items-center">
+                <div class="releases-caption">
+                  <h3 class="section-title relises-title">Releases</h3>
+                  <h4 class="section-subtitle release-subtitle">Explore the latest tracks artists</h4>
+                  <p class="section-text releases-text opacity-7">We support artists and give the best opportunities to to develop the performer as a person and become as a famous world star.</p>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-6">
+                <div class="swiper releases-slider position-relative"><img class="position-absolute" src="./img/decorations/frog.svg">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-playlist="/json/artist_music2.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music3.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music3.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music3.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music3.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music2.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                    <div class="swiper-slide" data-playlist="/json/artist_music2.json">
+                      <div class="img-wrapper"><img src="img/releases/01.webp"></div>
+                    </div>
+                  </div>
+                  <div class="releases-slider-nav">
+                    <div class="circle-button circle-button-prev releases-button-prev"></div>
+                    <div class="circle-button circle-button-next releases-button-next"></div>
+                  </div>
+                  <div class="releases-slider-info bg-glass d-flex align-items-center">
+                    <div class="play-wrap" data-song-play-pause><img src="img/info-play-bg.png"></div>
+                    <div class="info-wrap">
+                      <div class="track-name">Star nation</div>
+                      <div class="track-info">Roma Nebo ft. Electro Wisard & Trinity</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <!--Events section-->
+        <!--Events section-->
+        <section class="events position-relative">
+          <div class="events-absolute"><img class="position-absolute" src="./img/decorations/decor-06.svg"><img class="position-absolute" src="./img/decorations/decor-07.svg"><img class="position-absolute" src="./img/decorations/decor-09.svg"><img class="position-absolute" data-src="./img/decorations/frog.svg"></div>
+          <h2 class="section-title text-center mb-3 mb-md-5">Coming events</h2>
+          <div class="swiper events-slider scaled-slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="events-slider__item">
+                  <div class="events-slider__img lazy-image">
+                    <picture>
+                      <source data-srcset="img/hero-slider/06.png" srcset="img/1x1.png" type="image/webp"><img data-src="img/hero-slider/06.webp" src="img/1x1.png" alt="About image">
+                    </picture>
+                  </div>
+                  <div class="events-slider__info">
+                    <div class="events-slider__info-caption">
+                      <div class="events-slider__date"><i class="icon-calendar"></i><span>16 Oct 2021</span></div>
+                      <div class="events-slider__artist">Rea</div>
+                    </div>
+                    <div class="events-slider__action"><a class="btn btn-blue" href="events-single.html"><i class="icon-leather"></i><span>Learn more</span><span class="btn-blue__price">$48</span></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container events-slider-container pt-5">
+            <div class="swiper-nav d-none d-md-flex justify-content-between align-items-center">
+              <div class="arrow-button arrow-button__prev events-button-prev"><span>PREV</span></div>
+              <div class="arrow-button arrow-button__next events-button-next"><span>NEXT</span></div>
+            </div>
+          </div>
+        </section>
         <!--Studio Section-->
       </div>
       <section class="player-section hero-player-section" style="opacity: 0; z-index: -1;">
@@ -364,7 +710,7 @@
                   <li class="nav-item" role="presentation">
                     <button class="active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Next</button>
                   </li>
-                  <li class="nav-item" role="presentation">
+                  <li class="nav-item" role="presentation" data-song-text>
                     <button id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Text</button>
                   </li>
                   <div class="form-control-line"></div>

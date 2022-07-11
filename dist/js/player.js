@@ -15,8 +15,11 @@ const playerVolumeSlider = document.querySelectorAll('[data-sound-slider]');
 const playerPlayPauseSongBtns = document.querySelectorAll('[data-song-play-pause]');
 const playerNextSongBtns = document.querySelectorAll('[data-song-play-next]');
 const playerPrevSongBtns = document.querySelectorAll('[data-song-play-prev]');
+const playerSongTextTab = document.querySelector('[data-song-text]');
+const playerSongTextContent = document.querySelector('#profile .song-text');
+const playerSongsListTab = document.querySelector('#home-tab');
 let slideChange;
-
+let firstRender;
 let musicIndex = 1;
 
 const getData = async (playlist) => {
@@ -45,6 +48,14 @@ function createModalView(data, index) {
 	trackMain.src = artistInfo.src;
 	trackControlImg.src = trackImg.src;
 	bottomControlsSongThumb.src = trackImg.src;
+	if (artistInfo.songText) {
+		playerSongTextTab.style.display = 'block';
+		playerSongTextContent.textContent = artistInfo.songText;
+	} else {
+		playerSongTextTab.style.display = 'none';
+		playerSongTextContent.textContent = '';
+		playerSongsListTab.click();
+	}
 }
 
 function fetchAudioPlay() {
@@ -63,6 +74,7 @@ function toggleMute() {
 // Play music function
 function playMusic() {
 	playerWrapper.classList.add('paused');
+	playerControlsSmall.classList.add('active');
 
 	console.log('play');
 	fetchAudioPlay();
@@ -271,9 +283,10 @@ const player = async (slideChange = true) => {
 		btn.addEventListener('click', () => {
 			if (slideChange) {
 				nextMusic(data);
+				heroAudioPlayer();
+				releaseAudioPlayer('.releases-slider', firstRender = false);
 			}
 			playingNow();
-			heroAudioPlayer();
 		});
 	});
 
@@ -281,24 +294,13 @@ const player = async (slideChange = true) => {
 		btn.addEventListener('click', () => {
 			if (slideChange) {
 				prevMusic(data);
+				heroAudioPlayer();
+				releaseAudioPlayer('.releases-slider', firstRender = false);
 			}
 			playingNow();
-			heroAudioPlayer();
 		});
 	});
 };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*~/ Hero slider audio /~*/
@@ -335,19 +337,23 @@ const heroAudioPlayer = async () => {
 		loadMusic(musicIndex, data);
 
 		function heroSliderToggleBtnPlay() {
-			playPauseBtnSlide.querySelector('.icon-play-rounded').classList.add('d-none');
-			playPauseBtnSlide.querySelector('.icon-pause').classList.remove('d-none');
-			playPauseBtnControl.querySelector('.play-icon').classList.add('d-none');
-			playPauseBtnControl.querySelector('.pause-icon').classList.remove('d-none');
-			playerWrapper.classList.add('paused');
+			try {
+				playPauseBtnSlide.querySelector('.icon-play-rounded').classList.add('d-none');
+				playPauseBtnSlide.querySelector('.icon-pause').classList.remove('d-none');
+				playPauseBtnControl.querySelector('.play-icon').classList.add('d-none');
+				playPauseBtnControl.querySelector('.pause-icon').classList.remove('d-none');
+				playerWrapper.classList.add('paused');
+			} catch (error) {}
 		}
 
 		function heroSliderToggleBtnPause() {
-			playPauseBtnSlide.querySelector('.icon-play-rounded').classList.remove('d-none');
-			playPauseBtnSlide.querySelector('.icon-pause').classList.add('d-none');
-			playPauseBtnControl.querySelector('.play-icon').classList.remove('d-none');
-			playPauseBtnControl.querySelector('.pause-icon').classList.add('d-none');
-			playerWrapper.classList.remove('paused');
+			try {
+				playPauseBtnSlide.querySelector('.icon-play-rounded').classList.remove('d-none');
+				playPauseBtnSlide.querySelector('.icon-pause').classList.add('d-none');
+				playPauseBtnControl.querySelector('.play-icon').classList.remove('d-none');
+				playPauseBtnControl.querySelector('.pause-icon').classList.add('d-none');
+				playerWrapper.classList.remove('paused');
+			} catch (error) {}
 		}
 
 		trackMain.addEventListener('playing', () => {
@@ -359,6 +365,76 @@ const heroAudioPlayer = async () => {
 		});
 	}
 };
+
+
+
+/* MIXES AUDIO */
+const mixesAudioPlayer = async (handlerElemsSelector) => {
+	const elems = document.querySelectorAll(handlerElemsSelector);
+
+	const playlistPlayingCheck = () => elems.forEach(elem => elem.classList.remove('playing')); 
+
+	if (elems) {
+		elems.forEach(elem => {
+			elem.addEventListener('click', () => {
+				if (elem.classList.contains('playing')) {
+					playlistPlayingCheck();
+				  } else {
+					playlistPlayingCheck();
+					elem.classList.add('playing');
+					setTimeout(() => {
+						fetchAudioPlay();
+					}, 300);
+				}
+				musicIndex = 1;
+				playerControlsSmall.dataset.playlist = elem.dataset.playlist;
+				player(slideChange = false);
+			});
+		});
+	}
+};
+
+/* RELEASES AUDIO */
+const releaseAudioPlayer = async (parentSelector, firstRender) => {
+	const parent = document.querySelector(parentSelector)
+	if (parent) {
+		const parentActiveSlideItem = parent.querySelector('.swiper-slide-active');
+		const trackName = parent.querySelector('.releases-slider-info .track-name');
+		const trackInfo = parent.querySelector('.releases-slider-info .track-info');
+		const playAudioReleaseElem = parent.querySelector('.releases-slider-info .play-wrap');
+
+		let data = await loadData();
+
+		if (firstRender) {
+			playerControlsSmall.dataset.playlist = parentActiveSlideItem.dataset.playlist;
+			musicIndex = 1;
+			player(slideChange = false);
+			loadReleases(musicIndex, data);
+		}
+
+		// Load music function
+		function loadReleases(indexNumb, musics) {
+			let artistInfo = musics[indexNumb - 1];
+			trackName.innerText = artistInfo.name;
+			trackInfo.innerText = artistInfo.artist;
+		}
+		
+		loadReleases(musicIndex, data);
+
+
+		playAudioReleaseElem.addEventListener('click', () => {
+			setTimeout(() => {
+				fetchAudioPlay();
+			}, 300);
+			playerControlsSmall.dataset.playlist = parentActiveSlideItem.dataset.playlist;
+			musicIndex = 1;
+			loadReleases(musicIndex, data);
+			player(slideChange = false);
+		});
+	}
+};
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
 	const swiperMainHome = new Swiper(".hero-slider", {
@@ -409,6 +485,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		swiperHomeClassTweak(this.slides, this.activeIndex);
 	});
 
+	/** Releases slider */
+	const swiperReleases = new Swiper(".releases-slider", {
+		effect: "cards",
+		grabCursor: true,
+		preloadImages: false,
+		lazy: true,
+		navigation: {
+			nextEl: ".releases-button-next",
+			prevEl: ".releases-button-prev",
+			disabledClass: "swiper-button-disabled"
+		},
+	});
+
+	swiperReleases.on('slideChange', function () {
+		swiperReleases.updateSlidesClasses();
+		document.querySelector('.player-controls .play-icon').classList.remove('d-none');
+		document.querySelector('.player-controls .pause-icon').classList.add('d-none');
+		musicIndex = 1;
+		releaseAudioPlayer('.releases-slider', firstRender = true);
+		player(slideChange = false);
+	});
+
+
 	// Detect and add condition classes to slides
 	function swiperHomeClassTweak(slidesProp, activeSlide) {
 		let slides = slidesProp
@@ -451,8 +550,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		slides[nextSlidesIndexes[2]].classList.add('swiper-slide-next-n2');
 	}
 
-	heroAudioPlayer();
 	player();
+	heroAudioPlayer();
+	mixesAudioPlayer('.mixes-slider .mixes-slider__item');
+	releaseAudioPlayer('.releases-slider', firstRender = false);
 
 	const playerControlContainer = document.querySelector('.player-fullscreen');
 	const audioModalContainer = document.querySelector('.player-section.hero-player-section');
@@ -482,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		playerControlsSmall.classList.add('active');
 		document.body.classList.remove('overflow-hidden');
 		document.body.style.paddingRight = '0';
-		// heroAudioPlayer();
+		heroAudioPlayer();
 	}
 	if (audioModalBackBtn && audioModalexitFullscreenBtn) {
 		audioModalBackBtn.addEventListener('click', audioModalFullScreenExit);

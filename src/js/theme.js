@@ -116,21 +116,6 @@ const swiperMixes = new Swiper(".mixes-slider", {
 	},
 });
 
-
-/** Releases slider */
-
-const swiper = new Swiper(".releases-slider", {
-	effect: "cards",
-	grabCursor: true,
-	preloadImages: false,
-	lazy: true,
-	navigation: {
-		nextEl: ".releases-button-next",
-		prevEl: ".releases-button-prev",
-		disabledClass: "swiper-button-disabled"
-	},
-});
-
 /** Popular tracks slider */
 
 let popularItem = document.querySelectorAll(".popular-slider .popular-item__number");
