@@ -108,6 +108,31 @@
   padding-top: var(--sectionPaddingTop);
   padding-bottom: var(--sectionPaddingBottom);
   position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    height: 150vh;
+    background-image: url("../img/blog/triangles.avif");
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -200px;
+    left: 40%;
+    transform: translateX(-50%);
+    width: 320px;
+    aspect-ratio: 1;
+    background-image: url("../img/decorations/eagle.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
   .blog-latest__item {
     position: relative;
     .section-title {
@@ -210,7 +235,7 @@
       top: auto;
       right: auto;
       bottom: 17px;
-      left: -10px;
+      left: 0;
       padding: 15px 39px;
     }
   }
@@ -464,9 +489,12 @@
     width: max-content;
     height: 40px;
     margin-top: 20px;
-    margin-left: 1rem;
+    margin-left: 0.7rem;
     z-index: 4;
     padding: var(--labelPaddingBlock) var(--labelPaddingInline);
+    &:first-of-type {
+      margin-left: 1rem;
+    }
   }
   @media (min-width: 768px) {
     display: flex;

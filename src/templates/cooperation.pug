@@ -18,7 +18,17 @@ block content
         h1.section-title.text-center.mb-3.mb-md-4.mb-lg-5 Wanna be a part of Wise Music?
         h2.section-text.text-center.opacity-7.mb-3.mb-md-4.mb-lg-5 If you are an artist, young musician and creative person, you only need to apply and we will gladly consider your candidacy.
         .d-flex.justify-content-center
-          a(href="#").btn.btn-white-glow Start now
+          button(data-bs-toggle="modal" data-bs-target="#cooperationModal").btn.btn-white-glow Start now
+    .events-single-absolute
+      img.position-absolute(data-src='./img/decorations/eagle.webp' src='img/1x1.png')
+      img.position-absolute(data-src='./img/decorations/bird.svg' src='img/1x1.png')
+      img.position-absolute(data-src='./img/decorations/decor-01.svg' src='img/1x1.png')
+      img.position-absolute(data-src='./img/decorations/decor-09.svg' src='img/1x1.png')
+    .random-circles
+      - for(var x = 0; x < 4; x++)
+        div(class="decor-circle decor-circle__one decor-circle-" + x)
+      - for(var x = 0; x < 4; x++)
+        div(class="decor-circle decor-circle__two decor-circle-" + x)
 
   section.cooperation-about.lazy-background
     .container

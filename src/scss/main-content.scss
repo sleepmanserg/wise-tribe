@@ -4,7 +4,7 @@ main {
   background-position-x: left;
   background-size: 85%;
   position: relative;
-  &.lazy-background.visible {
+  &.lazy-background.home-main.visible {
     background-image: url("../img/decorations/triangles-home-1.avif");
     .home-wrapper {
       &::after {
@@ -459,13 +459,32 @@ main {
 /* Charity page */
 
 .charity-wrapper {
-  background: radial-gradient(
-      81.91% 108.97% at 23.88% 18.09%,
-      rgba(255, 255, 255, 0.126) 0%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    radial-gradient(54.68% 54.68% at 50% 45.32%, #050547 0%, #000022 100%),
-    #ffffff;
+  position: relative;
+  // background: radial-gradient(
+  //     81.91% 108.97% at 23.88% 18.09%,
+  //     rgba(255, 255, 255, 0.126) 0%,
+  //     rgba(255, 255, 255, 0) 100%
+  //   ),
+  //   radial-gradient(54.68% 54.68% at 50% 45.32%, #050547 0%, #000022 100%),
+  //   #ffffff;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100% + 300px);
+    background-image: url("../img/charity/triangles-charity.avif");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 100%;
+    z-index: -1;
+  }
+  .projects-slider {
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .charity {
@@ -789,7 +808,7 @@ main {
   }
   @media (min-width: 1366px) {
     --packagingRadius: 80px;
-    --packagingPaddingBlock: 100px;
+    // --packagingPaddingBlock: 100px;
     --packagingPaddingInline: 555px;
     padding-right: 118px;
     &::before {
@@ -808,7 +827,7 @@ main {
   }
   @media (min-width: 1650px) {
     --packagingRadius: 100px;
-    --packagingPaddingBlock: 127px;
+    // --packagingPaddingBlock: 127px;
     --packagingPaddingInline: 690px;
     padding-right: 100px;
     &::before {
@@ -818,12 +837,12 @@ main {
     }
     .packaging-card__subtitle,
     .packaging-card__text {
-      font-size: 36px;
-      line-height: 50px;
+      font-size: 32px;
+      line-height: 46px;
     }
     .packaging-card__title {
-      font-size: 68px;
-      line-height: 82px;
+      // font-size: 68px;
+      // line-height: 82px;
     }
   }
 }
@@ -875,6 +894,20 @@ main {
   --sectionPaddingTop: 109px;
   padding-top: var(--sectionPaddingTop);
   padding-bottom: var(--sectionPaddingBottom);
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100% + 300px);
+    background-image: url("../img/charity/triangles-charity.avif");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 100%;
+    z-index: -1;
+  }
   .load-more__btn {
     --loadMoreBtnMargin: 65px;
     margin-top: var(--loadMoreBtnMargin);
@@ -947,6 +980,20 @@ main {
 .artists {
   padding-top: 60px;
   padding-bottom: 72px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100% + 300px);
+    background-image: url("../img/charity/triangles-charity.avif");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 100%;
+    z-index: -1;
+  }
   @media (min-width: 768px) {
     padding-top: 85px;
     padding-bottom: 60px;

@@ -875,3 +875,36 @@
     opacity: 0.5;
   }
 }
+
+.video-playing-gif {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.pls-playing {
+  .video-playing-gif {
+    display: block;
+  }
+  &.player-paused {
+    .video-playing-gif {
+      display: none;
+    }
+    @include hover {
+      .play-icon {
+        display: block;
+      }
+    }
+  }
+  @include hover {
+    .play-icon {
+      display: none;
+    }
+  }
+}

@@ -85,14 +85,14 @@ a {
 
 .lazy-image {
   position: relative;
-  background: url("../img/loading.gif") center / 450px no-repeat;
+  background: url("../img/loading-play.gif") center / 35px no-repeat;
   background-color: transparent;
   img {
     transition: 0.5s;
     opacity: 0;
   }
   @media (max-width: 768px) {
-    background-size: 250px;
+    background-size: 20px;
   }
 }
 

@@ -60,7 +60,7 @@ const videoPlayerPage = function () {
 
 			if (allVideos) {
 
-				PlyrPlaylist(".player-playlist__list", allVideos, limit, id, listclass);
+				PlyrPlaylist(".video-list", allVideos, limit, id, listclass);
 				//return
 			}
 
@@ -77,9 +77,9 @@ const videoPlayerPage = function () {
 
 						items.push(
 							`
-								<li class="player-playlist__list-item ${playingclass}" data-video-id="${item.videoId}">
+								<li class="player-playlist__list-item ${playingclass}" data-video-id="${item.videoId}" data-video-rating="${item.rating}">
 									<a class="player-list__item w-100" href="#" data-plyr-provider="${item.type}" data-plyr-embed-id="${item.src}">
-										<div class="player-list__item-rating"><img src="img/icons/arrow-rating.svg" /></div>
+										<div class="player-list__item-rating"><img class="high-rating d-none" src="img/icons/arrow-rating.svg" /><img class="low-rating d-none" src="img/icons/arrow-rating-low.svg" /></div>
 										<div class="player-list__item-img"><img src="${item.poster}" alt="" />
 											<svg class="play-icon" width="13" height="16" viewBox="0 0 13 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 												<path opacity="0.8" d="M12 6.26795C13.3333 7.03775 13.3333 8.96225 12 9.73205L3 14.9282C1.66667 15.698 2.12948e-06 14.7358 2.19678e-06 13.1962L2.65104e-06 2.80385C2.71834e-06 1.26425 1.66667 0.301996 3 1.0718L12 6.26795Z" fill="white"></path>
@@ -90,6 +90,7 @@ const videoPlayerPage = function () {
 													<rect x="5.63269" y="0.428406" width="2.17678" height="9.14286" rx="1.08839" fill="white"></rect>
 												</g>
 											</svg>
+											<img class="video-playing-gif" src="../img/loading-play.gif"></img>
 										</div>
 										<div class="player-list__item-info">
 											<div class="player-list__item-artist">${item.author}</div>
@@ -100,12 +101,13 @@ const videoPlayerPage = function () {
 								</li>
 							`);
 
+
 						const videoSliderItems = document.querySelectorAll('.video-slider .video-card__play-btn');
 						videoSliderItems.forEach(video => {
 							const videoId = video.dataset.videoId;
 
 							video.addEventListener('click', () => {
-								const playlistItems = document.querySelectorAll('.player-playlist__list-item');
+								const playlistItems = document.querySelectorAll('.video-list .player-playlist__list-item');
 
 								playlistItems.forEach(videoItem => {
 									if (videoId === item.videoId && videoId === videoItem.dataset.videoId) {
@@ -123,6 +125,20 @@ const videoPlayerPage = function () {
 								});
 							});
 						});
+						setTimeout(() => {
+							const playlistItems = document.querySelectorAll('[data-video-rating]');
+
+							playlistItems.forEach(videoItem => {
+								const playListItemRating = videoItem.dataset.videoRating;
+								if (playListItemRating >= 0) {
+									videoItem.querySelector('.high-rating').classList.remove('d-none');
+									videoItem.querySelector('.low-rating').classList.add('d-none');
+								} else {
+									videoItem.querySelector('.high-rating').classList.add('d-none');
+									videoItem.querySelector('.low-rating').classList.remove('d-none');
+								}
+							});
+						}, 0);
 					});
 
 					if (id == limit)
@@ -289,8 +305,6 @@ const videoPlayerPage = function () {
 					togglePlay();
 				});
 
-				$('.video-player-playlist__header')
-
 				videoNextBtn.addEventListener('click', () => {
 					nextVideo();
 				});
@@ -316,6 +330,15 @@ const videoPlayerPage = function () {
 
 				players[0].on("play", function () {
 					$('.video-player-wrapper').removeClass('active');
+					$('li.pls-playing').removeClass('player-paused');
+					const videoLike = document.getElementById('video-like'),
+						videoPlaylistItem = document.querySelector('.pls-playing'),
+						videoPlaylistItemData = videoPlaylistItem.dataset.videoId;
+					videoLike.setAttribute("data-video-like", videoPlaylistItemData);
+				});
+
+				players[0].on("pause", function () {
+					$('li.pls-playing').addClass('player-paused');
 				});
 
 				players[0].on("ended", function (event) {
@@ -357,6 +380,8 @@ const videoPlayerPage = function () {
 				$(this)
 					.parent()
 					.addClass("pls-playing");
+
+
 				videoPlayerWrapper.classList.add('playing');
 				videoPlayerWrapper.classList.remove('paused');
 				var video_id = $(this).data("plyr-embed-id");

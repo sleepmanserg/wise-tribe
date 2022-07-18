@@ -9,6 +9,10 @@
   display: flex;
   align-items: center;
   margin-top: calc(var(--headerHeight) * -1);
+  .random-circles {
+    z-index: 2;
+    pointer-events: none;
+  }
   &::before {
     content: "";
     position: absolute;
@@ -88,18 +92,62 @@
 }
 
 .cooperation-about {
-  margin-bottom: 80px;
+  padding-bottom: 80px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    width: 350px;
+    aspect-ratio: 1;
+    background-image: url("../img/decorations/snake.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right bottom;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -150px;
+    width: 400px;
+    aspect-ratio: 1;
+    background-image: url("../img/decorations/eagle.webp");
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(33deg);
+  }
   @media (min-width: 768px) {
-    margin-bottom: 120px;
+    padding-bottom: 120px;
   }
   @media (min-width: 1024px) {
-    margin-bottom: 160px;
+    padding-bottom: 160px;
   }
   @media (min-width: 1366px) {
-    margin-bottom: 180px;
+    padding-bottom: 180px;
   }
   @media (min-width: 1700px) {
-    margin-bottom: 250px;
+    padding-bottom: 250px;
+  }
+  @media (max-width: 1024px) {
+    &::after {
+      right: -100px;
+      width: 250px;
+    }
+    &::before {
+      left: -100px;
+      bottom: -50px;
+      width: 300px;
+    }
+  }
+  @media (max-width: 480px) {
+    &::after {
+      bottom: -50px;
+    }
+    &::before {
+      display: none;
+    }
   }
 }
 

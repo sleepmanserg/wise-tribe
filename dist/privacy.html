@@ -236,6 +236,78 @@
         </div>
       </div>
     </div>
+    <div class="custom-modal modal fade" id="becomeArtistModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="becomeArtistModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header flex-column justify-content-center align-items-center">
+            <button class="close-btn" type="button" data-bs-dismiss="modal" aria-label="Close"><img src="img/icons/close.svg" alt=""></button>
+            <h5 class="modal-title" id="becomeArtistModalLabel">Become an artist</h5>
+            <h6 class="modal-subtitle">To continue, you must fill in the following information</h6>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" action="" novalidate="" id="connectForm">
+              <div class="form-input">
+                <input class="form-control" type="text" placeholder="Your name" required autocomplete="off">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="form-input">
+                <input class="form-control phone-input" type="tel" placeholder="Phone number" required autocomplete="off">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="form-input">
+                <input class="form-control" type="email" placeholder="Email" required autocomplete="off">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="form-input">
+                <textarea class="form-control" type="text" placeholder="Write a comment" id="connectTextArea"></textarea>
+                <div class="form-control-line"></div>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <div class="form-btn">
+                  <button class="btn btn-white-glow" type="submit">Continue</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="custom-modal modal fade" id="cooperationModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cooperationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header flex-column justify-content-center align-items-center">
+            <button class="close-btn" type="button" data-bs-dismiss="modal" aria-label="Close"><img src="img/icons/close.svg" alt=""></button>
+            <h5 class="modal-title" id="cooperationModalLabel">Cooperation</h5>
+            <h6 class="modal-subtitle">To continue, you must fill in the following information</h6>
+          </div>
+          <div class="modal-body">
+            <form class="needs-validation" action="" novalidate="" id="connectForm">
+              <div class="form-input">
+                <input class="form-control" type="text" placeholder="Your name" required autocomplete="off">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="form-input">
+                <input class="form-control phone-input" type="tel" placeholder="Phone number" required autocomplete="off">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="form-input">
+                <input class="form-control" type="email" placeholder="Email" required autocomplete="off">
+                <div class="form-control-line"></div>
+              </div>
+              <div class="form-input">
+                <textarea class="form-control" type="text" placeholder="Write a comment" id="connectTextArea"></textarea>
+                <div class="form-control-line"></div>
+              </div>
+              <div class="modal-footer justify-content-center">
+                <div class="form-btn">
+                  <button class="btn btn-white-glow" type="submit">Continue</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--Player Controls-->
     <div class="player-controls active" data-playlist="/json/artist_music.json">
       <audio class="main-audio" src=""></audio>

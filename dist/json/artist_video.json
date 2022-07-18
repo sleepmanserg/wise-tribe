@@ -6,6 +6,7 @@
 			"author": "Linkin Park",
 			"src": "https://youtu.be/eVTXPUF4Oz4",
 			"poster": "https://i.ytimg.com/vi/eVTXPUF4Oz4/maxresdefault.jpg",
+			"rating": 1,
 			"videoId": "v1"
 		},
 		{
@@ -14,6 +15,7 @@
 			"author": "Audioslave",
 			"src": "https://youtu.be/vVXIK1xCRpY",
 			"poster": "https://i.ytimg.com/vi/vVXIK1xCRpY/maxresdefault.jpg",
+			"rating": 0,
 			"videoId": "v2"
 		},
 		{
@@ -22,6 +24,7 @@
 			"author": "Deftones",
 			"src": "https://youtu.be/SRdZTZE5pOA",
 			"poster": "https://i.ytimg.com/vi/SRdZTZE5pOA/maxresdefault.jpg",
+			"rating": 5,
 			"videoId": "v3"
 		},
 		{
@@ -30,6 +33,7 @@
 			"author": "Rage Against The Machine",
 			"src": "https://youtu.be/Q3dvbM6Pias",
 			"poster": "https://i.ytimg.com/vi/Q3dvbM6Pias/maxresdefault.jpg",
+			"rating": -2,
 			"videoId": "v4"
 		}
 	]
