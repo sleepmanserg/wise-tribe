@@ -678,12 +678,20 @@
 .blog-posts-grid {
   --artistsGridGap: 20px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--artistsGridGap);
   margin-bottom: 100px;
   @media (min-width: 768px) {
     --artistsGridGap: 28px;
     grid-template-columns: repeat(2, 1fr);
+    .blog-item__actions {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .blog-activity {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
   }
   @media (min-width: 1024px) {
     --artistsGridGap: 34px;
@@ -700,3 +708,32 @@
     text-decoration: none;
   }
 }
+
+// .blog-posts-grid {
+//   .blog-item__actions {
+//     height: 100%;
+//     align-items: flex-start;
+//     margin-bottom: 0;
+//     padding-top: 20px;
+//     padding-bottom: 20px;
+//     .blog-activity {
+//       margin-top: auto;
+//     }
+//   }
+// }
+
+// .blog-posts-grid {
+//   .blog-slider__item {
+//     .blog-item__actions {
+//       height: 100%;
+//       margin-bottom: 0;
+//       padding-bottom: 20px;
+//       padding-top: 20px;
+//       top: 0;
+//       align-items: flex-start;
+//     }
+//     .blog-activity {
+//       margin-top: auto;
+//     }
+//   }
+// }

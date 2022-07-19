@@ -24,7 +24,11 @@
 .section-text {
   font-size: 14px;
   font-weight: 300;
-  font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 1.3636)), 32px);
+  // font-size: clamp(14px, calc(0.875rem + ((1vw - 3.6px) * 1.3636)), 32px);
+  font-size: 1rem;
+  // font-size: clamp(1rem, 0.8636363636363636rem + 0.6060606060606061vw, 1.5rem);
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.8090909090909091rem + 0.8484848484848484vw, 1.7rem);
   line-height: 140%;
   .text-blue {
     font-weight: 600;

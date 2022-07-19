@@ -75,6 +75,12 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
+    &.lazy-image {
+      background-size: 15px;
+      .play-icon {
+        display: none;
+      }
+    }
   }
   .player-volume {
     position: relative;

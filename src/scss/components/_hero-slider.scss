@@ -249,3 +249,11 @@ section.hero {
   padding: 0 90px;
   white-space: nowrap;
 }
+
+.hero-slider__item-play {
+  &.lazy-image {
+    i {
+      display: none;
+    }
+  }
+}

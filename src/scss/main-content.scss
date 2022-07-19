@@ -808,7 +808,7 @@ main {
   }
   @media (min-width: 1366px) {
     --packagingRadius: 80px;
-    // --packagingPaddingBlock: 100px;
+    --packagingPaddingBlock: 100px;
     --packagingPaddingInline: 555px;
     padding-right: 118px;
     &::before {
