@@ -1,0 +1,25 @@
+section.castle
+	.container
+		.castle-card
+			.castle-header
+			.castle-body
+				.random-circles
+					- for(var x = 0; x < 4; x++)
+						div(class="decor-circle decor-circle__one decor-circle-" + x)
+					- for(var x = 0; x < 4; x++)
+						div(class="decor-circle decor-circle__two decor-circle-" + x)
+				.castle-title Wise Castle
+				.castle-subtitle Perfect place for creative people
+				.castle-text.opacity-7 Wise Castle is a great opportunity to change your way of life. We offer yoga practices, healing, different photo-video sessions, wonderful mood and chilling vibe.
+				.castle-tags
+					.castle-tags__item
+						img(src="./img/icons/events/run.svg", alt="")
+					.castle-tags__item
+						img(src="./img/icons/events/heal.svg", alt="")
+					.castle-tags__item
+						img(src="./img/icons/events/music.svg", alt="")
+					.castle-tags__item
+						img(src="./img/icons/events/speakers.svg", alt="")
+					.castle-tags__item
+						img(src="./img/icons/events/art.svg", alt="")
+				a(href="#").castle-link Learn more

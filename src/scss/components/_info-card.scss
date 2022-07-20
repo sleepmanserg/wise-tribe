@@ -265,7 +265,7 @@
     &:nth-child(1) {
       width: 25vw;
       left: 0;
-      bottom: -100px;
+      bottom: 0;
       z-index: 2;
       @media (min-width: 1024px) {
         bottom: auto;

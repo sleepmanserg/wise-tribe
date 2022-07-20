@@ -1,0 +1,285 @@
+.castle {
+  padding-bottom: 80px;
+  padding-top: 30px;
+}
+
+.castle-card {
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    background: rgba(163, 192, 255, 0.1);
+    box-shadow: 0px 0px 171px rgba(0, 154, 241, 0.2);
+    z-index: -1;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: 20%;
+    width: 150px;
+    height: 150px;
+    background-image: url("../img/decorations/snake.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 1;
+  }
+  .castle-header {
+    padding-bottom: 198px;
+    position: relative;
+    background-image: url("../img/castle/castle-mob@2x.webp");
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      background-color: rgba(171, 239, 255, 0.1);
+      box-shadow: 0px 0px 24px rgba(171, 239, 255, 0.27);
+      backdrop-filter: blur(23px);
+      border-radius: 50%;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+    &::after {
+      background-image: url("../img/castle/castle-decor-01.svg");
+      width: 32px;
+      height: 32px;
+      top: 20px;
+      left: 30px;
+    }
+    &::before {
+      background-image: url("../img/castle/castle-decor-02.svg");
+      width: 44px;
+      height: 44px;
+      background-size: 22px;
+      top: 21px;
+      right: 27px;
+    }
+  }
+  .castle-body {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    color: $white;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      user-select: none;
+      pointer-events: none;
+    }
+    &::before {
+      top: -25px;
+      left: -15px;
+      width: 50px;
+      height: 50px;
+      background-image: url("../img/decorations/decor-09.svg");
+      transform: scaleX(-1) rotate(180deg);
+    }
+    &::after {
+      bottom: 0;
+      right: -20px;
+      width: 80px;
+      height: 80px;
+      background-image: url("../img/decorations/decor-14.svg");
+    }
+  }
+  .castle-title {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .castle-subtitle {
+    font-size: 16px;
+    line-height: 140%;
+    margin-bottom: 12px;
+  }
+  .castle-text {
+    font-size: 14px;
+    line-height: 140%;
+    margin-bottom: 35px;
+  }
+  .castle-tags {
+    display: grid;
+    grid-template-columns: repeat(5, 42px);
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 46px;
+  }
+  .castle-tags__item {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(171, 239, 255, 0.2);
+    box-shadow: 0px 0px 24px rgba(171, 239, 255, 0.27);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  .castle-link {
+    color: $blue;
+    text-shadow: 0px 0px 6px rgba(0, 154, 241, 0.78);
+    font-size: 14px;
+    line-height: 140%;
+    transition: 0.25s;
+    @include hover {
+      text-shadow: 0px 0px 22px rgba(0, 154, 241, 0.78);
+    }
+  }
+  @media (min-width: 768px) {
+    display: flex;
+    border-radius: 50px;
+    &::after {
+      border-radius: 50px;
+    }
+    .castle-header {
+      flex: 0 0 300px;
+      border-radius: 0;
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+      padding-bottom: 0;
+      background-image: url("../img/castle/castle-lg@2x.webp");
+      &::before {
+        bottom: 148px;
+        top: auto;
+        left: 65px;
+        right: auto;
+      }
+    }
+    .castle-body {
+      text-align: left;
+      padding-top: 40px;
+      padding-left: 30px;
+      padding-bottom: 52px;
+      padding-right: 52px;
+      border-radius: 0;
+    }
+    .castle-tags {
+      justify-content: flex-start;
+    }
+    .castle-title {
+      font-size: 42px;
+      line-height: 50px;
+      margin-bottom: 28px;
+    }
+    .castle-subtitle {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .castle-text {
+      font-size: 16px;
+      margin-bottom: 28px;
+    }
+    .castle-link {
+      font-size: 16px;
+    }
+  }
+  @media (min-width: 1024px) {
+    border-radius: 80px;
+    &::after {
+      border-radius: 80px;
+    }
+    &::before {
+      width: 200px;
+      height: 200px;
+    }
+    .castle-header {
+      flex: 0 0 400px;
+      border-top-left-radius: 80px;
+      border-bottom-left-radius: 80px;
+      &:after {
+        left: 50px;
+        top: 120px;
+        width: 60px;
+        height: 60px;
+        background-size: 40px;
+      }
+      &::before {
+        left: 120px;
+      }
+    }
+    .castle-body {
+      padding-top: 70px;
+      padding-right: 81px;
+      padding-bottom: 72px;
+      &::before {
+        width: 80px;
+        height: 80px;
+        left: 40%;
+        top: 50px;
+      }
+      &::after {
+        right: 100px;
+        bottom: 80px;
+      }
+    }
+    .castle-title {
+      font-size: 52px;
+      line-height: 62px;
+      margin-bottom: 30px;
+    }
+    .castle-subtitle {
+      font-size: 24px;
+    }
+    .castle-text {
+      font-size: 20px;
+      margin-bottom: 35px;
+    }
+    .castle-tags {
+      grid-template-columns: repeat(5, 60px);
+      gap: 20px;
+    }
+    .castle-tags__item {
+      width: 60px;
+      height: 60px;
+    }
+    .castle-link {
+      font-size: 18px;
+    }
+  }
+  @media (min-width: 1366px) {
+    .castle-header {
+      flex: 0 0 550px;
+    }
+    .castle-body {
+      // padding-top: 100px;
+      // padding-bottom: 120px;
+      padding-left: 40px;
+    }
+    .castle-subtitle {
+      font-size: 28px;
+    }
+    .castle-text {
+      font-size: 24px;
+      margin-bottom: 70px;
+    }
+    .castle-tags {
+      margin-bottom: 74px;
+      gap: 30px;
+    }
+    .castle-link {
+      font-size: 20px;
+    }
+  }
+}

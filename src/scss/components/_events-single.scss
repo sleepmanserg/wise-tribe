@@ -601,6 +601,8 @@
 .events-single__picture {
   aspect-ratio: 1;
   position: relative;
+  max-width: 85%;
+  margin: 0 auto;
   .events-single__decor {
     aspect-ratio: 1;
     object-fit: contain;
